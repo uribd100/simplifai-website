@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simplifAI — ייעול עסקים בעזרת AI</title>
+  <meta name="description" content="העסק שלך יכול לרוץ חכם יותר. simplifAI מייעלת תהליכים ומחזירה זמן וכסף — בעזרת AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #060e09;
+      --bg2:      #0a1510;
+      --bg3:      #0f1e16;
+      --green:    #00e676;
+      --green-d:  #00b359;
+      --green-dim: rgba(0,230,118,0.10);
+      --muted:    #5a7a68;
+      --muted2:   #8aab96;
+      --white:    #ffffff;
+      --red:      #ff5252;
+      --border:   rgba(0,230,118,0.12);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:'Heebo',sans-serif;direction:rtl;line-height:1.8;overflow-x:hidden;font-size:16px;}
+
+    /* grid bg */
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,230,118,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;width:100%;z-index:1000;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,14,9,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:border-color .3s;}
+    .logo{display:flex;align-items:center;height:38px;}
+    .logo img{height:38px;width:auto;display:block;}
+    .logo .ai{color:var(--green);}
+    .nav-links{display:flex;gap:32px;align-items:center;}
+    .nav-links a{color:var(--muted2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-cta{border:1px solid var(--green)!important;color:var(--green)!important;padding:8px 20px;border-radius:6px;font-weight:700!important;}
+    .nav-cta:hover{background:var(--green-dim)!important;}
+
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr auto;align-items:center;padding:100px 48px 80px;gap:60px;position:relative;overflow:hidden;z-index:1;}
+    .hero-glow{position:absolute;top:30%;right:-5%;width:55vw;height:55vw;background:radial-gradient(ellipse,rgba(0,230,118,.07) 0%,transparent 65%);pointer-events:none;}
+    .hero-label{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--green);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .6s .3s forwards;}
+    .hero-label::before{content:'// ';}
+    .hero h1{font-family:'Outfit','Heebo',sans-serif;font-size:clamp(44px,7vw,92px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:28px;}
+    .line{display:block;overflow:hidden;}
+    .line-inner{display:block;opacity:0;transform:translateY(60px);animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards;}
+    .line:nth-child(1) .line-inner{animation-delay:.5s;}
+    .line:nth-child(2) .line-inner{animation-delay:.7s;color:var(--green);}
+    .hero-sub{font-size:18px;color:var(--muted2);max-width:520px;margin-bottom:44px;line-height:2;opacity:0;animation:fadeUp .6s 1.1s forwards;font-weight:400;}
+    .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .6s 1.3s forwards;}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--bg);padding:16px 36px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 0 40px rgba(0,230,118,.3);transition:transform .2s,box-shadow .2s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 60px rgba(0,230,118,.5);}
+    .btn-ghost{color:var(--muted2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}
+    .btn-ghost:hover{color:var(--white);}
+
+    /* hero stat cards */
+    .hero-stats{display:flex;flex-direction:column;gap:16px;opacity:0;animation:fadeUp .6s 1.5s forwards;flex-shrink:0;}
+    .hstat{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 28px;text-align:center;min-width:130px;}
+    .hstat .n{font-family:'Share Tech Mono',monospace;font-size:38px;color:var(--green);display:block;line-height:1;margin-bottom:6px;}
+    .hstat .l{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+
+    /* ── MARQUEE ── */
+    .marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;overflow:hidden;background:var(--bg2);position:relative;z-index:1;}
+    .marquee-track{display:flex;gap:0;animation:marq 30s linear infinite;white-space:nowrap;}
+    .mi{display:inline-flex;align-items:center;gap:10px;padding:0 36px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--muted2);}
+    .mi span{color:var(--green);font-size:17px;font-weight:900;}
+    .msep{color:var(--border);font-size:20px;padding:0 8px;}
+    @keyframes marq{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    /* ── SECTIONS BASE ── */
+    .sec{padding:120px 48px;position:relative;z-index:1;}
+    .sec-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:16px;}
+    .sec-label::before{content:'→ ';}
+    .sec-title{font-family:'Outfit','Heebo',sans-serif;font-size:clamp(32px,4.5vw,60px);font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;}
+    .sec-sub{font-size:17px;color:var(--muted2);max-width:500px;margin-bottom:64px;line-height:2.0;font-weight:400;}
+    .accent{color:var(--green);}
+
+    /* reveal */
+    .r{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1);}
+    .r.on{opacity:1;transform:none;}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+    /* ── PROBLEM ── */
+    .prob-bg{background:var(--bg2);}
+    .prob-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center;}
+    .donut-wrap{position:relative;width:280px;height:280px;margin:0 auto;}
+    .donut-svg{width:100%;height:100%;transform:rotate(-90deg);}
+    .d-track{fill:none;stroke:#1a3a2a;stroke-width:26;}
+    .d-red{fill:none;stroke:var(--red);stroke-width:26;stroke-linecap:round;stroke-dasharray:565.5;stroke-dashoffset:565.5;transition:stroke-dashoffset 1.4s cubic-bezier(.16,1,.3,1);}
+    .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .donut-center .dn{font-family:'Share Tech Mono',monospace;font-size:52px;color:var(--red);line-height:1;}
+    .donut-center .dl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+    .legend{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+    .leg{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted2);}
+    .leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .prob-cards{display:flex;flex-direction:column;gap:20px;}
+    .prob-card{background:var(--bg3);border-radius:12px;padding:24px 28px;border-right:3px solid transparent;transition:border-color .3s;}
+    .prob-card:hover{border-right-color:var(--green);}
+    .prob-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+    .prob-card h3{font-size:17px;font-weight:700;}
+    .tag-red{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--red);background:rgba(255,82,82,.1);padding:4px 10px;border-radius:20px;white-space:nowrap;}
+    .prob-card p{color:var(--muted2);font-size:14px;line-height:1.7;}
+
+    /* ── HOW IT WORKS ── */
+    .flow{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto;max-width:860px;direction:ltr;}
+    .fnode{flex:1;text-align:center;padding:32px 16px;}
+    .ficon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:30px;position:relative;}
+    .ficon.red{background:rgba(255,82,82,.1);border:2px solid rgba(255,82,82,.3);}
+    .ficon.mid{background:var(--bg2);border:2px solid var(--green);box-shadow:0 0 50px rgba(0,230,118,.35);}
+    .ficon.mid::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px dashed rgba(0,230,118,.3);animation:spin 8s linear infinite;}
+    .ficon.grn{background:var(--green-dim);border:2px solid var(--green);}
+    .fnode-title{font-size:15px;font-weight:800;margin-bottom:8px;direction:rtl;}
+    .fnode-desc{font-size:12px;color:var(--muted2);line-height:1.7;direction:rtl;}
+    .farrow{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 8px;}
+    .particles{display:flex;gap:5px;}
+    .p{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pflow 1.4s infinite;opacity:0;}
+    .p:nth-child(2){animation-delay:.3s;}.p:nth-child(3){animation-delay:.6s;}
+    @keyframes pflow{0%{opacity:0;transform:translateX(0);}20%{opacity:1;}80%{opacity:1;}100%{opacity:0;transform:translateX(-20px);}}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+    .step{background:var(--bg3);border-radius:12px;padding:28px;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .3s;}
+    .step:hover{transform:translateY(-4px);}
+    .step::before{content:'';position:absolute;top:0;right:0;width:3px;height:0;background:var(--green);transition:height .4s;}
+    .step:hover::before{height:100%;}
+    .snum{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green);letter-spacing:3px;margin-bottom:16px;}
+    .step h3{font-size:17px;font-weight:800;margin-bottom:10px;}
+    .step p{font-size:13px;color:var(--muted2);line-height:1.7;margin-bottom:14px;}
+    .tools{display:flex;gap:7px;flex-wrap:wrap;}
+    .tool{font-family:'Share Tech Mono',monospace;font-size:10px;background:var(--green-dim);color:var(--green);padding:4px 10px;border-radius:4px;}
+
+    /* ── STATS ── */
+    .stats-sec{background:var(--bg2);padding:80px 48px;z-index:1;position:relative;}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+    .sbox{padding:48px 24px;text-align:center;background:var(--bg3);border-left:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s;}
+    .sbox:hover{background:#122219;}
+    .sbox:first-child{border-left:none;}
+    .snum{font-family:'Share Tech Mono',monospace;font-size:52px;color:var(--green);display:block;line-height:1;margin-bottom:12px;}
+    .slabel{font-size:13px;color:var(--muted2);line-height:1.5;}
+
+    /* ── SERVICES ── */
+    .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .srv{background:var(--bg3);border-radius:16px;padding:36px 32px;border:1px solid var(--border);transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
+    .srv::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s;}
+    .srv:hover{border-color:rgba(0,230,118,.3);transform:translateY(-4px);}
+    .srv:hover::before{opacity:1;}
+    .srv-icon{width:54px;height:54px;background:var(--green-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:22px;}
+    .srv h3{font-size:19px;font-weight:800;margin-bottom:10px;}
+    .srv p{font-size:14px;color:var(--muted2);line-height:1.8;margin-bottom:18px;}
+    .srv-metric{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--green);}
+    .srv-metric::before{content:'→ ';}
+
+    /* ── INFOGRAPHIC: BEFORE/AFTER ── */
+    .ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;}
+    .ba-card{background:var(--bg3);border-radius:14px;padding:32px;border:1px solid var(--border);}
+    .ba-card.after{border-color:rgba(0,230,118,.3);}
+    .ba-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
+    .ba-label.before-l{color:var(--red);}
+    .ba-label.after-l{color:var(--green);}
+    .bar-row{display:flex;flex-direction:column;gap:10px;}
+    .bar-item{display:flex;flex-direction:column;gap:5px;}
+    .bar-header{display:flex;justify-content:space-between;font-size:12px;color:var(--muted2);}
+    .bar-track{background:#1a2e22;border-radius:4px;height:8px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.16,1,.3,1);width:0;}
+    .bar-fill.red{background:var(--red);}
+    .bar-fill.green{background:var(--green);}
+
+    /* ── ABOUT ── */
+    .about-sec{background:var(--bg);}
+    .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start;}
+    .ametrics{display:flex;flex-direction:column;gap:14px;}
+    .amet{background:var(--bg3);border-radius:12px;padding:20px 24px;border:1px solid var(--border);display:flex;align-items:center;gap:16px;}
+    .amet .mn{font-family:'Share Tech Mono',monospace;font-size:26px;color:var(--green);white-space:nowrap;min-width:75px;}
+    .amet .ml{font-size:13px;color:var(--muted2);line-height:1.5;}
+    .about-text{display:flex;flex-direction:column;gap:24px;}
+    .quote{font-size:22px;font-weight:700;line-height:1.6;color:var(--white);}
+    .quote em{color:var(--green);font-style:normal;}
+    .about-body{font-size:16px;color:var(--muted2);line-height:2.1;}
+
+    /* ── CTA ── */
+    .cta-sec{background:var(--bg2);text-align:center;padding:140px 48px;position:relative;overflow:hidden;z-index:1;}
+    .cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,230,118,.08) 0%,transparent 65%);pointer-events:none;}
+    .cta-sec h2{font-family:'Outfit','Heebo',sans-serif;font-size:clamp(36px,5.5vw,72px);font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:22px;position:relative;}
+    .cta-sec p{font-size:17px;color:var(--muted2);margin-bottom:44px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.9;position:relative;}
+    .pulse-btn{position:relative;display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--bg);padding:20px 48px;border-radius:8px;font-weight:900;font-size:17px;text-decoration:none;transition:transform .2s;}
+    .pulse-btn::before{content:'';position:absolute;inset:-4px;border-radius:12px;background:var(--green);opacity:.2;animation:pulse 2s infinite;pointer-events:none;}
+    .pulse-btn:hover{transform:scale(1.03);}
+
+    /* ── FOOTER ── */
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+    .flogo{display:flex;align-items:center;height:30px;}
+    .flogo img{height:30px;width:auto;display:block;opacity:.85;}
+    .flogo .ai{color:var(--green);}
+    .fcopy{font-size:13px;color:var(--muted);}
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp{to{opacity:1;transform:none;}}
+    @keyframes slideUp{to{opacity:1;transform:none;}}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    @keyframes pulse{0%,100%{opacity:.15;transform:scale(1);}50%{opacity:.3;transform:scale(1.06);}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;padding:100px 24px 60px;}
+      .hero-stats{flex-direction:row;justify-content:center;}
+      .prob-grid,.about-grid{grid-template-columns:1fr;}
+      .steps,.srv-grid,.ba-wrap,.stats-grid{grid-template-columns:1fr;}
+      .stats-grid{grid-template-columns:repeat(2,1fr);}
+      .sec{padding:80px 24px;}
+      nav{padding:0 20px;}
+      .flow{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo"><img src="assets/logo.svg" alt="simplifAI"></div>
+  <div class="nav-links">
+    <a href="#problem">הבעיה</a>
+    <a href="#how">איך עובד</a>
+    <a href="#services">שירותים</a>
+    <a href="#about">עלינו</a>
+    <a href="https://wa.me/972537453493" class="nav-cta">דברו איתנו</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div>
+    <div class="hero-label">simplifai — business optimization — 2026</div>
+    <h1>
+      <span class="line"><span class="line-inner">העסק שלך יכול</span></span>
+      <span class="line"><span class="line-inner">לרוץ חכם יותר.</span></span>
+    </h1>
+    <p class="hero-sub">אנחנו מאתרים את התהליכים שסוחטים את הזמן שלך — ומשפרים אותם עם AI. לגמרי.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/972537453493" class="btn-primary">
+        ייעוץ ראשון — ללא עלות
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-8 8-1.4-1.4L17.2 13H4v-2h13.2l-6.6-6.6L12 3l8 9z" transform="scale(-1,1) translate(-24,0)"/></svg>
+      </a>
+      <a href="#how" class="btn-ghost">ראה איך זה עובד ↓</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><span class="n">40%</span><span class="l">זמן מבוזבז</span></div>
+    <div class="hstat"><span class="n">3×</span><span class="l">ROI ממוצע</span></div>
+    <div class="hstat"><span class="n">14</span><span class="l">ימי הטמעה</span></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="mi"><span>40%</span> זמן ארגוני מבוזבז על עבודה חוזרת</span><span class="msep">·</span>
+    <span class="mi"><span>3×</span> ROI ממוצע ממערכות אוטומציה</span><span class="msep">·</span>
+    <span class="mi"><span>14</span> ימי הטמעה ממוצע</span><span class="msep">·</span>
+    <span class="mi">Claude <span>·</span> ChatGPT <span>·</span> Make <span>·</span> n8n <span>·</span> AI Agents <span>·</span> LLMs</span><span class="msep">·</span>
+    <span class="mi">ייעול <span>+</span> אוטומציה <span>+</span> צמיחה</span><span class="msep">·</span>
+    <!-- dupe for seamless -->
+    <span class="mi"><span>40%</span> זמן ארגוני מבוזבז על עבודה חוזרת</span><span class="msep">·</span>
+    <span class="mi"><span>3×</span> ROI ממוצע ממערכות אוטומציה</span><span class="msep">·</span>
+    <span class="mi"><span>14</span> ימי הטמעה ממוצע</span><span class="msep">·</span>
+    <span class="mi">Claude <span>·</span> ChatGPT <span>·</span> Make <span>·</span> n8n <span>·</span> AI Agents <span>·</span> LLMs</span><span class="msep">·</span>
+    <span class="mi">ייעול <span>+</span> אוטומציה <span>+</span> צמיחה</span><span class="msep">·</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec prob-bg" id="problem">
+  <div class="sec-label r">אבחון הבעיה</div>
+  <h2 class="sec-title r d1">הזמן שלך נגמר<br><span class="accent">לפני שהיום מתחיל</span></h2>
+  <p class="sec-sub r d2">רוב העסקים מבזבזים 40% ממשאביהם על משימות שניתנות לאוטומציה — מבלי לדעת על כך.</p>
+  <div class="prob-grid">
+    <div class="r">
+      <div class="donut-wrap">
+        <svg class="donut-svg" viewBox="0 0 240 240">
+          <circle class="d-track" cx="120" cy="120" r="90"/>
+          <circle class="d-red" id="dRed" cx="120" cy="120" r="90"/>
+        </svg>
+        <div class="donut-center">
+          <span class="dn" id="dNum">0%</span>
+          <span class="dl">מבוזבז</span>
+        </div>
+      </div>
+      <div class="legend">
+        <div class="leg"><div class="leg-dot" style="background:var(--green)"></div> 60% — עבודה פרודוקטיבית</div>
+        <div class="leg"><div class="leg-dot" style="background:var(--red)"></div> 40% — עבודה חוזרת / ניתנת לאוטומציה</div>
+      </div>
+    </div>
+    <div class="prob-cards">
+      <div class="prob-card r d1">
+        <div class="prob-card-top"><h3>עבודה ידנית חוזרת</h3><span class="tag-red">−15 שעות/שבוע</span></div>
+        <p>הזנת נתונים, דוחות, עדכונים — הצוות שלך עושה את זה כל יום בלי שיש בהם ערך אמיתי לעסק.</p>
+      </div>
+      <div class="prob-card r d2">
+        <div class="prob-card-top"><h3>צווארי בקבוק אנושיים</h3><span class="tag-red">−8 שעות/שבוע</span></div>
+        <p>תהליכים שחייבים לעבור דרך אדם אחד יוצרים תורים, עיכובים ותסכול בכל הארגון.</p>
+      </div>
+      <div class="prob-card r d3">
+        <div class="prob-card-top"><h3>כסף שנשאר על השולחן</h3><span class="tag-red">−₪12K+/חודש</span></div>
+        <p>4 עובדים מתוך 10 עובדים על משימות שמערכת תעשה טוב יותר — זו משכורת שיוצאת בלי לייצר ערך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how" style="background:var(--bg);">
+  <div class="sec-label r">התהליך</div>
+  <h2 class="sec-title r d1">מאבחון לתוצאות —<br><span class="accent">14 יום</span></h2>
+  <p class="sec-sub r d2">לא ייעוץ תיאורטי. מערכת פועלת בתוך שבועיים.</p>
+
+  <div class="flow r">
+    <div class="fnode">
+      <div class="ficon red">🔍</div>
+      <div class="fnode-title">אבחון תהליכים</div>
+      <div class="fnode-desc">מיפוי מלא של הזרימה הארגונית — מה, מי, כמה זמן, ואיפה הצוות תקוע</div>
+    </div>
+    <div class="farrow">
+      <div class="particles"><div class="p"></div><div class="p"></div><div class="p"></div></div>
+      <svg width="44" height="16" viewBox="0 0 44 16"><path d="M0 8h36M30 2l8 6-8 6" stroke="#00e676" stroke-width="1.5" fill="none"/></svg>
+    </div>
+    <div class="fnode">
+      <div class="ficon mid">⚙️</div>
+      <div class="fnode-title">בניית המערכת</div>
+      <div class="fnode-desc">בנייה בהתאמה אישית — Make, n8n, AI agents, LLMs — לתהליך הספציפי שלך</div>
+    </div>
+    <div class="farrow">
+      <div class="particles"><div class="p"></div><div class="p"></div><div class="p"></div></div>
+      <svg width="44" height="16" viewBox="0 0 44 16"><path d="M0 8h36M30 2l8 6-8 6" stroke="#00e676" stroke-width="1.5" fill="none"/></svg>
+    </div>
+    <div class="fnode">
+      <div class="ficon grn">✅</div>
+      <div class="fnode-title">המערכת רצה</div>
+      <div class="fnode-desc">הצוות משתחרר. המשימות קורות אוטומטית. אתה מתמקד בצמיחה.</div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step r d1">
+      <div class="snum">01 / אבחון</div>
+      <h3>מיפוי תהליכים ארגוניים</h3>
+      <p>פגישת עבודה + מיפוי דיגיטלי מלא. מזהים מה ניתן לאוטומט ומה יניב את ה-ROI הגבוה ביותר.</p>
+      <div class="tools"><span class="tool">Process Mapping</span><span class="tool">ROI Analysis</span></div>
+    </div>
+    <div class="step r d2">
+      <div class="snum">02 / בנייה</div>
+      <h3>בניית מערכות AI מותאמות</h3>
+      <p>לא תבנית — מערכת אמיתית שמחוברת לכלים שכבר יש לך ומותאמת לתהליך הספציפי שלך.</p>
+      <div class="tools"><span class="tool">Make</span><span class="tool">n8n</span><span class="tool">AI Agents</span><span class="tool">LLMs</span></div>
+    </div>
+    <div class="step r d3">
+      <div class="snum">03 / הטמעה</div>
+      <h3>הטמעה ומסירה</h3>
+      <p>הכשרה לצוות, תיעוד מלא, ו-30 יום תמיכה. המערכת עובדת — אתה יודע להפעיל.</p>
+      <div class="tools"><span class="tool">Training</span><span class="tool">30-Day Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-sec">
+  <div class="stats-grid">
+    <div class="sbox r"><span class="snum" data-to="40" data-s="%">0%</span><span class="slabel">מהזמן הארגוני<br>מבוזבז על עבודה חוזרת</span></div>
+    <div class="sbox r d1"><span class="snum" data-to="3" data-s="×">0×</span><span class="slabel">ROI ממוצע<br>ממערכות אוטומציה</span></div>
+    <div class="sbox r d2"><span class="snum" data-to="14" data-s=" יום">0 יום</span><span class="slabel">מאבחון<br>למערכת פועלת</span></div>
+    <div class="sbox r d3"><span class="snum" data-to="10" data-s="+">0+</span><span class="slabel">שנות ניסיון<br>בניהול עסקים</span></div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="sec-label r">השפעה על העסק</div>
+  <h2 class="sec-title r d1">לפני ואחרי —<br><span class="accent">ניצול הזמן שלך</span></h2>
+  <p class="sec-sub r d2">מה קורה לזמן הצוות כשמערכת האוטומציה נכנסת לפעולה.</p>
+  <div class="ba-wrap">
+    <div class="ba-card r">
+      <div class="ba-label before-l">// לפני simplifAI</div>
+      <div class="bar-row">
+        <div class="bar-item">
+          <div class="bar-header"><span>עבודה ידנית חוזרת</span><span style="color:var(--red)">40%</span></div>
+          <div class="bar-track"><div class="bar-fill red" data-w="40"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>תקשורת ותיאומים</span><span style="color:var(--red)">25%</span></div>
+          <div class="bar-track"><div class="bar-fill red" data-w="25"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>עבודה פרודוקטיבית</span><span style="color:var(--muted2)">35%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="background:#1a3a2a;" data-w="35"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ba-card after r d1">
+      <div class="ba-label after-l">// אחרי simplifAI</div>
+      <div class="bar-row">
+        <div class="bar-item">
+          <div class="bar-header"><span>עבודה ידנית חוזרת</span><span style="color:var(--green)">5%</span></div>
+          <div class="bar-track"><div class="bar-fill green" data-w="5"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>תקשורת ותיאומים</span><span style="color:var(--green)">10%</span></div>
+          <div class="bar-track"><div class="bar-fill green" data-w="10"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>עבודה פרודוקטיבית</span><span style="color:var(--green)">85%</span></div>
+          <div class="bar-track"><div class="bar-fill green" data-w="85"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" style="background:var(--bg);">
+  <div class="sec-label r">השירותים</div>
+  <h2 class="sec-title r d1">מה אנחנו<br><span class="accent">בונים לך</span></h2>
+  <p class="sec-sub r d2">שלושה שירותים מרכזיים — מאבחון ועד מערכת פועלת.</p>
+  <div class="srv-grid">
+    <div class="srv r">
+      <div class="srv-icon">🔍</div>
+      <h3>אבחון תהליכים</h3>
+      <p>מיפוי מלא של הזרימה הארגונית. מזהים בדיוק איפה הצוות מאבד זמן ומה יניב את ה-ROI הגבוה ביותר.</p>
+      <div class="srv-metric">חוסך 15+ שעות עבודה בשבוע</div>
+    </div>
+    <div class="srv r d1">
+      <div class="srv-icon">⚙️</div>
+      <h3>כלי AI לשיפור תהליכים</h3>
+      <p>שילוב כלי AI מתקדמים — סוכנים, LLMs, אוטומציה, ואנליטיקה — לתהליך הספציפי שלך. לא רק Make ו-n8n.</p>
+      <div class="srv-metric">ROI ממוצע 3× תוך 60 יום</div>
+    </div>
+    <div class="srv r d2">
+      <div class="srv-icon">🤖</div>
+      <h3>שילוב כלי AI</h3>
+      <p>הטמעת AI בתוך הכלים שכבר יש לך — CRM, מיילים, דוחות, תקשורת פנימית. בלי להחליף מה שעובד.</p>
+      <div class="srv-metric">הטמעה מלאה תוך 14 יום</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec about-sec" id="about">
+  <div class="sec-label r">למה simplifAI</div>
+  <h2 class="sec-title r d1">מגיעים<br><span class="accent">מהשטח</span></h2>
+  <div class="about-grid">
+    <div class="ametrics r">
+      <div class="amet"><span class="mn">10+</span><span class="ml">שנות ניהול עסקים בפועל — לא ייעוץ מהצד</span></div>
+      <div class="amet"><span class="mn">MBA</span><span class="ml">תואר שני בניהול עסקים — בן גוריון</span></div>
+      <div class="amet"><span class="mn">AI</span><span class="ml">התמחות בכלי אוטומציה ו-AI — Make, n8n, LLMs</span></div>
+      <div class="amet"><span class="mn">100%</span><span class="ml">מיקוד ב-ROI מדיד — לא בבאז טכנולוגי</span></div>
+    </div>
+    <div class="about-text">
+      <div class="quote r d1">"ניהלתי עסקים עשור לפני שגיליתי AI.<br><em>אני יודע בדיוק איפה המערכות שלכם נשברות —</em><br>כי הייתי שם."</div>
+      <p class="about-body r d2">לא ייעוץ תיאורטי. לא סטארטאפ שמכיר עסקים מהאוניברסיטה.<br><br>עשור של ניהול בפועל — עסק משפחתי, נדל"ן, הנדסה, אירועים — לימד אותי איפה התהליכים נשברים. כשגיליתי כלי AI ואוטומציה, הכל התחבר.<br><br><strong style="color:var(--white);">simplifAI בנויה על שילוב נדיר: ניסיון ניהולי עמוק + יכולת טכנולוגית + הבנה של מה שמשפיע על השורה התחתונה.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="sec-label r" style="display:block;text-align:center;">התחל היום</div>
+  <h2 class="r d1">מוכן לגלות<br><span class="accent">כמה זמן אתה מאבד?</span></h2>
+  <p class="r d2">שיחת אבחון ראשונה — ללא עלות, ללא התחייבות.<br>45 דקות. תצאת עם תמונה ברורה של מה אפשר לשפר.</p>
+  <div class="r d3">
+    <a href="https://wa.me/972537453493" class="pulse-btn">
+      שלח הודעה ב-WhatsApp
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.008-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zm-5.42 7.4h-.004a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.44 6.6 2 12.05 2c2.64 0 5.12 1.03 6.99 2.9A9.82 9.82 0 0121.93 12c-.003 5.45-4.44 9.88-9.885 9.88zM20.45 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.005c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.42z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flogo"><img src="assets/logo.svg" alt="simplifAI"></div>
+  <div class="fcopy">© 2026 simplifAI — ייעול עסקים בעזרת AI</div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// Counter
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target, to = +el.dataset.to, suf = el.dataset.s||'';
+    const t0 = performance.now();
+    const run = t => {
+      const prog = Math.min((t-t0)/1400,1), ease = 1-Math.pow(1-prog,3);
+      el.textContent = Math.round(ease*to)+suf;
+      if(prog<1) requestAnimationFrame(run);
+    };
+    requestAnimationFrame(run);
+    cObs.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-to]').forEach(el => cObs.observe(el));
+
+// Donut
+const C = 2*Math.PI*90; // ≈ 565.5
+const dRed = document.getElementById('dRed');
+const dNum = document.getElementById('dNum');
+dRed.style.strokeDasharray = C;
+dRed.style.strokeDashoffset = C;
+const dObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    setTimeout(()=>{ dRed.style.strokeDashoffset = C*0.6; },200);
+    let n=0; const iv = setInterval(()=>{ n+=2; if(n>=40){n=40;clearInterval(iv);} dNum.textContent=n+'%'; },40);
+    dObs.unobserve(e.target);
+  });
+},{threshold:.3});
+const prob = document.getElementById('problem');
+if(prob) dObs.observe(prob);
+
+// Bar charts
+const bObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    e.target.querySelectorAll('.bar-fill').forEach(b => {
+      setTimeout(()=>{ b.style.width = b.dataset.w+'%'; },200);
+    });
+    bObs.unobserve(e.target);
+  });
+},{threshold:.3});
+document.querySelectorAll('.ba-card').forEach(c => bObs.observe(c));
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.borderBottomColor =
+    scrollY>50 ? 'rgba(0,230,118,.25)' : 'var(--border)';
+},{passive:true});
+</script>
+</body>
+</html>
