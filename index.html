@@ -30,7 +30,7 @@
 
     /* ── NAV ── */
     nav{position:fixed;top:0;width:100%;z-index:1000;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,14,9,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:border-color .3s;}
-    .logo{display:flex;align-items:center;height:38px;}
+    .logo{display:flex;align-items:center;height:40px;gap:10px;}
     .logo img{height:38px;width:auto;display:block;}
     .logo .ai{color:var(--green);}
     .nav-links{display:flex;gap:32px;align-items:center;}
@@ -189,7 +189,7 @@
 
     /* ── FOOTER ── */
     footer{background:var(--bg);border-top:1px solid var(--border);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-    .flogo{display:flex;align-items:center;height:30px;}
+    .flogo{display:flex;align-items:center;height:32px;gap:8px;}
     .flogo img{height:30px;width:auto;display:block;opacity:.85;}
     .flogo .ai{color:var(--green);}
     .fcopy{font-size:13px;color:var(--muted);}
@@ -217,18 +217,20 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="logo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" height="38" width="135" aria-label="simplifAI">
-      <circle cx="9"  cy="7" r="2" fill="#8aab96" opacity="0.6"/>
-      <circle cx="18" cy="5" r="2" fill="#8aab96" opacity="0.6"/>
-      <circle cx="27" cy="7" r="2" fill="#8aab96" opacity="0.6"/>
-      <path d="M4 10 L32 10 L24 26 L12 26 Z" fill="none" stroke="#00e676" stroke-width="1.5" stroke-linejoin="round"/>
-      <line x1="18" y1="26" x2="18" y2="38" stroke="#00e676" stroke-width="1.5"/>
-      <line x1="10" y1="42" x2="25" y2="42" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
-      <polyline points="20,37 26,42 20,47" fill="none" stroke="#00e676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="46" y="46" font-family="Outfit,Inter,sans-serif" font-weight="900" font-size="36" letter-spacing="-1"><tspan fill="#ffffff">simplif</tspan><tspan fill="#00e676">AI</tspan></text>
-      <text x="46" y="66" font-family="Heebo,sans-serif" font-weight="400" font-size="11" fill="#8aab96" letter-spacing="1.5">מפשטים עסקים. בעזרת AI.</text>
+  <div class="logo" dir="ltr">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 52" height="40" width="28" style="flex-shrink:0">
+      <circle cx="9"  cy="4" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <circle cx="18" cy="2" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <circle cx="27" cy="4" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <path d="M2 7 L34 7 L26 24 L10 24 Z" fill="none" stroke="#00e676" stroke-width="1.8" stroke-linejoin="round"/>
+      <line x1="18" y1="24" x2="18" y2="37" stroke="#00e676" stroke-width="1.8"/>
+      <line x1="9" y1="41" x2="27" y2="41" stroke="#00e676" stroke-width="2.2" stroke-linecap="round"/>
+      <polyline points="21,35 28,41 21,47" fill="none" stroke="#00e676" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
+    <div style="display:flex;flex-direction:column;gap:1px;line-height:1">
+      <span style="font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;letter-spacing:-0.5px"><span style="color:#fff">simplif</span><span style="color:#00e676">AI</span></span>
+      <span style="font-family:'Heebo',sans-serif;font-weight:400;font-size:9px;color:#8aab96;letter-spacing:1px">מפשטים עסקים. בעזרת AI.</span>
+    </div>
   </div>
   <div class="nav-links">
     <a href="#problem">הבעיה</a>
@@ -487,18 +489,20 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="flogo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" height="30" width="107" aria-label="simplifAI" opacity="0.85">
-      <circle cx="9"  cy="7" r="2" fill="#8aab96" opacity="0.6"/>
-      <circle cx="18" cy="5" r="2" fill="#8aab96" opacity="0.6"/>
-      <circle cx="27" cy="7" r="2" fill="#8aab96" opacity="0.6"/>
-      <path d="M4 10 L32 10 L24 26 L12 26 Z" fill="none" stroke="#00e676" stroke-width="1.5" stroke-linejoin="round"/>
-      <line x1="18" y1="26" x2="18" y2="38" stroke="#00e676" stroke-width="1.5"/>
-      <line x1="10" y1="42" x2="25" y2="42" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
-      <polyline points="20,37 26,42 20,47" fill="none" stroke="#00e676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="46" y="46" font-family="Outfit,Inter,sans-serif" font-weight="900" font-size="36" letter-spacing="-1"><tspan fill="#ffffff">simplif</tspan><tspan fill="#00e676">AI</tspan></text>
-      <text x="46" y="66" font-family="Heebo,sans-serif" font-weight="400" font-size="11" fill="#8aab96" letter-spacing="1.5">מפשטים עסקים. בעזרת AI.</text>
+  <div class="flogo" dir="ltr">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 52" height="32" width="22" style="flex-shrink:0;opacity:.85">
+      <circle cx="9"  cy="4" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <circle cx="18" cy="2" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <circle cx="27" cy="4" r="2.2" fill="#8aab96" opacity="0.6"/>
+      <path d="M2 7 L34 7 L26 24 L10 24 Z" fill="none" stroke="#00e676" stroke-width="1.8" stroke-linejoin="round"/>
+      <line x1="18" y1="24" x2="18" y2="37" stroke="#00e676" stroke-width="1.8"/>
+      <line x1="9" y1="41" x2="27" y2="41" stroke="#00e676" stroke-width="2.2" stroke-linecap="round"/>
+      <polyline points="21,35 28,41 21,47" fill="none" stroke="#00e676" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
+    <div style="display:flex;flex-direction:column;gap:1px;line-height:1;opacity:.85">
+      <span style="font-family:'Outfit',sans-serif;font-weight:900;font-size:18px;letter-spacing:-0.5px"><span style="color:#fff">simplif</span><span style="color:#00e676">AI</span></span>
+      <span style="font-family:'Heebo',sans-serif;font-weight:400;font-size:8px;color:#8aab96;letter-spacing:1px">מפשטים עסקים. בעזרת AI.</span>
+    </div>
   </div>
   <div class="fcopy">© 2026 simplifAI — ייעול עסקים בעזרת AI</div>
 </footer>
