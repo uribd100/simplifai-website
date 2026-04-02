@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual C — רשת נוירונים + Hero אנימציה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:#04090a;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
+.style-badge{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:6px 20px;border-radius:20px;font-weight:900;font-size:13px;z-index:9999;font-family:'Share Tech Mono',monospace;}
+
+/* HERO with canvas */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 56px;position:relative;overflow:hidden;}
+canvas{position:absolute;inset:0;pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:680px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);border-radius:100px;padding:7px 16px;font-size:12px;color:#00e676;font-family:'Share Tech Mono',monospace;letter-spacing:2px;margin-bottom:32px;}
+.tag-dot{width:6px;height:6px;background:#00e676;border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(48px,6.5vw,86px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:28px;}
+.hero h1 .g{color:#00e676;}
+.hero h1 .dim{color:rgba(255,255,255,.4);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.5);max-width:500px;line-height:1.9;margin-bottom:48px;}
+.btn-main{background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:16px 40px;border-radius:10px;font-weight:900;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 60px rgba(0,230,118,.25);}
+
+/* Node labels floating */
+.node-label{position:absolute;pointer-events:none;z-index:1;font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(0,230,118,.5);white-space:nowrap;animation:float-label 6s ease-in-out infinite;}
+@keyframes float-label{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.nl1{top:22%;left:62%;animation-delay:0s;}
+.nl2{top:35%;left:78%;animation-delay:1s;}
+.nl3{top:55%;left:70%;animation-delay:2s;}
+.nl4{top:68%;left:55%;animation-delay:.5s;}
+.nl5{top:30%;left:50%;animation-delay:1.5s;}
+
+/* ---- SECOND SECTION: SVG ECOSYSTEM ---- */
+.eco-sec{padding:120px 56px;background:linear-gradient(180deg,#04090a,#061210);}
+.sec-tag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:#00e676;margin-bottom:20px;opacity:.8;}
+.sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,62px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;}
+.sec-h .g{color:#00e676;}
+.sec-p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:72px;max-width:520px;}
+
+/* SVG Ecosystem Diagram */
+.eco-diagram{display:flex;justify-content:center;position:relative;}
+.eco-svg{width:100%;max-width:900px;height:420px;}
+
+/* Orbit animation */
+@keyframes orbit-cw{from{transform:rotate(0deg) translateX(160px) rotate(0deg);}to{transform:rotate(360deg) translateX(160px) rotate(-360deg);}}
+@keyframes orbit-ccw{from{transform:rotate(0deg) translateX(220px) rotate(0deg);}to{transform:rotate(-360deg) translateX(220px) rotate(360deg);}}
+.orbit-dot{animation:orbit-cw 8s linear infinite;}
+.orbit-dot2{animation:orbit-cw 12s linear infinite reverse;}
+@keyframes pulse-center{0%,100%{r:36;opacity:.9;}50%{r:42;opacity:.6;}}
+@keyframes dash-flow{from{stroke-dashoffset:100;}to{stroke-dashoffset:0;}}
+.flow-dash{stroke-dasharray:6 4;animation:dash-flow 1.5s linear infinite;}
+</style>
+</head>
+<body>
+<div class="style-badge">ויזואל C — רשת נוירונים + אקוסיסטם</div>
+
+<!-- HERO with Neural Network Canvas -->
+<section class="hero">
+  <canvas id="canvas"></canvas>
+
+  <!-- Floating labels near nodes -->
+  <span class="node-label nl1">CRM_SYNC</span>
+  <span class="node-label nl2">AUTO_REPORT</span>
+  <span class="node-label nl3">AI_AGENT</span>
+  <span class="node-label nl4">WORKFLOW</span>
+  <span class="node-label nl5">DATA_FLOW</span>
+
+  <div class="hero-content">
+    <div class="hero-tag"><span class="tag-dot"></span>זמין לייעוץ — ₪0</div>
+    <h1>מה אם 80%<br>מהעבודה הידנית<br><span class="dim">הייתה</span> <span class="g">נעלמת?</span></h1>
+    <p class="hero-sub">עסקים מאבדים 15–30 שעות בשבוע על משימות שAI יכול לטפל בהן. אנחנו מוצאים אותן — ומחזירים לך את הזמן, תוך 14 יום.</p>
+    <a href="https://wa.me/972537453493" target="_blank" class="btn-main">ייעוץ ראשון ללא עלות ←</a>
+  </div>
+</section>
+
+<!-- ECOSYSTEM SVG DIAGRAM -->
+<section class="eco-sec">
+  <div class="sec-tag">המערכת שאנחנו בונים</div>
+  <h2 class="sec-h">ה<span class="g">אקוסיסטם</span> שלך</h2>
+  <p class="sec-p">כל הכלים שלך מחוברים — עובדים ביחד, אוטומטית. AI שיושב באמצע ויודע הכל.</p>
+
+  <div class="eco-diagram">
+    <svg class="eco-svg" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00e676" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#00e676" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0a2018"/>
+          <stop offset="100%" stop-color="#061210"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Background glow at center -->
+      <circle cx="450" cy="210" r="120" fill="url(#centerGrad)"/>
+
+      <!-- Orbit rings -->
+      <circle cx="450" cy="210" r="140" stroke="rgba(0,230,118,0.06)" stroke-width="1"/>
+      <circle cx="450" cy="210" r="200" stroke="rgba(0,230,118,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+
+      <!-- Connection lines (animated dashes) -->
+      <line x1="450" y1="210" x2="310" y2="90" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash"/>
+      <line x1="450" y1="210" x2="590" y2="90" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash" style="animation-delay:.3s"/>
+      <line x1="450" y1="210" x2="650" y2="210" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash" style="animation-delay:.6s"/>
+      <line x1="450" y1="210" x2="590" y2="330" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash" style="animation-delay:.9s"/>
+      <line x1="450" y1="210" x2="310" y2="330" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash" style="animation-delay:1.2s"/>
+      <line x1="450" y1="210" x2="250" y2="210" stroke="rgba(0,230,118,0.25)" stroke-width="1.5" class="flow-dash" style="animation-delay:1.5s"/>
+
+      <!-- CENTER NODE — simplifAI -->
+      <circle cx="450" cy="210" r="52" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.4)" stroke-width="1.5" filter="url(#glow)">
+        <animate attributeName="r" values="52;56;52" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <text x="450" y="204" text-anchor="middle" fill="#00e676" font-family="Outfit,sans-serif" font-weight="900" font-size="14">simplif</text>
+      <text x="450" y="222" text-anchor="middle" fill="#00e676" font-family="Outfit,sans-serif" font-weight="900" font-size="14">AI</text>
+
+      <!-- OUTER NODES -->
+      <!-- Gmail / Email -->
+      <circle cx="310" cy="90" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="310" y="85" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">✉️</text>
+      <text x="310" y="103" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">EMAIL</text>
+
+      <!-- CRM -->
+      <circle cx="590" cy="90" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="590" y="85" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">📊</text>
+      <text x="590" y="103" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">CRM</text>
+
+      <!-- Reports -->
+      <circle cx="650" cy="210" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="650" y="205" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">📋</text>
+      <text x="650" y="223" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">REPORTS</text>
+
+      <!-- WhatsApp -->
+      <circle cx="590" cy="330" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="590" y="325" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">💬</text>
+      <text x="590" y="343" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">WHATSAPP</text>
+
+      <!-- Calendar -->
+      <circle cx="310" cy="330" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="310" y="325" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">📅</text>
+      <text x="310" y="343" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">CALENDAR</text>
+
+      <!-- Spreadsheets -->
+      <circle cx="250" cy="210" r="36" fill="url(#nodeGrad)" stroke="rgba(0,230,118,0.2)" stroke-width="1"/>
+      <text x="250" y="205" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="18">🗂️</text>
+      <text x="250" y="223" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Share Tech Mono,monospace" font-size="9">SHEETS</text>
+
+      <!-- Traveling dot on line 1 -->
+      <circle r="4" fill="#00e676" opacity="0.8" filter="url(#glow)">
+        <animateMotion dur="2s" repeatCount="indefinite" path="M450,210 L310,90"/>
+      </circle>
+      <circle r="4" fill="#00e676" opacity="0.8" filter="url(#glow)">
+        <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s" path="M310,90 L450,210"/>
+      </circle>
+      <circle r="4" fill="#00e676" opacity="0.8" filter="url(#glow)">
+        <animateMotion dur="2s" repeatCount="indefinite" begin="1s" path="M450,210 L650,210"/>
+      </circle>
+      <circle r="4" fill="#00e676" opacity="0.8" filter="url(#glow)">
+        <animateMotion dur="2.3s" repeatCount="indefinite" begin="1.5s" path="M590,330 L450,210"/>
+      </circle>
+    </svg>
+  </div>
+</section>
+
+<script>
+// Particle network on canvas
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const nodes = [];
+const NODE_COUNT = 55;
+
+for (let i = 0; i < NODE_COUNT; i++) {
+  nodes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 2.5 + 1,
+    alpha: Math.random() * 0.6 + 0.2,
+    pulse: Math.random() * Math.PI * 2
+  });
+}
+
+let mouse = { x: -999, y: -999 };
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - rect.left;
+  mouse.y = e.clientY - rect.top;
+});
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const t = Date.now() * 0.001;
+
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+
+    // Mouse repel
+    const dx = n.x - mouse.x, dy = n.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 120) {
+      n.x += dx / dist * 1.5;
+      n.y += dy / dist * 1.5;
+    }
+
+    const pulse = (Math.sin(t * 1.5 + n.pulse) + 1) * 0.5;
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r * (1 + pulse * 0.4), 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0,230,118,${n.alpha * (0.7 + pulse * 0.3)})`;
+    ctx.fill();
+  });
+
+  // Draw connections
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j];
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 130) {
+        const alpha = (1 - d / 130) * 0.12;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(0,230,118,${alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>

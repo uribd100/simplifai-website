@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>simplifAI — WOW Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#04090a;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
+
+/* ===================== HERO ===================== */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 56px;position:relative;overflow:hidden;}
+canvas#particles{position:absolute;inset:0;pointer-events:none;z-index:0;}
+
+/* Scan line overlay */
+.scanlines{position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,230,118,.012) 2px,rgba(0,230,118,.012) 4px);}
+
+/* Radial center glow */
+.hero-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(0,230,118,.08) 0%,transparent 70%);pointer-events:none;z-index:0;}
+
+.hero-content{position:relative;z-index:2;max-width:700px;}
+
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,230,118,.06);border:1px solid rgba(0,230,118,.25);border-radius:100px;padding:8px 18px;font-size:11px;color:#00e676;font-family:'Share Tech Mono',monospace;letter-spacing:3px;margin-bottom:36px;}
+.tag-dot{width:7px;height:7px;background:#00e676;border-radius:50%;animation:blink 1.8s infinite;box-shadow:0 0 8px #00e676;}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px #00e676;}50%{opacity:.2;box-shadow:none;}}
+
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(52px,7vw,96px);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:32px;}
+.hero h1 .g{color:#00e676;text-shadow:0 0 40px rgba(0,230,118,.4);}
+.hero h1 .dim{color:rgba(255,255,255,.35);}
+
+.hero-sub{font-size:18px;color:rgba(255,255,255,.5);max-width:520px;line-height:1.9;margin-bottom:52px;}
+
+.hero-actions{display:flex;gap:20px;align-items:center;}
+.btn-wow{background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:18px 48px;border-radius:12px;font-weight:900;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;box-shadow:0 0 80px rgba(0,230,118,.35),0 4px 24px rgba(0,0,0,.4);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.btn-wow::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s;}
+.btn-wow:hover{transform:translateY(-2px);box-shadow:0 0 100px rgba(0,230,118,.5),0 8px 32px rgba(0,0,0,.5);}
+.btn-wow:hover::before{opacity:1;}
+.btn-ghost{color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.5);}
+
+/* Floating code labels */
+.float-label{position:absolute;font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(0,230,118,.45);pointer-events:none;z-index:3;animation:float 8s ease-in-out infinite;white-space:nowrap;}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-12px) rotate(1deg);}}
+.fl1{top:18%;left:55%;animation-delay:0s;}
+.fl2{top:28%;left:72%;animation-delay:1.2s;}
+.fl3{top:50%;left:68%;animation-delay:2.4s;}
+.fl4{top:65%;left:58%;animation-delay:.6s;}
+.fl5{top:38%;left:48%;animation-delay:3s;}
+.fl6{top:75%;left:72%;animation-delay:1.8s;}
+
+/* ===================== ECOSYSTEM SECTION ===================== */
+.eco-sec{padding:140px 56px;background:linear-gradient(180deg,#04090a 0%,#06120e 100%);position:relative;overflow:hidden;}
+.eco-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,230,118,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+
+.sec-tag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:#00e676;margin-bottom:20px;opacity:.8;}
+.sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,68px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:16px;}
+.sec-h .g{color:#00e676;text-shadow:0 0 30px rgba(0,230,118,.3);}
+.sec-p{font-size:16px;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:80px;max-width:560px;}
+
+/* ---- ECOSYSTEM DIAGRAM ---- */
+.eco-diagram{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px;}
+
+/* Center node */
+.center-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;text-align:center;}
+.center-img-wrap{width:140px;height:140px;border-radius:50%;position:relative;cursor:pointer;transition:transform .3s;}
+.center-img-wrap:hover{transform:scale(1.08);}
+.center-img{width:100%;height:100%;border-radius:50%;object-fit:cover;filter:saturate(1.3) brightness(1.1);}
+.center-ring{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,230,118,.4);animation:ring-pulse 2.5s ease-in-out infinite;}
+.center-ring2{position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(0,230,118,.15);animation:ring-pulse 2.5s ease-in-out infinite .8s;}
+.center-ring3{position:absolute;inset:-36px;border-radius:50%;border:1px solid rgba(0,230,118,.06);animation:ring-pulse 2.5s ease-in-out infinite 1.6s;}
+@keyframes ring-pulse{0%,100%{transform:scale(1);opacity:.7;}50%{transform:scale(1.06);opacity:1;}}
+.center-glow{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(rgba(0,230,118,.2),transparent 70%);animation:glow-breathe 3s ease-in-out infinite;pointer-events:none;}
+@keyframes glow-breathe{0%,100%{opacity:.6;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
+.center-label{margin-top:16px;font-family:'Outfit',sans-serif;font-size:16px;font-weight:900;letter-spacing:-0.5px;}
+.center-label span{color:#00e676;}
+.center-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.3);margin-top:4px;}
+
+/* Satellite nodes */
+.orbit-container{position:relative;width:560px;height:560px;}
+.sat-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:transform .3s;}
+.sat-node:hover{transform:scale(1.1);}
+.sat-node:hover .sat-img-wrap{box-shadow:0 0 50px rgba(0,230,118,.4);}
+
+.sat-img-wrap{width:86px;height:86px;border-radius:50%;border:1px solid rgba(0,230,118,.2);overflow:hidden;position:relative;background:rgba(0,230,118,.04);backdrop-filter:blur(8px);transition:box-shadow .3s;box-shadow:0 0 20px rgba(0,230,118,.1);}
+.sat-img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2);}
+.sat-label{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(0,230,118,.7);text-align:center;}
+.sat-name{font-size:13px;font-weight:700;text-align:center;color:rgba(255,255,255,.85);}
+
+/* Positions (clock-style around center, RTL so right=0°) */
+.sat-email{top:0;left:50%;transform:translateX(-50%);}
+.sat-crm{top:12%;left:82%;}
+.sat-reports{top:50%;left:96%;transform:translateY(-50%);}
+.sat-sheets{top:80%;left:72%;}
+.sat-calendar{top:80%;left:12%;}
+.sat-whatsapp{top:50%;left:-2%;transform:translateY(-50%);}
+
+/* SVG connector lines */
+.eco-svg-lines{position:absolute;inset:0;pointer-events:none;overflow:visible;}
+
+/* Traveling data particle */
+@keyframes travel{0%{opacity:0;offset-distance:0%;}10%{opacity:1;}90%{opacity:1;}100%{opacity:0;offset-distance:100%;}}
+.traveler{position:absolute;width:6px;height:6px;border-radius:50%;background:#00e676;box-shadow:0 0 10px #00e676,0 0 20px rgba(0,230,118,.5);animation:travel 3s linear infinite;}
+
+/* ---- TOOLTIP on hover ---- */
+.sat-node .tooltip{position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:rgba(4,9,10,.95);border:1px solid rgba(0,230,118,.2);border-radius:10px;padding:10px 16px;font-size:12px;color:rgba(255,255,255,.7);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;}
+.sat-node:hover .tooltip{opacity:1;}
+
+/* ===================== SERVICES SECTION ===================== */
+.srv-sec{padding:140px 56px;background:#04090a;}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:0;}
+.srv-card{background:rgba(255,255,255,.025);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:44px 36px;transition:all .35s;position:relative;overflow:hidden;cursor:default;}
+.srv-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,230,118,.06),transparent 60%);opacity:0;transition:opacity .35s;}
+.srv-card:hover{border-color:rgba(0,230,118,.3);transform:translateY(-8px);box-shadow:0 24px 80px rgba(0,230,118,.12);}
+.srv-card:hover::before{opacity:1;}
+.srv-card-glow{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(rgba(0,230,118,.12),transparent 70%);pointer-events:none;opacity:0;transition:opacity .35s;}
+.srv-card:hover .srv-card-glow{opacity:1;}
+.srv-icon-wrap{width:64px;height:64px;border-radius:16px;background:rgba(0,230,118,.07);border:1px solid rgba(0,230,118,.15);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:28px;transition:all .3s;}
+.srv-card:hover .srv-icon-wrap{background:rgba(0,230,118,.12);border-color:rgba(0,230,118,.3);box-shadow:0 0 24px rgba(0,230,118,.2);}
+.srv-h{font-size:20px;font-weight:800;margin-bottom:12px;font-family:'Outfit',sans-serif;}
+.srv-p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:20px;}
+.srv-tag{font-family:'Share Tech Mono',monospace;font-size:11px;color:#00e676;background:rgba(0,230,118,.06);border:1px solid rgba(0,230,118,.12);padding:5px 14px;border-radius:100px;display:inline-block;}
+
+/* ===================== FLOATING WA ===================== */
+.wa-float{position:fixed;bottom:28px;left:28px;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.5);z-index:9999;text-decoration:none;animation:wa-pulse 2.5s infinite;}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.3);}60%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 16px rgba(37,211,102,0);}}
+.wa-float svg{width:32px;height:32px;fill:#fff;}
+</style>
+</head>
+<body>
+
+<!-- Floating WA -->
+<a class="wa-float" href="https://wa.me/972537453493" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-glow"></div>
+  <div class="scanlines"></div>
+
+  <span class="float-label fl1">AI_AGENT_ACTIVE</span>
+  <span class="float-label fl2">WORKFLOW_RUNNING</span>
+  <span class="float-label fl3">CRM_SYNC_OK</span>
+  <span class="float-label fl4">REPORT_GENERATED</span>
+  <span class="float-label fl5">DATA_PROCESSED</span>
+  <span class="float-label fl6">AUTO_REPLY_SENT</span>
+
+  <div class="hero-content">
+    <div class="hero-tag"><span class="tag-dot"></span>זמין לייעוץ — ₪0 &nbsp;|&nbsp; AI READY</div>
+    <h1>מה אם 80%<br>מהעבודה הידנית<br><span class="dim">הייתה</span> <span class="g">נעלמת?</span></h1>
+    <p class="hero-sub">עסקים מאבדים 15–30 שעות בשבוע על משימות שAI יכול לטפל בהן. אנחנו מוצאים אותן — ומחזירים לך את הזמן, תוך 14 יום.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/972537453493" target="_blank" class="btn-wow">ייעוץ ראשון ללא עלות ←</a>
+      <a href="#ecosystem" class="btn-ghost">ראה איך זה עובד ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ECOSYSTEM ==================== -->
+<section class="eco-sec" id="ecosystem">
+  <div class="eco-bg-grid"></div>
+  <div style="position:relative;z-index:2;">
+    <div class="sec-tag">האקוסיסטם שלך</div>
+    <h2 class="sec-h">כל הכלים שלך — <span class="g">חיים ביחד</span></h2>
+    <p class="sec-p">AI שיושב במרכז ומחבר את כל הכלים שכבר יש לך. לא עוד עבודה ידנית בין מערכות.</p>
+
+    <!-- Diagram -->
+    <div class="eco-diagram" id="eco-diagram">
+
+      <!-- SVG Lines drawn by JS -->
+      <svg class="eco-svg-lines" id="eco-svg" viewBox="0 0 560 560" width="560" height="560" style="position:absolute;top:0;left:50%;transform:translateX(-50%);overflow:visible;z-index:1;"></svg>
+
+      <div class="orbit-container" id="orbit">
+
+        <!-- CENTER -->
+        <div class="center-node" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;">
+          <div class="center-img-wrap">
+            <div class="center-glow"></div>
+            <div class="center-ring"></div>
+            <div class="center-ring2"></div>
+            <div class="center-ring3"></div>
+            <img class="center-img" src="../assets/icons/ai-brain.jpg" alt="simplifAI">
+          </div>
+          <div class="center-label">simplif<span>AI</span></div>
+          <div class="center-sub">AI ENGINE</div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="sat-node sat-email" id="n-email">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/email.jpg" alt="Email"></div>
+          <div class="sat-name">מיילים</div>
+          <div class="sat-label">EMAIL</div>
+          <div class="tooltip">מענה אוטומטי, סיווג, עדיפויות</div>
+        </div>
+
+        <!-- CRM -->
+        <div class="sat-node sat-crm" id="n-crm">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/crm.jpg" alt="CRM"></div>
+          <div class="sat-name">CRM</div>
+          <div class="sat-label">CONTACTS</div>
+          <div class="tooltip">סנכרון אוטומטי, פולואפ, דוחות</div>
+        </div>
+
+        <!-- REPORTS -->
+        <div class="sat-node sat-reports" id="n-reports">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/reports.jpg" alt="Reports"></div>
+          <div class="sat-name">דוחות</div>
+          <div class="sat-label">REPORTS</div>
+          <div class="tooltip">דוחות שבועיים שנוצרים לבד</div>
+        </div>
+
+        <!-- SHEETS -->
+        <div class="sat-node sat-sheets" id="n-sheets">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/sheets.jpg" alt="Sheets"></div>
+          <div class="sat-name">גיליונות</div>
+          <div class="sat-label">SHEETS</div>
+          <div class="tooltip">עדכון נתונים אוטומטי, ניתוח</div>
+        </div>
+
+        <!-- CALENDAR -->
+        <div class="sat-node sat-calendar" id="n-calendar">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/calendar.jpg" alt="Calendar"></div>
+          <div class="sat-name">יומן</div>
+          <div class="sat-label">CALENDAR</div>
+          <div class="tooltip">תיאום פגישות ותזכורות אוטומטיות</div>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="sat-node sat-whatsapp" id="n-whatsapp">
+          <div class="sat-img-wrap"><img class="sat-img" src="../assets/icons/whatsapp.jpg" alt="WhatsApp"></div>
+          <div class="sat-name">WhatsApp</div>
+          <div class="sat-label">MESSAGING</div>
+          <div class="tooltip">תזכורות ועדכונים ללקוחות</div>
+        </div>
+
+      </div><!-- /orbit-container -->
+    </div><!-- /eco-diagram -->
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="srv-sec">
+  <div class="sec-tag">השירותים</div>
+  <h2 class="sec-h">מה אנחנו <span class="g">בונים לך</span></h2>
+  <p class="sec-p">מאבחון מדויק ועד מערכת AI שפועלת לבד — 14 יום.</p>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-card-glow"></div>
+      <div class="srv-icon-wrap">🔍</div>
+      <div class="srv-h">אבחון תהליכים</div>
+      <p class="srv-p">מיפוי מלא של הזרימה הארגונית. מזהים בדיוק איפה הצוות מאבד זמן ואנרגיה.</p>
+      <span class="srv-tag">→ חוסך 15+ שעות/שבוע</span>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-glow"></div>
+      <div class="srv-icon-wrap">⚙️</div>
+      <div class="srv-h">בניית אוטומציות</div>
+      <p class="srv-p">Make, n8n, סוכני AI — מותאמים לתהליך שלך. לא פתרון קוטי.</p>
+      <span class="srv-tag">→ ROI ממוצע 3× תוך 60 יום</span>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-glow"></div>
+      <div class="srv-icon-wrap">🤖</div>
+      <div class="srv-h">שילוב AI בכלים קיימים</div>
+      <p class="srv-p">CRM, מיילים, דוחות, שירות לקוחות — הכל מחובר ועובד ביחד.</p>
+      <span class="srv-tag">→ הטמעה תוך 14 יום</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ============ PARTICLE CANVAS ============ */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
+const nodes=[];
+for(let i=0;i<80;i++){
+  nodes.push({
+    x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+    vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,
+    r:Math.random()*2+.5,alpha:Math.random()*.5+.15,pulse:Math.random()*Math.PI*2
+  });
+}
+
+let mouse={x:-999,y:-999};
+document.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+
+function drawParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const t=Date.now()*.001;
+
+  nodes.forEach(n=>{
+    n.x+=n.vx; n.y+=n.vy;
+    if(n.x<0||n.x>canvas.width)n.vx*=-1;
+    if(n.y<0||n.y>canvas.height)n.vy*=-1;
+    const dx=n.x-mouse.x,dy=n.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<150){n.x+=dx/d*2;n.y+=dy/d*2;}
+    const pulse=(Math.sin(t*2+n.pulse)+1)*.5;
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r*(1+pulse*.5),0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,230,118,${n.alpha*(0.6+pulse*.4)})`;
+    ctx.shadowColor='#00e676';ctx.shadowBlur=pulse*12;
+    ctx.fill();ctx.shadowBlur=0;
+  });
+
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const a=nodes[i],b=nodes[j];
+      const dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<140){
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(0,230,118,${(1-d/140)*.1})`;ctx.lineWidth=1;ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ============ ECOSYSTEM SVG LINES ============ */
+const satPositions={
+  'n-email':{x:280,y:20},
+  'n-crm':{x:500,y:90},
+  'n-reports':{x:548,y:280},
+  'n-sheets':{x:460,y:470},
+  'n-calendar':{x:100,y:470},
+  'n-whatsapp':{x:12,y:280},
+};
+const center={x:280,y:280};
+const svg=document.getElementById('eco-svg');
+
+// Color palettes per node
+const colors={
+  'n-email':'#00e676','n-crm':'#00e676','n-reports':'#00e676',
+  'n-sheets':'#00e676','n-calendar':'#00e676','n-whatsapp':'#25d366'
+};
+
+Object.entries(satPositions).forEach(([id,pos],idx)=>{
+  const c=colors[id];
+  const pathId=`path-${id}`;
+  // Curved path
+  const mx=(center.x+pos.x)/2;
+  const my=(center.y+pos.y)/2;
+  const offset=30;
+  const nx=-(pos.y-center.y)/Math.sqrt((pos.x-center.x)**2+(pos.y-center.y)**2)*offset;
+  const ny=(pos.x-center.x)/Math.sqrt((pos.x-center.x)**2+(pos.y-center.y)**2)*offset;
+
+  const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+  const d=`M${center.x},${center.y} Q${mx+nx},${my+ny} ${pos.x},${pos.y}`;
+  path.setAttribute('d',d);
+  path.setAttribute('id',pathId);
+  path.setAttribute('stroke',c);
+  path.setAttribute('stroke-opacity','0.2');
+  path.setAttribute('stroke-width','1.5');
+  path.setAttribute('fill','none');
+  path.setAttribute('stroke-dasharray','6 5');
+  svg.appendChild(path);
+
+  // Animated traveler circles along path
+  for(let t=0;t<3;t++){
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('r','3.5');
+    circle.setAttribute('fill',c);
+    circle.setAttribute('filter','url(#glowFilter)');
+    const anim=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    anim.setAttribute('dur',`${2.5+Math.random()*2}s`);
+    anim.setAttribute('repeatCount','indefinite');
+    anim.setAttribute('begin',`${(idx*.4+t*0.9).toFixed(1)}s`);
+    const mpath=document.createElementNS('http://www.w3.org/2000/svg','mpath');
+    mpath.setAttribute('href',`#${pathId}`);
+    anim.appendChild(mpath);
+    circle.appendChild(anim);
+
+    // Opacity animation
+    const opAnim=document.createElementNS('http://www.w3.org/2000/svg','animate');
+    opAnim.setAttribute('attributeName','opacity');
+    opAnim.setAttribute('values','0;0;1;1;0');
+    opAnim.setAttribute('keyTimes','0;0.05;0.15;0.85;1');
+    opAnim.setAttribute('dur',`${2.5+Math.random()*2}s`);
+    opAnim.setAttribute('repeatCount','indefinite');
+    opAnim.setAttribute('begin',`${(idx*.4+t*0.9).toFixed(1)}s`);
+    circle.appendChild(opAnim);
+
+    svg.appendChild(circle);
+  }
+});
+
+// Glow filter
+const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
+defs.innerHTML=`<filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur stdDeviation="3" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>`;
+svg.insertBefore(defs,svg.firstChild);
+
+/* ============ ORBIT SLOW ROTATION ============ */
+let angle=0;
+function rotateOrbit(){
+  angle+=.001;
+  // We only nudge the positions slightly — subtle wobble
+  Object.entries(satPositions).forEach(([id,pos])=>{
+    const el=document.getElementById(id);
+    if(el){
+      const wobble=Math.sin(angle*3+Object.keys(satPositions).indexOf(id))*3;
+      el.style.marginTop=wobble+'px';
+    }
+  });
+  requestAnimationFrame(rotateOrbit);
+}
+rotateOrbit();
+
+/* ============ NODE HOVER — HIGHLIGHT CONNECTIONS ============ */
+document.querySelectorAll('.sat-node').forEach(node=>{
+  node.addEventListener('mouseenter',()=>{
+    const pathEl=document.getElementById(`path-${node.id}`);
+    if(pathEl){pathEl.setAttribute('stroke-opacity','0.7');pathEl.setAttribute('stroke-width','2');}
+  });
+  node.addEventListener('mouseleave',()=>{
+    const pathEl=document.getElementById(`path-${node.id}`);
+    if(pathEl){pathEl.setAttribute('stroke-opacity','0.2');pathEl.setAttribute('stroke-width','1.5');}
+  });
+});
+</script>
+</body>
+</html>

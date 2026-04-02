@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual B — Data / Before-After</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:#04090a;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
+.style-badge{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ff6b35,#ff3d00);color:#fff;padding:6px 20px;border-radius:20px;font-weight:900;font-size:13px;z-index:9999;font-family:'Share Tech Mono',monospace;}
+
+.sec{padding:120px 56px;position:relative;}
+.sec-tag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:#00e676;margin-bottom:20px;opacity:.8;}
+.sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,62px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;}
+.sec-h .g{color:#00e676;}
+.sec-p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:72px;max-width:520px;}
+
+/* ---- BEFORE / AFTER SPLIT ---- */
+.ba-wrap{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin-bottom:80px;}
+
+/* Before side */
+.ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:20px 0 0 20px;padding:40px 36px;}
+.ba-after{background:rgba(0,230,118,.04);border:1px solid rgba(0,230,118,.15);border-radius:0 20px 20px 0;padding:40px 36px;}
+.ba-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:4px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.ba-label.red{color:#ff5252;}
+.ba-label.green{color:#00e676;}
+.ba-label::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.ba-title{font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;margin-bottom:28px;}
+
+/* Bar items */
+.bar-row{margin-bottom:18px;}
+.bar-info{display:flex;justify-content:space-between;margin-bottom:6px;}
+.bar-name{font-size:13px;color:rgba(255,255,255,.6);}
+.bar-val{font-family:'Share Tech Mono',monospace;font-size:13px;}
+.bar-track{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.bar-fill.red{background:linear-gradient(90deg,#ff5252,#ff1744);}
+.bar-fill.green{background:linear-gradient(90deg,#00e676,#00b359);}
+
+/* Divider */
+.ba-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;}
+.ba-divider::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(to bottom,transparent,rgba(0,230,118,.3),transparent);}
+.arrow-box{width:48px;height:48px;border-radius:50%;background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.25);display:flex;align-items:center;justify-content:center;font-size:20px;z-index:1;}
+
+/* ---- WEEK IN LIFE COMPARISON ---- */
+.week-title{font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;margin-bottom:32px;text-align:center;}
+.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.day-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;transition:border-color .3s;}
+.day-card.before-card{border-color:rgba(255,82,82,.12);}
+.day-card.after-card{border-color:rgba(0,230,118,.12);}
+.day-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;margin-bottom:20px;opacity:.6;}
+.day-label.red{color:#ff5252;}
+.day-label.green{color:#00e676;}
+.task-list{display:flex;flex-direction:column;gap:10px;}
+.task-item{display:flex;align-items:center;gap:12px;font-size:14px;}
+.task-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.task-dot.red{background:#ff5252;}
+.task-dot.green{background:#00e676;}
+.task-dot.gray{background:rgba(255,255,255,.2);}
+.task-hours{font-family:'Share Tech Mono',monospace;font-size:12px;color:rgba(255,255,255,.3);margin-right:auto;}
+.task-crossed{text-decoration:line-through;color:rgba(255,255,255,.3);}
+.task-badge{font-size:10px;background:rgba(0,230,118,.1);color:#00e676;border-radius:4px;padding:2px 7px;font-family:'Share Tech Mono',monospace;}
+
+/* Total saved */
+.saved-strip{margin-top:40px;background:linear-gradient(135deg,rgba(0,230,118,.08),rgba(0,230,118,.03));border:1px solid rgba(0,230,118,.2);border-radius:16px;padding:32px 40px;display:flex;justify-content:space-between;align-items:center;}
+.saved-main{font-family:'Outfit',sans-serif;font-size:56px;font-weight:900;color:#00e676;line-height:1;}
+.saved-sub{font-size:14px;color:rgba(255,255,255,.4);margin-top:4px;}
+.saved-cta{background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:14px 36px;border-radius:10px;font-weight:900;text-decoration:none;font-size:15px;}
+</style>
+</head>
+<body>
+<div class="style-badge">ויזואל B — לפני / אחרי + Data</div>
+
+<section class="sec">
+  <div class="sec-tag">הבעיה שאתה לא רואה</div>
+  <h2 class="sec-h">שבוע עבודה — <span class="g">לפני ואחרי</span></h2>
+  <p class="sec-p">ככה נראה שבוע עבודה ממוצע בעסק לפני ואחרי הטמעת AI. המספרים הם ממוצע מלקוחות שלנו.</p>
+
+  <!-- BARS COMPARISON -->
+  <div class="ba-wrap" id="bars-wrap">
+    <div class="ba-before">
+      <div class="ba-label red">לפני — עבודה ידנית</div>
+      <div class="ba-title">40 שעות שבוע — 40% בזבוז</div>
+
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">הזנת נתונים ידנית</span><span class="bar-val" style="color:#ff5252">8 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="80"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">יצירת דוחות ואקסלים</span><span class="bar-val" style="color:#ff5252">5 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="50"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">מעקב ותזכורות ללקוחות</span><span class="bar-val" style="color:#ff5252">4 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="40"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">הצעות מחיר ומסמכים</span><span class="bar-val" style="color:#ff5252">3 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="30"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">תיאום פגישות ומיילים</span><span class="bar-val" style="color:#ff5252">4 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="40"></div></div>
+      </div>
+    </div>
+
+    <div class="ba-divider">
+      <div class="arrow-box">←</div>
+    </div>
+
+    <div class="ba-after">
+      <div class="ba-label green">אחרי — AI עובד בשבילך</div>
+      <div class="ba-title">חוסך 18+ שעות כל שבוע</div>
+
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">הזנת נתונים ידנית</span><span class="bar-val" style="color:#00e676">0.5 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill green" data-w="5"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">יצירת דוחות ואקסלים</span><span class="bar-val" style="color:#00e676">0.5 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill green" data-w="5"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">מעקב ותזכורות ללקוחות</span><span class="bar-val" style="color:#00e676">0 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill green" data-w="2"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">הצעות מחיר ומסמכים</span><span class="bar-val" style="color:#00e676">1 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill green" data-w="10"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-info"><span class="bar-name">תיאום פגישות ומיילים</span><span class="bar-val" style="color:#00e676">0.5 שע'</span></div>
+        <div class="bar-track"><div class="bar-fill green" data-w="5"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK COMPARISON -->
+  <div class="week-grid" style="margin-bottom:40px;">
+    <div class="day-card before-card">
+      <div class="day-label red">שני — בלי AI</div>
+      <div class="task-list">
+        <div class="task-item"><div class="task-dot red"></div><span>ייצוא ידני מ-CRM לאקסל</span><span class="task-hours">2.5 שע'</span></div>
+        <div class="task-item"><div class="task-dot red"></div><span>שליחת תזכורות ללקוחות</span><span class="task-hours">1.5 שע'</span></div>
+        <div class="task-item"><div class="task-dot red"></div><span>הכנת דו"ח שבועי להנהלה</span><span class="task-hours">2 שע'</span></div>
+        <div class="task-item"><div class="task-dot gray"></div><span>עבודה עמוקה / מכירות</span><span class="task-hours">2 שע'</span></div>
+      </div>
+    </div>
+    <div class="day-card after-card">
+      <div class="day-label green">שני — עם AI</div>
+      <div class="task-list">
+        <div class="task-item"><div class="task-dot gray"></div><span class="task-crossed">ייצוא ידני מ-CRM לאקסל</span><span class="task-badge">אוטומטי</span></div>
+        <div class="task-item"><div class="task-dot gray"></div><span class="task-crossed">שליחת תזכורות ללקוחות</span><span class="task-badge">אוטומטי</span></div>
+        <div class="task-item"><div class="task-dot gray"></div><span class="task-crossed">הכנת דו"ח שבועי להנהלה</span><span class="task-badge">אוטומטי</span></div>
+        <div class="task-item"><div class="task-dot green"></div><span>עבודה עמוקה / מכירות</span><span class="task-hours" style="color:#00e676">8 שע'</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAVED STRIP -->
+  <div class="saved-strip">
+    <div>
+      <div class="saved-main" id="saved-num">0</div>
+      <div class="saved-sub">שעות שנחסכות כל שבוע — בממוצע</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:8px;">× 52 שבועות = <span style="color:#00e676;font-weight:800">936 שעות/שנה</span></div>
+      <div style="font-size:13px;color:rgba(255,255,255,.4);">× ₪80 שעה = <span style="color:#00e676;font-weight:800">₪74,880 לשנה</span></div>
+    </div>
+    <a href="https://wa.me/972537453493" target="_blank" class="saved-cta">חשב כמה אתה מאבד ←</a>
+  </div>
+</section>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      setTimeout(() => bar.style.width = bar.dataset.w + '%', 300);
+    });
+    countUp('saved-num', 0, 18, '', 1400);
+    obs.disconnect();
+  }
+}, {threshold:0.3});
+obs.observe(document.getElementById('bars-wrap'));
+
+function countUp(id, from, to, suffix, dur) {
+  const el = document.getElementById(id);
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(from + (to - from) * ease) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>

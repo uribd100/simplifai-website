@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מוקאפ 2 — PREMIUM GLASS</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#04090a;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
+
+.style-badge{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#00e676,#00b359);color:#04090a;padding:6px 20px;border-radius:20px;font-weight:900;font-size:13px;z-index:9999;font-family:'Share Tech Mono',monospace;}
+
+/* NAV */
+nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,9,10,.7);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,230,118,.08);position:sticky;top:0;z-index:100;}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;letter-spacing:-1px;}
+.logo-text span{color:#00e676;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:linear-gradient(135deg,rgba(0,230,118,.15),rgba(0,230,118,.05));border:1px solid rgba(0,230,118,.3)!important;color:#00e676!important;padding:9px 24px;border-radius:8px;font-weight:700!important;}
+
+/* BG ORBS */
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:.4;}
+.orb1{width:600px;height:600px;background:radial-gradient(#00e67630,transparent);top:-200px;right:-100px;}
+.orb2{width:400px;height:400px;background:radial-gradient(#006b3530,transparent);bottom:10%;left:-100px;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 420px;align-items:center;padding:120px 56px 80px;gap:60px;position:relative;}
+
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);border-radius:100px;padding:7px 16px;font-size:12px;color:#00e676;font-family:'Share Tech Mono',monospace;letter-spacing:2px;margin-bottom:32px;}
+.tag-dot{width:6px;height:6px;background:#00e676;border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(48px,6.5vw,86px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:28px;}
+.hero h1 .g{color:#00e676;}
+.hero h1 .dim{color:rgba(255,255,255,.45);}
+
+.hero-sub{font-size:17px;color:rgba(255,255,255,.55);max-width:500px;line-height:1.9;margin-bottom:48px;font-weight:400;}
+
+.hero-actions{display:flex;gap:16px;align-items:center;}
+.btn-main{background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:16px 40px;border-radius:10px;font-weight:900;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 60px rgba(0,230,118,.25);}
+.btn-sec{color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;}
+.btn-sec:hover{color:#fff;}
+
+/* GLASS CARD CLUSTER */
+.card-cluster{display:flex;flex-direction:column;gap:16px;}
+.glass-card{background:rgba(255,255,255,.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.glass-card:hover{border-color:rgba(0,230,118,.2);transform:translateX(-4px);}
+.glass-card::before{content:'';position:absolute;top:0;right:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,#00e676,transparent);opacity:0;transition:opacity .3s;}
+.glass-card:hover::before{opacity:1;}
+.card-n{font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;color:#00e676;line-height:1;margin-bottom:4px;}
+.card-l{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:1px;}
+
+/* SECTION */
+.sec{padding:120px 56px;}
+.sec-tag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:#00e676;margin-bottom:20px;opacity:.8;}
+.sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,62px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;}
+.sec-h .g{color:#00e676;}
+.sec-p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:64px;max-width:520px;}
+
+/* SERVICES — GLASS GRID */
+.services{background:linear-gradient(180deg,#04090a 0%,#061210 100%);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.srv-card{background:rgba(255,255,255,.03);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden;}
+.srv-card:hover{background:rgba(0,230,118,.05);border-color:rgba(0,230,118,.25);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,230,118,.1);}
+.srv-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,230,118,.06),transparent);opacity:0;transition:opacity .3s;}
+.srv-card:hover::after{opacity:1;}
+.srv-icon{font-size:32px;margin-bottom:20px;}
+.srv-h{font-size:18px;font-weight:800;margin-bottom:10px;}
+.srv-p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:16px;}
+.srv-m{font-family:'Share Tech Mono',monospace;font-size:11px;color:#00e676;}
+
+/* ROI CALCULATOR */
+.calc-sec{background:#061210;}
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px;align-items:start;}
+.calc-left h3{font-size:22px;font-weight:800;margin-bottom:8px;}
+.calc-left p{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:40px;line-height:1.8;}
+.slider-group{display:flex;flex-direction:column;gap:28px;}
+.slider-item label{font-size:13px;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;margin-bottom:10px;}
+.slider-item label span{color:#00e676;font-family:'Share Tech Mono',monospace;font-size:15px;}
+input[type=range]{width:100%;accent-color:#00e676;cursor:pointer;}
+
+.result-card{background:rgba(0,230,118,.04);backdrop-filter:blur(20px);border:1px solid rgba(0,230,118,.15);border-radius:20px;padding:40px;position:relative;overflow:hidden;}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#00e676,transparent);}
+.res-item{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;}
+.res-item:last-of-type{border:none;margin-bottom:28px;}
+.res-item.big .res-v{font-size:28px;color:#00e676;}
+.res-k{font-size:13px;color:rgba(255,255,255,.4);}
+.res-v{font-family:'Share Tech Mono',monospace;font-size:18px;color:#fff;}
+.result-cta{display:block;text-align:center;background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:14px;border-radius:10px;font-weight:900;text-decoration:none;font-size:14px;}
+
+/* ABOUT */
+.about{background:#04090a;}
+.about-grid{display:grid;grid-template-columns:360px 1fr;gap:80px;align-items:center;}
+.photo-wrap{position:relative;}
+.photo-wrap img{width:100%;border-radius:20px;display:block;}
+.photo-glow{position:absolute;inset:-20px;background:radial-gradient(ellipse,rgba(0,230,118,.12),transparent 70%);border-radius:50%;z-index:-1;}
+.photo-badge{position:absolute;bottom:-16px;right:-16px;background:rgba(4,9,10,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,230,118,.2);border-radius:12px;padding:14px 20px;}
+.pb-n{font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;color:#00e676;line-height:1;}
+.pb-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;}
+.about-content .sec-p{margin-bottom:32px;}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cred{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 18px;}
+.cred-n{font-family:'Share Tech Mono',monospace;font-size:20px;color:#00e676;margin-bottom:4px;}
+.cred-l{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5;}
+
+/* CTA */
+.final-cta{background:linear-gradient(135deg,rgba(0,230,118,.06) 0%,rgba(0,230,118,.02) 100%);border-top:1px solid rgba(0,230,118,.1);padding:120px 56px;text-align:center;}
+.final-cta h2{font-family:'Outfit',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:20px;}
+.final-cta h2 .g{color:#00e676;}
+.final-cta p{font-size:17px;color:rgba(255,255,255,.45);margin-bottom:44px;}
+.final-cta a{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#00e676,#00b359);color:#040a06;padding:20px 56px;border-radius:12px;font-weight:900;font-size:17px;text-decoration:none;box-shadow:0 0 80px rgba(0,230,118,.3);}
+
+footer{background:#040a06;padding:36px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);}
+.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:18px;}
+.fl span{color:#00e676;}
+.fcopy{font-size:11px;color:rgba(255,255,255,.2);font-family:'Share Tech Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="style-badge">מוקאפ 2 — PREMIUM GLASS</div>
+
+<nav>
+  <div class="logo-text">simplif<span>AI</span></div>
+  <div class="nav-links">
+    <a href="#">הבעיה</a>
+    <a href="#">שירותים</a>
+    <a href="#">מחשבון</a>
+    <a href="#">עלינו</a>
+    <a href="#" class="nav-cta">ייעוץ חינם</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-tag"><span class="tag-dot"></span>זמין לייעוץ — ₪0</div>
+    <h1>מה אם 80%<br>מהעבודה הידנית<br><span class="dim">הייתה</span> <span class="g">נעלמת?</span></h1>
+    <p class="hero-sub">עסקים מאבדים 15–30 שעות בשבוע על משימות שAI יכול לטפל בהן. אנחנו מוצאים אותן — ומחזירים לך את הזמן, תוך 14 יום.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-main">ייעוץ ראשון ללא עלות ←</a>
+      <a href="#" class="btn-sec">ראה איך זה עובד ↓</a>
+    </div>
+  </div>
+  <div class="card-cluster">
+    <div class="glass-card"><div class="card-n">40%</div><div class="card-l">זמן ארגוני מבוזבז</div></div>
+    <div class="glass-card"><div class="card-n">3×</div><div class="card-l">ROI ממוצע</div></div>
+    <div class="glass-card"><div class="card-n">14 יום</div><div class="card-l">מאבחון למערכת פועלת</div></div>
+  </div>
+</section>
+
+<section class="sec services">
+  <div class="sec-tag">השירותים</div>
+  <h2 class="sec-h">מה אנחנו <span class="g">בונים לך</span></h2>
+  <p class="sec-p">שלושה שירותים — מאבחון ועד מערכת פועלת.</p>
+  <div class="srv-grid">
+    <div class="srv-card"><div class="srv-icon">🔍</div><div class="srv-h">אבחון תהליכים</div><p class="srv-p">מיפוי מלא של הזרימה הארגונית. מזהים בדיוק איפה הצוות מאבד זמן.</p><div class="srv-m">→ חוסך 15+ שעות/שבוע</div></div>
+    <div class="srv-card"><div class="srv-icon">⚙️</div><div class="srv-h">כלי AI לשיפור תהליכים</div><p class="srv-p">שילוב כלי AI מתקדמים — סוכנים, LLMs, אוטומציה לתהליך שלך.</p><div class="srv-m">→ ROI ממוצע 3× תוך 60 יום</div></div>
+    <div class="srv-card"><div class="srv-icon">🤖</div><div class="srv-h">שילוב כלי AI</div><p class="srv-p">הטמעת AI בתוך הכלים שכבר יש לך — CRM, מיילים, דוחות.</p><div class="srv-m">→ הטמעה מלאה תוך 14 יום</div></div>
+  </div>
+</section>
+
+<section class="sec calc-sec">
+  <div class="sec-tag">מחשבון חיסכון</div>
+  <h2 class="sec-h">כמה זמן <span class="g">העסק שלך מאבד?</span></h2>
+  <p class="sec-p">הזז את המחוונים — ראה תוצאה בזמן אמת.</p>
+  <div class="calc-wrap">
+    <div class="calc-left">
+      <h3>הכנס נתוני העסק שלך</h3>
+      <p>המחשבון מחשב את הפוטנציאל האמיתי לחיסכון בעסק שלך על בסיס נתונים ממוצעים מהשוק.</p>
+      <div class="slider-group">
+        <div class="slider-item"><label>מספר עובדים <span id="v1">3</span></label><input type="range" min="1" max="20" value="3" id="s1"></div>
+        <div class="slider-item"><label>שעות ידניות/שבוע לעובד <span id="v2">15</span></label><input type="range" min="3" max="40" value="15" id="s2"></div>
+        <div class="slider-item"><label>עלות שעה (₪) <span id="v3">80</span></label><input type="range" min="40" max="250" value="80" step="10" id="s3"></div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="res-item"><span class="res-k">שעות מבוזבזות/חודש</span><span class="res-v" id="r1">—</span></div>
+      <div class="res-item"><span class="res-k">עלות לחודש</span><span class="res-v" id="r2">—</span></div>
+      <div class="res-item big"><span class="res-k">חיסכון פוטנציאלי/חודש</span><span class="res-v" id="r3">—</span></div>
+      <div class="res-item"><span class="res-k">ROI שנתי</span><span class="res-v" id="r4">—</span></div>
+      <a href="#" class="result-cta">ייעוץ חינם — ראה כמה תוכל לחסוך</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec about">
+  <div class="sec-tag">מי אנחנו</div>
+  <div class="about-grid">
+    <div class="photo-wrap">
+      <div class="photo-glow"></div>
+      <img src="../assets/uri-profile.jpg" alt="אורי בר דרור">
+      <div class="photo-badge"><div class="pb-n">10+</div><div class="pb-l">שנות ניסיון</div></div>
+    </div>
+    <div class="about-content">
+      <h2 class="sec-h">מגיעים <span class="g">מהשטח</span></h2>
+      <p class="sec-p">"ניהלתי עסקים עשור לפני שגיליתי AI. אני יודע בדיוק איפה המערכות שלכם נשברות — כי הייתי שם."</p>
+      <div class="creds">
+        <div class="cred"><div class="cred-n">MBA</div><div class="cred-l">תואר שני, בן גוריון</div></div>
+        <div class="cred"><div class="cred-n">10+</div><div class="cred-l">שנות ניהול עסקים</div></div>
+        <div class="cred"><div class="cred-n">AI</div><div class="cred-l">Make, n8n, LLMs</div></div>
+        <div class="cred"><div class="cred-n">100%</div><div class="cred-l">מיקוד ב-ROI מדיד</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2>מוכן לגלות<br><span class="g">כמה זמן אתה מאבד?</span></h2>
+  <p>שיחת אבחון ראשונה — ללא עלות, ללא התחייבות. 45 דקות.</p>
+  <a href="#">שלח הודעה ב-WhatsApp ←</a>
+</section>
+
+<footer>
+  <div class="fl">simplif<span>AI</span></div>
+  <div class="fcopy">© 2026 simplifAI</div>
+</footer>
+
+<script>
+function calc(){
+  const e=+document.getElementById('s1').value,h=+document.getElementById('s2').value,r=+document.getElementById('s3').value;
+  document.getElementById('v1').textContent=e;document.getElementById('v2').textContent=h;document.getElementById('v3').textContent=r;
+  const mh=Math.round(h*e*4.3),mc=Math.round(mh*r),sv=Math.round(mc*.8),roi=Math.max(2,Math.round(sv*12/9000));
+  document.getElementById('r1').textContent=mh+" שע'";document.getElementById('r2').textContent='₪'+mc.toLocaleString('he-IL');
+  document.getElementById('r3').textContent='₪'+sv.toLocaleString('he-IL');document.getElementById('r4').textContent=roi+'× בשנה';
+}
+['s1','s2','s3'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+</script>
+</body>
+</html>

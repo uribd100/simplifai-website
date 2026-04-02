@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>simplifAI — ייעול עסקים בעזרת AI</title>
+<meta name="description" content="simplifAI — בונה מערכות AI ואוטומציה לעסקים. חוסך 10–30 שעות בחודש, הטמעה תוך 14 יום.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="simplifAI — ייעול עסקים בעזרת AI">
+<meta property="og:description" content="בונה מערכות AI שמטפלות בלידים, תיאומים, מסמכים ודוחות — חיסכון אמיתי תוך שבועיים.">
+<meta property="og:image" content="assets/logo-social.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:focus-visible{outline:2px solid #4D8EFF;outline-offset:3px;border-radius:4px;}
 html{scroll-behavior:smooth;}
 body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
 
@@ -123,18 +130,21 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .orbit-ring-3{width:660px;height:660px;border-color:rgba(77,142,255,.04);}
 .orb-node{position:absolute;cursor:pointer;z-index:5;transition:transform .3s;}
 .orb-node:hover{transform:scale(1.1);}
-.orb-circle{width:100px;height:100px;border-radius:50%;background:rgba(6,13,31,.9);border:2px solid rgba(77,142,255,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(77,142,255,.12);transition:all .3s;}
+.orb-circle{width:110px;height:110px;border-radius:50%;background:rgba(6,13,31,.9);border:2px solid rgba(77,142,255,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(77,142,255,.12);transition:all .3s;overflow:hidden;position:relative;}
+.orb-img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) brightness(.9);position:absolute;inset:0;z-index:0;}
+.orb-num{position:relative;z-index:1;text-shadow:0 1px 8px rgba(0,0,0,.8);}
+.orb-icon{position:relative;z-index:1;text-shadow:0 1px 6px rgba(0,0,0,.6);}
 .orb-node:hover .orb-circle{border-color:rgba(77,142,255,.6);box-shadow:0 0 60px rgba(77,142,255,.3);}
 .orb-node.active .orb-circle{border-color:#4D8EFF;box-shadow:0 0 60px rgba(77,142,255,.4);background:rgba(77,142,255,.08);}
 .orb-num{font-family:'Share Tech Mono',monospace;font-size:22px;font-weight:900;color:#4D8EFF;line-height:1;}
 .orb-icon{font-size:20px;}
-.orb-label{position:absolute;font-size:13px;font-weight:700;white-space:nowrap;text-align:center;}
-.orb-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(77,142,255,.5);}
+.orb-label{position:absolute;font-size:16px;font-weight:800;white-space:nowrap;text-align:center;font-family:'Outfit',sans-serif;}
+.orb-sub{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(77,142,255,.6);margin-top:2px;display:block;}
 .orbital-svg{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;}
 .orb-info{position:absolute;left:50%;top:58%;transform:translateX(-50%);background:rgba(6,13,31,.95);border:1px solid rgba(77,142,255,.2);border-radius:16px;padding:24px 28px;max-width:340px;text-align:center;z-index:20;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateX(-50%) translateY(10px);}
 .orb-info.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-.orb-info-title{font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px;}
-.orb-info-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:12px;}
+.orb-info-title{font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;margin-bottom:10px;}
+.orb-info-desc{font-size:16px;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:14px;}
 .orb-info-time{font-family:'Share Tech Mono',monospace;font-size:12px;color:#4D8EFF;background:rgba(77,142,255,.08);border:1px solid rgba(77,142,255,.15);padding:4px 14px;border-radius:100px;display:inline-block;}
 .mobile-timeline{display:none;}
 .mt-step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(77,142,255,.08);}
@@ -167,8 +177,8 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .ba-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
 .ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);position:relative;}
 .ba-image img{width:100%;display:block;filter:none;}
-.ba-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(220,40,40,.6);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(0 0,38% 0,66% 100%,0 100%);}
-.ba-image::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(77,142,255,.6);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(38% 0,100% 0,100% 100%,66% 100%);}
+.ba-image::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
+.ba-image::after{content:'';position:absolute;top:0;left:50%;width:50%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
 .ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;}
 .ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.12);border-radius:20px 0 0 20px;padding:40px 36px;}
 .ba-after{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:0 20px 20px 0;padding:40px 36px;}
@@ -224,7 +234,7 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .faq-q::after{content:'+';font-family:'Share Tech Mono',monospace;font-size:22px;color:#4D8EFF;flex-shrink:0;transition:transform .3s;}
 .faq-item.open .faq-q::after{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-item.open .faq-a{max-height:200px;}
+.faq-item.open .faq-a{max-height:400px;}
 .faq-a-inner{padding:0 28px 24px;font-size:14px;color:rgba(255,255,255,.5);line-height:1.9;}
 
 /* ======= FINAL CTA ======= */
@@ -295,6 +305,9 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .pkg-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
 .pkg-list li{font-size:14px;color:rgba(255,255,255,.65);padding-right:24px;position:relative;line-height:1.5;}
 .pkg-list li::before{content:'✔';position:absolute;right:0;color:#4D8EFF;font-size:11px;top:2px;}
+.pkg-img-wrap{width:100%;height:160px;border-radius:12px;overflow:hidden;margin-bottom:24px;background:rgba(77,142,255,.04);}
+.pkg-img-wrap img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) brightness(1.05);transition:transform .4s ease;}
+.pkg-card:hover .pkg-img-wrap img{transform:scale(1.06);}
 .pkg-note{text-align:center;margin-top:44px;font-size:13px;color:rgba(255,255,255,.3);font-family:'Share Tech Mono',monospace;letter-spacing:1px;}
 
 /* ======= HERO VISUAL DECORATION ======= */
@@ -372,7 +385,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 <body>
 
 <!-- Floating WA -->
-<a class="wa-float" href="https://wa.me/972537453493" target="_blank" aria-label="WhatsApp">
+<a class="wa-float" href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -386,7 +399,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <a href="#calc">מחשבון</a>
     <a href="#about">עלינו</a>
     <a href="#faq">שאלות</a>
-    <a href="https://wa.me/972537453493" target="_blank" class="nav-cta">ייעוץ חינם</a>
+    <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" class="nav-cta">ייעוץ חינם</a>
   </div>
 </nav>
 
@@ -412,7 +425,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <h1>העסק שלך לא צריך עוד עובד.<br><span class="g">הוא צריך מערכת שעושה את העבודה החוזרת במקומך.</span></h1>
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
-      <a href="https://wa.me/972537453493" target="_blank" class="btn-cta">בדיקת התאמה חינם ←</a>
+      <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" class="btn-cta">בדיקת התאמה חינם ←</a>
       <a href="#ecosystem" class="btn-ghost">ראה איך זה עובד ↓</a>
     </div>
     <div class="hero-benefits">
@@ -556,19 +569,19 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <div class="orbital-center-label">simplif<span>AI</span></div>
     </div>
     <div class="orb-node" id="orb-1" style="left:50%;top:2%;transform:translateX(-50%);" data-step="1">
-      <div class="orb-circle"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-1.jpg" alt="אבחון"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">אבחון<br><span class="orb-sub">יום 1–2</span></div>
     </div>
     <div class="orb-node" id="orb-2" style="left:82%;top:42%;transform:translateY(-50%);" data-step="2">
-      <div class="orb-circle"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-2.jpg" alt="תכנון"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">תכנון<br><span class="orb-sub">יום 3–5</span></div>
     </div>
     <div class="orb-node" id="orb-3" style="left:50%;bottom:2%;transform:translateX(-50%);" data-step="3">
-      <div class="orb-circle"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-3.jpg" alt="בנייה"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">בנייה<br><span class="orb-sub">יום 6–12</span></div>
     </div>
     <div class="orb-node" id="orb-4" style="left:2%;top:42%;transform:translateY(-50%);" data-step="4">
-      <div class="orb-circle"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-4.jpg" alt="השקה"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">השקה<br><span class="orb-sub">יום 13–14</span></div>
     </div>
     <div class="orb-info" id="orb-info">
@@ -594,6 +607,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <p class="sec-p">כל עסק שונה. לכן מתחילים מהמקום שהכי משתלם לך.</p>
   <div class="pkg-grid">
     <div class="pkg-card">
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-1.jpg" alt="מפת הכאב" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div>
       <div class="pkg-title">מפת הכאב</div>
       <div class="pkg-desc">פגישה שבה אנחנו מזהים איפה העסק שלך מאבד זמן ומה הכי משתלם לשפר</div>
       <ul class="pkg-list">
@@ -604,6 +618,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <div class="pkg-card pkg-featured">
       <div class="pkg-badge-top">הכי פופולרי</div>
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-2.jpg" alt="ניצחון ראשון" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div>
       <div class="pkg-title">ניצחון ראשון</div>
       <div class="pkg-desc">אוטומציה אחת לבעיה הכי כואבת בעסק שלך — תוצאה מהירה</div>
       <ul class="pkg-list">
@@ -613,6 +628,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       </ul>
     </div>
     <div class="pkg-card">
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-3.jpg" alt="מנוע הצמיחה" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div>
       <div class="pkg-title">מנוע הצמיחה</div>
       <div class="pkg-desc">חיבור של כמה תהליכים למערכת אחת שעובדת בשבילך</div>
       <ul class="pkg-list">
@@ -645,7 +661,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <div class="res-item"><span class="res-k">עלות לחודש</span><span class="res-v" id="r2">—</span></div>
       <div class="res-item big"><span class="res-k">חיסכון פוטנציאלי/חודש</span><span class="res-v" id="r3">—</span></div>
       <div class="res-item"><span class="res-k">ROI שנתי</span><span class="res-v" id="r4">—</span></div>
-      <a href="https://wa.me/972537453493" target="_blank" class="calc-cta btn-cta">ייעוץ חינם — ראה כמה תחסוך ←</a>
+      <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" class="calc-cta btn-cta">ייעוץ חינם — ראה כמה תחסוך ←</a>
     </div>
   </div>
 </section>
@@ -735,15 +751,15 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <canvas class="sec-canvas" id="cta-particles"></canvas>
   <h2>יש בעסק שלך תהליכים שחוזרים על עצמם כל יום?<br>בוא נראה מה אפשר <span class="g">להוריד לך מהראש</span> כבר בשבועיים הקרובים.</h2>
   <p>שיחת אבחון ראשונה — ללא עלות, ללא התחייבות. 45 דקות.</p>
-  <a href="https://wa.me/972537453493" target="_blank" class="btn-cta">קבע שיחת אבחון חינם ←</a>
+  <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" class="btn-cta">קבע שיחת אבחון חינם ←</a>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="fl">simplif<span>AI</span></div>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/uri-bar-dror" target="_blank">LinkedIn</a>
-    <a href="https://wa.me/972537453493" target="_blank">WhatsApp</a>
+    <a href="https://www.linkedin.com/in/uri-bar-dror" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </div>
   <div class="fcopy">© 2026 simplifAI</div>
 </footer>
@@ -842,7 +858,7 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 
 /* ====== MINI PARTICLES (section backgrounds) ====== */
 function miniPts(cvs,n,dist,opa){
-  const ctx=cvs.getContext('2d');let pts=[];
+  const ctx=cvs.getContext('2d');let pts=[],raf=null;
   if(window.innerWidth<768){n=Math.min(n,15);dist=80;}
   function init(){
     cvs.width=cvs.parentElement.offsetWidth||cvs.offsetWidth;
@@ -864,9 +880,14 @@ function miniPts(cvs,n,dist,opa){
       if(d<dist){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
         ctx.strokeStyle=`rgba(77,142,255,${(1-d/dist)*.12*opa})`;ctx.lineWidth=1;ctx.stroke();}
     }
-    requestAnimationFrame(draw);
+    raf=requestAnimationFrame(draw);
   }
-  window.addEventListener('load',init);
+  // Pause when off-screen for performance
+  const visObs=new IntersectionObserver(([e])=>{
+    if(e.isIntersecting){if(!raf){init();draw();}}
+    else{if(raf){cancelAnimationFrame(raf);raf=null;}}
+  },{threshold:0.01});
+  visObs.observe(cvs.parentElement||cvs);
   window.addEventListener('resize',init);
   init();draw();
 }

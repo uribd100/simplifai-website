@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual A — תרשים תהליך מונפש</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:#04090a;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;overflow-x:hidden;}
+
+.style-badge{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#00e676,#00b359);color:#04090a;padding:6px 20px;border-radius:20px;font-weight:900;font-size:13px;z-index:9999;font-family:'Share Tech Mono',monospace;}
+
+/* ---- SECTION WRAPPER ---- */
+.sec{padding:120px 56px;position:relative;}
+.sec-tag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:5px;color:#00e676;margin-bottom:20px;opacity:.8;}
+.sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,62px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px;}
+.sec-h .g{color:#00e676;}
+.sec-p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:72px;max-width:520px;}
+
+/* ---- PROCESS DIAGRAM ---- */
+.process-wrap{position:relative;padding:20px 0 80px;}
+
+/* Horizontal connector line */
+.process-line{position:absolute;top:56px;right:10%;left:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,230,118,.3),rgba(0,230,118,.5),rgba(0,230,118,.3),transparent);}
+.process-line-animated{position:absolute;top:56px;right:10%;width:0%;height:1px;background:linear-gradient(90deg,#00e676,#00b359);transition:width 1.8s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px rgba(0,230,118,.6);}
+.process-line-animated.visible{width:80%;}
+
+/* Steps row */
+.process-steps{display:flex;justify-content:space-between;align-items:flex-start;gap:0;position:relative;z-index:2;}
+
+.step{flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.step.visible{opacity:1;transform:translateY(0);}
+.step:nth-child(1){transition-delay:.1s;}
+.step:nth-child(2){transition-delay:.35s;}
+.step:nth-child(3){transition-delay:.6s;}
+.step:nth-child(4){transition-delay:.85s;}
+
+/* Circle node */
+.step-node{width:112px;height:112px;border-radius:50%;background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.2);display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:28px;transition:all .4s;}
+.step-node:hover{background:rgba(0,230,118,.12);border-color:rgba(0,230,118,.5);transform:scale(1.06);box-shadow:0 0 40px rgba(0,230,118,.2);}
+.step-node::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid transparent;background:linear-gradient(135deg,rgba(0,230,118,.3),transparent,rgba(0,230,118,.1)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;opacity:0;transition:opacity .4s;}
+.step-node:hover::before{opacity:1;}
+
+.step-icon{font-size:36px;line-height:1;}
+.step-num{position:absolute;top:-8px;right:-8px;width:26px;height:26px;background:#00e676;color:#040a06;border-radius:50%;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+
+.step-title{font-size:17px;font-weight:800;margin-bottom:10px;font-family:'Outfit',sans-serif;}
+.step-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;max-width:160px;}
+.step-time{margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:11px;color:#00e676;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.15);padding:4px 12px;border-radius:100px;}
+
+/* ---- CONNECTOR ARROWS (mobile hidden) ---- */
+.arrow-between{flex:0 0 0;display:flex;align-items:flex-start;padding-top:44px;color:rgba(0,230,118,.3);font-size:20px;}
+
+/* ---- STATS ROW BELOW ---- */
+.proof-row{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.proof-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;text-align:center;transition:border-color .3s;}
+.proof-card:hover{border-color:rgba(0,230,118,.2);}
+.proof-n{font-family:'Outfit',sans-serif;font-size:48px;font-weight:900;color:#00e676;line-height:1;margin-bottom:8px;}
+.proof-l{font-size:13px;color:rgba(255,255,255,.4);}
+
+/* Background orbs */
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:.25;}
+.orb1{width:500px;height:500px;background:radial-gradient(#00e67620,transparent);top:-100px;left:-100px;}
+</style>
+</head>
+<body>
+
+<div class="style-badge">ויזואל A — תרשים תהליך מונפש</div>
+
+<section class="sec">
+  <div class="orb orb1"></div>
+  <div class="sec-tag">איך עובד התהליך</div>
+  <h2 class="sec-h">4 שלבים — <span class="g">14 יום</span></h2>
+  <p class="sec-p">מאבחון ממוקד ועד מערכת פועלת. לא חודשים של ייעוץ — תהליך ברור עם תוצאות מדידות.</p>
+
+  <div class="process-wrap" id="process-wrap">
+    <div class="process-line"></div>
+    <div class="process-line-animated" id="pline"></div>
+
+    <div class="process-steps">
+      <div class="step" id="s0">
+        <div class="step-node">
+          <span class="step-icon">🔍</span>
+          <span class="step-num">1</span>
+        </div>
+        <div class="step-title">אבחון</div>
+        <div class="step-desc">מיפוי מלא של התהליכים — איפה הזמן הולך לאיבוד</div>
+        <div class="step-time">יום 1–2</div>
+      </div>
+
+      <div class="step" id="s1">
+        <div class="step-node">
+          <span class="step-icon">📐</span>
+          <span class="step-num">2</span>
+        </div>
+        <div class="step-title">תכנון</div>
+        <div class="step-desc">בניית מפת הפתרון — כלים, אינטגרציות, סדר עדיפויות</div>
+        <div class="step-time">יום 3–5</div>
+      </div>
+
+      <div class="step" id="s2">
+        <div class="step-node">
+          <span class="step-icon">⚙️</span>
+          <span class="step-num">3</span>
+        </div>
+        <div class="step-title">בנייה</div>
+        <div class="step-desc">פיתוח המערכת לצד הפעילות הקיימת — אפס הפרעה</div>
+        <div class="step-time">יום 6–12</div>
+      </div>
+
+      <div class="step" id="s3">
+        <div class="step-node">
+          <span class="step-icon">🚀</span>
+          <span class="step-num">4</span>
+        </div>
+        <div class="step-title">הטמעה</div>
+        <div class="step-desc">העברה חלקה, הדרכה, ומעקב תוצאות ראשוניות</div>
+        <div class="step-time">יום 13–14</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proof Row -->
+  <div class="proof-row">
+    <div class="proof-card">
+      <div class="proof-n" id="n1">0</div>
+      <div class="proof-l">שעות ממוצע שנחסכות בשבוע</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-n" id="n2">0×</div>
+      <div class="proof-l">ROI ממוצע תוך שנה</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-n" id="n3">0 יום</div>
+      <div class="proof-l">מאבחון למערכת פועלת</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      // Animate line
+      document.getElementById('pline').classList.add('visible');
+      // Animate steps
+      document.querySelectorAll('.step').forEach(s => s.classList.add('visible'));
+      // Count up numbers
+      countUp('n1', 0, 18, ' שע\'', 1400);
+      countUp('n2', 0, 3, '×', 1600);
+      countUp('n3', 0, 14, ' יום', 1200);
+      observer.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+observer.observe(document.getElementById('process-wrap'));
+
+function countUp(id, from, to, suffix, duration) {
+  const el = document.getElementById(id);
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(from + (to - from) * ease) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
