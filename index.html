@@ -108,24 +108,42 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .srv-p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:20px;}
 .srv-badge{font-family:'Share Tech Mono',monospace;font-size:11px;color:#4D8EFF;background:rgba(77,142,255,.06);border:1px solid rgba(77,142,255,.12);padding:5px 14px;border-radius:100px;display:inline-block;}
 
-/* ======= PROCESS ======= */
-.process-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
-.process-track{position:relative;padding:20px 0 60px;}
-.process-line-bg{position:absolute;top:56px;right:8%;left:8%;height:1px;background:rgba(77,142,255,.1);}
-.process-line-fill{position:absolute;top:56px;right:8%;width:0;height:1px;background:linear-gradient(90deg,#4D8EFF,#2B6BE0);box-shadow:0 0 8px rgba(77,142,255,.6);transition:width 1.8s cubic-bezier(.4,0,.2,1);}
-.process-line-fill.active{width:84%;}
-.process-steps{display:flex;justify-content:space-between;position:relative;z-index:2;}
-.p-step{flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.p-step.visible{opacity:1;transform:translateY(0);}
-.p-step:nth-child(1){transition-delay:.1s;} .p-step:nth-child(2){transition-delay:.35s;}
-.p-step:nth-child(3){transition-delay:.6s;} .p-step:nth-child(4){transition-delay:.85s;}
-.p-node{width:112px;height:112px;border-radius:50%;position:relative;margin-bottom:24px;overflow:hidden;border:1px solid rgba(77,142,255,.2);transition:all .3s;box-shadow:0 0 20px rgba(77,142,255,.1);}
-.p-node:hover{border-color:rgba(77,142,255,.5);box-shadow:0 0 50px rgba(77,142,255,.25);transform:scale(1.06);}
-.p-node img{width:100%;height:100%;object-fit:cover;filter:saturate(1.3) hue-rotate(70deg);}
-.p-num{position:absolute;top:-4px;right:-4px;width:28px;height:28px;background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;border-radius:50%;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px rgba(255,111,76,.4);}
-.p-title{font-size:17px;font-weight:800;margin-bottom:8px;font-family:'Outfit',sans-serif;}
-.p-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.8;max-width:150px;}
-.p-time{margin-top:12px;font-family:'Share Tech Mono',monospace;font-size:11px;color:#4D8EFF;background:rgba(77,142,255,.06);border:1px solid rgba(77,142,255,.15);padding:4px 12px;border-radius:100px;}
+/* ======= PROCESS — ORBITAL ======= */
+.process-sec{background:linear-gradient(180deg,#060D1F,#0A1530);text-align:center;}
+.orbital-wrap{position:relative;width:100%;max-width:700px;height:700px;margin:0 auto;}
+.orbital-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;text-align:center;}
+.orbital-center-ring{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(77,142,255,.15),rgba(6,13,31,.9));border:2px solid rgba(77,142,255,.4);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(77,142,255,.2);animation:center-pulse 3s ease-in-out infinite;}
+@keyframes center-pulse{0%,100%{box-shadow:0 0 40px rgba(77,142,255,.15);}50%{box-shadow:0 0 80px rgba(77,142,255,.35);}}
+.orbital-center-icon{font-size:40px;}
+.orbital-center-label{margin-top:12px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:900;letter-spacing:-.5px;}
+.orbital-center-label span{color:#4D8EFF;}
+.orbit-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(77,142,255,.08);transform:translate(-50%,-50%);pointer-events:none;}
+.orbit-ring-1{width:300px;height:300px;}
+.orbit-ring-2{width:500px;height:500px;border-style:dashed;border-color:rgba(77,142,255,.06);}
+.orbit-ring-3{width:660px;height:660px;border-color:rgba(77,142,255,.04);}
+.orb-node{position:absolute;cursor:pointer;z-index:5;transition:transform .3s;}
+.orb-node:hover{transform:scale(1.1);}
+.orb-circle{width:100px;height:100px;border-radius:50%;background:rgba(6,13,31,.9);border:2px solid rgba(77,142,255,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(77,142,255,.12);transition:all .3s;}
+.orb-node:hover .orb-circle{border-color:rgba(77,142,255,.6);box-shadow:0 0 60px rgba(77,142,255,.3);}
+.orb-node.active .orb-circle{border-color:#4D8EFF;box-shadow:0 0 60px rgba(77,142,255,.4);background:rgba(77,142,255,.08);}
+.orb-num{font-family:'Share Tech Mono',monospace;font-size:22px;font-weight:900;color:#4D8EFF;line-height:1;}
+.orb-icon{font-size:20px;}
+.orb-label{position:absolute;font-size:13px;font-weight:700;white-space:nowrap;text-align:center;}
+.orb-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(77,142,255,.5);}
+.orbital-svg{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;}
+.orb-info{position:absolute;left:50%;top:58%;transform:translateX(-50%);background:rgba(6,13,31,.95);border:1px solid rgba(77,142,255,.2);border-radius:16px;padding:24px 28px;max-width:340px;text-align:center;z-index:20;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateX(-50%) translateY(10px);}
+.orb-info.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.orb-info-title{font-family:'Outfit',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px;}
+.orb-info-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:12px;}
+.orb-info-time{font-family:'Share Tech Mono',monospace;font-size:12px;color:#4D8EFF;background:rgba(77,142,255,.08);border:1px solid rgba(77,142,255,.15);padding:4px 14px;border-radius:100px;display:inline-block;}
+.mobile-timeline{display:none;}
+.mt-step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(77,142,255,.08);}
+.mt-step:last-child{border:none;}
+.mt-num{width:48px;height:48px;border-radius:50%;background:rgba(77,142,255,.08);border:2px solid rgba(77,142,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:18px;font-weight:900;color:#4D8EFF;flex-shrink:0;}
+.mt-content{flex:1;text-align:right;}
+.mt-title{font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;}
+.mt-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:8px;}
+.mt-time{font-family:'Share Tech Mono',monospace;font-size:11px;color:#4D8EFF;background:rgba(77,142,255,.06);border:1px solid rgba(77,142,255,.12);padding:3px 12px;border-radius:100px;display:inline-block;}
 
 /* ======= ROI CALCULATOR ======= */
 .calc-sec{background:#060D1F;}
@@ -329,9 +347,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   .srv-grid{grid-template-columns:1fr;}
   .pkg-grid{grid-template-columns:1fr;}
   .testi-grid{grid-template-columns:1fr;}
-  .process-steps{flex-wrap:wrap;gap:24px;}
-  .p-step{flex:0 0 calc(50% - 12px);}
-  .process-line-bg,.process-line-fill{display:none;}
+  .orbital-wrap{display:none;}
+  .mobile-timeline{display:block;}
   .calc-inner{grid-template-columns:1fr;gap:32px;}
   .ba-grid{grid-template-columns:1fr;}
   .ba-before{border-radius:16px 16px 0 0;}
@@ -519,21 +536,54 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   </div>
 </section>
 
-<!-- ===== PROCESS ===== -->
+<!-- ===== PROCESS — ORBITAL ===== -->
 <section class="sec process-sec" id="process" style="position:relative;">
   <canvas class="sec-canvas" id="proc-particles"></canvas>
   <span class="sec-tag">איך זה עובד</span>
   <h2 class="sec-h">4 שלבים — <span class="g">14 יום</span></h2>
-  <p class="sec-p">תהליך ברור ומובנה. לא חודשים של ייעוץ — תוצאות מדידות תוך שבועיים.</p>
-  <div class="process-track" id="process-track">
-    <div class="process-line-bg"></div>
-    <div class="process-line-fill" id="proc-line"></div>
-    <div class="process-steps">
-      <div class="p-step"><div class="p-node"><img src="assets/icons/process-1.jpg" alt="אבחון"><span class="p-num">1</span></div><div class="p-title">אבחון</div><div class="p-desc">מיפוי מלא של כל התהליכים</div><div class="p-time">יום 1–2</div></div>
-      <div class="p-step"><div class="p-node"><img src="assets/icons/process-2.jpg" alt="תכנון"><span class="p-num">2</span></div><div class="p-title">תכנון</div><div class="p-desc">מפת פתרון מותאמת אישית</div><div class="p-time">יום 3–5</div></div>
-      <div class="p-step"><div class="p-node"><img src="assets/icons/process-3.jpg" alt="בנייה"><span class="p-num">3</span></div><div class="p-title">בנייה</div><div class="p-desc">פיתוח לצד הפעילות הקיימת</div><div class="p-time">יום 6–12</div></div>
-      <div class="p-step"><div class="p-node"><img src="assets/icons/process-4.jpg" alt="השקה"><span class="p-num">4</span></div><div class="p-title">השקה</div><div class="p-desc">הטמעה, הדרכה, מדידת תוצאות</div><div class="p-time">יום 13–14</div></div>
+  <p class="sec-p" style="margin-left:auto;margin-right:auto;">תהליך ברור ומובנה. לא חודשים של ייעוץ — תוצאות מדידות תוך שבועיים.</p>
+
+  <!-- Desktop: Orbital -->
+  <div class="orbital-wrap" id="orbital-wrap">
+    <div class="orbit-ring orbit-ring-1"></div>
+    <div class="orbit-ring orbit-ring-2"></div>
+    <div class="orbit-ring orbit-ring-3"></div>
+    <svg class="orbital-svg" id="orbital-svg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="orb-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    </svg>
+    <div class="orbital-center">
+      <div class="orbital-center-ring"><div class="orbital-center-icon">🧠</div></div>
+      <div class="orbital-center-label">simplif<span>AI</span></div>
     </div>
+    <div class="orb-node" id="orb-1" style="left:50%;top:2%;transform:translateX(-50%);" data-step="1">
+      <div class="orb-circle"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">אבחון<br><span class="orb-sub">יום 1–2</span></div>
+    </div>
+    <div class="orb-node" id="orb-2" style="left:82%;top:42%;transform:translateY(-50%);" data-step="2">
+      <div class="orb-circle"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">תכנון<br><span class="orb-sub">יום 3–5</span></div>
+    </div>
+    <div class="orb-node" id="orb-3" style="left:50%;bottom:2%;transform:translateX(-50%);" data-step="3">
+      <div class="orb-circle"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">בנייה<br><span class="orb-sub">יום 6–12</span></div>
+    </div>
+    <div class="orb-node" id="orb-4" style="left:2%;top:42%;transform:translateY(-50%);" data-step="4">
+      <div class="orb-circle"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">השקה<br><span class="orb-sub">יום 13–14</span></div>
+    </div>
+    <div class="orb-info" id="orb-info">
+      <div class="orb-info-title" id="info-title"></div>
+      <div class="orb-info-desc" id="info-desc"></div>
+      <div class="orb-info-time" id="info-time"></div>
+    </div>
+  </div>
+
+  <!-- Mobile: Linear timeline -->
+  <div class="mobile-timeline">
+    <div class="mt-step"><div class="mt-num">1</div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
+    <div class="mt-step"><div class="mt-num">2</div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
+    <div class="mt-step"><div class="mt-num">3</div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
+    <div class="mt-step"><div class="mt-num">4</div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
   </div>
 </section>
 
@@ -835,21 +885,67 @@ document.querySelectorAll('.sec,.eco-sec,.final-cta').forEach((sec,i)=>{
   if(c)miniPts(c,id==='cta-particles'?70:55,150,id==='cta-particles'?0.6:0.45);
 });
 
+/* ====== ORBITAL PROCESS INTERACTION ====== */
+const orbSteps=[
+  {title:'אבחון',desc:'מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה הכי משתלם לייעל.',time:'יום 1–2'},
+  {title:'תכנון',desc:'מפת פתרון מותאמת אישית עם ROI צפוי ברור. אתה מאשר — אנחנו מתקדמים.',time:'יום 3–5'},
+  {title:'בנייה',desc:'פיתוח המערכת לצד הפעילות הקיימת — שום דבר לא נשבר.',time:'יום 6–12'},
+  {title:'השקה',desc:'הטמעה, הדרכה קצרה, ומדידת תוצאות מיידית.',time:'יום 13–14'}
+];
+document.querySelectorAll('.orb-node').forEach(node=>{
+  node.addEventListener('click',()=>{
+    const idx=parseInt(node.dataset.step)-1;
+    const info=document.getElementById('orb-info');
+    const wasActive=node.classList.contains('active');
+    document.querySelectorAll('.orb-node').forEach(n=>n.classList.remove('active'));
+    if(wasActive){info.classList.remove('show');return;}
+    node.classList.add('active');
+    document.getElementById('info-title').textContent=orbSteps[idx].title;
+    document.getElementById('info-desc').textContent=orbSteps[idx].desc;
+    document.getElementById('info-time').textContent=orbSteps[idx].time;
+    info.classList.add('show');
+  });
+});
+/* SVG connector arcs */
+(function(){
+  const svg=document.getElementById('orbital-svg');
+  if(!svg)return;
+  const cx=350,cy=350,r=240;
+  const angles=[270,0,90,180];
+  for(let i=0;i<4;i++){
+    const a1=angles[i]*Math.PI/180,a2=angles[(i+1)%4]*Math.PI/180;
+    const x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+    const x2=cx+r*Math.cos(a2),y2=cy+r*Math.sin(a2);
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${x1},${y1} A${r},${r} 0 0 1 ${x2},${y2}`);
+    path.setAttribute('stroke','#4D8EFF');path.setAttribute('stroke-opacity','0.12');
+    path.setAttribute('stroke-width','1.5');path.setAttribute('fill','none');
+    path.setAttribute('stroke-dasharray','4 6');
+    const pid='oarc-'+i;path.setAttribute('id',pid);svg.appendChild(path);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r','3');c.setAttribute('fill','#4D8EFF');c.setAttribute('filter','url(#orb-glow)');
+    const am=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    am.setAttribute('dur',`${3+i*.5}s`);am.setAttribute('repeatCount','indefinite');am.setAttribute('begin',`${i*.8}s`);
+    const mp=document.createElementNS('http://www.w3.org/2000/svg','mpath');
+    mp.setAttribute('href',`#${pid}`);am.appendChild(mp);c.appendChild(am);
+    const oa=document.createElementNS('http://www.w3.org/2000/svg','animate');
+    oa.setAttribute('attributeName','opacity');oa.setAttribute('values','0;1;1;0');
+    oa.setAttribute('keyTimes','0;0.1;0.9;1');oa.setAttribute('dur',`${3+i*.5}s`);
+    oa.setAttribute('repeatCount','indefinite');oa.setAttribute('begin',`${i*.8}s`);
+    c.appendChild(oa);svg.appendChild(c);
+  }
+})();
+
 /* ====== SCROLL ANIMATIONS ====== */
 const observer=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(!e.isIntersecting)return;
-    const id=e.target.id;
-    if(id==='process-track'){
-      document.getElementById('proc-line').classList.add('active');
-      document.querySelectorAll('.p-step').forEach(s=>s.classList.add('visible'));
-    }
-    if(id==='ba-grid'){
+    if(e.target.id==='ba-grid'){
       setTimeout(()=>document.querySelectorAll('.bar-fill').forEach(b=>b.style.width=b.dataset.w+'%'),200);
     }
   });
 },{threshold:0.3});
-['process-track','ba-grid'].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
+['ba-grid'].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 </script>
 </body>
 </html>
