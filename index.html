@@ -20,9 +20,13 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 /* ======= NAV ======= */
 nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
 /* LOGO */
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;position:relative;}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;position:relative;direction:ltr;display:inline-flex;align-items:center;unicode-bidi:bidi-override;}
 .logo-text span{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);display:inline-block;animation:logo-wave 4s ease-in-out infinite;}
 @keyframes logo-wave{0%,100%{transform:translateY(0);text-shadow:0 0 20px rgba(77,142,255,.5);}50%{transform:translateY(-3px);text-shadow:0 0 32px rgba(77,142,255,.8);}}
+/* Orbit dot */
+.logo-orbit{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;}
+.logo-orbit::before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 8px #4D8EFF,0 0 16px rgba(77,142,255,.3);animation:logo-orb 5s linear infinite;}
+@keyframes logo-orb{0%{top:50%;left:-4px;}25%{top:-4px;left:50%;}50%{top:50%;left:calc(100% + 4px);}75%{top:calc(100% + 4px);left:50%;}100%{top:50%;left:-4px;}}
 .nav-links{display:flex;gap:28px;align-items:center;}
 .nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:#fff;}
@@ -153,7 +157,6 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .mt-step:last-child{border:none;}
 .mt-num{width:56px;height:56px;border-radius:50%;border:2px solid rgba(77,142,255,.3);flex-shrink:0;overflow:hidden;position:relative;box-shadow:0 0 16px rgba(77,142,255,.1);}
 .mt-num img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) brightness(.9);}
-.mt-num span{position:absolute;top:2px;right:2px;width:20px;height:20px;background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;border-radius:50%;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 0 6px rgba(255,111,76,.4);}
 .mt-content{flex:1;text-align:right;}
 .mt-title{font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;}
 .mt-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:8px;}
@@ -251,7 +254,7 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 
 /* ======= FOOTER ======= */
 footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);}
-.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;}
+.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;direction:ltr;unicode-bidi:bidi-override;display:inline-flex;}
 .fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
 .footer-links{display:flex;gap:24px;align-items:center;}
 .footer-links a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;}
@@ -397,7 +400,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo-text">simplif<span>AI</span></div>
+  <div class="logo-text">simplif<span>AI</span><div class="logo-orbit"></div></div>
   <div class="nav-links">
     <a href="#services">שירותים</a>
     <a href="#process">תהליך</a>
@@ -601,10 +604,10 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
   <!-- Mobile: Linear timeline -->
   <div class="mobile-timeline">
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.jpg" alt="אבחון"><span>1</span></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.jpg" alt="תכנון"><span>2</span></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.jpg" alt="בנייה"><span>3</span></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.jpg" alt="השקה"><span>4</span></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.jpg" alt="אבחון"></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.jpg" alt="תכנון"></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.jpg" alt="בנייה"></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.jpg" alt="השקה"></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
   </div>
 </section>
 
