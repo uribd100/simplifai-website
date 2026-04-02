@@ -200,8 +200,69 @@
     @keyframes spin{to{transform:rotate(360deg);}}
     @keyframes pulse{0%,100%{opacity:.15;transform:scale(1);}50%{opacity:.3;transform:scale(1.06);}}
 
+    /* ── FLOATING WHATSAPP ── */
+    .wa-float{position:fixed;bottom:28px;left:28px;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.5);z-index:9000;text-decoration:none;animation:wa-pulse 2.5s infinite;}
+    .wa-float svg{width:28px;height:28px;fill:#fff;}
+    @keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.35);}60%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 14px rgba(37,211,102,0);}}
+
+    /* ── GLASSMORPHISM UPGRADES ── */
+    .hstat{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .25s,box-shadow .25s,border-color .25s;}
+    .hstat:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,230,118,.15);border-color:rgba(0,230,118,.35);}
+    .srv{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+    .step{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+
+    /* ── ROI CALCULATOR ── */
+    .roi-sec{background:var(--bg2);}
+    .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start;}
+    .calc-inputs{display:flex;flex-direction:column;gap:28px;}
+    .slider-row{display:flex;flex-direction:column;gap:10px;}
+    .slider-row label{font-size:14px;color:var(--muted2);font-weight:500;}
+    .slider-row label span{color:var(--green);font-family:'Share Tech Mono',monospace;font-size:16px;}
+    input[type=range]{width:100%;accent-color:var(--green);cursor:pointer;height:4px;}
+    .calc-result{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:36px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+    .calc-result::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+    .res-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);}
+    .res-row:last-of-type{border-bottom:none;margin-bottom:20px;}
+    .res-row.hi{background:var(--green-dim);margin:0 -36px;padding:14px 36px;}
+    .res-label{font-size:13px;color:var(--muted2);}
+    .res-val{font-family:'Share Tech Mono',monospace;font-size:18px;color:var(--white);}
+    .res-val.gv{color:var(--green);font-size:22px;}
+    .calc-cta{text-align:center;justify-content:center;font-size:14px;padding:14px 24px;margin-top:4px;}
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+    .testi-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:transform .25s,border-color .25s;backdrop-filter:blur(8px);}
+    .testi-card:hover{transform:translateY(-4px);border-color:rgba(0,230,118,.3);}
+    .stars{color:var(--green);font-size:16px;letter-spacing:2px;}
+    .testi-quote{font-size:15px;color:var(--muted2);line-height:1.8;flex:1;}
+    .testi-author{border-top:1px solid var(--border);padding-top:14px;}
+    .testi-name{font-size:15px;font-weight:700;color:var(--white);}
+    .testi-role{font-size:12px;color:var(--muted);margin-top:2px;}
+
+    /* ── FOUNDER PHOTO ── */
+    .about-grid-3{display:grid;grid-template-columns:160px 1fr 1.4fr;gap:56px;align-items:start;}
+    .founder-photo{display:flex;flex-direction:column;align-items:center;gap:10px;}
+    .founder-photo img{width:140px;height:140px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(0,230,118,.4);box-shadow:0 0 40px rgba(0,230,118,.2);}
+    .founder-badge{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--green);letter-spacing:2px;text-align:center;text-transform:uppercase;}
+
+    /* ── FAQ ── */
+    .faq-list{max-width:780px;margin:48px auto 0;display:flex;flex-direction:column;gap:10px;}
+    .faq-item{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .25s;}
+    .faq-item.open{border-color:rgba(0,230,118,.3);}
+    .faq-q{width:100%;background:none;border:none;color:var(--white);font-family:'Heebo',sans-serif;font-size:16px;font-weight:700;padding:20px 24px;text-align:right;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+    .faq-icon{color:var(--green);font-size:20px;transition:transform .3s;flex-shrink:0;line-height:1;}
+    .faq-item.open .faq-icon{transform:rotate(45deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+    .faq-item.open .faq-a{max-height:200px;}
+    .faq-a p{padding:0 24px 20px;font-size:14px;color:var(--muted2);line-height:1.8;}
+
+    /* ── FOOTER SOCIAL ── */
+    .footer-social{display:flex;gap:20px;align-items:center;}
+    .footer-social a{color:var(--muted);font-size:12px;text-decoration:none;transition:color .2s;font-family:'Share Tech Mono',monospace;letter-spacing:1px;}
+    .footer-social a:hover{color:var(--green);}
+
     /* ── RESPONSIVE ── */
-    @media(max-width:900px){
+    @media(max-width:900px){.calc-grid,.testi-grid,.about-grid-3{grid-template-columns:1fr;}}
       .hero{grid-template-columns:1fr;padding:100px 24px 60px;}
       .hero-stats{flex-direction:row;justify-content:center;}
       .prob-grid,.about-grid{grid-template-columns:1fr;}
@@ -234,12 +295,18 @@
   </div>
   <div class="nav-links">
     <a href="#problem">הבעיה</a>
-    <a href="#how">איך עובד</a>
+    <a href="#calc">מחשבון</a>
     <a href="#services">שירותים</a>
+    <a href="#faq">שאלות</a>
     <a href="#about">עלינו</a>
     <a href="https://wa.me/972537453493" class="nav-cta">דברו איתנו</a>
   </div>
 </nav>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/972537453493" target="_blank" aria-label="שלח הודעה ב-WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.008-.37-.01-.57-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zm-5.42 7.4h-.004a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37A9.86 9.86 0 012.16 12C2.16 6.44 6.6 2 12.05 2c2.64 0 5.12 1.03 6.99 2.9A9.82 9.82 0 0121.93 12c-.003 5.45-4.44 9.88-9.885 9.88zM20.45 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.005c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.42z"/></svg>
+</a>
 
 <!-- HERO -->
 <section class="hero">
@@ -247,10 +314,10 @@
   <div>
     <div class="hero-label">simplifai — business optimization — 2026</div>
     <h1>
-      <span class="line"><span class="line-inner">העסק שלך יכול</span></span>
-      <span class="line"><span class="line-inner">לרוץ חכם יותר.</span></span>
+      <span class="line"><span class="line-inner">מה אם 80% מהעבודה</span></span>
+      <span class="line"><span class="line-inner">הידנית הייתה נעלמת?</span></span>
     </h1>
-    <p class="hero-sub">אנחנו מאתרים את התהליכים שסוחטים את הזמן שלך — ומשפרים אותם עם AI. לגמרי.</p>
+    <p class="hero-sub">עסקים מאבדים 15–30 שעות בשבוע על משימות שAI יכול לטפל בהן.<br>אנחנו מוצאים אותן — ומחזירים לך את הזמן, תוך 14 יום.</p>
     <div class="hero-actions">
       <a href="https://wa.me/972537453493" class="btn-primary">
         ייעוץ ראשון — ללא עלות
@@ -318,6 +385,51 @@
         <div class="prob-card-top"><h3>כסף שנשאר על השולחן</h3><span class="tag-red">−₪12K+/חודש</span></div>
         <p>4 עובדים מתוך 10 עובדים על משימות שמערכת תעשה טוב יותר — זו משכורת שיוצאת בלי לייצר ערך.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="sec roi-sec" id="calc">
+  <div class="sec-label r">מחשבון חיסכון</div>
+  <h2 class="sec-title r d1">כמה זמן <span class="accent">העסק שלך מאבד?</span></h2>
+  <p class="sec-sub r d2">הזז את המחוונים — ראה תוצאה בזמן אמת. ללא עלות, ללא הרשמה.</p>
+  <div class="calc-grid r">
+    <div class="calc-inputs">
+      <div class="slider-row">
+        <label>מספר עובדים / אנשי צוות: <span id="val-emp">3</span></label>
+        <input type="range" id="s-emp" min="1" max="20" value="3">
+      </div>
+      <div class="slider-row">
+        <label>שעות עבודה ידנית/חוזרת בשבוע לעובד: <span id="val-hrs">15</span></label>
+        <input type="range" id="s-hrs" min="3" max="40" value="15">
+      </div>
+      <div class="slider-row">
+        <label>עלות שעת עבודה (₪): <span id="val-rate">80</span></label>
+        <input type="range" id="s-rate" min="40" max="250" value="80" step="10">
+      </div>
+    </div>
+    <div class="calc-result">
+      <div class="res-row">
+        <span class="res-label">שעות מבוזבזות לחודש</span>
+        <span class="res-val" id="r-hrs">—</span>
+      </div>
+      <div class="res-row">
+        <span class="res-label">עלות לעסק לחודש</span>
+        <span class="res-val" id="r-cost">—</span>
+      </div>
+      <div class="res-row hi">
+        <span class="res-label">חיסכון פוטנציאלי / חודש</span>
+        <span class="res-val gv" id="r-save">—</span>
+      </div>
+      <div class="res-row">
+        <span class="res-label">ROI שנתי משוער</span>
+        <span class="res-val gv" id="r-roi">—</span>
+      </div>
+      <a href="https://wa.me/972537453493" class="btn-primary calc-cta">
+        ייעוץ חינם — ראה כמה תוכל לחסוך
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-8 8-1.4-1.4L17.2 13H4v-2h13.2l-6.6-6.6L12 3l8 9z" transform="scale(-1,1) translate(-24,0)"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -456,11 +568,48 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="sec" style="background:var(--bg2);" id="testimonials">
+  <div class="sec-label r">מה אומרים עלינו</div>
+  <h2 class="sec-title r d1">תוצאות <span class="accent">אמיתיות</span></h2>
+  <p class="sec-sub r d2">מנהלים ובעלי עסקים שעברו את התהליך.</p>
+  <div class="testi-grid">
+    <div class="testi-card r">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"לפני שעבדתי עם אורי, הצוות שלי בזבז 3 שעות ביום על דוחות ידניים. היום זה קורה לבד. ROI תוך חודש וחצי."</p>
+      <div class="testi-author">
+        <div class="testi-name">מנהל תפעול</div>
+        <div class="testi-role">חברת שירותים, דרום</div>
+      </div>
+    </div>
+    <div class="testi-card r d1">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"חשבתי שזה מסובך מדי לעסק שלי. אורי הסביר הכל, בנה הכל — ואנחנו חוסכים 20 שעות עבודה בשבוע."</p>
+      <div class="testi-author">
+        <div class="testi-name">בעלים</div>
+        <div class="testi-role">עסק קמעונאי, מרכז</div>
+      </div>
+    </div>
+    <div class="testi-card r d2">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"הייתי סקפטי לגבי AI. אחרי שיחת האבחון הראשונה הבנתי שיש כאן ערך אמיתי. המערכת עובדת בלי שאני מגע."</p>
+      <div class="testi-author">
+        <div class="testi-name">מנהל בכיר</div>
+        <div class="testi-role">חברת הנדסה, צפון</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="sec about-sec" id="about">
   <div class="sec-label r">למה simplifAI</div>
   <h2 class="sec-title r d1">מגיעים<br><span class="accent">מהשטח</span></h2>
-  <div class="about-grid">
+  <div class="about-grid-3">
+    <div class="founder-photo r">
+      <img src="assets/uri-profile.jpg" alt="אורי בר דרור — מייסד simplifAI">
+      <div class="founder-badge">אורי בר דרור<br>מייסד simplifAI</div>
+    </div>
     <div class="ametrics r">
       <div class="amet"><span class="mn">10+</span><span class="ml">שנות ניהול עסקים בפועל — לא ייעוץ מהצד</span></div>
       <div class="amet"><span class="mn">MBA</span><span class="ml">תואר שני בניהול עסקים — בן גוריון</span></div>
@@ -470,6 +619,38 @@
     <div class="about-text">
       <div class="quote r d1">"ניהלתי עסקים עשור לפני שגיליתי AI.<br><em>אני יודע בדיוק איפה המערכות שלכם נשברות —</em><br>כי הייתי שם."</div>
       <p class="about-body r d2">לא ייעוץ תיאורטי. לא סטארטאפ שמכיר עסקים מהאוניברסיטה.<br><br>עשור של ניהול בפועל — עסק משפחתי, נדל"ן, הנדסה, אירועים — לימד אותי איפה התהליכים נשברים. כשגיליתי כלי AI ואוטומציה, הכל התחבר.<br><br><strong style="color:var(--white);">simplifAI בנויה על שילוב נדיר: ניסיון ניהולי עמוק + יכולת טכנולוגית + הבנה של מה שמשפיע על השורה התחתונה.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec prob-bg" id="faq">
+  <div class="sec-label r">שאלות נפוצות</div>
+  <h2 class="sec-title r d1" style="text-align:center;">כל מה שרצית <span class="accent">לשאול</span></h2>
+  <div class="faq-list">
+    <div class="faq-item r">
+      <button class="faq-q">כמה זמן לוקח להטמיע? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>14 יום מרגע אבחון ועד מערכת פועלת. לעסקים מורכבים יותר — עד 3 שבועות. אין הפתעות.</p></div>
+    </div>
+    <div class="faq-item r d1">
+      <button class="faq-q">האם אני צריך ידע טכני? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>בכלל לא. אנחנו מטפלים בכל הצד הטכני — מהאפיון, דרך הבנייה, ועד הדרכת הצוות. אתה רק צריך להגיד לנו מה הבעיה.</p></div>
+    </div>
+    <div class="faq-item r d2">
+      <button class="faq-q">האם זה יפריע לעבודה השוטפת? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>לא. בונים את המערכת לצד, בלי לנגוע בתהליכים הקיימים. רק כשהכל מוכן ונבדק — עוברים.</p></div>
+    </div>
+    <div class="faq-item r d3">
+      <button class="faq-q">לאיזה גודל עסק זה מתאים? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>מעסק עצמאי עם עובד אחד ועד חברות של 50 איש. ככל שיש יותר עבודה חוזרת — כך ה-ROI גבוה יותר.</p></div>
+    </div>
+    <div class="faq-item r d4">
+      <button class="faq-q">אילו כלים אתם משתמשים? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Make, n8n, Claude AI, ChatGPT, ועוד — לפי מה שהכי מתאים לעסק שלך. לא עובדים עם כלי אחד — עובדים עם מה שנותן תוצאה.</p></div>
+    </div>
+    <div class="faq-item r">
+      <button class="faq-q">מה אם אני לא מרוצה? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>ייעוץ ראשון ללא עלות, ללא התחייבות. אם אחרי 45 דקות אין פה ערך — לא ממשיכים. פשוט כך.</p></div>
     </div>
   </div>
 </section>
@@ -503,6 +684,10 @@
       <span style="font-family:'Outfit',sans-serif;font-weight:900;font-size:18px;letter-spacing:-0.5px"><span style="color:#fff">simplif</span><span style="color:#00e676">AI</span></span>
       <span style="font-family:'Heebo',sans-serif;font-weight:400;font-size:8px;color:#8aab96;letter-spacing:1px">מפשטים עסקים. בעזרת AI.</span>
     </div>
+  </div>
+  <div class="footer-social">
+    <a href="https://linkedin.com/in/uri-bar-dror" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/972537453493" target="_blank">WhatsApp</a>
   </div>
   <div class="fcopy">© 2026 simplifAI — ייעול עסקים בעזרת AI</div>
 </footer>
@@ -559,6 +744,39 @@ const bObs = new IntersectionObserver(entries => {
   });
 },{threshold:.3});
 document.querySelectorAll('.ba-card').forEach(c => bObs.observe(c));
+
+// ROI Calculator
+function calcROI(){
+  const emp=+document.getElementById('s-emp').value;
+  const hrs=+document.getElementById('s-hrs').value;
+  const rate=+document.getElementById('s-rate').value;
+  document.getElementById('val-emp').textContent=emp;
+  document.getElementById('val-hrs').textContent=hrs;
+  document.getElementById('val-rate').textContent=rate;
+  const monthHrs=Math.round(hrs*emp*4.3);
+  const monthCost=Math.round(monthHrs*rate);
+  const saving=Math.round(monthCost*0.8);
+  const roiX=Math.max(2,Math.round((saving*12)/9000));
+  document.getElementById('r-hrs').textContent=monthHrs.toLocaleString('he-IL')+" שע'";
+  document.getElementById('r-cost').textContent='₪'+monthCost.toLocaleString('he-IL');
+  document.getElementById('r-save').textContent='₪'+saving.toLocaleString('he-IL');
+  document.getElementById('r-roi').textContent=roiX+'× בשנה';
+}
+['s-emp','s-hrs','s-rate'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('input',calcROI);
+});
+calcROI();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
 
 // Nav scroll
 window.addEventListener('scroll',()=>{
