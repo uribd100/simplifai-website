@@ -177,8 +177,7 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .ba-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
 .ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);position:relative;}
 .ba-image img{width:100%;display:block;filter:none;}
-.ba-image::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
-.ba-image::after{content:'';position:absolute;top:0;left:50%;width:50%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
+.ba-image::before,.ba-image::after{display:none;}
 .ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;}
 .ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.12);border-radius:20px 0 0 20px;padding:40px 36px;}
 .ba-after{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:0 20px 20px 0;padding:40px 36px;}
@@ -323,7 +322,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .eco-mobile{display:none;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px;}
 .eco-m-node{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:20px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;transition:border-color .3s;}
 .eco-m-node:hover{border-color:rgba(77,142,255,.3);}
-.eco-m-icon{font-size:30px;}
+.eco-m-icon{width:56px;height:56px;border-radius:50%;overflow:hidden;border:1px solid rgba(77,142,255,.2);box-shadow:0 0 12px rgba(77,142,255,.1);}
+.eco-m-icon img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) hue-rotate(70deg);}
 .eco-m-name{font-size:14px;font-weight:700;}
 .eco-m-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(77,142,255,.55);}
 .eco-m-tip{font-size:12px;color:rgba(255,255,255,.35);line-height:1.4;}
@@ -370,6 +370,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   .about-grid{grid-template-columns:1fr;gap:40px;}
   .photo-wrap{max-width:260px;margin:0 auto;}
   footer{flex-direction:column;gap:16px;padding:28px 24px;text-align:center;}
+  .wa-float{width:52px;height:52px;bottom:20px;left:20px;}
+  .wa-float svg{width:26px;height:26px;}
   .final-cta{padding:80px 24px;}
   .final-cta h2{font-size:clamp(30px,7vw,46px);letter-spacing:-1px;}
   .pkg-note{font-size:12px;}
@@ -421,7 +423,6 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <span class="float-label fl5">DATA_PROCESSED</span>
   <span class="float-label fl6">AUTO_REPLY_SENT</span>
   <div class="hero-content">
-    <div class="hero-tag"><span class="tag-dot"></span>זמין לייעוץ — ₪0 &nbsp;|&nbsp; AI READY</div>
     <h1>העסק שלך לא צריך עוד עובד.<br><span class="g">הוא צריך מערכת שעושה את העבודה החוזרת במקומך.</span></h1>
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
@@ -497,12 +498,12 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <!-- Mobile fallback: simple card grid -->
     <div class="eco-mobile">
-      <div class="eco-m-node"><div class="eco-m-icon">📧</div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon">📊</div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon">📈</div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים לבד</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon">📋</div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon">📅</div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות ותזכורות אוטומטיות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon">💬</div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/email.jpg" alt="Email"></div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/crm.jpg" alt="CRM"></div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/reports.jpg" alt="Reports"></div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים לבד</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/sheets.jpg" alt="Sheets"></div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/calendar.jpg" alt="Calendar"></div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות ותזכורות אוטומטיות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/whatsapp.jpg" alt="WhatsApp"></div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
     </div>
   </div>
 </section>
