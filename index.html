@@ -1031,6 +1031,10 @@ function closeLeadForm(){
   document.getElementById('leadOverlay').classList.remove('open');
   document.body.style.overflow='';
 }
+/* Form event listeners are below the modal HTML */
+
+/*FORM_EVENTS_PLACEHOLDER*/
+function initFormEvents(){
 document.getElementById('leadOverlay').addEventListener('click',function(e){
   if(e.target===this)closeLeadForm();
 });
@@ -1077,6 +1081,7 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     alert('שגיאה בשליחה. נסה שוב.');
   });
 });
+} /* end initFormEvents */
 
 /* ====== GA4 CONVERSION EVENTS ====== */
 /* ROI calculator interaction */
@@ -1184,6 +1189,7 @@ if(waFloat){
 </form>
 </div>
 </div>
+<script>initFormEvents();</script>
 
 </body>
 </html>
