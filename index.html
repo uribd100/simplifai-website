@@ -11,8 +11,6 @@
 <meta property="og:image" content="assets/logo-social.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<!-- Tally Form Embed -->
-<script src="https://tally.so/widgets/embed.js" async></script>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
@@ -398,6 +396,32 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   .audience-grid{grid-template-columns:1fr;}
   .nav-cta{padding:7px 16px;font-size:13px;}
 }
+
+/* ====== LEAD FORM MODAL ====== */
+.form-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;}
+.form-overlay.open{display:flex;}
+.lead-form{background:#0A1628;border:1px solid rgba(77,142,255,.2);border-radius:16px;padding:36px 32px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;position:relative;direction:rtl;text-align:right;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.lead-form h2{font-size:22px;margin-bottom:4px;color:#fff;}
+.lead-form .form-sub{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:24px;}
+.lead-form label{display:block;color:rgba(255,255,255,.6);font-size:13px;margin-bottom:6px;margin-top:16px;}
+.lead-form input,.lead-form select{width:100%;padding:12px 14px;background:#060D1F;border:1px solid rgba(77,142,255,.15);border-radius:8px;color:#fff;font-size:15px;font-family:'Heebo',sans-serif;outline:none;transition:border .3s;}
+.lead-form input:focus,.lead-form select:focus{border-color:#4D8EFF;}
+.lead-form select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234D8EFF' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 14px center;}
+.lead-form select option{background:#0A1628;color:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-submit{width:100%;margin-top:24px;padding:14px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:'Heebo',sans-serif;transition:transform .2s,box-shadow .2s;}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,111,76,.4);}
+.form-submit:disabled{opacity:.6;cursor:wait;transform:none;}
+.form-close{position:absolute;top:12px;left:12px;background:none;border:none;color:rgba(255,255,255,.4);font-size:24px;cursor:pointer;line-height:1;}
+.form-close:hover{color:#fff;}
+.form-success{text-align:center;padding:40px 20px;}
+.form-success h3{font-size:24px;color:#4D8EFF;margin-bottom:12px;}
+.form-success p{color:rgba(255,255,255,.6);margin-bottom:8px;}
+.form-success .roi-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
+.form-success .roi-card{background:#060D1F;border-radius:10px;padding:16px;border:1px solid rgba(77,142,255,.15);}
+.form-success .roi-val{font-size:22px;font-weight:700;color:#4D8EFF;}
+.form-success .roi-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
+@media(max-width:600px){.form-row{grid-template-columns:1fr;}.lead-form{padding:28px 20px;}}
 </style>
 </head>
 <body>
@@ -995,22 +1019,64 @@ const observer=new IntersectionObserver((entries)=>{
 },{threshold:0.3});
 ['ba-grid'].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 
-/* ====== LEAD FORM (Tally Popup) ====== */
+/* ====== LEAD FORM MODAL ====== */
+var APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbyPP8_qZyUO5oYEIz-OSy6etEW65TUBkv5SvmsCM957-P1-nJ2UUMbbUu4bqSQHorvVeA/exec';
+
 function openLeadForm(){
   if(typeof gtag==='function')gtag('event','form_open',{event_category:'lead'});
-  if(window.Tally){
-    Tally.openPopup('TALLY_FORM_ID',{
-      width:500,
-      emoji:{text:'📊',animation:'wave'},
-      autoClose:3000,
-      onSubmit:function(){
-        if(typeof gtag==='function')gtag('event','form_submit',{event_category:'lead'});
-      }
-    });
-  } else {
-    window.open('https://tally.so/r/TALLY_FORM_ID','_blank');
-  }
+  document.getElementById('leadOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
+function closeLeadForm(){
+  document.getElementById('leadOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('leadOverlay').addEventListener('click',function(e){
+  if(e.target===this)closeLeadForm();
+});
+
+document.getElementById('leadFormEl').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(typeof gtag==='function')gtag('event','form_submit',{event_category:'lead'});
+  var btn=this.querySelector('.form-submit');
+  btn.disabled=true;btn.textContent='שולח...';
+  var data={
+    name:this.fname.value,
+    phone:this.phone.value,
+    email:this.email.value||'',
+    business_name:this.bname.value||'',
+    business_type:this.btype.value,
+    main_pain:this.pain.value,
+    hours_range:this.hours.value,
+    staff_range:this.staff.value,
+    hourly_range:this.rate.value,
+    source:'website'
+  };
+  fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})
+  .then(function(){
+    var hMap={'פחות משעה':.75,'1-2 שעות':1.5,'2-4 שעות':3,'4+ שעות':5};
+    var sMap={'רק אני':1,'2-3 אנשים':2.5,'4-10 אנשים':7,'10+':12};
+    var rMap={'50-100 ₪':75,'100-150 ₪':125,'150-250 ₪':200,'250+ ₪':300};
+    var h=hMap[data.hours_range]||2,s=sMap[data.staff_range]||2,r=rMap[data.hourly_range]||125;
+    var mh=Math.round(h*s*22),mc=Math.round(mh*r),sv=Math.round(mc*.65);
+    document.getElementById('leadFormContent').innerHTML=
+      '<div class="form-success">'+
+      '<h3>הנה ההערכה שלך</h3>'+
+      '<p>שלחנו לך גם הודעה ב-WhatsApp</p>'+
+      '<div class="roi-cards">'+
+      '<div class="roi-card"><div class="roi-val">'+mh+'</div><div class="roi-label">שעות מבוזבזות / חודש</div></div>'+
+      '<div class="roi-card"><div class="roi-val" style="color:#FF6F4C">₪'+mc.toLocaleString('he-IL')+'</div><div class="roi-label">עלות חודשית</div></div>'+
+      '<div class="roi-card"><div class="roi-val" style="color:#22C55E">₪'+sv.toLocaleString('he-IL')+'</div><div class="roi-label">חיסכון פוטנציאלי / חודש</div></div>'+
+      '<div class="roi-card"><div class="roi-val" style="color:#8B5CF6">'+(data.main_pain||'—')+'</div><div class="roi-label">כאב מרכזי</div></div>'+
+      '</div>'+
+      '<p style="margin-top:16px">רוצה לדייק? קבע שיחה קצרה של 20 דקות:</p>'+
+      '<a href="https://wa.me/972537453493?text=היי, מילאתי את הטופס באתר ואשמח לקבוע שיחה" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;">קבע שיחת אבחון חינם ←</a>'+
+      '</div>';
+  }).catch(function(){
+    btn.disabled=false;btn.textContent='שלח בדיקה חינם';
+    alert('שגיאה בשליחה. נסה שוב.');
+  });
+});
 
 /* ====== GA4 CONVERSION EVENTS ====== */
 /* ROI calculator interaction */
@@ -1036,5 +1102,88 @@ if(waFloat){
 }
 
 </script>
+
+<!-- LEAD CAPTURE FORM MODAL -->
+<div class="form-overlay" id="leadOverlay">
+<div class="lead-form" id="leadFormContent">
+<button class="form-close" onclick="closeLeadForm()">&times;</button>
+<h2>בדיקת חיסכון חינם</h2>
+<p class="form-sub">ענה על כמה שאלות קצרות וקבל הערכה מיידית</p>
+<form id="leadFormEl">
+<label>שם מלא *</label>
+<input name="fname" required placeholder="איך קוראים לך?">
+
+<label>טלפון / WhatsApp *</label>
+<input name="phone" type="tel" required placeholder="050-0000000">
+
+<label>מייל (אופציונלי)</label>
+<input name="email" type="email" placeholder="your@email.com">
+
+<label>שם העסק</label>
+<input name="bname" placeholder="שם העסק שלך">
+
+<div class="form-row">
+<div>
+<label>סוג עסק *</label>
+<select name="btype" required>
+<option value="">בחר...</option>
+<option>מסעדה / בית קפה</option>
+<option>נדל"ן / תיווך</option>
+<option>שירותים מקצועיים</option>
+<option>קמעונאות / חנות</option>
+<option>תיירות / אירוח</option>
+<option>אחר</option>
+</select>
+</div>
+<div>
+<label>מה הכי גוזל זמן? *</label>
+<select name="pain" required>
+<option value="">בחר...</option>
+<option>לידים והודעות</option>
+<option>תיאומים ופולואפים</option>
+<option>הצעות מחיר / מסמכים</option>
+<option>מעקב אחר לקוחות</option>
+<option>משהו אחר</option>
+</select>
+</div>
+</div>
+
+<div class="form-row">
+<div>
+<label>כמה זמן ביום? *</label>
+<select name="hours" required>
+<option value="">בחר...</option>
+<option>פחות משעה</option>
+<option>1-2 שעות</option>
+<option>2-4 שעות</option>
+<option>4+ שעות</option>
+</select>
+</div>
+<div>
+<label>כמה אנשים מתעסקים בזה? *</label>
+<select name="staff" required>
+<option value="">בחר...</option>
+<option>רק אני</option>
+<option>2-3 אנשים</option>
+<option>4-10 אנשים</option>
+<option>10+</option>
+</select>
+</div>
+</div>
+
+<label>שווי שעת עבודה ממוצעת *</label>
+<select name="rate" required>
+<option value="">בחר...</option>
+<option>50-100 ₪</option>
+<option>100-150 ₪</option>
+<option>150-250 ₪</option>
+<option>250+ ₪</option>
+</select>
+
+<button type="submit" class="form-submit">בדוק את פוטנציאל החיסכון שלי ←</button>
+</form>
+</div>
+</div>
+
 </body>
 </html>
