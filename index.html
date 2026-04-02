@@ -149,8 +149,8 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .ba-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
 .ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);position:relative;}
 .ba-image img{width:100%;display:block;filter:none;}
-.ba-image::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
-.ba-image::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
+.ba-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(0 0,47% 0,55% 100%,0 100%);}
+.ba-image::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(47% 0,100% 0,100% 100%,55% 100%);}
 .ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;}
 .ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.12);border-radius:20px 0 0 20px;padding:40px 36px;}
 .ba-after{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:0 20px 20px 0;padding:40px 36px;}
@@ -801,6 +801,16 @@ function miniPts(cvs,n,dist,opa){
   window.addEventListener('resize',init);
   init();draw();
 }
+// Auto-inject particles into all content sections
+document.querySelectorAll('.sec,.eco-sec,.final-cta').forEach((sec,i)=>{
+  if(sec.querySelector('.sec-canvas'))return;
+  sec.style.position='relative';
+  const c=document.createElement('canvas');
+  c.className='sec-canvas';c.id='ap'+i;
+  sec.prepend(c);
+  miniPts(c,50,140,0.35);
+});
+// Named section canvases (higher density)
 ['srv-particles','proc-particles','cta-particles'].forEach(id=>{
   const c=document.getElementById(id);
   if(c)miniPts(c,id==='cta-particles'?70:55,150,id==='cta-particles'?0.6:0.45);
