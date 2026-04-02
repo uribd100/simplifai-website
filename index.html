@@ -1056,7 +1056,7 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     hourly_range:this.rate.value,
     source:'website'
   };
-  fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})
+  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'})
   .then(function(){
     var hMap={'פחות משעה':.75,'1-2 שעות':1.5,'2-4 שעות':3,'4+ שעות':5};
     var sMap={'רק אני':1,'2-3 אנשים':2.5,'4-10 אנשים':7,'10+':12};
