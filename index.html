@@ -149,8 +149,8 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .ba-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
 .ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);position:relative;}
 .ba-image img{width:100%;display:block;filter:none;}
-.ba-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(0 0,47% 0,55% 100%,0 100%);}
-.ba-image::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(47% 0,100% 0,100% 100%,55% 100%);}
+.ba-image::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(220,40,40,.6);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(0 0,38% 0,66% 100%,0 100%);}
+.ba-image::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(77,142,255,.6);mix-blend-mode:color;pointer-events:none;z-index:1;clip-path:polygon(38% 0,100% 0,100% 100%,66% 100%);}
 .ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;}
 .ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.12);border-radius:20px 0 0 20px;padding:40px 36px;}
 .ba-after{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:0 20px 20px 0;padding:40px 36px;}
@@ -288,6 +288,15 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 @keyframes orb-float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.05);}}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(77,142,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(77,142,255,.04) 1px,transparent 1px);background-size:50px 50px;}
 
+/* ======= ECOSYSTEM MOBILE ======= */
+.eco-mobile{display:none;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px;}
+.eco-m-node{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:20px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;transition:border-color .3s;}
+.eco-m-node:hover{border-color:rgba(77,142,255,.3);}
+.eco-m-icon{font-size:30px;}
+.eco-m-name{font-size:14px;font-weight:700;}
+.eco-m-sub{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(77,142,255,.55);}
+.eco-m-tip{font-size:12px;color:rgba(255,255,255,.35);line-height:1.4;}
+
 /* ======= SECTION PARTICLES ======= */
 .sec-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 
@@ -313,9 +322,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   .sec-h{font-size:clamp(28px,7vw,40px);letter-spacing:-1px;}
   .sec-p{font-size:15px;margin-bottom:48px;}
   .eco-sec{overflow:hidden;}
-  .eco-diagram{min-height:420px;overflow:hidden;}
-  .orbit-container{transform:scale(0.50);transform-origin:center top;margin-bottom:-260px;}
-  #eco-svg{display:none;}
+  .eco-diagram{display:none;}
+  .eco-mobile{display:grid;}
   .problem-grid{grid-template-columns:1fr 1fr;}
   .audience-grid{grid-template-columns:1fr 1fr;}
   .srv-grid{grid-template-columns:1fr;}
@@ -456,6 +464,15 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
           <div class="tip">תזכורות ועדכונים ללקוחות</div>
         </div>
       </div>
+    </div>
+    <!-- Mobile fallback: simple card grid -->
+    <div class="eco-mobile">
+      <div class="eco-m-node"><div class="eco-m-icon">📧</div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon">📊</div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon">📈</div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים לבד</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon">📋</div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon">📅</div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות ותזכורות אוטומטיות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon">💬</div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
     </div>
   </div>
 </section>
@@ -687,9 +704,11 @@ const cvs=document.getElementById('particles'),ctx=cvs.getContext('2d');
 function rsz(){cvs.width=window.innerWidth;cvs.height=window.innerHeight;}
 window.addEventListener('resize',rsz);
 const pts=[];
+const isMob=window.innerWidth<768;
 function initPts(){
   rsz();pts.length=0;
-  for(let i=0;i<180;i++)pts.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*2.5+.5,a:Math.random()*.6+.2,p:Math.random()*Math.PI*2});
+  const cnt=isMob?50:180;
+  for(let i=0;i<cnt;i++)pts.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*2.5+.5,a:Math.random()*.6+.2,p:Math.random()*Math.PI*2});
 }
 window.addEventListener('load',initPts);
 initPts();
@@ -700,8 +719,7 @@ function drawPts(){
   pts.forEach(n=>{
     n.x+=n.vx;n.y+=n.vy;
     if(n.x<0||n.x>cvs.width)n.vx*=-1;if(n.y<0||n.y>cvs.height)n.vy*=-1;
-    const dx=n.x-mx,dy=n.y-my,d=Math.sqrt(dx*dx+dy*dy);
-    if(d<150){n.x+=dx/d*2;n.y+=dy/d*2;}
+    if(!isMob){const dx=n.x-mx,dy=n.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<150){n.x+=dx/d*2;n.y+=dy/d*2;}}
     const pulse=(Math.sin(t*2+n.p)+1)*.5;
     ctx.beginPath();ctx.arc(n.x,n.y,n.r*(1+pulse*.5),0,Math.PI*2);
     ctx.shadowColor='#4D8EFF';ctx.shadowBlur=pulse*10;
@@ -775,6 +793,7 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 /* ====== MINI PARTICLES (section backgrounds) ====== */
 function miniPts(cvs,n,dist,opa){
   const ctx=cvs.getContext('2d');let pts=[];
+  if(window.innerWidth<768){n=Math.min(n,15);dist=80;}
   function init(){
     cvs.width=cvs.parentElement.offsetWidth||cvs.offsetWidth;
     cvs.height=cvs.parentElement.offsetHeight||cvs.offsetHeight;
