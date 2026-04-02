@@ -19,21 +19,10 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 
 /* ======= NAV ======= */
 nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
-/* LOGO — Interactive */
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;cursor:pointer;position:relative;display:inline-flex;align-items:center;perspective:600px;user-select:none;-webkit-user-select:none;}
-.logo-text span{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);position:relative;display:inline-block;}
-/* Continuous glow pulse on AI */
-.logo-text span::after{content:'AI';position:absolute;top:0;left:0;color:#4D8EFF;filter:blur(8px);opacity:.4;animation:logo-glow 3s ease-in-out infinite;pointer-events:none;}
-@keyframes logo-glow{0%,100%{opacity:.3;filter:blur(8px);}50%{opacity:.7;filter:blur(12px);}}
-/* Orbiting dot */
-.logo-orbit{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;}
-.logo-orbit::before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 8px #4D8EFF,0 0 20px rgba(77,142,255,.4);animation:logo-orbit-spin 4s linear infinite;}
-@keyframes logo-orbit-spin{0%{top:50%;left:-6px;opacity:0;}5%{opacity:1;}45%{opacity:1;}50%{top:-6px;left:50%;opacity:0;}55%{opacity:1;}95%{opacity:1;}100%{top:50%;left:-6px;opacity:0;}}
-/* Hover 3D tilt (controlled by JS) */
-.logo-text.tilt{transition:transform .1s ease-out;}
-/* Glitch effect on click */
-.logo-text.glitch span{animation:logo-glitch .4s steps(2) 1;}
-@keyframes logo-glitch{0%{text-shadow:0 0 20px rgba(77,142,255,.5);}20%{text-shadow:-3px 0 #ff0040,3px 0 #4D8EFF;transform:translateX(-2px);}40%{text-shadow:3px 0 #ff0040,-3px 0 #4D8EFF;transform:translateX(2px);}60%{text-shadow:-2px 0 #4D8EFF,2px 0 #00c6ff;transform:translateX(-1px) skewX(-2deg);}80%{text-shadow:2px 0 #4D8EFF,-2px 0 #ff0040;transform:translateX(1px) skewX(2deg);}100%{text-shadow:0 0 30px rgba(77,142,255,.8);transform:translateX(0) skewX(0);}}
+/* LOGO */
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;position:relative;}
+.logo-text span{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);display:inline-block;animation:logo-wave 4s ease-in-out infinite;}
+@keyframes logo-wave{0%,100%{transform:translateY(0);text-shadow:0 0 20px rgba(77,142,255,.5);}50%{transform:translateY(-3px);text-shadow:0 0 32px rgba(77,142,255,.8);}}
 .nav-links{display:flex;gap:28px;align-items:center;}
 .nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:#fff;}
@@ -132,9 +121,9 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .process-sec{background:linear-gradient(180deg,#060D1F,#0A1530);text-align:center;}
 .orbital-wrap{position:relative;width:100%;max-width:700px;height:700px;margin:0 auto;}
 .orbital-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;text-align:center;}
-.orbital-center-ring{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(77,142,255,.15),rgba(6,13,31,.9));border:2px solid rgba(77,142,255,.4);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(77,142,255,.2);animation:center-pulse 3s ease-in-out infinite;}
+.orbital-center-ring{width:120px;height:120px;border-radius:50%;border:2px solid rgba(77,142,255,.4);overflow:hidden;box-shadow:0 0 60px rgba(77,142,255,.2);animation:center-pulse 3s ease-in-out infinite;position:relative;}
 @keyframes center-pulse{0%,100%{box-shadow:0 0 40px rgba(77,142,255,.15);}50%{box-shadow:0 0 80px rgba(77,142,255,.35);}}
-.orbital-center-icon{font-size:40px;}
+.orbital-center-img{width:100%;height:100%;object-fit:cover;filter:saturate(1.3) brightness(1.1);}
 .orbital-center-label{margin-top:12px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:900;letter-spacing:-.5px;}
 .orbital-center-label span{color:#4D8EFF;}
 .orbit-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(77,142,255,.08);transform:translate(-50%,-50%);pointer-events:none;}
@@ -162,7 +151,9 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .mobile-timeline{display:none;}
 .mt-step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(77,142,255,.08);}
 .mt-step:last-child{border:none;}
-.mt-num{width:48px;height:48px;border-radius:50%;background:rgba(77,142,255,.08);border:2px solid rgba(77,142,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:18px;font-weight:900;color:#4D8EFF;flex-shrink:0;}
+.mt-num{width:56px;height:56px;border-radius:50%;border:2px solid rgba(77,142,255,.3);flex-shrink:0;overflow:hidden;position:relative;box-shadow:0 0 16px rgba(77,142,255,.1);}
+.mt-num img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) brightness(.9);}
+.mt-num span{position:absolute;top:2px;right:2px;width:20px;height:20px;background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;border-radius:50%;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 0 6px rgba(255,111,76,.4);}
 .mt-content{flex:1;text-align:right;}
 .mt-title{font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;}
 .mt-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:8px;}
@@ -353,7 +344,6 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   nav{padding:0 20px;height:64px;}
   .nav-links a:not(.nav-cta){display:none;}
   .logo-text{font-size:24px;}
-  .logo-orbit::before{animation-duration:3s;}
   .hero{padding:110px 24px 56px;height:auto;min-height:100svh;}
   .hero-visual{display:none;}
   .hero h1{font-size:clamp(34px,9vw,50px);letter-spacing:-1.5px;}
@@ -407,7 +397,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo-text" id="logo">simplif<span>AI</span><div class="logo-orbit"></div></div>
+  <div class="logo-text">simplif<span>AI</span></div>
   <div class="nav-links">
     <a href="#services">שירותים</a>
     <a href="#process">תהליך</a>
@@ -583,7 +573,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <defs><filter id="orb-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     </svg>
     <div class="orbital-center">
-      <div class="orbital-center-ring"><div class="orbital-center-icon">🧠</div></div>
+      <div class="orbital-center-ring"><img class="orbital-center-img" src="assets/icons/ai-brain.jpg" alt="simplifAI"></div>
       <div class="orbital-center-label">simplif<span>AI</span></div>
     </div>
     <div class="orb-node" id="orb-1" style="left:50%;top:2%;transform:translateX(-50%);" data-step="1">
@@ -611,10 +601,10 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
   <!-- Mobile: Linear timeline -->
   <div class="mobile-timeline">
-    <div class="mt-step"><div class="mt-num">1</div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
-    <div class="mt-step"><div class="mt-num">2</div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
-    <div class="mt-step"><div class="mt-num">3</div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
-    <div class="mt-step"><div class="mt-num">4</div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.jpg" alt="אבחון"><span>1</span></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.jpg" alt="תכנון"><span>2</span></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.jpg" alt="בנייה"><span>3</span></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.jpg" alt="השקה"><span>4</span></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
   </div>
 </section>
 
@@ -986,59 +976,6 @@ const observer=new IntersectionObserver((entries)=>{
 },{threshold:0.3});
 ['ba-grid'].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 
-/* ====== INTERACTIVE LOGO ====== */
-(function(){
-  const logo=document.getElementById('logo');
-  if(!logo||window.innerWidth<768)return;
-
-  // Magnetic 3D tilt on mouse proximity
-  document.addEventListener('mousemove',e=>{
-    const r=logo.getBoundingClientRect();
-    const cx=r.left+r.width/2,cy=r.top+r.height/2;
-    const dx=e.clientX-cx,dy=e.clientY-cy;
-    const dist=Math.sqrt(dx*dx+dy*dy);
-    const maxDist=250;
-    if(dist<maxDist){
-      const strength=(1-dist/maxDist);
-      const rotY=(dx/maxDist)*20*strength;
-      const rotX=-(dy/maxDist)*15*strength;
-      const tx=(dx/maxDist)*8*strength;
-      const ty=(dy/maxDist)*5*strength;
-      logo.style.transform=`translate(${tx}px,${ty}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${1+strength*.08})`;
-      logo.querySelector('span').style.textShadow=`0 0 ${20+strength*30}px rgba(77,142,255,${.5+strength*.4})`;
-    }else{
-      logo.style.transform='';
-      logo.querySelector('span').style.textShadow='';
-    }
-  });
-
-  // Glitch on click + energy burst
-  logo.addEventListener('click',()=>{
-    logo.classList.remove('glitch');
-    void logo.offsetWidth; // reflow
-    logo.classList.add('glitch');
-    // Particle burst
-    for(let i=0;i<12;i++){
-      const p=document.createElement('div');
-      const angle=Math.random()*Math.PI*2;
-      const dist=40+Math.random()*60;
-      const sz=2+Math.random()*3;
-      Object.assign(p.style,{
-        position:'absolute',width:sz+'px',height:sz+'px',borderRadius:'50%',
-        background:'#4D8EFF',boxShadow:'0 0 6px #4D8EFF',
-        top:'50%',left:'50%',zIndex:'200',pointerEvents:'none',
-        transition:'all .6s cubic-bezier(.2,.8,.3,1)',opacity:'1'
-      });
-      logo.appendChild(p);
-      requestAnimationFrame(()=>{
-        p.style.transform=`translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px)`;
-        p.style.opacity='0';
-      });
-      setTimeout(()=>p.remove(),700);
-    }
-    setTimeout(()=>logo.classList.remove('glitch'),500);
-  });
-})();
 </script>
 </body>
 </html>
