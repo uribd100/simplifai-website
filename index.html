@@ -147,8 +147,10 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 
 /* ======= BEFORE / AFTER ======= */
 .ba-sec{background:linear-gradient(180deg,#060D1F,#0A1530);}
-.ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);}
-.ba-image img{width:100%;display:block;filter:hue-rotate(140deg) saturate(1.6) brightness(1.05);}
+.ba-image{width:100%;border-radius:20px;margin-bottom:64px;overflow:hidden;border:1px solid rgba(77,142,255,.1);box-shadow:0 0 60px rgba(77,142,255,.06);position:relative;}
+.ba-image img{width:100%;display:block;filter:none;}
+.ba-image::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:rgba(220,40,40,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
+.ba-image::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:rgba(77,142,255,.55);mix-blend-mode:color;pointer-events:none;z-index:1;}
 .ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch;}
 .ba-before{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.12);border-radius:20px 0 0 20px;padding:40px 36px;}
 .ba-after{background:rgba(77,142,255,.04);border:1px solid rgba(77,142,255,.12);border-radius:0 20px 20px 0;padding:40px 36px;}
@@ -286,6 +288,9 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 @keyframes orb-float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.05);}}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(77,142,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(77,142,255,.04) 1px,transparent 1px);background-size:50px 50px;}
 
+/* ======= SECTION PARTICLES ======= */
+.sec-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+
 /* ======= FLOATING WA ======= */
 .wa-float{position:fixed;bottom:28px;left:28px;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.5);z-index:9999;text-decoration:none;animation:wa-pulse 2.5s infinite;}
 @keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.3);}60%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 16px rgba(37,211,102,0);}}
@@ -307,9 +312,10 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   .eco-sec{padding:72px 24px;}
   .sec-h{font-size:clamp(28px,7vw,40px);letter-spacing:-1px;}
   .sec-p{font-size:15px;margin-bottom:48px;}
-  .eco-diagram{min-height:460px;overflow:hidden;}
-  .orbit-container{transform:scale(0.52);transform-origin:center top;margin-bottom:-200px;}
-  #eco-svg{transform:scale(0.52);transform-origin:center top;}
+  .eco-sec{overflow:hidden;}
+  .eco-diagram{min-height:420px;overflow:hidden;}
+  .orbit-container{transform:scale(0.50);transform-origin:center top;margin-bottom:-260px;}
+  #eco-svg{display:none;}
   .problem-grid{grid-template-columns:1fr 1fr;}
   .audience-grid{grid-template-columns:1fr 1fr;}
   .srv-grid{grid-template-columns:1fr;}
@@ -484,7 +490,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 </section>
 
 <!-- ===== SERVICES ===== -->
-<section class="sec srv-sec" id="services">
+<section class="sec srv-sec" id="services" style="position:relative;">
+  <canvas class="sec-canvas" id="srv-particles"></canvas>
   <span class="sec-tag">השירותים</span>
   <h2 class="sec-h">מה אנחנו <span class="g">בונים לך</span></h2>
   <p class="sec-p">מאבחון מדויק ועד מערכת AI שפועלת לבד — 14 יום.</p>
@@ -496,7 +503,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 </section>
 
 <!-- ===== PROCESS ===== -->
-<section class="sec process-sec" id="process">
+<section class="sec process-sec" id="process" style="position:relative;">
+  <canvas class="sec-canvas" id="proc-particles"></canvas>
   <span class="sec-tag">איך זה עובד</span>
   <h2 class="sec-h">4 שלבים — <span class="g">14 יום</span></h2>
   <p class="sec-p">תהליך ברור ומובנה. לא חודשים של ייעוץ — תוצאות מדידות תוך שבועיים.</p>
@@ -656,7 +664,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="final-cta" id="contact">
+<section class="final-cta" id="contact" style="position:relative;">
+  <canvas class="sec-canvas" id="cta-particles"></canvas>
   <h2>יש בעסק שלך תהליכים שחוזרים על עצמם כל יום?<br>בוא נראה מה אפשר <span class="g">להוריד לך מהראש</span> כבר בשבועיים הקרובים.</h2>
   <p>שיחת אבחון ראשונה — ללא עלות, ללא התחייבות. 45 דקות.</p>
   <a href="https://wa.me/972537453493" target="_blank" class="btn-cta">קבע שיחת אבחון חינם ←</a>
@@ -761,6 +770,40 @@ document.querySelectorAll('.faq-q').forEach(q=>{
     document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
     if(!wasOpen)item.classList.add('open');
   });
+});
+
+/* ====== MINI PARTICLES (section backgrounds) ====== */
+function miniPts(cvs,n,dist,opa){
+  const ctx=cvs.getContext('2d');let pts=[];
+  function init(){
+    cvs.width=cvs.parentElement.offsetWidth||cvs.offsetWidth;
+    cvs.height=cvs.parentElement.offsetHeight||cvs.offsetHeight;
+    pts=[];
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*2+.5,a:Math.random()*.5+.15});
+  }
+  function draw(){
+    ctx.clearRect(0,0,cvs.width,cvs.height);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>cvs.width)p.vx*=-1;
+      if(p.y<0||p.y>cvs.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(77,142,255,${p.a*opa})`;ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<dist){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(77,142,255,${(1-d/dist)*.12*opa})`;ctx.lineWidth=1;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('load',init);
+  window.addEventListener('resize',init);
+  init();draw();
+}
+['srv-particles','proc-particles','cta-particles'].forEach(id=>{
+  const c=document.getElementById(id);
+  if(c)miniPts(c,id==='cta-particles'?70:55,150,id==='cta-particles'?0.6:0.45);
 });
 
 /* ====== SCROLL ANIMATIONS ====== */
