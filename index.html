@@ -13,10 +13,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="facebook-domain-verification" content="waig0yzhkozcklxsh70vyaipwxpfqq">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<!-- Google Analytics 4 — TODO: replace G-NBCEEL8J8G with real Measurement ID from analytics.google.com -->
+<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCEEL8J8G"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NBCEEL8J8G');</script>
-<!-- Meta Pixel — TODO: replace 1655847498905049 with real Pixel ID from Meta Business Suite > Events Manager -->
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -267,6 +267,78 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .final-cta h2 .o{color:#FF6F4C;}
 .final-cta p{font-size:18px;color:rgba(255,255,255,.4);margin-bottom:48px;position:relative;}
 .final-cta .btn-cta{font-size:18px;padding:22px 60px;border-radius:14px;position:relative;}
+/* ======= LEAD MAGNET ======= */
+.lm-sec{padding:120px 56px;position:relative;}
+.lm-wrap{max-width:1020px;margin:0 auto;padding:56px;background:linear-gradient(135deg,rgba(77,142,255,.1) 0%,rgba(255,111,76,.06) 100%);border:1px solid rgba(77,142,255,.25);border-radius:24px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;position:relative;overflow:hidden;}
+.lm-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 30%,rgba(77,142,255,.12),transparent);pointer-events:none;}
+.lm-cover-wrap{position:relative;z-index:2;flex-shrink:0;}
+.lm-cover{width:220px;height:296px;background:linear-gradient(155deg,#2B6BE0 0%,#4D8EFF 55%,#1E4FAA 100%);border-radius:4px;box-shadow:0 34px 70px rgba(77,142,255,.4),0 0 0 1px rgba(77,142,255,.6),inset 0 1px 0 rgba(255,255,255,.15);display:flex;flex-direction:column;padding:22px 20px;color:#fff;transform:rotate(-3deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;}
+.lm-cover::before{content:'';position:absolute;top:0;right:0;bottom:0;width:4px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.08));pointer-events:none;}
+.lm-cover::after{content:'';position:absolute;inset:8px;border:1px solid rgba(255,255,255,.1);border-radius:2px;pointer-events:none;}
+.lm-cover:hover{transform:rotate(0deg) translateY(-4px) scale(1.03);}
+.lm-cover-top{display:flex;justify-content:space-between;align-items:center;font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.75);position:relative;z-index:2;}
+.lm-cover-logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;letter-spacing:-0.8px;direction:ltr;}
+.lm-cover-logo span{color:rgba(255,255,255,.6);}
+.lm-cover-issue{font-size:8px;color:rgba(255,255,255,.55);}
+.lm-cover-middle{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:right;position:relative;z-index:2;}
+.lm-cover-big{font-family:'Outfit',sans-serif;font-weight:900;font-size:96px;line-height:.85;letter-spacing:-6px;color:rgba(255,255,255,.95);text-shadow:0 8px 24px rgba(0,0,0,.3);margin-bottom:6px;}
+.lm-cover-title{font-family:'Outfit',sans-serif;font-weight:900;font-size:18px;line-height:1.1;letter-spacing:-0.5px;color:#fff;}
+.lm-cover-title em{font-style:normal;color:rgba(255,255,255,.65);font-weight:400;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;}
+.lm-cover-bottom{position:relative;z-index:2;}
+.lm-cover-rows{display:flex;flex-direction:column;gap:3px;font-family:'Share Tech Mono',monospace;font-size:8.5px;color:rgba(255,255,255,.58);letter-spacing:0.5px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,.15);direction:rtl;}
+.lm-cover-meta{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(255,255,255,.45);letter-spacing:2px;text-align:center;}
+.lm-body{position:relative;z-index:2;}
+.lm-body .sec-tag{margin-bottom:18px;}
+.lm-body h2{font-family:'Outfit',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
+.lm-body h2 .g{color:#4D8EFF;}
+.lm-body p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:24px;max-width:480px;}
+.lm-form{display:flex;gap:10px;flex-wrap:wrap;max-width:520px;}
+.lm-form input{flex:1;min-width:160px;padding:13px 16px;background:rgba(6,13,31,.85);border:1px solid rgba(77,142,255,.25);border-radius:10px;color:#fff;font-size:14px;font-family:'Heebo',sans-serif;outline:none;transition:border .2s;}
+.lm-form input:focus{border-color:#4D8EFF;}
+.lm-form button{padding:13px 28px;background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Heebo',sans-serif;white-space:nowrap;box-shadow:0 0 24px rgba(255,111,76,.3);transition:transform .2s,box-shadow .2s;}
+.lm-form button:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(255,111,76,.5);}
+.lm-success{display:none;padding:20px;background:rgba(77,255,145,.05);border:1px solid rgba(77,255,145,.3);border-radius:10px;color:#7aff9d;font-size:14px;text-align:center;max-width:520px;}
+.lm-success.show{display:block;}
+.lm-trust{margin-top:14px;font-size:11px;color:rgba(255,255,255,.35);font-family:'Share Tech Mono',monospace;letter-spacing:1px;}
+@media(max-width:820px){
+  .lm-sec{padding:70px 20px;}
+  .lm-wrap{grid-template-columns:1fr;gap:28px;padding:36px 24px;text-align:center;}
+  .lm-cover-wrap{margin:0 auto;}
+  .lm-cover{transform:rotate(0);}
+  .lm-body p{margin:0 auto 24px;}
+  .lm-form{margin:0 auto;}
+}
+/* ======= COMPARISON TABLE ======= */
+.cmp-sec{padding:120px 56px;position:relative;}
+.cmp-wrap{max-width:900px;margin:0 auto;background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:20px;overflow:hidden;}
+.cmp-table{width:100%;border-collapse:collapse;font-size:15px;}
+.cmp-table th,.cmp-table td{padding:18px 20px;text-align:right;border-bottom:1px solid rgba(77,142,255,.08);}
+.cmp-table thead th{font-family:'Outfit',sans-serif;font-size:15px;font-weight:900;color:rgba(255,255,255,.6);background:rgba(77,142,255,.04);letter-spacing:-0.3px;}
+.cmp-table thead th.us{color:#4D8EFF;background:linear-gradient(135deg,rgba(77,142,255,.12),rgba(77,142,255,.04));text-shadow:0 0 16px rgba(77,142,255,.3);font-size:17px;}
+.cmp-table tbody tr:hover{background:rgba(77,142,255,.02);}
+.cmp-table td:first-child{font-weight:700;color:rgba(255,255,255,.85);font-family:'Outfit',sans-serif;}
+.cmp-table td.us{background:rgba(77,142,255,.04);color:#fff;font-weight:700;}
+.cmp-table .check{color:#7aff9d;font-weight:900;font-size:18px;}
+.cmp-table .x{color:#ff6b6b;font-weight:900;font-size:18px;}
+.cmp-table tbody tr:last-child td{border-bottom:none;}
+@media(max-width:768px){
+  .cmp-sec{padding:80px 20px;}
+  .cmp-table{font-size:12px;}
+  .cmp-table th,.cmp-table td{padding:12px 10px;}
+  .cmp-table thead th{font-size:12px;}
+  .cmp-table thead th.us{font-size:13px;}
+}
+/* ======= GUARANTEE BADGE ======= */
+.guarantee-badge{margin:52px auto 0;max-width:680px;padding:28px 32px;background:linear-gradient(135deg,rgba(77,255,145,.06) 0%,rgba(77,142,255,.04) 100%);border:1px solid rgba(77,255,145,.28);border-radius:16px;display:flex;gap:24px;align-items:center;text-align:right;position:relative;z-index:2;overflow:hidden;}
+.guarantee-badge::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 0% 50%,rgba(77,255,145,.08),transparent);pointer-events:none;}
+.guarantee-icon{width:68px;height:68px;background:radial-gradient(circle at 30% 30%,rgba(77,255,145,.18),rgba(77,255,145,.04));border:1.5px solid rgba(77,255,145,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 32px rgba(77,255,145,.2),inset 0 0 16px rgba(77,255,145,.08);position:relative;z-index:2;}
+.guarantee-icon svg{width:32px;height:32px;filter:drop-shadow(0 0 6px rgba(77,255,145,.6));}
+.guarantee-body{position:relative;z-index:2;}
+.guarantee-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(77,255,145,.8);margin-bottom:8px;}
+.guarantee-body h4{font-family:'Outfit',sans-serif;font-size:19px;font-weight:900;margin-bottom:8px;color:#fff;letter-spacing:-0.4px;line-height:1.25;}
+.guarantee-body h4 span{color:#7aff9d;text-shadow:0 0 20px rgba(77,255,145,.3);}
+.guarantee-body p{font-size:14px;color:rgba(255,255,255,.62);line-height:1.65;margin:0;}
+@media(max-width:600px){.guarantee-badge{flex-direction:column;text-align:center;padding:26px 20px;gap:16px;}.guarantee-body h4{font-size:17px;}.guarantee-body p{font-size:13px;}}
 
 /* ======= FOOTER ======= */
 footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);}
@@ -435,9 +507,85 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .form-success .roi-val{font-size:22px;font-weight:700;color:#4D8EFF;}
 .form-success .roi-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
 @media(max-width:600px){.form-row{grid-template-columns:1fr;}.lead-form{padding:28px 20px;}}
+/* ======= STICKY MOBILE CTA ======= */
+.sticky-mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:10px 14px 14px;background:linear-gradient(180deg,rgba(6,13,31,.5),rgba(6,13,31,.98));backdrop-filter:blur(20px);border-top:1px solid rgba(77,142,255,.2);gap:8px;align-items:center;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+.sticky-mobile-cta.show{transform:translateY(0);}
+.sticky-mobile-cta .s-cta{flex:1;padding:12px;background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;border-radius:10px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;box-shadow:0 0 20px rgba(255,111,76,.3);}
+.sticky-mobile-cta .s-wa{width:44px;height:44px;background:#25D366;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
+.sticky-mobile-cta .s-wa svg{width:20px;height:20px;fill:currentColor;}
+@media(max-width:768px){
+  .sticky-mobile-cta{display:flex;}
+  body.sticky-active{padding-bottom:72px;}
+  .wa-float{display:none;}  /* Replaced by sticky bar on mobile */
+}
+/* ======= EXIT INTENT POPUP ======= */
+.exit-overlay{display:none;position:fixed;inset:0;background:rgba(4,10,24,.85);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center;padding:20px;animation:fadeIn .3s;}
+.exit-overlay.show{display:flex;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.exit-modal{max-width:440px;width:100%;background:linear-gradient(135deg,#0A1628 0%,#060D1F 100%);border:2px solid #4D8EFF;border-radius:18px;padding:36px 32px;position:relative;box-shadow:0 40px 100px rgba(77,142,255,.3),0 0 0 1px rgba(77,142,255,.2);animation:popUp .4s cubic-bezier(.2,.8,.2,1);}
+@keyframes popUp{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.exit-close{position:absolute;top:14px;left:16px;background:none;border:none;color:rgba(255,255,255,.4);font-size:26px;cursor:pointer;line-height:1;transition:color .2s;}
+.exit-close:hover{color:#fff;}
+.exit-modal .exit-icon{width:72px;height:72px;background:linear-gradient(135deg,#FF6F4C,#e85a38);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 14px 40px rgba(255,111,76,.45),inset 0 1px 0 rgba(255,255,255,.2);transform:rotate(-6deg);position:relative;}
+.exit-modal .exit-icon::after{content:'';position:absolute;inset:-2px;border:1.5px solid rgba(255,255,255,.1);border-radius:18px;pointer-events:none;}
+.exit-modal .exit-icon svg{width:32px;height:32px;}
+.exit-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,111,76,.9);text-align:center;margin-bottom:8px;}
+.exit-modal h3{font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;margin-bottom:10px;letter-spacing:-0.5px;text-align:center;line-height:1.1;}
+.exit-modal h3 .o{color:#FF6F4C;}
+.exit-modal p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px;text-align:center;}
+.exit-modal .lm-form{flex-direction:column;max-width:100%;}
+.exit-modal .lm-form input{width:100%;}
+.exit-modal .lm-form button{width:100%;margin-top:4px;}
+.exit-success{display:none;padding:16px;background:rgba(77,255,145,.08);border:1px solid rgba(77,255,145,.3);border-radius:10px;color:#7aff9d;font-size:13px;text-align:center;}
+.exit-success.show{display:block;}
+/* ======= PROGRESSIVE FORM STEPS ======= */
+.form-steps-indicator{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.form-step-dot{width:28px;height:28px;border-radius:50%;background:rgba(77,142,255,.08);border:1.5px solid rgba(77,142,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:700;color:rgba(255,255,255,.4);transition:all .3s;}
+.form-step-dot.active{background:linear-gradient(135deg,#4D8EFF,#2B6BE0);border-color:#4D8EFF;color:#fff;box-shadow:0 0 16px rgba(77,142,255,.4);}
+.form-step-dot.done{background:rgba(77,255,145,.15);border-color:#7aff9d;color:#7aff9d;}
+.form-step-line{flex:1;height:1.5px;background:linear-gradient(90deg,rgba(77,142,255,.4),rgba(77,142,255,.1));}
+.form-step-line.done{background:linear-gradient(90deg,#7aff9d,rgba(77,255,145,.3));}
+.form-step-hint{font-size:11px;color:rgba(255,255,255,.35);text-align:center;margin-top:10px;font-family:'Share Tech Mono',monospace;letter-spacing:0.5px;}
+.form-back{background:transparent;border:none;color:rgba(77,142,255,.7);font-size:13px;cursor:pointer;padding:0;margin-bottom:12px;display:inline-flex;align-items:center;gap:4px;font-family:'Heebo',sans-serif;}
+.form-back:hover{color:#4D8EFF;}
 </style>
 </head>
 <body>
+
+<!-- Sticky Mobile CTA (shows after 30% scroll on mobile) -->
+<div class="sticky-mobile-cta" id="stickyMobileCta">
+  <a href="#" class="s-cta" onclick="openLeadForm();return false;">בדוק חיסכון ←</a>
+  <a href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" class="s-wa" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- Exit Intent Popup -->
+<div class="exit-overlay" id="exitOverlay">
+  <div class="exit-modal">
+    <button class="exit-close" onclick="closeExitPopup()" aria-label="סגור">&times;</button>
+    <div class="exit-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+        <polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="exit-label">FREE · PDF · 8 PAGES</div>
+    <h3>רגע — לפני שאתה <span class="o">הולך</span></h3>
+    <p>קח איתך את המדריך שלנו: <strong>5 התהליכים שכל עסק צריך לייעל</strong> — PDF של 8 עמודים. חינם, בלי התחייבות.</p>
+    <form class="lm-form" id="exitForm" onsubmit="return submitExitMagnet(event)">
+      <input name="exit_name" required placeholder="שם מלא">
+      <input name="exit_email" type="email" required placeholder="אימייל">
+      <button type="submit">שלח לי את המדריך ←</button>
+    </form>
+    <div class="exit-success" id="exitSuccess">
+      ✓ המדריך נפתח בכרטיסייה חדשה. בדוק את האימייל שלך.
+    </div>
+  </div>
+</div>
 
 <!-- Floating WA -->
 <a class="wa-float" href="https://wa.me/972537453493" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -476,7 +624,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <span class="float-label fl5">DATA_PROCESSED</span>
   <span class="float-label fl6">AUTO_REPLY_SENT</span>
   <div class="hero-content">
-    <h1>העסק שלך לא צריך עוד עובד.<br><span class="g">הוא צריך מערכת שעושה את העבודה החוזרת במקומך.</span></h1>
+    <h1>כל שבוע אתה מאבד 20 שעות<br>על עבודה שמחשב יכול לעשות.<br><span class="g">בוא נחזיר לך אותן.</span></h1>
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
       <a href="#" class="btn-cta" onclick="openLeadForm();return false;">בדיקת 5 דקות חינם ←</a>
@@ -499,9 +647,47 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-1.jpg" alt="לידים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'"></div><div>מענה ללידים<br><span>שנופלים בין הכיסאות</span></div></div>
     <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-2.jpg" alt="תיאומים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'"></div><div>תיאומים ופולואפים<br><span>שגוזלים שעות כל יום</span></div></div>
     <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-3.jpg" alt="מסמכים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'"></div><div>מסמכים ודוחות<br><span>שמכינים ידנית שוב ושוב</span></div></div>
-    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-4.jpg" alt="נתונים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'"></div><div>הזנת נתונים<br><span>שאפשר לאוטומט בשניות</span></div></div>
+    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-4.jpg" alt="נתונים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'"></div><div>הזנת נתונים<br><span>שאפשר להפוך לאוטומטיות בשניות</span></div></div>
   </div>
-  <p class="prob-conclusion">לא כי זה חשוב — אלא כי <strong>אין מערכת שעושה את זה במקומם.</strong></p>
+  <p class="prob-conclusion">לא כי זה לא חשוב — אלא כי <strong>אין מערכת שעושה את זה במקומם.</strong></p>
+</section>
+
+<!-- ===== LEAD MAGNET ===== -->
+<section class="sec lm-sec" id="lead-magnet">
+  <div class="lm-wrap">
+    <div class="lm-cover-wrap">
+      <div class="lm-cover">
+        <div class="lm-cover-top">
+          <div class="lm-cover-logo">simplif<span>AI</span></div>
+          <div class="lm-cover-issue">N°01 · 2026</div>
+        </div>
+        <div class="lm-cover-middle">
+          <div class="lm-cover-big">05</div>
+          <div class="lm-cover-title">תהליכים שכל עסק<br>צריך <em>לייעל</em></div>
+        </div>
+        <div class="lm-cover-bottom">
+          <div class="lm-cover-rows">
+            <span>01 ← לידים</span><span>02 ← תיאומים</span><span>03 ← מסמכים</span><span>04 ← דוחות</span><span>05 ← מעקב</span>
+          </div>
+          <div class="lm-cover-meta">FREE PDF · 8 PAGES · HE</div>
+        </div>
+      </div>
+    </div>
+    <div class="lm-body">
+      <span class="sec-tag">מדריך חינם</span>
+      <h2>לפני שמדברים —<br><span class="g">הורד את המדריך</span></h2>
+      <p>5 התהליכים שהכי גוזלים זמן בעסקים ישראליים — איך לזהות אותם בעסק שלך, ומה השלב הראשון לייעול של כל אחד. PDF של 8 עמודים. חינם.</p>
+      <form class="lm-form" id="lmForm" onsubmit="return submitLeadMagnet(event)">
+        <input name="lm_name" required placeholder="שם מלא">
+        <input name="lm_email" type="email" required placeholder="אימייל">
+        <button type="submit">קבל את המדריך ←</button>
+      </form>
+      <div class="lm-success" id="lmSuccess">
+        ✓ המדריך מוכן — נפתח אצלך בכרטיסייה חדשה. שלחנו אותו גם למייל.
+      </div>
+      <div class="lm-trust">🔒 אנחנו לא שולחים ספאם. אפשר להסיר את הרישום בכל רגע.</div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== ECOSYSTEM ===== -->
@@ -533,7 +719,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
         </div>
         <div class="sat-node sat-reports" id="n-reports">
           <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/reports.jpg" alt="Reports"></div><div class="sat-name">דוחות</div><div class="sat-label">REPORTS</div></div>
-          <div class="tip">דוחות שבועיים שנוצרים לבד</div>
+          <div class="tip">דוחות שבועיים שנוצרים מעצמם</div>
         </div>
         <div class="sat-node sat-sheets" id="n-sheets">
           <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/sheets.jpg" alt="Sheets"></div><div class="sat-name">גיליונות</div><div class="sat-label">SHEETS</div></div>
@@ -541,7 +727,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
         </div>
         <div class="sat-node sat-calendar" id="n-calendar">
           <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/calendar.jpg" alt="Calendar"></div><div class="sat-name">יומן</div><div class="sat-label">CALENDAR</div></div>
-          <div class="tip">תיאום פגישות ותזכורות אוטומטיות</div>
+          <div class="tip">תיאום פגישות אוטומטי ותזכורות</div>
         </div>
         <div class="sat-node sat-whatsapp" id="n-whatsapp">
           <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/whatsapp.jpg" alt="WhatsApp"></div><div class="sat-name">WhatsApp</div><div class="sat-label">MESSAGING</div></div>
@@ -553,9 +739,9 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <div class="eco-mobile">
       <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/email.jpg" alt="Email"></div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
       <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/crm.jpg" alt="CRM"></div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/reports.jpg" alt="Reports"></div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים לבד</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/reports.jpg" alt="Reports"></div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים מעצמם</div></div>
       <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/sheets.jpg" alt="Sheets"></div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/calendar.jpg" alt="Calendar"></div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות ותזכורות אוטומטיות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/calendar.jpg" alt="Calendar"></div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות אוטומטי ותזכורות</div></div>
       <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/whatsapp.jpg" alt="WhatsApp"></div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
     </div>
   </div>
@@ -579,7 +765,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <div class="aud-card">
       <div class="aud-img-wrap"><img src="assets/icons/audience-3.jpg" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div>
-      <div class="aud-title">אתה או העובדים עושים פעולות שחוזרות</div>
+      <div class="aud-title">אתה או העובדים שלך חוזרים על אותן פעולות</div>
       <div class="aud-sub">שוב ושוב, בלי ערך אמיתי</div>
     </div>
     <div class="aud-card">
@@ -595,11 +781,11 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <canvas class="sec-canvas" id="srv-particles"></canvas>
   <span class="sec-tag">השירותים</span>
   <h2 class="sec-h">מה אנחנו <span class="g">בונים לך</span></h2>
-  <p class="sec-p">מאבחון מדויק ועד מערכת AI שפועלת לבד — 14 יום.</p>
+  <p class="sec-p">מאבחון מדויק ועד מערכת AI שפועלת בכוחות עצמה — 14 יום.</p>
   <div class="srv-grid">
     <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-leads.jpg" alt="מערכת לידים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">מערכת טיפול בלידים</div><p class="srv-p">מענה אוטומטי, סינון פניות, קביעת פגישות ופולואפ — בלי לפספס לקוח.</p><span class="srv-badge">→ אפס לידים שנופלים</span></div>
     <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-reminders.jpg" alt="תזכורות אוטומטיות" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">תזכורות ומעקבים אוטומטיים</div><p class="srv-p">לקוחות מקבלים תזכורת בזמן, ואתה לא צריך לרדוף אחרי אף אחד.</p><span class="srv-badge">→ חוסך 8+ שעות/שבוע</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-docs.jpg" alt="הפקת מסמכים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">הפקת מסמכים ודוחות</div><p class="srv-p">הצעות מחיר, חשבוניות ודוחות שנוצרים לבד — לפי הנתונים שלך, בלי עבודה ידנית.</p><span class="srv-badge">→ הטמעה תוך 14 יום</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-docs.jpg" alt="הפקת מסמכים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">הפקת מסמכים ודוחות</div><p class="srv-p">הצעות מחיר, חשבוניות ודוחות שנוצרים מעצמם — לפי הנתונים שלך, בלי עבודה ידנית.</p><span class="srv-badge">→ הטמעה תוך 14 יום</span></div>
     <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-chatbots.jpg" alt="צ'אט בוטים וסוכני AI" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">צ'אט בוטים וסוכני AI</div><p class="srv-p">בוטים חכמים שמנהלים שיחות עם לקוחות, עונים על שאלות ומטפלים בפניות — 24/7 בלי הפסקה.</p><span class="srv-badge">→ מענה מיידי ללקוחות</span></div>
     <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-dashboards.jpg" alt="דאשבורדים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">דאשבורדים ודוחות חכמים</div><p class="srv-p">לוחות בקרה בזמן אמת שמציגים KPIs, מגמות ותובנות — כדי שתקבל החלטות מבוססות נתונים.</p><span class="srv-badge">→ שליטה מלאה על הנתונים</span></div>
     <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-crm-erp.jpg" alt="מערכות CRM ו-ERP" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'"></div><div class="srv-h">מערכות CRM ו-ERP</div><p class="srv-p">הטמעה וחיבור של מערכות ניהול לקוחות ותפעול — מותאמות בדיוק לצרכים של העסק שלך.</p><span class="srv-badge">→ מערכת אחת לכל העסק</span></div>
@@ -627,19 +813,19 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <div class="orb-node" id="orb-1" style="left:50%;top:2%;transform:translateX(-50%);" data-step="1">
       <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-1.jpg" alt="אבחון"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
-      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">אבחון<br><span class="orb-sub">יום 1–2</span></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">אבחון<br><span class="orb-sub">ימים 1–2</span></div>
     </div>
     <div class="orb-node" id="orb-2" style="left:82%;top:42%;transform:translateY(-50%);" data-step="2">
       <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-2.jpg" alt="תכנון"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
-      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">תכנון<br><span class="orb-sub">יום 3–5</span></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">תכנון<br><span class="orb-sub">ימים 3–5</span></div>
     </div>
     <div class="orb-node" id="orb-3" style="left:50%;bottom:2%;transform:translateX(-50%);" data-step="3">
       <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-3.jpg" alt="בנייה"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
-      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">בנייה<br><span class="orb-sub">יום 6–12</span></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">בנייה<br><span class="orb-sub">ימים 6–12</span></div>
     </div>
     <div class="orb-node" id="orb-4" style="left:2%;top:42%;transform:translateY(-50%);" data-step="4">
       <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-4.jpg" alt="השקה"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
-      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">השקה<br><span class="orb-sub">יום 13–14</span></div>
+      <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">השקה<br><span class="orb-sub">ימים 13–14</span></div>
     </div>
     <div class="orb-info" id="orb-info">
       <div class="orb-info-title" id="info-title"></div>
@@ -650,14 +836,42 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
   <!-- Mobile: Linear timeline -->
   <div class="mobile-timeline">
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.jpg" alt="אבחון"></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">יום 1–2</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.jpg" alt="תכנון"></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">יום 3–5</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.jpg" alt="בנייה"></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">יום 6–12</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.jpg" alt="השקה"></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">יום 13–14</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.jpg" alt="אבחון"></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">ימים 1–2</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.jpg" alt="תכנון"></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">ימים 3–5</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.jpg" alt="בנייה"></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">ימים 6–12</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.jpg" alt="השקה"></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">ימים 13–14</div></div></div>
   </div>
 </section>
 
 <!-- ===== PACKAGES ===== -->
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="sec cmp-sec" id="comparison">
+  <span class="sec-tag">למה simplifAI</span>
+  <h2 class="sec-h">החלטה <span class="g">מושכלת</span> מתחילה בהשוואה</h2>
+  <p class="sec-p">לפני שמחליטים איך לטפל בעומס — כדאי להבין מה הבדל בין האפשרויות.</p>
+  <div class="cmp-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>שכירת עובד נוסף</th>
+          <th>תוכנת SaaS</th>
+          <th class="us">simplifAI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>עלות</td><td>₪8,000+/חודש, קבוע</td><td>₪300-800/חודש</td><td class="us">חד-פעמי, ROI תוך חודשים</td></tr>
+        <tr><td>זמן הטמעה</td><td>2-3 חודשים (גיוס+הכשרה)</td><td>שבועיים-חודש</td><td class="us">14 יום</td></tr>
+        <tr><td>מותאם לתהליך שלך</td><td class="check">✓</td><td class="x">✗ גנרי</td><td class="check us">✓ 1:1</td></tr>
+        <tr><td>עובד 24/7</td><td class="x">✗</td><td class="check">✓</td><td class="check us">✓</td></tr>
+        <tr><td>לומד ומשתפר</td><td class="check">✓</td><td class="x">✗</td><td class="check us">✓ AI</td></tr>
+        <tr><td>תלות באדם ספציפי</td><td class="x">✗ גבוהה</td><td class="check">✓ אין</td><td class="check us">✓ אין</td></tr>
+        <tr><td>סיכון בהחלפת עובד</td><td class="x">גבוה</td><td class="check">ללא</td><td class="check us">ללא</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="sec pkg-sec" id="packages">
   <span class="sec-tag">איך מתחילים</span>
   <h2 class="sec-h">לא קופצים ישר למערכת גדולה —<br><span class="g">מתחילים חכם</span></h2>
@@ -748,7 +962,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <div class="bar-row"><div class="bar-info"><span class="bar-name">הזנת נתונים ידנית</span><span class="bar-val" style="color:#4D8EFF">0.5 שע'</span></div><div class="bar-track"><div class="bar-fill green" data-w="5"></div></div></div>
       <div class="bar-row"><div class="bar-info"><span class="bar-name">יצירת דוחות</span><span class="bar-val" style="color:#4D8EFF">0.5 שע'</span></div><div class="bar-track"><div class="bar-fill green" data-w="5"></div></div></div>
       <div class="bar-row"><div class="bar-info"><span class="bar-name">מעקב ותזכורות ללקוחות</span><span class="bar-val" style="color:#4D8EFF">0 שע'</span></div><div class="bar-track"><div class="bar-fill green" data-w="2"></div></div></div>
-      <div class="bar-row"><div class="bar-info"><span class="bar-name">הצעות מחיר ומסמכים</span><span class="bar-val" style="color:#4D8EFF">1 שע'</span></div><div class="bar-track"><div class="bar-fill green" data-w="10"></div></div></div>
+      <div class="bar-row"><div class="bar-info"><span class="bar-name">הצעות מחיר ומסמכים</span><span class="bar-val" style="color:#4D8EFF">שעה</span></div><div class="bar-track"><div class="bar-fill green" data-w="10"></div></div></div>
       <div class="bar-row"><div class="bar-info"><span class="bar-name">תיאום ומיילים</span><span class="bar-val" style="color:#4D8EFF">0.5 שע'</span></div><div class="bar-track"><div class="bar-fill green" data-w="5"></div></div></div>
     </div>
   </div>
@@ -777,9 +991,9 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <div class="about-content">
       <h2 class="sec-h">מגיעים <span class="g">מהשטח</span></h2>
-      <p class="sec-p">"ניהלתי עסקים עשור לפני שגיליתי AI. אני יודע בדיוק איפה המערכות שלכם נשברות — כי הייתי שם."</p>
+      <p class="sec-p">"ניהלתי עסקים במשך עשור לפני שגיליתי AI. אני יודע בדיוק איפה המערכות שלכם נשברות — כי הייתי שם."</p>
       <div class="creds">
-        <div class="cred"><div class="cred-n">MBA</div><div class="cred-l">תואר שני, בן גוריון</div></div>
+        <div class="cred"><div class="cred-n">MBA</div><div class="cred-l">תואר שני, בן-גוריון</div></div>
         <div class="cred"><div class="cred-n">10+</div><div class="cred-l">שנות ניהול עסקים</div></div>
         <div class="cred"><div class="cred-n">AI</div><div class="cred-l">Make, n8n, LLMs</div></div>
         <div class="cred"><div class="cred-n">100%</div><div class="cred-l">מיקוד ב-ROI מדיד</div></div>
@@ -799,7 +1013,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <div class="faq-item"><div class="faq-q">האם זה יפריע לעבודה השוטפת?</div><div class="faq-a"><div class="faq-a-inner">לא. בונים לצד הפעילות הקיימת — לא מחליפים דברים תוך כדי תנועה. העסק ממשיך לרוץ.</div></div></div>
     <div class="faq-item"><div class="faq-q">האם צריך להחליף את ה-CRM או המערכות הקיימות?</div><div class="faq-a"><div class="faq-a-inner">ברוב המקרים לא. המטרה היא לחבר ולשפר את מה שכבר קיים — לא ליצור לך כאב ראש חדש.</div></div></div>
     <div class="faq-item"><div class="faq-q">מה קורה אחרי שהמערכת עולה לאוויר?</div><div class="faq-a"><div class="faq-a-inner">אפשר להמשיך לליווי חודשי, שיפורים ותחזוקה — או לעצור אחרי הפרויקט הראשון. לפי מה שמתאים לך.</div></div></div>
-    <div class="faq-item"><div class="faq-q">מה אם זה לא מתאים לי?</div><div class="faq-a"><div class="faq-a-inner">שיחת אבחון ראשונה ללא עלות וללא התחייבות. אם אחרי 45 דקות לא ברור שAI יעשה שינוי — לא ממשיכים.</div></div></div>
+    <div class="faq-item"><div class="faq-q">מה אם זה לא מתאים לי?</div><div class="faq-a"><div class="faq-a-inner">שיחת אבחון ראשונה ללא עלות וללא התחייבות. אם אחרי 45 דקות לא ברור ש-AI יעשה שינוי — לא ממשיכים.</div></div></div>
   </div>
 </section>
 
@@ -809,11 +1023,29 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <h2>יש בעסק שלך תהליכים שחוזרים על עצמם כל יום?<br>בוא נראה מה אפשר <span class="g">להוריד לך מהראש</span> כבר בשבועיים הקרובים.</h2>
   <p>שיחת אבחון ראשונה — ללא עלות, ללא התחייבות. 45 דקות.</p>
   <a href="#" class="btn-cta" onclick="openLeadForm();return false;">בדוק את פוטנציאל החיסכון שלך ←</a>
+  <div class="guarantee-badge">
+    <div class="guarantee-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7aff9d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 12l2 2 4-4"/>
+        <path d="M20.59 12l-1.42 1.42a2 2 0 0 0 0 2.83l1.42 1.42a2 2 0 0 1-2.83 2.83l-1.42-1.42a2 2 0 0 0-2.83 0L12 20.5l-1.5-1.42a2 2 0 0 0-2.83 0l-1.42 1.42a2 2 0 0 1-2.83-2.83l1.42-1.42a2 2 0 0 0 0-2.83L3.41 12l1.42-1.42a2 2 0 0 0 0-2.83L3.41 6.33A2 2 0 0 1 6.24 3.5l1.42 1.42a2 2 0 0 0 2.83 0L12 3.5l1.5 1.42a2 2 0 0 0 2.83 0l1.42-1.42a2 2 0 0 1 2.83 2.83l-1.42 1.42a2 2 0 0 0 0 2.83L20.59 12z"/>
+      </svg>
+    </div>
+    <div class="guarantee-body">
+      <div class="guarantee-label">GUARANTEE · 30 DAYS</div>
+      <h4>לא חסכת 10 שעות ב-30 יום? <span>החזר מלא.</span></h4>
+      <p>אחרי שבועיים הטמעה + שבועיים בדיקה — אם המערכת לא החזירה לך 10 שעות עבודה בחודש, אנחנו מחזירים את הכסף. ללא שאלות, ללא התפייסות.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="fl">simplif<span>AI</span></div>
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="terms.html">תנאי שימוש</a>
+    <a href="#contact">צור קשר</a>
+  </div>
   <div class="social-icons">
     <a href="https://www.instagram.com/simplifai.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -911,12 +1143,10 @@ function calc(){
 ['s1','s2','s3'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
 calc();
 
-/* ====== FAQ ACCORDION ====== */
+/* ====== FAQ ACCORDION (ריבוי פתוחים, פתוח/סגור ידני בלבד) ====== */
 document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',()=>{
-    const item=q.parentElement,wasOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-    if(!wasOpen)item.classList.add('open');
+    q.parentElement.classList.toggle('open');
   });
 });
 
@@ -972,10 +1202,10 @@ document.querySelectorAll('.sec,.eco-sec,.final-cta').forEach((sec,i)=>{
 
 /* ====== ORBITAL PROCESS INTERACTION ====== */
 const orbSteps=[
-  {title:'אבחון',desc:'מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה הכי משתלם לייעל.',time:'יום 1–2'},
-  {title:'תכנון',desc:'מפת פתרון מותאמת אישית עם ROI צפוי ברור. אתה מאשר — אנחנו מתקדמים.',time:'יום 3–5'},
-  {title:'בנייה',desc:'פיתוח המערכת לצד הפעילות הקיימת — שום דבר לא נשבר.',time:'יום 6–12'},
-  {title:'השקה',desc:'הטמעה, הדרכה קצרה, ומדידת תוצאות מיידית.',time:'יום 13–14'}
+  {title:'אבחון',desc:'מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה הכי משתלם לייעל.',time:'ימים 1–2'},
+  {title:'תכנון',desc:'מפת פתרון מותאמת אישית עם ROI צפוי ברור. אתה מאשר — אנחנו מתקדמים.',time:'ימים 3–5'},
+  {title:'בנייה',desc:'פיתוח המערכת לצד הפעילות הקיימת — שום דבר לא נשבר.',time:'ימים 6–12'},
+  {title:'השקה',desc:'הטמעה, הדרכה קצרה, ומדידת תוצאות מיידית.',time:'ימים 13–14'}
 ];
 document.querySelectorAll('.orb-node').forEach(node=>{
   node.addEventListener('click',()=>{
@@ -1043,6 +1273,136 @@ function openLeadForm(){
   document.getElementById('leadOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+/* ====== STICKY MOBILE CTA (CSS handles visibility by viewport; JS just adds .show on scroll) ====== */
+(function(){
+  var bar=document.getElementById('stickyMobileCta');
+  if(!bar)return;
+  var shown=false;
+  function onScroll(){
+    var sc=window.scrollY||document.documentElement.scrollTop;
+    var total=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=total>0?sc/total:0;
+    if(pct>0.15 && !shown){
+      bar.classList.add('show');
+      document.body.classList.add('sticky-active');
+      shown=true;
+    }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+
+/* ====== EXIT INTENT POPUP ====== */
+(function(){
+  var overlay=document.getElementById('exitOverlay');
+  if(!overlay)return;
+  var key='simplifai_exit_shown';
+  if(sessionStorage.getItem(key)==='1')return;
+  var shown=false;
+  function trigger(){
+    if(shown)return;
+    shown=true;
+    sessionStorage.setItem(key,'1');
+    overlay.classList.add('show');
+    if(typeof gtag==='function')gtag('event','exit_intent_shown',{event_category:'engagement'});
+  }
+  /* Desktop: mouse leaves through top */
+  document.addEventListener('mouseleave',function(e){
+    if(e.clientY<=0 && window.innerWidth>768)trigger();
+  });
+  /* Mobile: trigger after 45 seconds OR on back-button */
+  if(window.innerWidth<=768){
+    setTimeout(trigger,45000);
+    history.pushState({exit:true},'');
+    window.addEventListener('popstate',function(){
+      if(!shown)trigger();
+    });
+  }
+})();
+function closeExitPopup(){
+  document.getElementById('exitOverlay').classList.remove('show');
+}
+function submitExitMagnet(e){
+  e.preventDefault();
+  var form=e.target,btn=form.querySelector('button[type=submit]');
+  btn.disabled=true;btn.textContent='שולח...';
+  var data={
+    name:form.exit_name.value,
+    email:form.exit_email.value,
+    source:'exit_intent',
+    lead_magnet:'5_processes_guide',
+    secret:FORM_SECRET
+  };
+  if(typeof gtag==='function')gtag('event','exit_intent_convert',{event_category:'lead'});
+  if(typeof fbq==='function')fbq('track','Lead',{content_name:'5 Processes Guide — Exit Intent'});
+  window.open('assets/lead-magnet.pdf','_blank');
+  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'}).catch(function(){});
+  form.style.display='none';
+  document.getElementById('exitSuccess').classList.add('show');
+  setTimeout(closeExitPopup,3000);
+  return false;
+}
+
+/* ====== PROGRESSIVE FORM NAV ====== */
+function gotoStep2(){
+  var form=document.getElementById('leadFormEl');
+  var step1=form.querySelector('[data-step="1"]');
+  /* Validate only step 1 fields */
+  var step1Fields=step1.querySelectorAll('[required]');
+  var valid=true;
+  step1Fields.forEach(function(el){if(!el.value){el.reportValidity();valid=false;}});
+  if(!valid)return;
+  step1.style.display='none';
+  form.querySelector('[data-step="2"]').style.display='block';
+  document.querySelectorAll('.form-step-dot').forEach(function(d){
+    var s=+d.dataset.step;
+    d.classList.remove('active','done');
+    if(s===1)d.classList.add('done');
+    if(s===2)d.classList.add('active');
+  });
+  document.querySelector('.form-step-line').classList.add('done');
+  document.getElementById('formHeading').textContent='בדיקת חיסכון — שלב 2';
+  document.getElementById('formSub').textContent='עוד 3 שדות → דוח ROI מדויק.';
+  if(typeof gtag==='function')gtag('event','form_step1_complete',{event_category:'lead'});
+  document.getElementById('leadFormContent').scrollTop=0;
+}
+function gotoStep1(){
+  var form=document.getElementById('leadFormEl');
+  form.querySelector('[data-step="2"]').style.display='none';
+  form.querySelector('[data-step="1"]').style.display='block';
+  document.querySelectorAll('.form-step-dot').forEach(function(d){
+    var s=+d.dataset.step;
+    d.classList.remove('active','done');
+    if(s===1)d.classList.add('active');
+  });
+  document.querySelector('.form-step-line').classList.remove('done');
+  document.getElementById('formHeading').textContent='בדיקת חיסכון — שלב 1';
+  document.getElementById('formSub').textContent='4 שדות קצרים. 30 שניות. נתקשר אליך חזרה ב-WhatsApp.';
+}
+
+/* ====== LEAD MAGNET FORM ====== */
+function submitLeadMagnet(e){
+  e.preventDefault();
+  var form=e.target,btn=form.querySelector('button[type=submit]');
+  btn.disabled=true;btn.textContent='שולח...';
+  var data={
+    name:form.lm_name.value,
+    email:form.lm_email.value,
+    source:'lead_magnet',
+    lead_magnet:'5_processes_guide',
+    secret:FORM_SECRET
+  };
+  if(typeof gtag==='function')gtag('event','lead_magnet_download',{event_category:'lead'});
+  if(typeof fbq==='function')fbq('track','Lead',{content_name:'5 Processes Guide'});
+  /* Open PDF immediately — user gets value even if backend fails */
+  window.open('assets/lead-magnet.pdf','_blank');
+  /* Fire-and-forget backend capture */
+  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'}).catch(function(){});
+  form.style.display='none';
+  document.getElementById('lmSuccess').classList.add('show');
+  return false;
+}
 function closeLeadForm(){
   document.getElementById('leadOverlay').classList.remove('open');
   document.body.style.overflow='';
@@ -1076,7 +1436,7 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
   };
   fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'})
   .then(function(){
-    var hMap={'פחות משעה':.75,'1-2 שעות':1.5,'2-4 שעות':3,'4+ שעות':5};
+    var hMap={'פחות משעה':.75,'שעה עד שעתיים':1.5,'שעתיים עד 4 שעות':3,'4+ שעות':5};
     var sMap={'רק אני':1,'2-3 אנשים':2.5,'4-10 אנשים':7,'10+':12};
     var rMap={'50-100 ₪':75,'100-150 ₪':125,'150-250 ₪':200,'250+ ₪':300};
     var h=hMap[data.hours_range]||2,s=sMap[data.staff_range]||2,r=rMap[data.hourly_range]||125;
@@ -1128,84 +1488,100 @@ if(waFloat){
 
 </script>
 
-<!-- LEAD CAPTURE FORM MODAL -->
+<!-- LEAD CAPTURE FORM MODAL (Progressive — 2 steps) -->
 <div class="form-overlay" id="leadOverlay">
 <div class="lead-form" id="leadFormContent">
 <button class="form-close" onclick="closeLeadForm()">&times;</button>
-<h2>בדיקת 5 דקות — כמה אתה מבזבז?</h2>
-<p class="form-sub">4 שאלות קצרות → תוצאה מיידית. בלי התחייבות.</p>
+<div class="form-steps-indicator">
+  <div class="form-step-dot active" data-step="1"><span>1</span></div>
+  <div class="form-step-line"></div>
+  <div class="form-step-dot" data-step="2"><span>2</span></div>
+</div>
+<h2 id="formHeading">בדיקת חיסכון — שלב 1</h2>
+<p class="form-sub" id="formSub">4 שדות קצרים. 30 שניות. נתקשר אליך חזרה ב-WhatsApp.</p>
 <form id="leadFormEl">
-<label>שם מלא *</label>
-<input name="fname" required placeholder="איך קוראים לך?">
+<!-- STEP 1 -->
+<div class="form-step" data-step="1">
+  <label>שם מלא *</label>
+  <input name="fname" required placeholder="איך קוראים לך?">
 
-<label>טלפון / WhatsApp *</label>
-<input name="phone" type="tel" required placeholder="050-0000000">
+  <label>טלפון / WhatsApp *</label>
+  <input name="phone" type="tel" required placeholder="050-0000000">
 
-<label>מייל (אופציונלי)</label>
-<input name="email" type="email" placeholder="your@email.com">
+  <div class="form-row">
+    <div>
+      <label>סוג עסק *</label>
+      <select name="btype" required>
+        <option value="">בחר...</option>
+        <option>מסעדה / בית קפה</option>
+        <option>נדל"ן / תיווך</option>
+        <option>שירותים מקצועיים</option>
+        <option>קמעונאות / חנות</option>
+        <option>תיירות / אירוח</option>
+        <option>אחר</option>
+      </select>
+    </div>
+    <div>
+      <label>מה הכי גוזל זמן? *</label>
+      <select name="pain" required>
+        <option value="">בחר...</option>
+        <option>לידים והודעות</option>
+        <option>תיאומים ופולואפים</option>
+        <option>הצעות מחיר / מסמכים</option>
+        <option>מעקב אחר לקוחות</option>
+        <option>משהו אחר</option>
+      </select>
+    </div>
+  </div>
 
-<label>שם העסק</label>
-<input name="bname" placeholder="שם העסק שלך">
-
-<div class="form-row">
-<div>
-<label>סוג עסק *</label>
-<select name="btype" required>
-<option value="">בחר...</option>
-<option>מסעדה / בית קפה</option>
-<option>נדל"ן / תיווך</option>
-<option>שירותים מקצועיים</option>
-<option>קמעונאות / חנות</option>
-<option>תיירות / אירוח</option>
-<option>אחר</option>
-</select>
-</div>
-<div>
-<label>מה הכי גוזל זמן? *</label>
-<select name="pain" required>
-<option value="">בחר...</option>
-<option>לידים והודעות</option>
-<option>תיאומים ופולואפים</option>
-<option>הצעות מחיר / מסמכים</option>
-<option>מעקב אחר לקוחות</option>
-<option>משהו אחר</option>
-</select>
-</div>
-</div>
-
-<div class="form-row">
-<div>
-<label>כמה זמן ביום? *</label>
-<select name="hours" required>
-<option value="">בחר...</option>
-<option>פחות משעה</option>
-<option>1-2 שעות</option>
-<option>2-4 שעות</option>
-<option>4+ שעות</option>
-</select>
-</div>
-<div>
-<label>כמה אנשים מתעסקים בזה? *</label>
-<select name="staff" required>
-<option value="">בחר...</option>
-<option>רק אני</option>
-<option>2-3 אנשים</option>
-<option>4-10 אנשים</option>
-<option>10+</option>
-</select>
-</div>
+  <button type="button" class="form-submit" id="stepNextBtn" onclick="gotoStep2()">המשך לדוח ROI מדויק ←</button>
+  <p class="form-step-hint">שלב 2 = עוד 30 שניות לחישוב חיסכון בכסף ושעות</p>
 </div>
 
-<label>שווי שעת עבודה ממוצעת *</label>
-<select name="rate" required>
-<option value="">בחר...</option>
-<option>50-100 ₪</option>
-<option>100-150 ₪</option>
-<option>150-250 ₪</option>
-<option>250+ ₪</option>
-</select>
+<!-- STEP 2 -->
+<div class="form-step" data-step="2" style="display:none;">
+  <button type="button" class="form-back" onclick="gotoStep1()">← חזור לשלב 1</button>
 
-<button type="submit" class="form-submit">בדוק את פוטנציאל החיסכון שלי ←</button>
+  <label>מייל (אופציונלי — נשלח אליך דוח ROI)</label>
+  <input name="email" type="email" placeholder="your@email.com">
+
+  <div class="form-row">
+    <div>
+      <label>כמה זמן ביום? *</label>
+      <select name="hours" required>
+        <option value="">בחר...</option>
+        <option>פחות משעה</option>
+        <option>שעה עד שעתיים</option>
+        <option>שעתיים עד 4 שעות</option>
+        <option>4+ שעות</option>
+      </select>
+    </div>
+    <div>
+      <label>כמה אנשים מתעסקים בזה? *</label>
+      <select name="staff" required>
+        <option value="">בחר...</option>
+        <option>רק אני</option>
+        <option>2-3 אנשים</option>
+        <option>4-10 אנשים</option>
+        <option>10+</option>
+      </select>
+    </div>
+  </div>
+
+  <label>שווי שעת עבודה ממוצעת *</label>
+  <select name="rate" required>
+    <option value="">בחר...</option>
+    <option>50-100 ₪</option>
+    <option>100-150 ₪</option>
+    <option>150-250 ₪</option>
+    <option>250+ ₪</option>
+  </select>
+
+  <!-- שם עסק אופציונלי נשמר כאן בשקט כדי לא לשבור את הבקאנד -->
+  <input type="hidden" name="bname" value="">
+
+  <button type="submit" class="form-submit">בדוק את פוטנציאל החיסכון שלי ←</button>
+</div>
 </form>
 </div>
 </div>
