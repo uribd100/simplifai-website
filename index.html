@@ -8,12 +8,24 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="simplifAI — ייעול עסקים בעזרת AI">
 <meta property="og:description" content="בונה מערכות AI שמטפלות בלידים, תיאומים, מסמכים ודוחות — חיסכון אמיתי תוך שבועיים.">
-<meta property="og:image" content="assets/logo-social.jpg">
+<meta property="og:url" content="https://uribd100.github.io/simplifai-website/">
+<meta property="og:image" content="https://uribd100.github.io/simplifai-website/assets/logo-social.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<!-- Google Analytics 4 -->
+<!-- Google Analytics 4 — TODO: replace G-XXXXXXXXXX with real Measurement ID from analytics.google.com -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<!-- Meta Pixel — TODO: replace PIXEL_ID_HERE with real Pixel ID from Meta Business Suite > Events Manager -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','PIXEL_ID_HERE');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :focus-visible{outline:2px solid #4D8EFF;outline-offset:3px;border-radius:4px;}
@@ -441,7 +453,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <a href="#calc">מחשבון</a>
     <a href="#about">עלינו</a>
     <a href="#faq">שאלות</a>
-    <a href="#" class="nav-cta" onclick="openLeadForm();return false;">בדיקת חיסכון חינם</a>
+    <a href="#" class="nav-cta" onclick="openLeadForm();return false;">בדיקת 5 דקות חינם</a>
   </div>
 </nav>
 
@@ -466,7 +478,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <h1>העסק שלך לא צריך עוד עובד.<br><span class="g">הוא צריך מערכת שעושה את העבודה החוזרת במקומך.</span></h1>
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-cta" onclick="openLeadForm();return false;">בדיקת חיסכון חינם ←</a>
+      <a href="#" class="btn-cta" onclick="openLeadForm();return false;">בדיקת 5 דקות חינם ←</a>
       <a href="#ecosystem" class="btn-ghost">ראה איך זה עובד ↓</a>
     </div>
     <div class="hero-benefits">
@@ -1020,10 +1032,13 @@ const observer=new IntersectionObserver((entries)=>{
 ['ba-grid'].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 
 /* ====== LEAD FORM MODAL ====== */
+function escHtml(s){var d=document.createElement('div');d.textContent=s||'\u2014';return d.innerHTML;}
 var APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbyPP8_qZyUO5oYEIz-OSy6etEW65TUBkv5SvmsCM957-P1-nJ2UUMbbUu4bqSQHorvVeA/exec';
+var FORM_SECRET='sAI_wh_2026x';
 
 function openLeadForm(){
   if(typeof gtag==='function')gtag('event','form_open',{event_category:'lead'});
+  if(typeof fbq==='function')fbq('track','InitiateCheckout');
   document.getElementById('leadOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -1042,6 +1057,7 @@ document.getElementById('leadOverlay').addEventListener('click',function(e){
 document.getElementById('leadFormEl').addEventListener('submit',function(e){
   e.preventDefault();
   if(typeof gtag==='function')gtag('event','form_submit',{event_category:'lead'});
+  if(typeof fbq==='function')fbq('track','Lead');
   var btn=this.querySelector('.form-submit');
   btn.disabled=true;btn.textContent='שולח...';
   var data={
@@ -1054,7 +1070,8 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     hours_range:this.hours.value,
     staff_range:this.staff.value,
     hourly_range:this.rate.value,
-    source:'website'
+    source:'website',
+    secret:FORM_SECRET
   };
   fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'})
   .then(function(){
@@ -1071,10 +1088,11 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
       '<div class="roi-card"><div class="roi-val">'+mh+'</div><div class="roi-label">שעות מבוזבזות / חודש</div></div>'+
       '<div class="roi-card"><div class="roi-val" style="color:#FF6F4C">₪'+mc.toLocaleString('he-IL')+'</div><div class="roi-label">עלות חודשית</div></div>'+
       '<div class="roi-card"><div class="roi-val" style="color:#22C55E">₪'+sv.toLocaleString('he-IL')+'</div><div class="roi-label">חיסכון פוטנציאלי / חודש</div></div>'+
-      '<div class="roi-card"><div class="roi-val" style="color:#8B5CF6">'+(data.main_pain||'—')+'</div><div class="roi-label">כאב מרכזי</div></div>'+
+      '<div class="roi-card"><div class="roi-val" style="color:#8B5CF6">'+escHtml(data.main_pain)+'</div><div class="roi-label">כאב מרכזי</div></div>'+
       '</div>'+
-      '<p style="margin-top:16px">רוצה לדייק? קבע שיחה קצרה של 20 דקות:</p>'+
-      '<a href="https://wa.me/972537453493?text=היי, מילאתי את הטופס באתר ואשמח לקבוע שיחה" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;">קבע שיחת אבחון חינם ←</a>'+
+      '<p style="margin-top:16px">רוצה לראות איך מערכת כזו עובדת בפועל?</p>'+
+      '<a href="https://calendly.com/simplifai-il/discovery-call" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;">קבע שיחה חינם של 20 דקות ←</a>'+
+      '<p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.4);">בינתיים — שלחנו לך הודעה ב-WhatsApp עם פירוט נוסף.<br>ענה עליה ונתחיל.</p>'+
       '</div>';
   }).catch(function(){
     btn.disabled=false;btn.textContent='שלח בדיקה חינם';
@@ -1103,6 +1121,7 @@ var waFloat=document.querySelector('.wa-float');
 if(waFloat){
   waFloat.addEventListener('click',function(){
     if(typeof gtag==='function')gtag('event','whatsapp_click',{event_category:'lead'});
+    if(typeof fbq==='function')fbq('track','Contact');
   });
 }
 
@@ -1112,8 +1131,8 @@ if(waFloat){
 <div class="form-overlay" id="leadOverlay">
 <div class="lead-form" id="leadFormContent">
 <button class="form-close" onclick="closeLeadForm()">&times;</button>
-<h2>בדיקת חיסכון חינם</h2>
-<p class="form-sub">ענה על כמה שאלות קצרות וקבל הערכה מיידית</p>
+<h2>בדיקת 5 דקות — כמה אתה מבזבז?</h2>
+<p class="form-sub">4 שאלות קצרות → תוצאה מיידית. בלי התחייבות.</p>
 <form id="leadFormEl">
 <label>שם מלא *</label>
 <input name="fname" required placeholder="איך קוראים לך?">
