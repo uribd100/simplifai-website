@@ -87,7 +87,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Heebo', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; }
 
-    /* Site-wide cinematic video background (more prominent + cinematic) */
+    /* Site-wide cinematic video background (videos prominent, overlay light) */
     #bgVideo {
       position: fixed;
       inset: 0;
@@ -96,18 +96,18 @@
       object-fit: cover;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.55;
+      opacity: 0.85;
     }
     #bgVideoOverlay {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(6,13,31,0.25) 0%, rgba(6,13,31,0.7) 100%);
+      background: radial-gradient(ellipse at center, rgba(6,13,31,0.1) 0%, rgba(6,13,31,0.45) 100%);
     }
     /* All sections sit above the video */
     nav, section, footer { position: relative; z-index: 1; }
-    /* Feature card video backgrounds */
+    /* Feature card video backgrounds — higher visibility */
     .card-video {
       position: absolute;
       inset: 0;
@@ -116,14 +116,40 @@
       object-fit: cover;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.4;
+      opacity: 0.75;
     }
     .card-video-overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(135deg, rgba(6,13,31,0.55) 0%, rgba(6,13,31,0.25) 50%, rgba(6,13,31,0.65) 100%);
+      background: linear-gradient(135deg, rgba(6,13,31,0.35) 0%, rgba(6,13,31,0.1) 50%, rgba(6,13,31,0.5) 100%);
       pointer-events: none;
+    }
+
+    /* Mobile responsive tweaks */
+    @media (max-width: 768px) {
+      /* Hero headline: smaller on mobile, tighter line-height */
+      #hero h1 { font-size: clamp(2.25rem, 9vw, 3.5rem) !important; line-height: 1.05 !important; }
+      /* Section padding shrink */
+      section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+      /* Bento first card doesn't span 2x2 on mobile — all cards single cell */
+      .bento-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .bento-grid .card-hero { min-height: 280px !important; }
+      /* Card padding reduction */
+      .glass { padding: 1.5rem !important; }
+      /* Card video opacity a bit higher on mobile (smaller viewport, videos less distracting) */
+      .card-video { opacity: 0.8; }
+      /* Global BG more visible on mobile */
+      #bgVideo { opacity: 0.9; }
+      /* Hide nav links on mobile, keep only CTA */
+      #navbar .nav-links { display: none; }
+      /* Pricing: no scale on mobile (breaks layout) */
+      #pricing .featured-tier { transform: none !important; }
+      /* Typography safety */
+      h2 { font-size: clamp(1.75rem, 6vw, 2.5rem) !important; }
+      h3 { font-size: 1.125rem !important; }
+      /* Footer grid collapse to 2 cols */
+      footer .footer-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
     }
 
     /* Liquid glass */
@@ -227,7 +253,7 @@
       <a href="#hero" class="text-2xl font-head font-extrabold" style="direction: ltr;">
         <span>simplif</span><span class="text-accent">AI</span>
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
+      <div class="nav-links hidden md:flex items-center gap-8 text-sm text-white/70">
         <a href="#features" class="hover:text-white transition">פתרונות</a>
         <a href="#how" class="hover:text-white transition">איך זה עובד</a>
         <a href="#pricing" class="hover:text-white transition">מחירים</a>
@@ -321,9 +347,9 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4" data-reveal-stagger>
+      <div class="bento-grid grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4" data-reveal-stagger>
         <!-- Hero tile - lead automation with funnel video bg -->
-        <div class="md:col-span-2 md:row-span-2 glass rounded-2xl hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+        <div class="card-hero md:col-span-2 md:row-span-2 glass rounded-2xl hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
           <video class="card-video card-video-lazy" muted loop playsinline preload="none"
                  poster="./videos/lead-funnel-poster.jpg"
                  data-src-mp4="./videos/lead-funnel.mp4" data-src-webm="./videos/lead-funnel.webm"></video>
@@ -574,7 +600,7 @@
         </div>
 
         <!-- Featured: System -->
-        <div class="glass-strong rounded-2xl relative transition-all duration-300 md:scale-[1.03] md:-translate-y-2 flex flex-col overflow-hidden"
+        <div class="featured-tier glass-strong rounded-2xl relative transition-all duration-300 md:scale-[1.03] md:-translate-y-2 flex flex-col overflow-hidden"
              style="box-shadow: 0 0 60px rgba(77,142,255,0.18);">
           <video class="card-video card-video-lazy" muted loop playsinline preload="none" style="opacity: 0.4;"
                  poster="./videos/step-cables-poster.jpg"
@@ -715,7 +741,7 @@
   <!-- FOOTER -->
   <footer class="border-t border-white/[0.06] py-16">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-12">
+      <div class="footer-grid grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-12">
         <div>
           <div class="text-2xl font-head font-extrabold mb-4" style="direction: ltr;">
             <span>simplif</span><span class="text-accent">AI</span>
