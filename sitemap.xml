@@ -22,6 +22,36 @@
     </image:image>
   </url>
   <url>
+    <loc>https://simplifai.co.il/services/lead-automation/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://simplifai.co.il/assets/og-lead-automation.jpg</image:loc>
+      <image:title>אוטומציית לידים לעסק — simplifAI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://simplifai.co.il/services/crm-integration/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://simplifai.co.il/assets/og-crm-integration.jpg</image:loc>
+      <image:title>אינטגרציית CRM לעסק — simplifAI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://simplifai.co.il/services/ai-agent/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://simplifai.co.il/assets/og-ai-agent.jpg</image:loc>
+      <image:title>סוכן AI לעסק — simplifAI</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://simplifai.co.il/privacy.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>yearly</changefreq>
