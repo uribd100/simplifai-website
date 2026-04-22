@@ -205,10 +205,12 @@
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCEEL8J8G"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NBCEEL8J8G');</script>
-<!-- Meta Pixel — deferred until browser idle for better LCP -->
+<!-- Meta Pixel — official stub + deferred script load (fixes fbevents TypeError) -->
 <script>
-window.fbq=window.fbq||function(){(fbq.q=fbq.q||[]).push(arguments)};fbq.loaded=!0;fbq.version='2.0';
-(function(){function loadPixel(){var s=document.createElement('script');s.async=!0;s.src='https://connect.facebook.net/en_US/fbevents.js';s.onload=function(){fbq('init','1655847498905049');fbq('track','PageView');};document.head.appendChild(s);}
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
+fbq('init','1655847498905049');
+fbq('track','PageView');
+(function(){function loadPixel(){var t=document.createElement('script');t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(t,s);}
 if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:3000});}else{setTimeout(loadPixel,2000);}})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1655847498905049&ev=PageView&noscript=1" alt=""/></noscript>
