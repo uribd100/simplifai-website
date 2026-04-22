@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#060D1F">
 <meta name="color-scheme" content="dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 
 <!-- PRIMARY SEO -->
 <title>simplifAI — ייעול עסקים בעזרת AI | אוטומציה ו-AI לעסקים</title>
@@ -231,7 +234,7 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .logo-orbit::before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 8px #4D8EFF,0 0 16px rgba(77,142,255,.3);animation:logo-orb 5s linear infinite;}
 @keyframes logo-orb{0%{top:50%;left:-4px;}25%{top:-4px;left:50%;}50%{top:50%;left:calc(100% + 4px);}75%{top:calc(100% + 4px);left:50%;}100%{top:50%;left:-4px;}}
 .nav-links{display:flex;gap:28px;align-items:center;}
-.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:#fff;}
 .nav-cta{background:linear-gradient(135deg,#FF6F4C,#e85a38)!important;color:#fff!important;padding:9px 24px;border-radius:8px;font-weight:700!important;box-shadow:0 0 20px rgba(255,111,76,.3);}
 .nav-cta:hover{box-shadow:0 0 36px rgba(255,111,76,.5)!important;transform:translateY(-1px);}
@@ -249,7 +252,7 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .sec-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#4D8EFF;flex-shrink:0;box-shadow:0 0 10px #4D8EFF;animation:blink 1.8s infinite;}
 .sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,68px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:16px;}
 .sec-h .g{color:#4D8EFF;text-shadow:0 0 30px rgba(77,142,255,.3);}
-.sec-p{font-size:16px;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:72px;max-width:560px;}
+.sec-p{font-size:16px;color:rgba(255,255,255,.68);line-height:1.9;margin-bottom:72px;max-width:560px;}
 .sec{padding:120px 56px;position:relative;z-index:1;}
 
 /* CTA buttons */
@@ -257,7 +260,7 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s;}
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 0 100px rgba(255,111,76,.5),0 8px 32px rgba(0,0,0,.5);}
 .btn-cta:hover::before{opacity:1;}
-.btn-ghost{color:rgba(255,255,255,.5);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid rgba(255,255,255,.15);border-radius:10px;transition:color .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px;}
+.btn-ghost{color:rgba(255,255,255,.72);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid rgba(255,255,255,.15);border-radius:10px;transition:color .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px;}
 .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.03);}
 /* WhatsApp hero CTA */
 .btn-wa{background:#25D366;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
@@ -544,7 +547,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;direction:ltr;unicode-bidi:bidi-override;display:inline-flex;}
 .fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
 .footer-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
 .footer-links a:hover{color:#4D8EFF;background:rgba(77,142,255,.05);}
 .social-icons{display:flex;gap:6px;align-items:center;}
 .social-icons a{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;color:rgba(255,255,255,.45);transition:color .2s,background .2s;}
@@ -787,8 +790,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <h3>רגע — לפני שאתה <span class="o">הולך</span></h3>
     <p>קח איתך את המדריך שלנו: <strong>5 התהליכים שכל עסק צריך לייעל</strong> — PDF של 8 עמודים. חינם, בלי התחייבות.</p>
     <form class="lm-form" id="exitForm" onsubmit="return submitExitMagnet(event)">
-      <input name="exit_name" required placeholder="שם מלא">
-      <input name="exit_email" type="email" required placeholder="אימייל">
+      <input name="exit_name" required placeholder="שם מלא" aria-label="שם מלא" autocomplete="name">
+      <input name="exit_email" type="email" required placeholder="אימייל" aria-label="אימייל" autocomplete="email">
       <button type="submit">שלח לי את המדריך ←</button>
     </form>
     <div class="exit-success" id="exitSuccess">
@@ -820,9 +823,12 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 </nav>
 
+<!-- ===== MAIN ===== -->
+<main id="main">
+
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <canvas id="particles"></canvas>
+  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="hero-glow"></div>
   <div class="scanlines"></div>
   <div class="hero-visual">
@@ -866,10 +872,10 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <h2 class="sec-h">רוב העסקים לא צריכים יותר עבודה —<br>הם צריכים <span class="g">פחות עבודה ידנית</span></h2>
   <p class="sec-p">אם אתה מרגיש שאתה כל היום עסוק אבל לא באמת מתקדם — אתה לא לבד.</p>
   <div class="problem-grid">
-    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-1.webp" alt="לידים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async"></div><div>מענה ללידים<br><span>שנופלים בין הכיסאות</span></div></div>
-    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-2.webp" alt="תיאומים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async"></div><div>תיאומים ופולואפים<br><span>שגוזלים שעות כל יום</span></div></div>
-    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-3.webp" alt="מסמכים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async"></div><div>מסמכים ודוחות<br><span>שמכינים ידנית שוב ושוב</span></div></div>
-    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-4.webp" alt="נתונים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async"></div><div>הזנת נתונים<br><span>שאפשר להפוך לאוטומטיות בשניות</span></div></div>
+    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-1.webp" alt="לידים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div>מענה ללידים<br><span>שנופלים בין הכיסאות</span></div></div>
+    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-2.webp" alt="תיאומים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div>תיאומים ופולואפים<br><span>שגוזלים שעות כל יום</span></div></div>
+    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-3.webp" alt="מסמכים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div>מסמכים ודוחות<br><span>שמכינים ידנית שוב ושוב</span></div></div>
+    <div class="prob-card"><div class="prob-img-wrap"><img src="assets/icons/problem-4.webp" alt="נתונים" onerror="this.parentElement.style.background='rgba(255,82,82,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div>הזנת נתונים<br><span>שאפשר להפוך לאוטומטיות בשניות</span></div></div>
   </div>
   <p class="prob-conclusion">לא כי זה לא חשוב — אלא כי <strong>אין מערכת שעושה את זה במקומם.</strong></p>
 </section>
@@ -900,8 +906,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <h2>לפני שמדברים —<br><span class="g">הורד את המדריך</span></h2>
       <p>5 התהליכים שהכי גוזלים זמן בעסקים ישראליים — איך לזהות אותם בעסק שלך, ומה השלב הראשון לייעול של כל אחד. PDF של 8 עמודים. חינם.</p>
       <form class="lm-form" id="lmForm" onsubmit="return submitLeadMagnet(event)">
-        <input name="lm_name" required placeholder="שם מלא">
-        <input name="lm_email" type="email" required placeholder="אימייל">
+        <input name="lm_name" required placeholder="שם מלא" aria-label="שם מלא" autocomplete="name">
+        <input name="lm_email" type="email" required placeholder="אימייל" aria-label="אימייל" autocomplete="email">
         <button type="submit">קבל את המדריך ←</button>
       </form>
       <div class="lm-success" id="lmSuccess">
@@ -926,45 +932,45 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
           <div class="center-img-wrap">
             <div class="center-glow"></div>
             <div class="center-ring"></div><div class="center-ring2"></div><div class="center-ring3"></div>
-            <img class="center-img" src="assets/icons/ai-brain.webp" alt="simplifAI" loading="lazy" decoding="async">
+            <img class="center-img" src="assets/icons/ai-brain.webp" alt="simplifAI" loading="lazy" decoding="async" width="1024" height="1024">
           </div>
           <div class="center-label">simplif<span>AI</span></div>
           <div class="center-sub">AI ENGINE</div>
         </div>
         <div class="sat-node sat-email" id="n-email">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/email.webp" alt="Email" loading="lazy" decoding="async"></div><div class="sat-name">מיילים</div><div class="sat-label">EMAIL</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/email.webp" alt="Email" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">מיילים</div><div class="sat-label">EMAIL</div></div>
           <div class="tip">מענה אוטומטי, סיווג, עדיפויות</div>
         </div>
         <div class="sat-node sat-crm" id="n-crm">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/crm.webp" alt="CRM" loading="lazy" decoding="async"></div><div class="sat-name">CRM</div><div class="sat-label">CONTACTS</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/crm.webp" alt="CRM" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">CRM</div><div class="sat-label">CONTACTS</div></div>
           <div class="tip">סנכרון אוטומטי, פולואפ, דוחות</div>
         </div>
         <div class="sat-node sat-reports" id="n-reports">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/reports.webp" alt="Reports" loading="lazy" decoding="async"></div><div class="sat-name">דוחות</div><div class="sat-label">REPORTS</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/reports.webp" alt="Reports" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">דוחות</div><div class="sat-label">REPORTS</div></div>
           <div class="tip">דוחות שבועיים שנוצרים מעצמם</div>
         </div>
         <div class="sat-node sat-sheets" id="n-sheets">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/sheets.webp" alt="Sheets" loading="lazy" decoding="async"></div><div class="sat-name">גיליונות</div><div class="sat-label">SHEETS</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/sheets.webp" alt="Sheets" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">גיליונות</div><div class="sat-label">SHEETS</div></div>
           <div class="tip">עדכון נתונים אוטומטי, ניתוח</div>
         </div>
         <div class="sat-node sat-calendar" id="n-calendar">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/calendar.webp" alt="Calendar" loading="lazy" decoding="async"></div><div class="sat-name">יומן</div><div class="sat-label">CALENDAR</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/calendar.webp" alt="Calendar" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">יומן</div><div class="sat-label">CALENDAR</div></div>
           <div class="tip">תיאום פגישות אוטומטי ותזכורות</div>
         </div>
         <div class="sat-node sat-whatsapp" id="n-whatsapp">
-          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async"></div><div class="sat-name">WhatsApp</div><div class="sat-label">MESSAGING</div></div>
+          <div class="sat-inner"><div class="sat-img-wrap"><img class="sat-img" src="assets/icons/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="sat-name">WhatsApp</div><div class="sat-label">MESSAGING</div></div>
           <div class="tip">תזכורות ועדכונים ללקוחות</div>
         </div>
       </div>
     </div>
     <!-- Mobile fallback: simple card grid -->
     <div class="eco-mobile">
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/email.webp" alt="Email" loading="lazy" decoding="async"></div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/crm.webp" alt="CRM" loading="lazy" decoding="async"></div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/reports.webp" alt="Reports" loading="lazy" decoding="async"></div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים מעצמם</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/sheets.webp" alt="Sheets" loading="lazy" decoding="async"></div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/calendar.webp" alt="Calendar" loading="lazy" decoding="async"></div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות אוטומטי ותזכורות</div></div>
-      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async"></div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/email.webp" alt="Email" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">מיילים</div><div class="eco-m-sub">EMAIL</div><div class="eco-m-tip">מענה אוטומטי, סיווג, עדיפויות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/crm.webp" alt="CRM" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">CRM</div><div class="eco-m-sub">CONTACTS</div><div class="eco-m-tip">סנכרון אוטומטי, פולואפ, דוחות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/reports.webp" alt="Reports" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">דוחות</div><div class="eco-m-sub">REPORTS</div><div class="eco-m-tip">דוחות שבועיים שנוצרים מעצמם</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/sheets.webp" alt="Sheets" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">גיליונות</div><div class="eco-m-sub">SHEETS</div><div class="eco-m-tip">עדכון נתונים אוטומטי, ניתוח</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/calendar.webp" alt="Calendar" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">יומן</div><div class="eco-m-sub">CALENDAR</div><div class="eco-m-tip">תיאום פגישות אוטומטי ותזכורות</div></div>
+      <div class="eco-m-node"><div class="eco-m-icon"><img src="assets/icons/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="eco-m-name">WhatsApp</div><div class="eco-m-sub">MESSAGING</div><div class="eco-m-tip">תזכורות ועדכונים ללקוחות</div></div>
     </div>
   </div>
 </section>
@@ -976,22 +982,22 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <p class="sec-p">אם יש אצלך עבודה שחוזרת על עצמה — כנראה שיש מה לייעל.</p>
   <div class="audience-grid">
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-1.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-1.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true" width="1024" height="1024"></div>
       <div class="aud-title">יש לידים שלא תמיד מקבלים מענה בזמן</div>
       <div class="aud-sub">ואתה מרגיש שאתה מפספס לקוחות</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-2.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-2.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true" width="1024" height="1024"></div>
       <div class="aud-title">הרבה תיאומים, הודעות ומיילים בעסק</div>
       <div class="aud-sub">וזה גוזל לך שעות כל יום</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-3.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-3.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true" width="1024" height="1024"></div>
       <div class="aud-title">אתה או העובדים שלך חוזרים על אותן פעולות</div>
       <div class="aud-sub">שוב ושוב, בלי ערך אמיתי</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-4.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-4.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true" width="1024" height="1024"></div>
       <div class="aud-title">אתה רוצה לגדול — אבל מפחד מהכאוס</div>
       <div class="aud-sub">עוד עובדים, עוד טעויות, עוד עומס</div>
     </div>
@@ -1005,12 +1011,12 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <h2 class="sec-h">מה אנחנו <span class="g">בונים לך</span></h2>
   <p class="sec-p">מאבחון מדויק ועד מערכת AI שפועלת בכוחות עצמה — 14 יום.</p>
   <div class="srv-grid">
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-leads.webp" alt="מערכת לידים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">מערכת טיפול בלידים</div><p class="srv-p">מענה אוטומטי, סינון פניות, קביעת פגישות ופולואפ — בלי לפספס לקוח.</p><span class="srv-badge">→ אפס לידים שנופלים</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-reminders.webp" alt="תזכורות אוטומטיות" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">תזכורות ומעקבים אוטומטיים</div><p class="srv-p">לקוחות מקבלים תזכורת בזמן, ואתה לא צריך לרדוף אחרי אף אחד.</p><span class="srv-badge">→ חוסך 8+ שעות/שבוע</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-docs.webp" alt="הפקת מסמכים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">הפקת מסמכים ודוחות</div><p class="srv-p">הצעות מחיר, חשבוניות ודוחות שנוצרים מעצמם — לפי הנתונים שלך, בלי עבודה ידנית.</p><span class="srv-badge">→ הטמעה תוך 14 יום</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-chatbots.webp" alt="צ'אט בוטים וסוכני AI" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">צ'אט בוטים וסוכני AI</div><p class="srv-p">בוטים חכמים שמנהלים שיחות עם לקוחות, עונים על שאלות ומטפלים בפניות — 24/7 בלי הפסקה.</p><span class="srv-badge">→ מענה מיידי ללקוחות</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-dashboards.webp" alt="דאשבורדים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">דאשבורדים ודוחות חכמים</div><p class="srv-p">לוחות בקרה בזמן אמת שמציגים KPIs, מגמות ותובנות — כדי שתקבל החלטות מבוססות נתונים.</p><span class="srv-badge">→ שליטה מלאה על הנתונים</span></div>
-    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-crm-erp.webp" alt="מערכות CRM ו-ERP" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div><div class="srv-h">מערכות CRM ו-ERP</div><p class="srv-p">הטמעה וחיבור של מערכות ניהול לקוחות ותפעול — מותאמות בדיוק לצרכים של העסק שלך.</p><span class="srv-badge">→ מערכת אחת לכל העסק</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-leads.webp" alt="מערכת לידים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="srv-h">מערכת טיפול בלידים</div><p class="srv-p">מענה אוטומטי, סינון פניות, קביעת פגישות ופולואפ — בלי לפספס לקוח.</p><span class="srv-badge">→ אפס לידים שנופלים</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-reminders.webp" alt="תזכורות אוטומטיות" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="srv-h">תזכורות ומעקבים אוטומטיים</div><p class="srv-p">לקוחות מקבלים תזכורת בזמן, ואתה לא צריך לרדוף אחרי אף אחד.</p><span class="srv-badge">→ חוסך 8+ שעות/שבוע</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-docs.webp" alt="הפקת מסמכים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="srv-h">הפקת מסמכים ודוחות</div><p class="srv-p">הצעות מחיר, חשבוניות ודוחות שנוצרים מעצמם — לפי הנתונים שלך, בלי עבודה ידנית.</p><span class="srv-badge">→ הטמעה תוך 14 יום</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-chatbots.webp" alt="צ'אט בוטים וסוכני AI" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div><div class="srv-h">צ'אט בוטים וסוכני AI</div><p class="srv-p">בוטים חכמים שמנהלים שיחות עם לקוחות, עונים על שאלות ומטפלים בפניות — 24/7 בלי הפסקה.</p><span class="srv-badge">→ מענה מיידי ללקוחות</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-dashboards.webp" alt="דאשבורדים" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div><div class="srv-h">דאשבורדים ודוחות חכמים</div><p class="srv-p">לוחות בקרה בזמן אמת שמציגים KPIs, מגמות ותובנות — כדי שתקבל החלטות מבוססות נתונים.</p><span class="srv-badge">→ שליטה מלאה על הנתונים</span></div>
+    <div class="srv-card"><div class="srv-card-glow"></div><div class="srv-img-wrap"><img src="assets/icons/services-crm-erp.webp" alt="מערכות CRM ו-ERP" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div><div class="srv-h">מערכות CRM ו-ERP</div><p class="srv-p">הטמעה וחיבור של מערכות ניהול לקוחות ותפעול — מותאמות בדיוק לצרכים של העסק שלך.</p><span class="srv-badge">→ מערכת אחת לכל העסק</span></div>
   </div>
 </section>
 
@@ -1030,23 +1036,23 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       <defs><filter id="orb-glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     </svg>
     <div class="orbital-center">
-      <div class="orbital-center-ring"><img class="orbital-center-img" src="assets/icons/ai-brain.webp" alt="simplifAI" loading="lazy" decoding="async"></div>
+      <div class="orbital-center-ring"><img class="orbital-center-img" src="assets/icons/ai-brain.webp" alt="simplifAI" loading="lazy" decoding="async" width="1024" height="1024"></div>
       <div class="orbital-center-label">simplif<span>AI</span></div>
     </div>
     <div class="orb-node" id="orb-1" style="left:50%;top:2%;transform:translateX(-50%);" data-step="1">
-      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-1.webp" alt="אבחון" loading="lazy" decoding="async"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-1.webp" alt="אבחון" loading="lazy" decoding="async" width="1024" height="1024"><div class="orb-num">01</div><div class="orb-icon">🔍</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">אבחון<br><span class="orb-sub">ימים 1–2</span></div>
     </div>
     <div class="orb-node" id="orb-2" style="left:82%;top:42%;transform:translateY(-50%);" data-step="2">
-      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-2.webp" alt="תכנון" loading="lazy" decoding="async"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-2.webp" alt="תכנון" loading="lazy" decoding="async" width="1024" height="1024"><div class="orb-num">02</div><div class="orb-icon">🗺️</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">תכנון<br><span class="orb-sub">ימים 3–5</span></div>
     </div>
     <div class="orb-node" id="orb-3" style="left:50%;bottom:2%;transform:translateX(-50%);" data-step="3">
-      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-3.webp" alt="בנייה" loading="lazy" decoding="async"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-3.webp" alt="בנייה" loading="lazy" decoding="async" width="1024" height="1024"><div class="orb-num">03</div><div class="orb-icon">🔧</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">בנייה<br><span class="orb-sub">ימים 6–12</span></div>
     </div>
     <div class="orb-node" id="orb-4" style="left:2%;top:42%;transform:translateY(-50%);" data-step="4">
-      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-4.webp" alt="השקה" loading="lazy" decoding="async"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
+      <div class="orb-circle"><img class="orb-img" src="assets/icons/orb-4.webp" alt="השקה" loading="lazy" decoding="async" width="1024" height="1024"><div class="orb-num">04</div><div class="orb-icon">🚀</div></div>
       <div class="orb-label" style="top:108px;left:50%;transform:translateX(-50%);">השקה<br><span class="orb-sub">ימים 13–14</span></div>
     </div>
     <div class="orb-info" id="orb-info">
@@ -1058,10 +1064,10 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 
   <!-- Mobile: Linear timeline -->
   <div class="mobile-timeline">
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.webp" alt="אבחון" loading="lazy" decoding="async"></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">ימים 1–2</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.webp" alt="תכנון" loading="lazy" decoding="async"></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">ימים 3–5</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.webp" alt="בנייה" loading="lazy" decoding="async"></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">ימים 6–12</div></div></div>
-    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.webp" alt="השקה" loading="lazy" decoding="async"></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">ימים 13–14</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-1.webp" alt="אבחון" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="mt-content"><div class="mt-title">אבחון</div><div class="mt-desc">מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל</div><div class="mt-time">ימים 1–2</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-2.webp" alt="תכנון" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="mt-content"><div class="mt-title">תכנון</div><div class="mt-desc">מפת פתרון מותאמת אישית עם ROI צפוי</div><div class="mt-time">ימים 3–5</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-3.webp" alt="בנייה" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="mt-content"><div class="mt-title">בנייה</div><div class="mt-desc">פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש</div><div class="mt-time">ימים 6–12</div></div></div>
+    <div class="mt-step"><div class="mt-num"><img src="assets/icons/orb-4.webp" alt="השקה" loading="lazy" decoding="async" width="1024" height="1024"></div><div class="mt-content"><div class="mt-title">השקה</div><div class="mt-desc">הטמעה, הדרכה, ומדידת תוצאות ראשונות</div><div class="mt-time">ימים 13–14</div></div></div>
   </div>
 </section>
 
@@ -1100,7 +1106,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <p class="sec-p">כל עסק שונה. לכן מתחילים מהמקום שהכי משתלם לך.</p>
   <div class="pkg-grid">
     <div class="pkg-card">
-      <div class="pkg-img-wrap"><img src="assets/icons/pkg-1.webp" alt="מפת הכאב" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-1.webp" alt="מפת הכאב" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div>
       <div class="pkg-title">מפת הכאב</div>
       <div class="pkg-desc">פגישה שבה אנחנו מזהים איפה העסק שלך מאבד זמן ומה הכי משתלם לשפר</div>
       <ul class="pkg-list">
@@ -1111,7 +1117,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
     <div class="pkg-card pkg-featured">
       <div class="pkg-badge-top">הכי פופולרי</div>
-      <div class="pkg-img-wrap"><img src="assets/icons/pkg-2.webp" alt="ניצחון ראשון" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-2.webp" alt="ניצחון ראשון" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div>
       <div class="pkg-title">ניצחון ראשון</div>
       <div class="pkg-desc">אוטומציה אחת לבעיה הכי כואבת בעסק שלך — תוצאה מהירה</div>
       <ul class="pkg-list">
@@ -1121,7 +1127,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
       </ul>
     </div>
     <div class="pkg-card">
-      <div class="pkg-img-wrap"><img src="assets/icons/pkg-3.webp" alt="מנוע הצמיחה" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="pkg-img-wrap"><img src="assets/icons/pkg-3.webp" alt="מנוע הצמיחה" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" width="1264" height="848"></div>
       <div class="pkg-title">מנוע הצמיחה</div>
       <div class="pkg-desc">חיבור של כמה תהליכים למערכת אחת שעובדת בשבילך</div>
       <ul class="pkg-list">
@@ -1165,7 +1171,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <h2 class="sec-h">שבוע עבודה — <span class="g">מה שמשתנה</span></h2>
   <p class="sec-p">כך נראה שבוע עבודה ממוצע בעסק — לפני ואחרי הטמעת AI.</p>
   <div class="ba-image">
-    <img src="assets/icons/before-after.webp" alt="לפני ואחרי AI" onerror="this.parentElement.style.display='none'" loading="lazy" decoding="async">
+    <img src="assets/icons/before-after.webp" alt="לפני ואחרי AI" onerror="this.parentElement.style.display='none'" loading="lazy" decoding="async" width="1264" height="848">
   </div>
   <div class="ba-grid" id="ba-grid">
     <div class="ba-before">
@@ -1208,7 +1214,7 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <div class="about-grid">
     <div class="photo-wrap">
       <div class="photo-glow"></div>
-      <img src="assets/uri-profile.webp" alt="אורי בר דרור — מייסד simplifAI" onerror="this.parentElement.style.display='none'" loading="lazy" decoding="async">
+      <img src="assets/uri-profile.webp" alt="אורי בר דרור — מייסד simplifAI" onerror="this.parentElement.style.display='none'" loading="lazy" decoding="async" width="308" height="308">
       <div class="photo-badge"><div class="pb-n">10+</div><div class="pb-l">שנות ניסיון</div></div>
     </div>
     <div class="about-content">
@@ -1259,6 +1265,9 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     </div>
   </div>
 </section>
+
+</main>
+<!-- ===== /MAIN ===== -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -1786,10 +1795,10 @@ if(waFloat){
 <!-- STEP 1 -->
 <div class="form-step" data-step="1">
   <label>שם מלא *</label>
-  <input name="fname" required placeholder="איך קוראים לך?">
+  <input name="fname" required placeholder="איך קוראים לך?" aria-label="שם מלא" autocomplete="name">
 
   <label>טלפון / WhatsApp *</label>
-  <input name="phone" type="tel" required placeholder="050-0000000">
+  <input name="phone" type="tel" required placeholder="050-0000000" aria-label="טלפון" autocomplete="tel">
 
   <div class="form-row">
     <div>
@@ -1826,7 +1835,7 @@ if(waFloat){
   <button type="button" class="form-back" onclick="gotoStep1()">← חזור לשלב 1</button>
 
   <label>מייל (אופציונלי — נשלח אליך דוח ROI)</label>
-  <input name="email" type="email" placeholder="your@email.com">
+  <input name="email" type="email" placeholder="your@email.com" aria-label="אימייל" autocomplete="email">
 
   <div class="form-row">
     <div>
