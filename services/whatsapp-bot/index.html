@@ -142,19 +142,20 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 
 /* NAV */
 nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;border-radius:6px;}
 .logo-text .ai{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);}
 .nav-right{display:flex;gap:20px;align-items:center;}
-.nav-back{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;transition:color .2s;}
-.nav-back:hover{color:#fff;}
+.nav-back{color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
+.nav-back:hover{color:#fff;background:rgba(77,142,255,.06);}
 .nav-cta{background:linear-gradient(135deg,#25D366,#128c7e);color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 0 20px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 36px rgba(37,211,102,.5);}
 
 /* BREADCRUMBS */
-.breadcrumbs{padding:16px 40px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;}
-.breadcrumbs a{color:rgba(77,142,255,.7);text-decoration:none;transition:color .2s;}
-.breadcrumbs a:hover{color:#4D8EFF;}
-.breadcrumbs .sep{margin:0 10px;opacity:.4;}
+.breadcrumbs{padding:10px 40px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase;display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
+.breadcrumbs a{color:rgba(77,142,255,.8);text-decoration:none;transition:color .2s,background .2s;padding:12px 10px;border-radius:6px;display:inline-flex;align-items:center;min-height:44px;}
+.breadcrumbs a:hover{color:#4D8EFF;background:rgba(77,142,255,.06);}
+.breadcrumbs .sep{opacity:.4;padding:0 4px;}
+.breadcrumbs > span:last-child{padding:12px 10px;color:rgba(255,255,255,.7);}
 
 /* HERO */
 .hero{min-height:85svh;display:flex;flex-direction:column;justify-content:center;padding:60px 40px 100px;position:relative;overflow:hidden;}
@@ -262,7 +263,7 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
 .fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-1px;direction:ltr;}
 .fl span{color:#4D8EFF;}
 .footer-nav{display:flex;gap:8px;flex-wrap:wrap;}
-.footer-nav a{color:rgba(255,255,255,.65);font-size:13px;text-decoration:none;padding:10px 14px;border-radius:8px;transition:color .2s,background .2s;}
+.footer-nav a{color:rgba(255,255,255,.72);font-size:13px;text-decoration:none;padding:12px 14px;border-radius:8px;transition:color .2s,background .2s;display:inline-flex;align-items:center;min-height:44px;}
 .footer-nav a:hover{color:#fff;background:rgba(77,142,255,.05);}
 .fcopy{font-size:12px;color:rgba(255,255,255,.3);}
 
@@ -334,7 +335,7 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
       <span class="tag-dot"></span>
       <span>LIVE · 24/7 · GREEN API</span>
     </div>
-    <h1>WhatsApp Bot שמגיב ב-30 שניות.<br><span class="g">24/7. בעברית.</span></h1>
+    <h1>WhatsApp Bot שמגיב ב-30 שניות. <br><span class="g">24/7. בעברית.</span></h1>
     <p class="hero-sub">
       בוט חכם שמקבל לידים, שואל את השאלות הנכונות, מקבע פגישות ומתחבר ל-CRM שלך — על מספר ה-WhatsApp העסקי הקיים, בלי להחליף כלום.
     </p>
