@@ -136,29 +136,82 @@
           "acceptedAnswer": {"@type": "Answer", "text": "100% עברית. כל המערכות מותאמות לטון הישראלי — לא תרגום מאנגלית."}
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://simplifai.co.il/#howto",
+      "name": "איך בונים מערכת AI לעסק שלך תוך 14 יום",
+      "description": "תהליך 4 שלבים להטמעת מערכת AI ואוטומציה בעסק",
+      "totalTime": "P14D",
+      "step": [
+        {"@type": "HowToStep", "name": "אבחון", "text": "מיפוי מלא של כל התהליכים — מה עובד, מה לא, ומה אפשר לייעל", "position": 1},
+        {"@type": "HowToStep", "name": "תכנון", "text": "מפת פתרון מותאמת אישית עם ROI צפוי", "position": 2},
+        {"@type": "HowToStep", "name": "בנייה", "text": "פיתוח המערכת לצד הפעילות הקיימת — בלי לשבש", "position": 3},
+        {"@type": "HowToStep", "name": "השקה", "text": "הטמעה, הדרכה, ומדידת תוצאות ראשונות", "position": 4}
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://simplifai.co.il/#product",
+      "name": "simplifAI — מערכות AI ואוטומציה לעסקים",
+      "description": "מערכות AI מותאמות אישית לעסקים — חוסך 10–30 שעות בחודש, הטמעה תוך 14 יום",
+      "brand": {"@type": "Brand", "name": "simplifAI"},
+      "image": "https://simplifai.co.il/assets/logo-social.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "5"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "author": {"@type": "Person", "name": "בעל עסק בתחום ניהול פרויקטים"},
+          "reviewBody": "תוך שלושה שבועות חסכנו 18 שעות שבועיות. אורי מצא תהליכים שלא ידענו שניתן לייעל — ופשוט עשה את זה."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "author": {"@type": "Person", "name": "מנהלת משרד בתחום שירותים מקצועיים"},
+          "reviewBody": "הפחד שלי היה שזה יפריע לעבודה השוטפת. לא הפריע בכלל. בנינו הכל בצד — ואחר כך פשוט עברנו."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "author": {"@type": "Person", "name": "עצמאי בתחום שיווק ומכירות"},
+          "reviewBody": "שיחת האבחון פתחה לי עיניים — ולא שילמתי כלום על הפגישה הראשונה. ממליץ לכל בעל עסק."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://simplifai.co.il/#breadcrumbs",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "בית", "item": "https://simplifai.co.il/"}
+      ]
     }
   ]
 }
 </script>
 
-<!-- FONTS (preconnect for faster load) -->
+<!-- FONTS (preconnect + preload for critical hero font) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/assets/icons/problem-1.webp" fetchpriority="low">
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCEEL8J8G"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NBCEEL8J8G');</script>
-<!-- Meta Pixel -->
+<!-- Meta Pixel — deferred until browser idle for better LCP -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1655847498905049');
-fbq('track','PageView');
+window.fbq=window.fbq||function(){(fbq.q=fbq.q||[]).push(arguments)};fbq.loaded=!0;fbq.version='2.0';
+(function(){function loadPixel(){var s=document.createElement('script');s.async=!0;s.src='https://connect.facebook.net/en_US/fbevents.js';s.onload=function(){fbq('init','1655847498905049');fbq('track','PageView');};document.head.appendChild(s);}
+if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:3000});}else{setTimeout(loadPixel,2000);}})();
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1655847498905049&ev=PageView&noscript=1"/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1655847498905049&ev=PageView&noscript=1" alt=""/></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :focus-visible{outline:2px solid #4D8EFF;outline-offset:3px;border-radius:4px;}
@@ -202,8 +255,12 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s;}
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 0 100px rgba(255,111,76,.5),0 8px 32px rgba(0,0,0,.5);}
 .btn-cta:hover::before{opacity:1;}
-.btn-ghost{color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:2px;transition:color .2s,border-color .2s;}
-.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.5);}
+.btn-ghost{color:rgba(255,255,255,.5);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid rgba(255,255,255,.15);border-radius:10px;transition:color .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px;}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.03);}
+/* WhatsApp hero CTA */
+.btn-wa{background:#25D366;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.45);}
+.btn-tel{font-family:'Share Tech Mono',monospace;letter-spacing:.5px;}
 
 /* ======= HERO ======= */
 .hero{min-height:100svh;height:100svh;display:flex;flex-direction:column;justify-content:flex-start;padding:140px 56px 80px;position:relative;overflow:hidden;}
@@ -481,12 +538,18 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 @media(max-width:600px){.guarantee-badge{flex-direction:column;text-align:center;padding:26px 20px;gap:16px;}.guarantee-body h4{font-size:17px;}.guarantee-body p{font-size:13px;}}
 
 /* ======= FOOTER ======= */
-footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);}
+footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);flex-wrap:wrap;gap:20px;}
 .fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;direction:ltr;unicode-bidi:bidi-override;display:inline-flex;}
 .fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
-.footer-links{display:flex;gap:20px;align-items:center;}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:#4D8EFF;}
+.footer-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
+.footer-links a:hover{color:#4D8EFF;background:rgba(77,142,255,.05);}
+.social-icons{display:flex;gap:6px;align-items:center;}
+.social-icons a{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;color:rgba(255,255,255,.45);transition:color .2s,background .2s;}
+.social-icons a:hover{color:#4D8EFF;background:rgba(77,142,255,.06);}
+.social-icons svg{width:20px;height:20px;fill:currentColor;}
+/* Hamburger inner spans shouldn't be separate tap targets */
+.nav-toggle span{pointer-events:none;}
 .social-icons{display:flex;gap:16px;align-items:center;}
 .social-icons a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);transition:all .3s ease;}
 .social-icons a:hover{color:#4D8EFF;border-color:rgba(77,142,255,.5);box-shadow:0 0 16px rgba(77,142,255,.25);transform:translateY(-2px);}
@@ -776,8 +839,16 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
     <h1>כל שבוע אתה מאבד 20 שעות <br>על עבודה שמחשב יכול לעשות. <br><span class="g">בוא נחזיר לך אותן.</span></h1>
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
-      <a href="#lead-form" role="button" class="btn-cta" onclick="openLeadForm();return false;">בדיקת 5 דקות חינם ←</a>
-      <a href="#ecosystem" class="btn-ghost">ראה איך זה עובד ↓</a>
+      <a href="#lead-form" role="button" class="btn-cta" onclick="openLeadForm();return false;" data-cta="hero-primary">בדיקת 5 דקות חינם ←</a>
+      <a href="https://wa.me/972537453493?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A8%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8" target="_blank" rel="noopener noreferrer" class="btn-wa" data-cta="hero-whatsapp" aria-label="שלח הודעת WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892-.001 0 .001 0 0 0a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.517 5.26l-.999 3.648 3.971-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:+972537453493" class="btn-ghost btn-tel" data-cta="hero-phone" aria-label="התקשר עכשיו">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        053-7453493
+      </a>
+      <a href="#ecosystem" class="btn-ghost btn-howitworks">ראה איך זה עובד ↓</a>
     </div>
     <div class="hero-benefits">
       <span>חוסך 10–30 שעות בחודש</span>
@@ -903,22 +974,22 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
   <p class="sec-p">אם יש אצלך עבודה שחוזרת על עצמה — כנראה שיש מה לייעל.</p>
   <div class="audience-grid">
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-1.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-1.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
       <div class="aud-title">יש לידים שלא תמיד מקבלים מענה בזמן</div>
       <div class="aud-sub">ואתה מרגיש שאתה מפספס לקוחות</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-2.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-2.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
       <div class="aud-title">הרבה תיאומים, הודעות ומיילים בעסק</div>
       <div class="aud-sub">וזה גוזל לך שעות כל יום</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-3.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-3.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
       <div class="aud-title">אתה או העובדים שלך חוזרים על אותן פעולות</div>
       <div class="aud-sub">שוב ושוב, בלי ערך אמיתי</div>
     </div>
     <div class="aud-card">
-      <div class="aud-img-wrap"><img src="assets/icons/audience-4.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async"></div>
+      <div class="aud-img-wrap"><img src="assets/icons/audience-4.webp" alt="" onerror="this.parentElement.style.background='rgba(77,142,255,.06)'" loading="lazy" decoding="async" aria-hidden="true"></div>
       <div class="aud-title">אתה רוצה לגדול — אבל מפחד מהכאוס</div>
       <div class="aud-sub">עוד עובדים, עוד טעויות, עוד עומס</div>
     </div>
@@ -1422,6 +1493,42 @@ function openLeadForm(){
   document.getElementById('leadOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+/* ====== GA4 ENGAGEMENT TRACKING (scroll depth + CTA clicks + phone/WA) ====== */
+(function(){
+  if(typeof gtag!=='function')return;
+  /* Scroll depth: 25/50/75/100 */
+  var marks=[25,50,75,100],fired={};
+  function onScroll(){
+    var sc=window.scrollY||document.documentElement.scrollTop;
+    var total=document.documentElement.scrollHeight-window.innerHeight;
+    if(total<=0)return;
+    var pct=Math.round(sc/total*100);
+    marks.forEach(function(m){if(pct>=m&&!fired[m]){fired[m]=1;gtag('event','scroll_depth',{percent:m,event_category:'engagement'});}});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  /* CTA clicks via data-cta attribute */
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('[data-cta]');
+    if(!el)return;
+    gtag('event','cta_click',{cta_id:el.getAttribute('data-cta'),cta_text:el.textContent.trim().slice(0,50),event_category:'conversion'});
+    if(typeof fbq==='function'&&el.getAttribute('data-cta').indexOf('whatsapp')>-1)fbq('track','Contact');
+  });
+  /* Phone taps (tel:) */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="tel:"]');
+    if(!a)return;
+    gtag('event','phone_click',{event_category:'conversion'});
+    if(typeof fbq==='function')fbq('track','Contact');
+  });
+  /* WhatsApp taps (wa.me) — all of them, not just hero */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href*="wa.me"]');
+    if(!a)return;
+    gtag('event','whatsapp_click',{event_category:'conversion'});
+    if(typeof fbq==='function')fbq('track','Contact');
+  });
+})();
 
 /* ====== MOBILE NAV TOGGLE ====== */
 (function(){
