@@ -286,8 +286,9 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .nav-backdrop.open{display:block;opacity:1;}
 
 /* ======= SHARED ======= */
-.sec-tag{font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:3px;color:#fff;margin-bottom:32px;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(77,142,255,.2),rgba(43,107,224,.15));border:1px solid rgba(77,142,255,.4);padding:10px 22px;border-radius:100px;box-shadow:0 0 20px rgba(77,142,255,.15),inset 0 0 12px rgba(77,142,255,.08);backdrop-filter:blur(8px);}
-.sec-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#4D8EFF;flex-shrink:0;box-shadow:0 0 10px #4D8EFF;animation:blink 1.8s infinite;}
+.sec-tag{position:relative;font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:4px;font-weight:800;color:#fff;margin-bottom:32px;display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(77,142,255,.28),rgba(255,111,76,.18));padding:13px 28px;border-radius:100px;box-shadow:0 0 36px rgba(77,142,255,.35),0 0 22px rgba(255,111,76,.2),inset 0 0 14px rgba(77,142,255,.15);backdrop-filter:blur(10px);text-shadow:0 0 14px rgba(77,142,255,.6),0 0 2px rgba(0,0,0,.3);}
+.sec-tag::before{content:'';width:9px;height:9px;border-radius:50%;background:#4D8EFF;flex-shrink:0;box-shadow:0 0 14px #4D8EFF,0 0 26px rgba(77,142,255,.6);animation:blink 1.8s infinite;z-index:1;}
+.sec-tag::after{content:'';position:absolute;inset:0;border-radius:100px;padding:2px;background:linear-gradient(135deg,#4D8EFF 0%,#8AA9FF 35%,#FFB08A 65%,#FF6F4C 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
 .sec-h{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,68px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:16px;}
 .sec-h .g{color:#4D8EFF;text-shadow:0 0 30px rgba(77,142,255,.3);}
 .sec-p{font-size:16px;color:rgba(255,255,255,.68);line-height:1.9;margin-bottom:72px;max-width:560px;}
@@ -298,8 +299,9 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 .btn-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s;}
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 0 100px rgba(255,111,76,.5),0 8px 32px rgba(0,0,0,.5);}
 .btn-cta:hover::before{opacity:1;}
-.btn-ghost{color:rgba(255,255,255,.72);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid rgba(255,255,255,.15);border-radius:10px;transition:color .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;min-height:48px;}
-.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.03);}
+.btn-ghost{position:relative;color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;padding:15px 24px;border-radius:12px;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:9px;min-height:50px;background:linear-gradient(135deg,rgba(77,142,255,.12),rgba(255,111,76,.06));box-shadow:0 0 24px rgba(77,142,255,.18),0 0 14px rgba(255,111,76,.1),inset 0 1px 0 rgba(255,255,255,.08);}
+.btn-ghost::after{content:'';position:absolute;inset:0;border-radius:12px;padding:1.5px;background:linear-gradient(135deg,#4D8EFF 0%,#FFB08A 55%,#FF6F4C 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.btn-ghost:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(77,142,255,.28),0 0 20px rgba(255,111,76,.18),inset 0 1px 0 rgba(255,255,255,.12);}
 /* WhatsApp hero CTA */
 .btn-wa{background:#25D366;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.45);}
