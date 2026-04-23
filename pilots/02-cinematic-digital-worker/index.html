@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>simplifAI — בזמן שאתה ישן, הוא עובד</title>
+<meta name="description" content="Pilot 02 — The Digital Worker Awakens. העובד הדיגיטלי שלך פועל 24/7.">
+
+<!-- Fonts: preload + onload swap (non-blocking) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Outfit:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Outfit:wght@400;600;800;900&family=Share+Tech+Mono&display=swap"></noscript>
+
+<!-- GSAP + ScrollTrigger via CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<style>
+  :root {
+    --navy: #060D1F;
+    --navy-2: #0A1530;
+    --blue: #4D8EFF;
+    --blue-2: #2B6BE0;
+    --orange: #FF6F4C;
+    --white: #ffffff;
+    --muted: rgba(255,255,255,.65);
+    --glass-bg: rgba(255,255,255,.04);
+    --glass-border: rgba(77,142,255,.18);
+    --radius: 20px;
+    --font-head: 'Outfit', sans-serif;
+    --font-body: 'Heebo', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* ========== CANVAS BACKGROUND (scroll-scrubbed frames) ========== */
+  #scrollBg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 70% 30%, rgba(77,142,255,.22), transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(255,111,76,.10), transparent 60%),
+      linear-gradient(180deg, #060D1F 0%, #0A1530 50%, #060D1F 100%);
+  }
+  #scrollBg.has-frames { background: #000; }
+  /* Darkening overlay for text legibility */
+  #bgOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(6,13,31,.45) 0%, rgba(6,13,31,.65) 50%, rgba(6,13,31,.85) 100%);
+  }
+
+  /* ========== PILL NAV ========== */
+  .pill-nav {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(6,13,31,.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(0,0,0,.4);
+  }
+  .pill-nav a {
+    position: relative;
+    padding: 8px 14px;
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-radius: 999px;
+    overflow: hidden;
+    transition: color .25s;
+  }
+  .pill-nav a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue);
+    border-radius: 999px;
+    transform: scale(0);
+    transition: transform .35s cubic-bezier(.22,1,.36,1);
+    z-index: -1;
+  }
+  .pill-nav a:hover::before { transform: scale(1); }
+  .pill-nav a:hover { color: var(--navy); }
+  @media (max-width: 720px) {
+    .pill-nav { padding: 4px; top: 10px; }
+    .pill-nav a { padding: 6px 10px; font-size: 11px; }
+    .pill-nav a.mobile-hide { display: none; }
+  }
+
+  /* ========== SECTIONS (each 100vh, flex-end for panel entry) ========== */
+  .section {
+    min-height: 100vh;
+    padding: 120px 6vw 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .section-inner { max-width: 1200px; margin: 0 auto; width: 100%; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0 0 18px;
+    opacity: 0.85;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    padding-top: 140px;
+    padding-bottom: 40px;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    font-size: clamp(3rem, 9vw, 8rem);
+    margin: 0 auto 28px;
+    max-width: 14ch;
+    text-shadow: 0 4px 40px rgba(77,142,255,.35);
+  }
+  .hero .char {
+    display: inline-block;
+    will-change: opacity, transform;
+  }
+  .hero .subline {
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+  .hero .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--blue), transparent);
+    margin: 10px auto 0;
+    animation: scrollLine 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleY(0.6); opacity: 0.4; transform-origin: top; }
+    50% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+  }
+
+  /* ========== CTA BUTTONS ========== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-cta {
+    background: linear-gradient(180deg, var(--orange), #e85a38);
+    color: var(--white);
+    box-shadow: 0 8px 28px rgba(255,111,76,.35);
+  }
+  .btn-cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(255,111,76,.5);
+  }
+  .btn-ghost {
+    background: rgba(255,255,255,.04);
+    color: var(--white);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover {
+    background: rgba(77,142,255,.15);
+    border-color: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  /* ========== PANELS (SlidePanel) ========== */
+  .panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: clamp(28px, 4vw, 56px);
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+  .panel[data-tilt] {
+    transition: transform .4s cubic-bezier(.22,1,.36,1);
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 20px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    max-width: 56ch;
+    margin: 0 0 32px;
+  }
+
+  /* ========== CARDS ========== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform .3s, border-color .3s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+  }
+  .card h3 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 8px;
+    color: var(--white);
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .card .kpi {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+  }
+
+  /* ========== ECOSYSTEM ICONS ========== */
+  .ecosystem {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .eco-tile {
+    background: rgba(77,142,255,.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 22px 12px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    transition: all .3s;
+  }
+  .eco-tile:hover {
+    background: rgba(77,142,255,.14);
+    border-color: var(--blue);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+  .eco-tile .dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blue);
+    margin: 0 auto 10px;
+    box-shadow: 0 0 20px var(--blue);
+  }
+
+  /* ========== BEFORE/AFTER ========== */
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .ba > div {
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+  }
+  .ba .before {
+    background: linear-gradient(135deg, rgba(255,82,82,.12), rgba(255,82,82,.02));
+    border-color: rgba(255,82,82,.3);
+  }
+  .ba .after {
+    background: linear-gradient(135deg, rgba(77,142,255,.12), rgba(77,142,255,.02));
+    border-color: var(--blue);
+  }
+  .ba .big-num {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(4rem, 10vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .ba .before .big-num { color: #ff5252; }
+  .ba .after .big-num { color: var(--blue); }
+  .ba .label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .ba { grid-template-columns: 1fr; }
+  }
+
+  /* ========== PACKAGES ========== */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .tier {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 32px 26px;
+    position: relative;
+    transition: transform .3s;
+  }
+  .tier:hover { transform: translateY(-6px); }
+  .tier.featured {
+    background: linear-gradient(180deg, rgba(77,142,255,.12), rgba(77,142,255,.04));
+    border: 1.5px solid var(--blue);
+    transform: scale(1.03);
+    box-shadow: 0 12px 50px rgba(77,142,255,.25);
+  }
+  .tier.featured:hover { transform: scale(1.03) translateY(-6px); }
+  .tier-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--blue);
+    color: var(--navy);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .tier h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    margin: 0 0 4px;
+    font-size: 1.4rem;
+  }
+  .tier .price {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin: 14px 0 8px;
+    color: var(--blue);
+    letter-spacing: -0.03em;
+  }
+  .tier ul { list-style: none; padding: 0; margin: 20px 0 26px; }
+  .tier li {
+    padding: 8px 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .tier li::before {
+    content: '✓';
+    color: var(--blue);
+    margin-left: 10px;
+    font-weight: 700;
+  }
+
+  /* ========== TESTIMONIALS ========== */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .testi {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .testi .stars { color: var(--orange); font-size: 14px; letter-spacing: 3px; margin-bottom: 12px; }
+  .testi p { color: var(--white); font-size: 1rem; line-height: 1.6; margin: 0 0 18px; font-style: italic; }
+  .testi .name { font-family: var(--font-head); font-weight: 700; color: var(--blue); font-size: 0.9rem; }
+
+  /* ========== FINAL CTA ========== */
+  .final {
+    text-align: center;
+    padding: 160px 6vw;
+  }
+  .final h2 {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin: 0 0 20px;
+    max-width: 14ch;
+    margin-inline: auto;
+  }
+  .final p {
+    color: var(--muted);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    max-width: 50ch;
+    margin: 0 auto 36px;
+  }
+
+  /* ========== REVEAL ========== */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== PANEL SLIDE-IN (CSS-driven, IO-triggered) ========== */
+  .slide-panel {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1);
+    will-change: opacity, transform;
+  }
+  .slide-panel.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Fallback: if JS doesn't run at all, panels become visible after 2s */
+  .no-js .slide-panel,
+  html:not(.has-io) .slide-panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== REDUCED MOTION ========== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .scroll-hint::after { animation: none; }
+    [data-reveal] { opacity: 1; transform: none; }
+    .slide-panel { opacity: 1; transform: none; }
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 40px 6vw;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Scroll-scrubbed background canvas -->
+<canvas id="scrollBg" aria-hidden="true"></canvas>
+<div id="bgOverlay" aria-hidden="true"></div>
+
+<!-- Pill Nav -->
+<nav class="pill-nav" aria-label="ניווט">
+  <a href="#hero">בית</a>
+  <a href="#ecosystem" class="mobile-hide">מערכת</a>
+  <a href="#services">שירותים</a>
+  <a href="#packages" class="mobile-hide">חבילות</a>
+  <a href="#cta">צור קשר</a>
+</nav>
+
+<main>
+
+<!-- 01 · HERO -->
+<section class="section hero" id="hero" data-scene="1">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>simplifAI · Pilot 02</p>
+    <h1 data-scrollfloat>בזמן שאתה ישן, הוא עובד.</h1>
+    <p class="subline" data-reveal>העובד הדיגיטלי שלך פועל 24/7, גם כשאתה לא. לידים נענים. דוחות נשלחים. פגישות מתוזמנות. בלי שום יד אדם.</p>
+    <div class="cta-row" data-reveal>
+      <a href="#cta" class="btn btn-cta">בוא נתחיל</a>
+      <a href="#services" class="btn btn-ghost">איך זה עובד</a>
+    </div>
+  </div>
+  <div class="scroll-hint">גלול למטה</div>
+</section>
+
+<!-- 02 · PROBLEM -->
+<section class="section" id="problem" data-scene="2">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>הבעיה</p>
+    <h2 class="section-title" data-reveal>40% מהיום שלך הולך לפח.</h2>
+    <p class="section-sub" data-reveal>שעות שלמות על משימות חוזרות — מייל, תיאום, מעקב, הקלדה. העסק יכול להכניס פי שתיים, אבל אתה תקוע בתחזוקה.</p>
+    <div class="panel slide-panel" data-tilt>
+      <div class="card-grid">
+        <div class="card"><div class="kpi">20h</div><h3>בשבוע לעבודה ידנית</h3><p>לידים, מייל, דוחות, תיאום — שעות שלא ניתנות להחזרה.</p></div>
+        <div class="card"><div class="kpi">23:00</div><h3>נגמר היום העסקי שלך</h3><p>כשהמתחרים כבר ישנים, אתה עדיין עונה ללידים.</p></div>
+        <div class="card"><div class="kpi">₪15K</div><h3>לחודש נאבדים</h3><p>זמן × שכר שעה × 4 שבועות = הערך של מה שחסר.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · WHATSAPP -->
+<section class="section" id="whatsapp" data-scene="3">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>WhatsApp Bot</p>
+    <h2 class="section-title" data-reveal>30 שניות לתשובה. 24/7. בעברית.</h2>
+    <p class="section-sub" data-reveal>בוט WhatsApp חכם שעונה ללידים, מסנן רלוונטים, אוסף פרטים, ומזמן פגישות — בלי שאתה רואה את הטלפון.</p>
+    <div class="panel slide-panel" data-tilt>
+      <div class="card-grid">
+        <div class="card"><h3>סינון אוטומטי</h3><p>שואל 5 שאלות, מסמן את הרציניים, מגרסה את השאר.</p></div>
+        <div class="card"><h3>קיבוע פגישות</h3><p>שולח לינק Calendly אוטומטית, ליד רואה רק זמינות אמיתית שלך.</p></div>
+        <div class="card"><h3>עברית נטיבית</h3><p>מבין ניסוחים, טעויות כתיב, סלנג — עונה כמו אדם.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · ECOSYSTEM -->
+<section class="section" id="ecosystem" data-scene="4">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>המערכת</p>
+    <h2 class="section-title" data-reveal>המערכות שלך — מתחברות.</h2>
+    <p class="section-sub" data-reveal>אנחנו לא מחליפים כלים — אנחנו מחברים אותם. מייל, יומן, WhatsApp, CRM, Sheets — עובדים ביחד, בלי העתקה ידנית.</p>
+    <div class="ecosystem" data-reveal>
+      <div class="eco-tile"><span class="dot"></span>GMAIL</div>
+      <div class="eco-tile"><span class="dot"></span>WHATSAPP</div>
+      <div class="eco-tile"><span class="dot"></span>SHEETS</div>
+      <div class="eco-tile"><span class="dot"></span>CRM</div>
+      <div class="eco-tile"><span class="dot"></span>CALENDAR</div>
+      <div class="eco-tile"><span class="dot"></span>DRIVE</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · SERVICES -->
+<section class="section" id="services" data-scene="5">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>השירותים</p>
+    <h2 class="section-title" data-reveal>6 עובדים דיגיטליים לבחירה.</h2>
+    <p class="section-sub" data-reveal>כל אחד ממוקד במשימה אחת — ועושה אותה טוב ממך.</p>
+    <div class="panel slide-panel" data-tilt>
+      <div class="card-grid">
+        <div class="card"><div class="kpi">01</div><h3>WhatsApp Bot</h3><p>עונה ללידים 24/7, מסנן, מקבע פגישות.</p></div>
+        <div class="card"><div class="kpi">02</div><h3>Lead Automation</h3><p>מהטופס ועד ההצעה — אוטומטי לחלוטין.</p></div>
+        <div class="card"><div class="kpi">03</div><h3>CRM Integration</h3><p>כל המידע במקום אחד, לא פזור ב-5 כלים.</p></div>
+        <div class="card"><div class="kpi">04</div><h3>AI Agent</h3><p>עובד דיגיטלי שמבצע משימות, לא רק עונה.</p></div>
+        <div class="card"><div class="kpi">05</div><h3>Dashboards</h3><p>נתונים חיים במקום דוחות ידניים.</p></div>
+        <div class="card"><div class="kpi">06</div><h3>Documents</h3><p>הצעות, חוזים, דוחות — נוצרים לבד.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · PROCESS -->
+<section class="section" id="process" data-scene="6">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>התהליך</p>
+    <h2 class="section-title" data-reveal>47 מערכות. שנה אחת. 80% דומה.</h2>
+    <p class="section-sub" data-reveal>בנינו עשרות אוטומציות ב-12 נישות. למדנו מה עובד — ומה שובר. אתה נהנה מהניסיון.</p>
+    <div class="panel slide-panel" data-tilt>
+      <div class="card-grid">
+        <div class="card"><div class="kpi">1</div><h3>אבחון</h3><p>30 דקות. מאתרים איפה הדם זולג.</p></div>
+        <div class="card"><div class="kpi">2</div><h3>בנייה</h3><p>14 יום. מערכת עובדת, לא הדגמה.</p></div>
+        <div class="card"><div class="kpi">3</div><h3>הטמעה</h3><p>חיבור לכלים קיימים, בלי להחליף.</p></div>
+        <div class="card"><div class="kpi">4</div><h3>ליווי</h3><p>אנחנו שם כשזה יוצא מהתלם.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · BEFORE/AFTER -->
+<section class="section" id="ba" data-scene="7">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>לפני → אחרי</p>
+    <h2 class="section-title" data-reveal>14 → 7 שעות. אותה הכנסה.</h2>
+    <p class="section-sub" data-reveal>ההבדל הוא לא עובד. ההבדל הוא מערכת.</p>
+    <div class="ba" data-reveal>
+      <div class="before">
+        <p class="big-num">14</p>
+        <p class="label">שעות / יום · לפני</p>
+      </div>
+      <div class="after">
+        <p class="big-num">7</p>
+        <p class="label">שעות / יום · אחרי</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · PACKAGES -->
+<section class="section" id="packages" data-scene="8">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>המסלולים</p>
+    <h2 class="section-title" data-reveal>3 מסלולים. בחר את שלך.</h2>
+    <div class="tiers">
+      <div class="tier slide-panel" data-tilt>
+        <h3>Quick Win</h3>
+        <p class="price">₪2,500</p>
+        <p style="color:var(--muted); margin:0; font-size:.9rem;">אוטומציה קריטית אחת · 2 שבועות</p>
+        <ul>
+          <li>בעיה ממוקדת אחת</li>
+          <li>פתרון עובד ב-14 יום</li>
+          <li>ליווי 30 יום</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost" style="width:100%; justify-content:center;">מתאים לי</a>
+      </div>
+      <div class="tier featured slide-panel" data-tilt>
+        <span class="tier-badge">מומלץ</span>
+        <h3>AI System</h3>
+        <p class="price">₪15,000</p>
+        <p style="color:var(--muted); margin:0; font-size:.9rem;">2-5 אוטומציות · מערכת CRM · חודש+</p>
+        <ul>
+          <li>מיפוי מלא של התהליכים</li>
+          <li>5 אוטומציות מחוברות</li>
+          <li>CRM + Dashboard</li>
+          <li>הדרכת צוות</li>
+        </ul>
+        <a href="#cta" class="btn btn-cta" style="width:100%; justify-content:center;">זה אני</a>
+      </div>
+      <div class="tier slide-panel" data-tilt>
+        <h3>Atelier Sprint</h3>
+        <p class="price">₪25-80K</p>
+        <p style="color:var(--muted); margin:0; font-size:.9rem;">Deep Audit + Skill-in-a-Box · 4-6 שבועות</p>
+        <ul>
+          <li>אבחון עמוק 40 שעות</li>
+          <li>עובד דיגיטלי מותאם</li>
+          <li>Skill-in-a-Box מלא</li>
+          <li>ליווי רבעוני</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost" style="width:100%; justify-content:center;">אני רוצה הכל</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · TESTIMONIALS -->
+<section class="section" id="testimonials" data-scene="9">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>הוכחה</p>
+    <h2 class="section-title" data-reveal>הזריחה של הלקוחות שלנו.</h2>
+    <p class="section-sub" data-reveal>נתונים אמיתיים. לקוחות אמיתיים. תוצאות שניתן למדוד.</p>
+    <div class="testimonials">
+      <div class="testi slide-panel" data-tilt>
+        <div class="stars">★★★★★</div>
+        <p>"הייתי עובד עד 23:00 כל יום. היום ב-18:00 אני בבית עם הילדים. אותה הכנסה."</p>
+        <div class="name">דני · בעל עסק לוגיסטיקה</div>
+      </div>
+      <div class="testi slide-panel" data-tilt>
+        <div class="stars">★★★★★</div>
+        <p>"הבוט עונה ב-30 שניות. הלקוחות חושבים שיש לי צוות שלם. זה אני פלוס simplifAI."</p>
+        <div class="name">מיכל · יועצת שיווק</div>
+      </div>
+      <div class="testi slide-panel" data-tilt>
+        <div class="stars">★★★★★</div>
+        <p>"שילמתי 15,000 והחזרתי אותם בחודש הראשון. זה לא הוצאה — זה השקעה."</p>
+        <div class="name">אבי · מנכ"ל סטארטאפ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · FINAL CTA -->
+<section class="section final" id="cta" data-scene="10">
+  <div class="section-inner">
+    <p class="eyebrow" data-reveal>הצעד האחרון</p>
+    <h2 data-scrollfloat>הכל מוכן. רק תחליט.</h2>
+    <p data-reveal>שיחת אבחון חינם. 30 דקות. תגלה בדיוק איפה העסק שלך מדמם זמן — וכמה קל לתקן את זה.</p>
+    <div class="cta-row" style="justify-content:center;" data-reveal>
+      <a href="https://calendly.com/simplifai/discovery" class="btn btn-cta">קבע שיחת אבחון</a>
+      <a href="https://wa.me/972537453493" class="btn btn-ghost">דבר בוואטס</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>PILOT 02 · simplifAI · <a href="/">← חזרה לאתר הראשי</a></p>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+(function() {
+  'use strict';
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 768;
+
+  // ============================================================
+  // ScrollVideoBackground — canvas frame scrubbing
+  // ============================================================
+  class ScrollVideoBackground {
+    constructor(canvasEl, { scenes = 10, framesPerScene = 20, basePath = 'assets/scroll-frames', ext = 'webp' }) {
+      this.canvas = canvasEl;
+      this.ctx = canvasEl.getContext('2d', { alpha: false });
+      this.scenes = scenes;
+      this.framesPerScene = framesPerScene;
+      this.totalFrames = scenes * framesPerScene;
+      this.basePath = basePath;
+      this.ext = ext;
+      this.frames = new Array(this.totalFrames).fill(null);
+      this.loaded = new Array(this.totalFrames).fill(false);
+      this.currentFrame = 0;
+      this.pending = false;
+      this.hasAnyFrame = false;
+      this.resize();
+      this.preloadFirstScene();
+      window.addEventListener('resize', () => this.resize(), { passive: true });
+    }
+
+    resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      this.canvas.width = window.innerWidth * dpr;
+      this.canvas.height = window.innerHeight * dpr;
+      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (this.hasAnyFrame) this.draw();
+    }
+
+    frameSrc(idx) {
+      const sceneNum = Math.floor(idx / this.framesPerScene) + 1;
+      const frameNum = (idx % this.framesPerScene) + 1;
+      const sceneStr = String(sceneNum).padStart(2, '0');
+      const frameStr = String(frameNum).padStart(3, '0');
+      return `${this.basePath}/s${sceneStr}-${frameStr}.${this.ext}`;
+    }
+
+    loadFrame(idx) {
+      if (this.loaded[idx] || this.frames[idx]) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.loading = 'eager';
+      img.onload = () => {
+        this.loaded[idx] = true;
+        if (!this.hasAnyFrame) {
+          this.hasAnyFrame = true;
+          this.canvas.classList.add('has-frames');
+        }
+        if (idx === this.currentFrame) this.draw();
+      };
+      img.onerror = () => { this.loaded[idx] = 'error'; };
+      img.src = this.frameSrc(idx);
+      this.frames[idx] = img;
+    }
+
+    preloadFirstScene() {
+      // Probe: try to load scene 1 frame 1. If it fails, skip everything.
+      const probe = new Image();
+      probe.onload = () => {
+        // Frames exist — load rest of scene 1 immediately, lazy-load scenes 2+
+        this.loaded[0] = true;
+        this.frames[0] = probe;
+        this.hasAnyFrame = true;
+        this.canvas.classList.add('has-frames');
+        this.draw();
+        for (let i = 1; i < this.framesPerScene; i++) this.loadFrame(i);
+        const lazy = () => {
+          for (let i = this.framesPerScene; i < this.totalFrames; i++) this.loadFrame(i);
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(lazy, { timeout: 2000 });
+        } else {
+          setTimeout(lazy, 1200);
+        }
+      };
+      probe.onerror = () => {
+        // No frames available — stay with CSS gradient background.
+        // No further requests.
+      };
+      probe.decoding = 'async';
+      probe.src = this.frameSrc(0);
+    }
+
+    nearestLoaded(idx) {
+      // Find nearest loaded frame within same scene, fallback to any
+      for (let offset = 0; offset < this.totalFrames; offset++) {
+        const a = idx - offset, b = idx + offset;
+        if (a >= 0 && this.loaded[a] === true) return this.frames[a];
+        if (b < this.totalFrames && this.loaded[b] === true) return this.frames[b];
+      }
+      return null;
+    }
+
+    draw() {
+      const img = this.loaded[this.currentFrame] === true
+        ? this.frames[this.currentFrame]
+        : this.nearestLoaded(this.currentFrame);
+      if (!img) return;
+      // object-fit: cover behavior
+      const cW = this.canvas.width / (window.devicePixelRatio || 1);
+      const cH = this.canvas.height / (window.devicePixelRatio || 1);
+      const iR = img.width / img.height;
+      const cR = cW / cH;
+      let dW, dH, dX, dY;
+      if (iR > cR) { dH = cH; dW = dH * iR; dX = (cW - dW) / 2; dY = 0; }
+      else { dW = cW; dH = dW / iR; dX = 0; dY = (cH - dH) / 2; }
+      this.ctx.drawImage(img, dX, dY, dW, dH);
+    }
+
+    onScroll() {
+      if (this.pending) return;
+      this.pending = true;
+      requestAnimationFrame(() => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, maxScroll)));
+        const idx = Math.min(this.totalFrames - 1, Math.floor(progress * this.totalFrames));
+        if (idx !== this.currentFrame) {
+          this.currentFrame = idx;
+          if (this.hasAnyFrame) this.draw();
+        }
+        this.pending = false;
+      });
+    }
+  }
+
+  // ============================================================
+  // BOOT
+  // ============================================================
+  const canvas = document.getElementById('scrollBg');
+  const bg = new ScrollVideoBackground(canvas, {
+    scenes: 10,
+    framesPerScene: 20,
+    basePath: 'assets/scroll-frames',
+    ext: 'webp'
+  });
+
+  if (!prefersReduced) {
+    window.addEventListener('scroll', () => bg.onScroll(), { passive: true });
+  }
+
+  // ============================================================
+  // IntersectionObserver reveals (lightweight, no GSAP needed)
+  // ============================================================
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('has-io');
+  }
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    document.querySelectorAll('[data-reveal], .slide-panel').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('[data-reveal], .slide-panel').forEach(el => el.classList.add('revealed'));
+  }
+
+  // ============================================================
+  // GSAP effects — initialized after scripts load
+  // ============================================================
+  function initGSAP() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      setTimeout(initGSAP, 100);
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (prefersReduced) return;
+
+    // -------- ScrollFloat: char-by-char reveal for hero & final CTA
+    document.querySelectorAll('[data-scrollfloat]').forEach(el => {
+      const text = el.textContent;
+      el.textContent = '';
+      const chars = [];
+      [...text].forEach(c => {
+        if (c === ' ') { el.appendChild(document.createTextNode(' ')); return; }
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = c;
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(40px)';
+        el.appendChild(span);
+        chars.push(span);
+      });
+      gsap.to(chars, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.04,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
+
+    // -------- SlidePanel reveals handled by IntersectionObserver (see above)
+
+    // -------- Tilt on mousemove (desktop only)
+    if (!isMobile && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('[data-tilt]').forEach(el => {
+        el.style.perspective = '1200px';
+        let rafId = null;
+        el.addEventListener('mousemove', (ev) => {
+          if (rafId) return;
+          rafId = requestAnimationFrame(() => {
+            const rect = el.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (ev.clientX - cx) / rect.width;
+            const dy = (ev.clientY - cy) / rect.height;
+            el.style.transform = `perspective(1200px) rotateY(${dx * 4}deg) rotateX(${-dy * 4}deg)`;
+            rafId = null;
+          });
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg)';
+        });
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGSAP);
+  } else {
+    initGSAP();
+  }
+
+  // Handle reduced-motion: just show first frame of scene 1
+  if (prefersReduced) {
+    // No scroll listener attached, so canvas will stay with gradient background
+    document.querySelectorAll('.slide-panel, [data-reveal]').forEach(el => {
+      el.classList.add('revealed');
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
