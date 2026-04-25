@@ -200,7 +200,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pain-card{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:16px;padding:32px;transition:transform .3s,border-color .3s;}
 .pain-card:hover{transform:translateY(-4px);border-color:rgba(255,82,82,.35);}
-.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,82,82,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ff5252;}
+.pain-icon{width:calc(100% + 64px);margin:-32px -32px 24px;height:200px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,82,82,.04);}
+.pain-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.pain-card:hover .pain-icon img{transform:scale(1.04);}
 .pain-title{font-weight:900;font-size:20px;margin-bottom:10px;font-family:'Outfit',sans-serif;}
 .pain-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:15px;}
 
@@ -222,7 +224,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .feat-card{background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:28px;transition:transform .3s,border-color .3s;}
 .feat-card:hover{transform:translateY(-4px);border-color:rgba(77,142,255,.4);background:rgba(77,142,255,.06);}
-.feat-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(77,142,255,.15),rgba(77,142,255,.06));border:1px solid rgba(77,142,255,.3);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#4D8EFF;}
+.feat-icon{width:calc(100% + 56px);margin:-28px -28px 22px;height:180px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(77,142,255,.04);}
+.feat-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.feat-card:hover .feat-icon img{transform:scale(1.04);}
 .feat-icon svg{width:22px;height:22px;}
 .feat-title{font-weight:700;font-size:18px;margin-bottom:8px;}
 .feat-desc{color:rgba(255,255,255,.6);line-height:1.7;font-size:14px;}
@@ -420,21 +424,21 @@ footer{background:rgba(6,13,31,.85) !important;}
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <img src="/assets/services/crm-pain-01-scattered.webp" alt="המידע פזור בין כלים" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">המידע פזור בין כלים</div>
         <div class="pain-desc">לקוח אחד = שורה ב-Excel + כרטיס ב-Monday + רשומה ב-WhatsApp + מייל ב-Gmail. אף אחד מהם לא יודע מה השני יודע.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <img src="/assets/services/crm-pain-02-duplicates.webp" alt="לידים כפולים — בלי לדעת" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">לידים כפולים — בלי לדעת</div>
         <div class="pain-desc">אותו ליד מילא טופס פעמיים, פנה ב-WhatsApp פעם, ושלח מייל פעם. ה-CRM שלך חושב שיש לך 4 לקוחות. המכירות מתבלבלות.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          <img src="/assets/services/crm-pain-03-manual-update.webp" alt="עדכון ידני של אותם נתונים" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">עדכון ידני של אותם נתונים</div>
         <div class="pain-desc">משנה סטטוס ב-CRM → צריך לעדכן גם ב-Sheets. גם בקבוצת WhatsApp. גם בדאשבורד של הצוות. שוב ושוב, כל יום.</div>
@@ -486,32 +490,44 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="feat-grid">
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-01-bidirectional-sync.webp" alt="סנכרון דו-כיווני" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">סנכרון דו-כיווני</div>
         <div class="feat-desc">שינוי בכל מקום מתעדכן בכל מקום אחר. בזמן אמת. בלי scripts ידניים.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-02-deduplication.webp" alt="Deduplication חכם" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">Deduplication חכם</div>
         <div class="feat-desc">מזהה אוטומטית אותו ליד גם אם נכנס פעמיים מטפסים שונים — ומאחד את ההיסטוריה.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-03-triggers.webp" alt="Triggers מותאמים" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">Triggers מותאמים</div>
         <div class="feat-desc">שינוי סטטוס → שולח מייל. ליד ב-"חם" → התראה ל-Slack. סגירה → חשבונית. הכל אוטומטי.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-04-field-mapping.webp" alt="התאמת שדות" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">התאמת שדות</div>
         <div class="feat-desc">שדה "טלפון" באתר ↔ "מס' לקוח" ב-CRM ↔ "Phone" ב-HubSpot — מתואמים אוטומטית.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-05-migration.webp" alt="Migration מקצועי" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">Migration מקצועי</div>
         <div class="feat-desc">העברת היסטוריה מאקסל / CRM ישן / Salesforce — בלי לאבד שום נתון, עם ניקוי כפילויות.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/crm-feat-06-realtime-reports.webp" alt="דוחות בזמן אמת" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">דוחות בזמן אמת</div>
         <div class="feat-desc">דאשבורד מאוחד לכל ה-KPIs — מקור הליד, יעילות צוות, ROI לפי קמפיין, מגמות חודשיות.</div>
       </div>

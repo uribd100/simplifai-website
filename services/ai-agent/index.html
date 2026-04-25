@@ -200,7 +200,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pain-card{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:16px;padding:32px;transition:transform .3s,border-color .3s;}
 .pain-card:hover{transform:translateY(-4px);border-color:rgba(255,82,82,.35);}
-.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,82,82,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ff5252;}
+.pain-icon{width:calc(100% + 64px);margin:-32px -32px 24px;height:200px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,82,82,.04);}
+.pain-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.pain-card:hover .pain-icon img{transform:scale(1.04);}
 .pain-title{font-weight:900;font-size:20px;margin-bottom:10px;font-family:'Outfit',sans-serif;}
 .pain-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:15px;}
 
@@ -233,7 +235,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .feat-card{background:rgba(168,85,247,.03);border:1px solid rgba(168,85,247,.12);border-radius:16px;padding:28px;transition:transform .3s,border-color .3s;}
 .feat-card:hover{transform:translateY(-4px);border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.06);}
-.feat-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(168,85,247,.06));border:1px solid rgba(168,85,247,.3);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#A855F7;}
+.feat-icon{width:calc(100% + 56px);margin:-28px -28px 22px;height:180px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(168,85,247,.04);}
+.feat-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.feat-card:hover .feat-icon img{transform:scale(1.04);}
 .feat-icon svg{width:22px;height:22px;}
 .feat-title{font-weight:700;font-size:18px;margin-bottom:8px;}
 .feat-desc{color:rgba(255,255,255,.6);line-height:1.7;font-size:14px;}
@@ -425,21 +429,21 @@ footer{background:rgba(6,13,31,.85) !important;}
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <img src="/assets/services/agent-pain-01-quotes.webp" alt="&quot;תכין לי הצעת מחיר ל...&quot;" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">"תכין לי הצעת מחיר ל..."</div>
         <div class="pain-desc">2-3 שעות בכל פעם. שולח/ת מאות ביום? זה כל היום שלך. ואלו לא משימות שדורשות חשיבה — רק זמן.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <img src="/assets/services/agent-pain-02-research.webp" alt="מחקר על לקוח חדש לפני שיחה" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">מחקר על לקוח חדש לפני שיחה</div>
         <div class="pain-desc">לחפש בלינקדאין + אתר + חדשות + מתחרים = שעה לכל פגישה. אז או שלא עושים — או שמגיעים לפגישה עם 0 הקשר.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <img src="/assets/services/agent-pain-03-expensive-rep.webp" alt="איש מכירות שעולה ₪15K/חודש" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">איש מכירות שעולה ₪15K/חודש</div>
         <div class="pain-desc">לעבודה שבעיקר מורכבת מקריאת מסמכים, סינון, וכתיבה חוזרת. האם זה באמת המקום הטוב ביותר להוציא בו ₪180K בשנה?</div>
@@ -516,32 +520,44 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="feat-grid">
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-01-rag.webp" alt="RAG על המסמכים שלך" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">RAG על המסמכים שלך</div>
         <div class="feat-desc">מחבר ל-Drive / Notion / Confluence / PDF library — שואב תשובות מהידע הפרטי של העסק.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-02-web-research.webp" alt="מחקר מהאינטרנט" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">מחקר מהאינטרנט</div>
         <div class="feat-desc">Firecrawl + Perplexity לסיכום מאמרים, השוואת מתחרים, איסוף מידע ציבורי על לקוח.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-03-document-creation.webp" alt="יצירת מסמכים" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">יצירת מסמכים</div>
         <div class="feat-desc">הצעות מחיר, חוזים, דוחות, פרזנטציות, סיכומי פגישות — לפי תבניות העסק שלך.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-04-system-actions.webp" alt="פעולות במערכות" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">פעולות במערכות</div>
         <div class="feat-desc">CRM, מייל, יומן, Slack, Drive, Sheets — הסוכן לא רק כותב, הוא גם לוחץ.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-05-rule-decisions.webp" alt="החלטות מבוססות הנחיה" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">החלטות מבוססות הנחיה</div>
         <div class="feat-desc">"אם תקציב < ₪10K → תשלח template A. אם > ₪50K → תקבע שיחה איתי קודם." הסוכן מציית.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H1l8-9v18l-8-9h8"></path><path d="M22 12h-9"></path><path d="M22 6h-9"></path><path d="M22 18h-9"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/agent-feat-06-audit-log.webp" alt="Audit log + Override" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">Audit log + Override</div>
         <div class="feat-desc">כל פעולה נכתבת ל-log. אתה רואה הכל, יכול לבטל / לתקן / לשנות הנחיה — והסוכן לומד.</div>
       </div>

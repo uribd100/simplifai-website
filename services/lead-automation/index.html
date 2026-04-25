@@ -200,7 +200,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pain-card{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:16px;padding:32px;transition:transform .3s,border-color .3s;}
 .pain-card:hover{transform:translateY(-4px);border-color:rgba(255,82,82,.35);}
-.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,82,82,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ff5252;}
+.pain-icon{width:calc(100% + 64px);margin:-32px -32px 24px;height:200px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,82,82,.04);}
+.pain-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.pain-card:hover .pain-icon img{transform:scale(1.04);}
 .pain-title{font-weight:900;font-size:20px;margin-bottom:10px;font-family:'Outfit',sans-serif;}
 .pain-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:15px;}
 
@@ -218,7 +220,9 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .feat-card{background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:28px;transition:transform .3s,border-color .3s;}
 .feat-card:hover{transform:translateY(-4px);border-color:rgba(255,111,76,.3);background:rgba(255,111,76,.03);}
-.feat-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(255,111,76,.12),rgba(255,111,76,.06));border:1px solid rgba(255,111,76,.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#FF6F4C;}
+.feat-icon{width:calc(100% + 56px);margin:-28px -28px 22px;height:180px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,111,76,.04);}
+.feat-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.feat-card:hover .feat-icon img{transform:scale(1.04);}
 .feat-icon svg{width:22px;height:22px;}
 .feat-title{font-weight:700;font-size:18px;margin-bottom:8px;}
 .feat-desc{color:rgba(255,255,255,.6);line-height:1.7;font-size:14px;}
@@ -426,21 +430,21 @@ footer{background:rgba(6,13,31,.85) !important;}
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>
+          <img src="/assets/services/la-pain-01-channels-chaos.webp" alt="לידים מכמה ערוצים — בלי שום סדר" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">לידים מכמה ערוצים — בלי שום סדר</div>
         <div class="pain-desc">טפסי אתר, Meta Ads, WhatsApp, מייל, Tally — כל אחד ב-Inbox אחר. אין יחיד שרואה את כולם, ואין מי שעונה לכולם.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <img src="/assets/services/la-pain-02-followup-forgotten.webp" alt="פולואפ &quot;אני אזכר מחר&quot; = פולואפ שלא קרה" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">פולואפ "אני אזכר מחר" = פולואפ שלא קרה</div>
         <div class="pain-desc">78% מהעסקאות נסגרות בין הפולואפ ה-3 ל-5. אבל רוב המוכרים מוותרים אחרי 1-2. כמה לידים בחודש שילמת עליהם — וגנזת בלי פולואפ?</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+          <img src="/assets/services/la-pain-03-no-roi-data.webp" alt="אין לך מושג כמה הקמפיין באמת מכניס" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">אין לך מושג כמה הקמפיין באמת מכניס</div>
         <div class="pain-desc">המודעה הראתה "47 לידים בשבוע". אבל כמה מהם הפכו ללקוחות? כמה שילמת פר עסקה? בלי טראקינג מקצה-לקצה — אתה יורה באוויר.</div>
@@ -509,32 +513,44 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="feat-grid">
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-01-multichannel-capture.webp" alt="לכידה רב-ערוצית" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">לכידה רב-ערוצית</div>
         <div class="feat-desc">חיבור ל-Meta Lead Ads, Google Ads, Tally, Typeform, אתר, WhatsApp, מייל, ו-API פתוח לכל מקור אחר.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-02-lead-scoring.webp" alt="Lead Scoring חכם" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">Lead Scoring חכם</div>
         <div class="feat-desc">אלגוריתם ניקוד מותאם לעסק שלך. ליד חם נכנס לתור עליון. ליד קר מקבל מסלול חימום אוטומטי.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-03-five-followups.webp" alt="5 פולואפים אוטומטיים" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">5 פולואפים אוטומטיים</div>
         <div class="feat-desc">תסריט מותאם — מ-WhatsApp ידידותי ועד מייל הצעה רשמי. עוצר ברגע שהליד עונה או מסרב.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-04-bidirectional-crm.webp" alt="סנכרון CRM דו-כיווני" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">סנכרון CRM דו-כיווני</div>
         <div class="feat-desc">Google Sheets, Monday, HubSpot, Pipedrive, Salesforce, Zoho, Airtable — ליד נכנס + עדכוני סטטוס יוצאים.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-05-roi-live.webp" alt="דאשבורד ROI לייב" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">דאשבורד ROI לייב</div>
         <div class="feat-desc">לידים פר מקור · עלות פר עסקה · אחוזי המרה · דוח שבועי למייל — בלי לפתוח שום כלי חיצוני.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
+        <div class="feat-icon">
+          <img src="/assets/services/la-feat-06-90sec-response.webp" alt="תגובה ראשונה תוך 90 שניות" loading="lazy" width="88" height="88">
+        </div>
         <div class="feat-title">תגובה ראשונה תוך 90 שניות</div>
         <div class="feat-desc">SLA אוטומטי — מהרגע שהליד נכנס ועד שהוא מקבל הודעה ראשונה. גם בלילה. גם בחג. גם כשאתה בחו"ל.</div>
       </div>
