@@ -132,6 +132,8 @@ if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:3000}
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/heebo/v28/NGS6v5_NC0k9P9H0TbFzsQ.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/outfit/v15/QGYyz_MVcBeNP4NjuGObqx1XmO1I4ZmyO4a0Ew.woff2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap"></noscript>
 
@@ -187,6 +189,13 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .stat-num{font-family:'Outfit',sans-serif;font-weight:900;font-size:40px;color:#25D366;line-height:1;}
 .stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;letter-spacing:1px;text-transform:uppercase;}
 .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+/* CLS prevention — reserve space so Heebo/Outfit late load doesn't shift hero/nav */
+.hero h1{min-height:clamp(120px,24vw,220px);}
+.hero-stats{min-height:120px;}
+.hero-actions{min-height:60px;}
+.logo-text{min-width:130px;}
+nav{contain:layout;}
+
 .btn-primary{background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;padding:18px 44px;border-radius:12px;font-weight:900;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;box-shadow:0 0 60px rgba(255,111,76,.4),0 4px 20px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 80px rgba(255,111,76,.55);}
 .btn-wa{background:#25D366;color:#fff;padding:18px 32px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;min-height:52px;}
