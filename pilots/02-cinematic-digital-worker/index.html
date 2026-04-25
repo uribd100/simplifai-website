@@ -787,6 +787,7 @@
       this.frames = new Array(this.totalFrames).fill(null);
       this.loaded = new Array(this.totalFrames).fill(false);
       this.currentFrame = 0;
+      this.blend = 0;
       this.pending = false;
       this.hasAnyFrame = false;
       this.resize();
@@ -867,19 +868,28 @@
     }
 
     draw() {
-      const img = this.loaded[this.currentFrame] === true
+      const a = this.loaded[this.currentFrame] === true
         ? this.frames[this.currentFrame]
         : this.nearestLoaded(this.currentFrame);
-      if (!img) return;
-      // object-fit: cover behavior
+      if (!a) return;
       const cW = this.canvas.width / (window.devicePixelRatio || 1);
       const cH = this.canvas.height / (window.devicePixelRatio || 1);
-      const iR = img.width / img.height;
-      const cR = cW / cH;
-      let dW, dH, dX, dY;
-      if (iR > cR) { dH = cH; dW = dH * iR; dX = (cW - dW) / 2; dY = 0; }
-      else { dW = cW; dH = dW / iR; dX = 0; dY = (cH - dH) / 2; }
-      this.ctx.drawImage(img, dX, dY, dW, dH);
+      const drawFit = (img) => {
+        const iR = img.width / img.height;
+        const cR = cW / cH;
+        let dW, dH, dX, dY;
+        if (iR > cR) { dH = cH; dW = dH * iR; dX = (cW - dW) / 2; dY = 0; }
+        else { dW = cW; dH = dW / iR; dX = 0; dY = (cH - dH) / 2; }
+        this.ctx.drawImage(img, dX, dY, dW, dH);
+      };
+      this.ctx.globalAlpha = 1;
+      drawFit(a);
+      const nextIdx = Math.min(this.totalFrames - 1, this.currentFrame + 1);
+      if (this.blend > 0 && nextIdx !== this.currentFrame && this.loaded[nextIdx] === true) {
+        this.ctx.globalAlpha = this.blend;
+        drawFit(this.frames[nextIdx]);
+        this.ctx.globalAlpha = 1;
+      }
     }
 
     onScroll() {
@@ -888,9 +898,12 @@
       requestAnimationFrame(() => {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const progress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, maxScroll)));
-        const idx = Math.min(this.totalFrames - 1, Math.floor(progress * this.totalFrames));
-        if (idx !== this.currentFrame) {
+        const exact = progress * (this.totalFrames - 1);
+        const idx = Math.floor(exact);
+        const blend = exact - idx;
+        if (idx !== this.currentFrame || Math.abs(blend - this.blend) > 0.02) {
           this.currentFrame = idx;
+          this.blend = blend;
           if (this.hasAnyFrame) this.draw();
         }
         this.pending = false;
@@ -904,7 +917,7 @@
   const canvas = document.getElementById('scrollBg');
   const bg = new ScrollVideoBackground(canvas, {
     scenes: 10,
-    framesPerScene: 20,
+    framesPerScene: 30,
     basePath: 'assets/scroll-frames',
     ext: 'webp'
   });
