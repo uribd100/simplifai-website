@@ -200,7 +200,8 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pain-card{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:16px;padding:32px;transition:transform .3s,border-color .3s;}
 .pain-card:hover{transform:translateY(-4px);border-color:rgba(255,82,82,.35);}
-.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,82,82,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ff5252;}
+.pain-icon{width:88px;height:88px;border-radius:16px;margin-bottom:20px;color:#ff5252;overflow:hidden;}
+.pain-icon img{width:100%;height:100%;display:block;border-radius:inherit;object-fit:cover;}
 .pain-title{font-weight:900;font-size:20px;margin-bottom:10px;font-family:'Outfit',sans-serif;}
 .pain-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:15px;}
 
@@ -208,8 +209,8 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .feat-card{background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:28px;transition:transform .3s,border-color .3s;}
 .feat-card:hover{transform:translateY(-4px);border-color:rgba(37,211,102,.3);background:rgba(37,211,102,.03);}
-.feat-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(37,211,102,.12),rgba(37,211,102,.06));border:1px solid rgba(37,211,102,.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#25D366;}
-.feat-icon svg{width:22px;height:22px;}
+.feat-icon{width:88px;height:88px;border-radius:16px;margin-bottom:18px;color:#25D366;overflow:hidden;}
+.feat-icon img{width:100%;height:100%;display:block;border-radius:inherit;object-fit:cover;}
 .feat-title{font-weight:700;font-size:18px;margin-bottom:8px;}
 .feat-desc{color:rgba(255,255,255,.6);line-height:1.7;font-size:14px;}
 
@@ -415,21 +416,21 @@ footer{background:rgba(6,13,31,.85) !important;}
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <img src="/assets/services/wa-pain-01-five-min.webp" alt="5 דקות = ליד אבוד" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">5 דקות = ליד אבוד</div>
         <div class="pain-desc">מחקרי Harvard Business Review: ליד שלא קיבל מענה בתוך 5 דקות — הסיכוי לסגור אותו יורד ב-80%.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <img src="/assets/services/wa-pain-02-night-leads.webp" alt="בלילה אתה ישן — הם כותבים" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">בלילה אתה ישן — הם כותבים</div>
         <div class="pain-desc">40% מהפניות בוואטסאפ מגיעות אחרי 19:00. אם אין לך מענה מיידי — הליד הולך למתחרה עם הבוט.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          <img src="/assets/services/wa-pain-03-errand-runner.webp" alt="אתה עובד שליח, לא מנכ&quot;ל" loading="lazy" width="88" height="88">
         </div>
         <div class="pain-title">אתה עובד שליח, לא מנכ"ל</div>
         <div class="pain-desc">15 שעות בשבוע של "שלום, מה שעות הפעילות?" + "כמה זה עולה?" + "איפה אתם?" — במקום לפתח את העסק.</div>
@@ -474,17 +475,17 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="feat-grid">
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+        <div class="feat-icon"><img src="/assets/services/wa-feat-01-smart-filter.webp" alt="סינון לידים חכם" loading="lazy" width="88" height="88"></div>
         <div class="feat-title">סינון לידים חכם</div>
         <div class="feat-desc">שואל את השאלות הנכונות, מזהה לידים "חמים" מול "קרים", ומעביר אליך רק את המוכנים.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+        <div class="feat-icon"><img src="/assets/services/wa-feat-02-meeting-booking.webp" alt="קביעת פגישות" loading="lazy" width="88" height="88"></div>
         <div class="feat-title">קביעת פגישות</div>
         <div class="feat-desc">מתחבר ל-Calendly / Google Calendar, בודק את היומן שלך ומציע זמנים פנויים ללקוח.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+        <div class="feat-icon"><img src="/assets/services/wa-feat-03-crm-link.webp" alt="חיבור ל-CRM" loading="lazy" width="88" height="88"></div>
         <div class="feat-title">חיבור ל-CRM</div>
         <div class="feat-desc">כל שיחה נכנסת מתועדת אוטומטית ב-CRM שלך (Monday, HubSpot, Google Sheets, או כל אחר).</div>
       </div>
