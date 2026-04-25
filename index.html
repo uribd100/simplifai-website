@@ -305,6 +305,10 @@ nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:s
 /* WhatsApp hero CTA */
 .btn-wa{background:#25D366;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.45);}
+
+/* Calendly hero CTA */
+.btn-calendly{background:linear-gradient(135deg,#4D8EFF,#2B6BE0);color:#fff;padding:16px 26px;border-radius:12px;font-weight:800;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 22px rgba(77,142,255,.32);transition:transform .2s,box-shadow .2s;min-height:52px;letter-spacing:.2px;}
+.btn-calendly:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(77,142,255,.5);}
 .btn-tel{font-family:'Share Tech Mono',monospace;letter-spacing:.5px;}
 
 /* ======= HERO ======= */
@@ -427,15 +431,15 @@ canvas#particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-e
 .calc-left p{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:44px;line-height:1.8;}
 .slider-group{display:flex;flex-direction:column;gap:32px;}
 .slider-item label{font-size:13px;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;margin-bottom:12px;}
-.slider-item label .val{color:#4D8EFF;font-family:'Share Tech Mono',monospace;font-size:16px;font-weight:700;}
+.slider-item label .val{color:#4D8EFF;font-family:'Outfit',sans-serif;font-size:18px;font-weight:900;letter-spacing:-.3px;}
 input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .result-card{background:rgba(77,142,255,.04);backdrop-filter:blur(20px);border:1px solid rgba(77,142,255,.15);border-radius:24px;padding:44px;position:relative;overflow:hidden;}
 .result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#4D8EFF,transparent);}
 .res-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;}
 .res-item:last-of-type{border:none;margin-bottom:32px;}
-.res-item.big .res-v{font-size:32px !important;color:#4D8EFF !important;}
+.res-item.big .res-v{font-size:38px !important;color:#4D8EFF !important;letter-spacing:-1px !important;}
 .res-k{font-size:13px;color:rgba(255,255,255,.4);}
-.res-v{font-family:'Share Tech Mono',monospace;font-size:20px;color:#fff;transition:all .3s;}
+.res-v{font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;color:#fff;transition:all .3s;letter-spacing:-.4px;}
 .calc-cta{display:block;text-align:center;padding:16px;border-radius:12px;font-weight:900;text-decoration:none;font-size:15px;}
 
 /* ======= BEFORE / AFTER ======= */
@@ -453,7 +457,7 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .bar-row{margin-bottom:18px;}
 .bar-info{display:flex;justify-content:space-between;margin-bottom:7px;}
 .bar-name{font-size:13px;color:rgba(255,255,255,.55);}
-.bar-val{font-family:'Share Tech Mono',monospace;font-size:13px;}
+.bar-val{font-family:'Outfit',sans-serif;font-size:16px;font-weight:900;letter-spacing:-.3px;}
 .bar-track{height:9px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:5px;width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1);}
 .bar-fill.red{background:linear-gradient(90deg,#ff5252,#ff1744);}
@@ -940,13 +944,9 @@ a.srv-card:hover .srv-badge{
     <p class="hero-sub">אנחנו בונים לעסקים מערכות AI ואוטומציה שמטפלות בלידים, תיאומים, פולואפים, מסמכים ודוחות — כדי לחסוך לך שעות כל שבוע, להוריד עומס, ולעזור לך לגדול בלי להגדיל צוות.</p>
     <div class="hero-actions">
       <a href="#contact" role="button" class="btn-cta" onclick="openLeadForm();return false;" data-cta="hero-primary">בדיקת 5 דקות חינם ←</a>
-      <a href="https://wa.me/972537453493?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A8%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8" target="_blank" rel="noopener noreferrer" class="btn-wa" data-cta="hero-whatsapp" aria-label="שלח הודעת WhatsApp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892-.001 0 .001 0 0 0a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.517 5.26l-.999 3.648 3.971-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        WhatsApp
-      </a>
-      <a href="tel:+972537453493" class="btn-ghost btn-tel" data-cta="hero-phone" aria-label="התקשר עכשיו">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        053-7453493
+      <a href="https://calendly.com/simplifai-il/meet-with-me" target="_blank" rel="noopener noreferrer" class="btn-calendly" data-cta="hero-calendly" aria-label="קבע פגישת ייעוץ ב-Calendly">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        קבע פגישת ייעוץ
       </a>
       <a href="#ecosystem" class="btn-ghost btn-howitworks">ראה איך זה עובד ↓</a>
     </div>
