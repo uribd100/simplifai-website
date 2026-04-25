@@ -1,0 +1,34 @@
+# simplifAI — ייעול עסקים בעזרת AI
+
+> simplifAI builds custom AI and automation systems for Israeli small/medium businesses. We help owners reclaim 10–30 hours per month by automating leads, follow-ups, documents, scheduling, and reports — without replacing existing tools. Implementation in 14 days.
+
+simplifAI is run by Uri Bar Dror (אורי בר דרור), an independent AI automation consultant based in Israel. The brand serves Hebrew-speaking business owners with practical, deployment-ready AI systems that integrate WhatsApp, CRMs (Monday/HubSpot/Pipedrive/Salesforce/Zoho/Sheets), Google Workspace, Calendly, and custom APIs. Core deliverables include WhatsApp Bots, lead automation pipelines, CRM integrations, AI agents that perform multi-step business tasks, marketing content automation, and Apps Script-based internal tools. Discovery calls are free.
+
+Contact:
+- Website: https://simplifai.co.il/
+- WhatsApp: https://wa.me/972537453493
+- Phone: +972-53-7453493
+- Email: uribd100@gmail.com
+- Calendly: https://calendly.com/simplifai-il/meet-with-me
+
+## Services
+
+- [WhatsApp Bot](https://simplifai.co.il/services/whatsapp-bot/): Hebrew-native WhatsApp bot that captures leads, qualifies them, books meetings, and integrates with the business CRM. 24/7 response in 30 seconds. 14-day implementation.
+- [Lead Automation](https://simplifai.co.il/services/lead-automation/): End-to-end pipeline from any lead source (Meta Ads, Google Ads, web forms, WhatsApp, email, Tally) to closed customer — with auto-scoring, 5-step follow-ups, two-way CRM sync, and live ROI dashboards. First response in 90 seconds.
+- [CRM Integration](https://simplifai.co.il/services/crm-integration/): Connect any CRM (Monday, HubSpot, Pipedrive, Salesforce, Zoho, Airtable, Sheets, ClickUp, Notion, Powerlink, Priority, SAP, Hashavshevet) to website forms, WhatsApp, email, accounting, and reporting tools — bidirectional sync, dedup, custom triggers.
+- [AI Agent](https://simplifai.co.il/services/ai-agent/): Custom AI agent (Claude / GPT-4) that executes complete multi-step tasks — research, document generation, system actions, decision rules with audit log. 14–21 day implementation.
+
+## Company
+
+- Founder: Uri Bar Dror (אורי בר דרור) — independent AI automation consultant.
+- Country: Israel. Languages: Hebrew (native) + English. Target market: Israeli SMBs, professional service businesses, real estate, clinics, B2B SaaS, agencies.
+- Tech stack: Claude (Anthropic), GPT-4 (OpenAI), Google Apps Script, Google Cloud, Make.com, n8n, Zapier, Green API (WhatsApp), various CRM APIs.
+- Methodology: 4-step engagement — diagnosis (1–2 days), system design, build & test, GO LIVE — total 14–21 days.
+- Pricing: Custom per project; free 45-minute discovery call to scope.
+
+## Discovery & Booking
+- [Free Discovery Call](https://calendly.com/simplifai-il/meet-with-me): 45-minute Zoom session — diagnose pain points, review existing tools, recommend specific automations with estimated ROI. No commitment.
+
+## Policies
+- [Privacy Policy](https://simplifai.co.il/privacy.html)
+- [Terms of Service](https://simplifai.co.il/terms.html)
