@@ -348,6 +348,23 @@ footer{background:rgba(6,13,31,.85) !important;}
 @media (prefers-reduced-motion:reduce){
   .fx-reveal,.fx-panel{opacity:1 !important;transform:none !important;transition:none !important;}
 }
+
+/* UC ICON (Phase B) */
+.uc-icon{width:120px;height:120px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(77,142,255,.04);border:1px solid rgba(255,255,255,.06);}
+.uc-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.uc-card:hover .uc-icon img{transform:scale(1.04);}
+@media(max-width:780px){.uc-icon{width:100%;height:160px;}}
+
+/* HOW ICON (Phase B) */
+.how-icon{width:calc(100% + 56px);margin:-28px -28px 20px;height:140px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.03);}
+.how-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.how-step:hover .how-icon img{transform:scale(1.04);}
+
+/* FUNNEL ICON (Phase B — LA only, harmless on other pages) */
+.funnel-icon{width:96px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(255,111,76,.04);border:1px solid rgba(255,255,255,.06);}
+.funnel-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.funnel-step:hover .funnel-icon img{transform:scale(1.04);}
+
 </style>
 </head>
 <body>
@@ -519,28 +536,28 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <div class="uc-num">01</div>
+        <div class="uc-icon"><img src="/assets/services/wa-uc-01-realestate.webp" alt="סוכנויות נדל&quot;ן" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכנויות נדל"ן</h3>
           <p>כל שאלה על "איזה דירות יש ב-X" נענית מיידית עם תוצאות מה-CRM. פגישה נקבעת בלי להתקשר.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">02</div>
+        <div class="uc-icon"><img src="/assets/services/wa-uc-02-consultants.webp" alt="יועצים ומאמנים" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>יועצים ומאמנים</h3>
           <p>הבוט מסנן לידים לפי תקציב/סוג, שולח PDF אודות, ומקבע שיחת היכרות רק עם מי שמתאים.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">03</div>
+        <div class="uc-icon"><img src="/assets/services/wa-uc-03-clinics.webp" alt="קליניקות ומרפאות" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>קליניקות ומרפאות</h3>
           <p>שעות פעילות, תזכורות לפגישות, חיבור ליומן — וכשהבוט לא מבין, העברה ישירה לרופא.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">04</div>
+        <div class="uc-icon"><img src="/assets/services/wa-uc-04-services.webp" alt="עסקי שירותים" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>עסקי שירותים</h3>
           <p>מוסכים, אינסטלטורים, מאפרות — הבוט לוקח פרטים, שולח הצעת מחיר ומזמין מועד, 24/7.</p>
@@ -559,18 +576,22 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="how-grid">
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/wa-how-01-discovery.webp" alt="אבחון" loading="lazy" width="280" height="140"></div>
         <h3>אבחון</h3>
         <p>מיפוי השאלות הנפוצות, התהליכים, וה-FAQ האמיתי של העסק שלך.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/wa-how-02-training.webp" alt="אימון הבוט" loading="lazy" width="280" height="140"></div>
         <h3>אימון הבוט</h3>
         <p>בונים את התסריטים, מחברים ל-CRM / יומן / מייל — בודקים עם לידים אמיתיים.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/wa-how-03-soft-launch.webp" alt="Soft Launch" loading="lazy" width="280" height="140"></div>
         <h3>Soft Launch</h3>
         <p>7 ימי בטא — אתה בודק, מתקן, אנחנו משפרים. הבוט לומד מכל שיחה.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/wa-how-04-go-live.webp" alt="GO LIVE" loading="lazy" width="280" height="140"></div>
         <h3>GO LIVE</h3>
         <p>הבוט מחובר למספר העסקי, עונה 24/7, ושולח לך דוח שבועי עם ROI.</p>
       </div>

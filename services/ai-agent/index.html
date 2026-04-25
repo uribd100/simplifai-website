@@ -362,6 +362,23 @@ footer{background:rgba(6,13,31,.85) !important;}
 @media (prefers-reduced-motion:reduce){
   .fx-reveal,.fx-panel{opacity:1 !important;transform:none !important;transition:none !important;}
 }
+
+/* UC ICON (Phase B) */
+.uc-icon{width:120px;height:120px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(77,142,255,.04);border:1px solid rgba(255,255,255,.06);}
+.uc-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.uc-card:hover .uc-icon img{transform:scale(1.04);}
+@media(max-width:780px){.uc-icon{width:100%;height:160px;}}
+
+/* HOW ICON (Phase B) */
+.how-icon{width:calc(100% + 56px);margin:-28px -28px 20px;height:140px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.03);}
+.how-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.how-step:hover .how-icon img{transform:scale(1.04);}
+
+/* FUNNEL ICON (Phase B — LA only, harmless on other pages) */
+.funnel-icon{width:96px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(255,111,76,.04);border:1px solid rgba(255,255,255,.06);}
+.funnel-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.funnel-step:hover .funnel-icon img{transform:scale(1.04);}
+
 </style>
 </head>
 <body>
@@ -574,28 +591,28 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <div class="uc-num">01</div>
+        <div class="uc-icon"><img src="/assets/services/agent-uc-01-quote-agent.webp" alt="סוכן הצעות מחיר" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכן הצעות מחיר</h3>
           <p>לקוח שולח דרישה → הסוכן חוקר, בונה PDF מותאם, שולח מייל, מתזמן פולואפ. 4 דקות במקום 3 שעות.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">02</div>
+        <div class="uc-icon"><img src="/assets/services/agent-uc-02-research-agent.webp" alt="סוכן מחקר לקוחות" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכן מחקר לקוחות</h3>
           <p>לפני כל פגישה — סיכום מלא: מי הם, מה עושים, מה האתגרים, מי המתחרים. ב-Inbox שלך 30 דקות לפני.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">03</div>
+        <div class="uc-icon"><img src="/assets/services/agent-uc-03-content-agent.webp" alt="סוכן תוכן + רשתות" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכן תוכן + רשתות</h3>
           <p>נושא חדש בעולם הנישה שלך → הסוכן מסכם, יוצר פוסט LinkedIn + IG + thread, מתזמן פרסום.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">04</div>
+        <div class="uc-icon"><img src="/assets/services/agent-uc-04-bi-agent.webp" alt="סוכן ניתוחים BI" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכן ניתוחים BI</h3>
           <p>בכל בוקר — דוח אוטומטי על מה שקרה אתמול: לידים, מכירות, חריגות, המלצות. ב-Slack שלך, מוכן לקריאה.</p>
@@ -614,18 +631,22 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="how-grid">
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/agent-how-01-task-define.webp" alt="הגדרת משימה" loading="lazy" width="280" height="140"></div>
         <h3>הגדרת משימה</h3>
         <p>בוחרים יחד משימה אחת חוזרת שאתה עושה הרבה — ומפרקים אותה לצעדים.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/agent-how-02-knowledge-load.webp" alt="הטענת ידע" loading="lazy" width="280" height="140"></div>
         <h3>הטענת ידע</h3>
         <p>מחברים את הסוכן ל-Drive/Notion/PDFs ולכלים שהוא צריך גישה אליהם.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/agent-how-03-shadow-test.webp" alt="בדיקה + כיוון" loading="lazy" width="280" height="140"></div>
         <h3>בדיקה + כיוון</h3>
         <p>הסוכן רץ ב-shadow mode — אתה מאשר/דוחה כל פעולה. ככה הוא לומד את הסטנדרט שלך.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/agent-how-04-go-live.webp" alt="GO LIVE" loading="lazy" width="280" height="140"></div>
         <h3>GO LIVE</h3>
         <p>הסוכן עובד אוטונומית. אתה מקבל דוח שבועי + audit log לכל פעולה.</p>
       </div>

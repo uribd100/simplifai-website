@@ -363,6 +363,23 @@ footer{background:rgba(6,13,31,.85) !important;}
 @media (prefers-reduced-motion:reduce){
   .fx-reveal,.fx-panel{opacity:1 !important;transform:none !important;transition:none !important;}
 }
+
+/* UC ICON (Phase B) */
+.uc-icon{width:120px;height:120px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(77,142,255,.04);border:1px solid rgba(255,255,255,.06);}
+.uc-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.uc-card:hover .uc-icon img{transform:scale(1.04);}
+@media(max-width:780px){.uc-icon{width:100%;height:160px;}}
+
+/* HOW ICON (Phase B) */
+.how-icon{width:calc(100% + 56px);margin:-28px -28px 20px;height:140px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.03);}
+.how-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.how-step:hover .how-icon img{transform:scale(1.04);}
+
+/* FUNNEL ICON (Phase B — LA only, harmless on other pages) */
+.funnel-icon{width:96px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(255,111,76,.04);border:1px solid rgba(255,255,255,.06);}
+.funnel-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.funnel-step:hover .funnel-icon img{transform:scale(1.04);}
+
 </style>
 </head>
 <body>
@@ -462,7 +479,7 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="funnel">
       <div class="funnel-step">
-        <div class="funnel-num">01</div>
+        <div class="funnel-icon"><img src="/assets/services/la-funnel-01-capture.webp" alt="לכידה אוטומטית מכל ערוץ" loading="lazy" width="96" height="96"></div>
         <div class="funnel-body">
           <div class="funnel-title">לכידה אוטומטית מכל ערוץ</div>
           <div class="funnel-desc">טפסי אתר · Meta Lead Ads · Google Ads · WhatsApp · Email · Tally — הכל נכנס למקום אחד עם stamp זמן ומקור.</div>
@@ -470,7 +487,7 @@ footer{background:rgba(6,13,31,.85) !important;}
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
-        <div class="funnel-num">02</div>
+        <div class="funnel-icon"><img src="/assets/services/la-funnel-02-scoring.webp" alt="ניקוד אוטומטי 0–100" loading="lazy" width="96" height="96"></div>
         <div class="funnel-body">
           <div class="funnel-title">ניקוד אוטומטי 0–100</div>
           <div class="funnel-desc">תקציב, נישה, דחיפות, התנהגות באתר — כל ליד מקבל ציון. 80+ נכנס ישר לתור שיחה. נמוך נכנס לחימום.</div>
@@ -478,7 +495,7 @@ footer{background:rgba(6,13,31,.85) !important;}
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
-        <div class="funnel-num">03</div>
+        <div class="funnel-icon"><img src="/assets/services/la-funnel-03-followups.webp" alt="פולואפ אוטומטי × 5" loading="lazy" width="96" height="96"></div>
         <div class="funnel-body">
           <div class="funnel-title">פולואפ אוטומטי × 5</div>
           <div class="funnel-desc">תוך 90 שניות: SMS/WhatsApp/Email מותאם. אם לא ענה — תזכורת ב-24h, 48h, 72h, ושבוע. הכל בטון של העסק שלך.</div>
@@ -486,7 +503,7 @@ footer{background:rgba(6,13,31,.85) !important;}
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
-        <div class="funnel-num">04</div>
+        <div class="funnel-icon"><img src="/assets/services/la-funnel-04-crm-sync.webp" alt="סנכרון מלא ל-CRM" loading="lazy" width="96" height="96"></div>
         <div class="funnel-body">
           <div class="funnel-title">סנכרון מלא ל-CRM</div>
           <div class="funnel-desc">כל אינטראקציה (פתח מייל / לחץ על קישור / ענה ב-WA) נכתבת אוטו' ל-CRM. אתה רואה היסטוריה מלאה של כל ליד.</div>
@@ -494,7 +511,7 @@ footer{background:rgba(6,13,31,.85) !important;}
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
-        <div class="funnel-num">05</div>
+        <div class="funnel-icon"><img src="/assets/services/la-funnel-05-roi-dashboard.webp" alt="דאשבורד ROI בזמן אמת" loading="lazy" width="96" height="96"></div>
         <div class="funnel-body">
           <div class="funnel-title">דאשבורד ROI בזמן אמת</div>
           <div class="funnel-desc">כמה לידים נכנסו? כמה הפכו ללקוחות? עלות פר עסקה לפי מקור? דוח שבועי אוטו' למייל.</div>
@@ -604,28 +621,28 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <div class="uc-num">01</div>
+        <div class="uc-icon"><img src="/assets/services/la-uc-01-agencies.webp" alt="סוכנויות ושיווק דיגיטלי" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכנויות ושיווק דיגיטלי</h3>
           <p>מריצים קמפיינים ב-Meta/Google ומקבלים 50+ לידים ביום. בלי אוטומציה — חצי נופלים. עם המערכת — כל ליד מקבל מענה תוך 90 שניות.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">02</div>
+        <div class="uc-icon"><img src="/assets/services/la-uc-02-realestate.webp" alt="נדל&quot;ן וסוכני נכסים" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>נדל"ן וסוכני נכסים</h3>
           <p>ליד מתעניין בנכס בלילה — בבוקר הוא כבר קנה ממישהו אחר. תגובה אוטומטית עם פרטי הנכס + הצעת פגישה תוך דקה.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">03</div>
+        <div class="uc-icon"><img src="/assets/services/la-uc-03-clinics.webp" alt="קליניקות, מטפלים ויועצים" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>קליניקות, מטפלים ויועצים</h3>
           <p>סינון אוטומטי לפי תקציב/דחיפות, שליחת PDF אודות, וקביעת פגישת היכרות אוטומטית רק עם המוכנים.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">04</div>
+        <div class="uc-icon"><img src="/assets/services/la-uc-04-saas.webp" alt="SaaS ומוצרי B2B" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>SaaS ומוצרי B2B</h3>
           <p>חיבור Meta Lead Ads → HubSpot → Slack alert לצוות מכירות. סינון לפי גודל חברה. פולואפ דרכי על demos שלא הסתיימו.</p>
@@ -644,18 +661,22 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="how-grid">
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/la-how-01-discovery.webp" alt="אבחון" loading="lazy" width="280" height="140"></div>
         <h3>אבחון</h3>
         <p>מיפוי כל הערוצים, ה-CRM הקיים, תהליכי המכירה והפולואפים שלך היום.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/la-how-02-funnel-design.webp" alt="תכנון Funnel" loading="lazy" width="280" height="140"></div>
         <h3>תכנון Funnel</h3>
         <p>בונים יחד את מסלול הליד: אילו שדות, אילו תנאי ניקוד, אילו פולואפים, ולאיזה איש כל ליד הולך.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/la-how-03-build-test.webp" alt="בנייה ובדיקה" loading="lazy" width="280" height="140"></div>
         <h3>בנייה ובדיקה</h3>
         <p>אנחנו מקימים את האינטגרציות, התסריטים והדאשבורד. אתה בודק עם 5-10 לידים אמיתיים.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/la-how-04-go-live.webp" alt="GO LIVE" loading="lazy" width="280" height="140"></div>
         <h3>GO LIVE</h3>
         <p>המערכת רצה. אתה מקבל דוח שבועי, ובחודש הראשון אנחנו מכוונים לפי הנתונים שמצטברים.</p>
       </div>

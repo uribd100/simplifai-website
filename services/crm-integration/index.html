@@ -357,6 +357,23 @@ footer{background:rgba(6,13,31,.85) !important;}
 @media (prefers-reduced-motion:reduce){
   .fx-reveal,.fx-panel{opacity:1 !important;transform:none !important;transition:none !important;}
 }
+
+/* UC ICON (Phase B) */
+.uc-icon{width:120px;height:120px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(77,142,255,.04);border:1px solid rgba(255,255,255,.06);}
+.uc-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.uc-card:hover .uc-icon img{transform:scale(1.04);}
+@media(max-width:780px){.uc-icon{width:100%;height:160px;}}
+
+/* HOW ICON (Phase B) */
+.how-icon{width:calc(100% + 56px);margin:-28px -28px 20px;height:140px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.03);}
+.how-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.how-step:hover .how-icon img{transform:scale(1.04);}
+
+/* FUNNEL ICON (Phase B — LA only, harmless on other pages) */
+.funnel-icon{width:96px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(255,111,76,.04);border:1px solid rgba(255,255,255,.06);}
+.funnel-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
+.funnel-step:hover .funnel-icon img{transform:scale(1.04);}
+
 </style>
 </head>
 <body>
@@ -573,28 +590,28 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <div class="uc-num">01</div>
+        <div class="uc-icon"><img src="/assets/services/crm-uc-01-fast-growth.webp" alt="עסקים שגדלו במהירות" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>עסקים שגדלו במהירות</h3>
           <p>פעם הספיק Excel — היום יש 5 כלים שונים, 3 אנשי מכירות, וכל אחד עובד עם קובץ אחר. צריך לאחד.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">02</div>
+        <div class="uc-icon"><img src="/assets/services/crm-uc-02-crm-switch.webp" alt="מי שמחליף CRM" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>מי שמחליף CRM</h3>
           <p>עובר מ-Excel/Salesforce/Zoho ל-Monday/HubSpot. צריך migration נקי + חיבור לכל הכלים החיצוניים מחדש.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">03</div>
+        <div class="uc-icon"><img src="/assets/services/crm-uc-03-distributed-teams.webp" alt="צוותי מכירות מבוזרים" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>צוותי מכירות מבוזרים</h3>
           <p>חלק עובדים בשטח עם נייד, חלק במשרד עם דסקטופ. כולם צריכים לראות את אותם נתונים, מעודכנים בזמן אמת.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-num">04</div>
+        <div class="uc-icon"><img src="/assets/services/crm-uc-04-agencies.webp" alt="סוכנויות ופרילנסרים מנהלי לקוחות" loading="lazy" width="120" height="120"></div>
         <div class="uc-body">
           <h3>סוכנויות ופרילנסרים מנהלי לקוחות</h3>
           <p>כל לקוח עם CRM משלו. אתם צריכים תצוגה מאוחדת — בלי להחליף כל פעם interfaces.</p>
@@ -613,18 +630,22 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="how-grid">
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/crm-how-01-systems-audit.webp" alt="אבחון מערכות" loading="lazy" width="280" height="140"></div>
         <h3>אבחון מערכות</h3>
         <p>מיפוי כל הכלים, השדות, ההיסטוריה, וזיהוי כפילויות וסתירות בנתונים.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/crm-how-02-schema-plan.webp" alt="תכנון Schema" loading="lazy" width="280" height="140"></div>
         <h3>תכנון Schema</h3>
         <p>בונים יחד את המבנה המאוחד — שדות, סטטוסים, אוטומציות, הרשאות לפי תפקיד.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/crm-how-03-migration-connect.webp" alt="Migration + חיבור" loading="lazy" width="280" height="140"></div>
         <h3>Migration + חיבור</h3>
         <p>מעבירים את הנתונים, מקימים את האינטגרציות, ומסנכרנים בכל הכיוונים.</p>
       </div>
       <div class="how-step">
+        <div class="how-icon"><img src="/assets/services/crm-how-04-training-golive.webp" alt="הדרכה + GO LIVE" loading="lazy" width="280" height="140"></div>
         <h3>הדרכה + GO LIVE</h3>
         <p>סשן הדרכה לצוות, בדיקה במקביל למערכת הישנה לשבוע, ואז כיבוי.</p>
       </div>
