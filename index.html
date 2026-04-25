@@ -264,7 +264,8 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 /* ======= NAV ======= */
 nav{padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
 /* LOGO */
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;position:relative;direction:ltr;display:inline-flex;align-items:center;unicode-bidi:bidi-override;}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:32px;letter-spacing:-2px;position:relative;direction:ltr;display:inline-flex;align-items:center;unicode-bidi:bidi-override;color:#fff;text-decoration:none;cursor:pointer;}
+.logo-text:hover span:first-of-type{filter:brightness(1.1);}
 .logo-text span{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);display:inline-block;animation:logo-wave 4s ease-in-out infinite;}
 @keyframes logo-wave{0%,100%{transform:translateY(0);text-shadow:0 0 20px rgba(77,142,255,.5);}50%{transform:translateY(-3px);text-shadow:0 0 32px rgba(77,142,255,.8);}}
 /* Orbit dot */
@@ -588,7 +589,8 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 
 /* ======= FOOTER ======= */
 footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);flex-wrap:wrap;gap:20px;}
-.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;direction:ltr;unicode-bidi:bidi-override;display:inline-flex;}
+.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;letter-spacing:-1px;direction:ltr;unicode-bidi:bidi-override;display:inline-flex;color:#fff;text-decoration:none;transition:opacity .2s;}
+.fl:hover{opacity:.85;}
 .fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
 .footer-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .footer-links a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
@@ -903,7 +905,7 @@ a.srv-card:hover .srv-badge{
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo-text">simplif<span>AI</span><div class="logo-orbit"></div></div>
+  <a href="/" class="logo-text" aria-label="simplifAI — דף הבית">simplif<span>AI</span><span class="logo-orbit" aria-hidden="true"></span></a>
   <button class="nav-toggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="navLinks" id="navToggle" type="button">
     <span></span><span></span><span></span>
   </button>
@@ -1363,7 +1365,7 @@ a.srv-card:hover .srv-badge{
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="fl">simplif<span>AI</span></div>
+  <a href="/" class="fl" aria-label="simplifAI — דף הבית">simplif<span>AI</span></a>
   <div class="footer-links">
     <a href="privacy.html">מדיניות פרטיות</a>
     <a href="terms.html">תנאי שימוש</a>

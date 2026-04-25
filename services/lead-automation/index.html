@@ -143,8 +143,13 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 
 /* NAV */
 nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;border-radius:6px;}
-.logo-text .ai{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;border-radius:6px;position:relative;unicode-bidi:bidi-override;cursor:pointer;}
+.logo-text:hover span:first-of-type{filter:brightness(1.1);}
+.logo-text > span:first-of-type{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);display:inline-block;animation:logo-wave 4s ease-in-out infinite;}
+@keyframes logo-wave{0%,100%{transform:translateY(0);text-shadow:0 0 20px rgba(77,142,255,.5);}50%{transform:translateY(-3px);text-shadow:0 0 32px rgba(77,142,255,.8);}}
+.logo-orbit{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;}
+.logo-orbit::before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 8px #4D8EFF,0 0 16px rgba(77,142,255,.3);animation:logo-orb 5s linear infinite;}
+@keyframes logo-orb{0%{top:50%;left:-4px;}25%{top:-4px;left:50%;}50%{top:50%;left:calc(100% + 4px);}75%{top:calc(100% + 4px);left:50%;}100%{top:50%;left:-4px;}}
 .nav-right{display:flex;gap:20px;align-items:center;}
 .nav-back{color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
 .nav-back:hover{color:#fff;background:rgba(77,142,255,.06);}
@@ -152,11 +157,11 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 36px rgba(255,111,76,.5);}
 
 /* BREADCRUMBS */
-.breadcrumbs{padding:10px 40px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase;display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
-.breadcrumbs a{color:rgba(77,142,255,.8);text-decoration:none;transition:color .2s,background .2s;padding:12px 10px;border-radius:6px;display:inline-flex;align-items:center;min-height:44px;}
-.breadcrumbs a:hover{color:#4D8EFF;background:rgba(77,142,255,.06);}
-.breadcrumbs .sep{opacity:.4;padding:0 4px;}
-.breadcrumbs > span:last-child{padding:12px 10px;color:rgba(255,255,255,.7);}
+.breadcrumbs{margin:18px 40px 0;padding:14px 22px;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(77,142,255,.22);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.18);}
+.breadcrumbs a{color:rgba(255,255,255,.78);text-decoration:none;transition:color .2s,background .2s;padding:6px 10px;border-radius:8px;display:inline-flex;align-items:center;font-weight:600;}
+.breadcrumbs a:hover{color:#4D8EFF;background:rgba(77,142,255,.1);}
+.breadcrumbs .sep{opacity:.45;padding:0 4px;color:#4D8EFF;font-weight:900;}
+.breadcrumbs > span:last-child{padding:6px 10px;color:#fff;font-weight:900;letter-spacing:-.2px;}
 
 /* HERO */
 .hero{min-height:85svh;display:flex;flex-direction:column;justify-content:center;padding:60px 40px 100px;position:relative;overflow:hidden;}
@@ -276,7 +281,9 @@ details .ans{color:rgba(255,255,255,.7);line-height:1.85;margin-top:14px;font-si
 
 /* FOOTER */
 footer{background:#040A18;padding:40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);flex-wrap:wrap;gap:20px;}
-.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-1px;direction:ltr;}
+.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-1px;direction:ltr;color:#fff;text-decoration:none;display:inline-flex;transition:opacity .2s;unicode-bidi:bidi-override;}
+.fl:hover{opacity:.85;}
+.fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
 .fl span{color:#4D8EFF;}
 .footer-nav{display:flex;gap:8px;flex-wrap:wrap;}
 .footer-nav a{color:rgba(255,255,255,.72);font-size:13px;text-decoration:none;padding:12px 14px;border-radius:8px;transition:color .2s,background .2s;display:inline-flex;align-items:center;min-height:44px;}
@@ -294,8 +301,7 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
   .logo-text{font-size:22px;}
   .nav-back{display:none;}
   .nav-cta{padding:9px 16px;font-size:12px;}
-  .breadcrumbs{padding:14px 20px;font-size:10px;}
-  .breadcrumbs .sep{margin:0 6px;}
+  .breadcrumbs{margin:14px 16px 0;padding:12px 14px;font-size:13px;}.breadcrumbs .sep{padding:0 2px;}
   .hero{padding:40px 20px 60px;min-height:auto;}
   .hero h1{font-size:clamp(34px,8vw,52px);letter-spacing:-1.5px;}
   .hero-sub{font-size:16px;}
@@ -390,7 +396,7 @@ footer{background:rgba(6,13,31,.85) !important;}
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="logo-text">simplif<span class="ai">AI</span></a>
+  <a href="/" class="logo-text" aria-label="simplifAI — דף הבית">simplif<span>AI</span><span class="logo-orbit" aria-hidden="true"></span></a>
   <div class="nav-right">
     <a href="/" class="nav-back">← חזרה לראשי</a>
     <a href="https://calendly.com/simplifai-il/meet-with-me" target="_blank" rel="noopener" class="nav-cta" data-cta="nav-form">קבע שיחת אבחון</a>
@@ -743,7 +749,7 @@ footer{background:rgba(6,13,31,.85) !important;}
 
 <!-- FOOTER -->
 <footer>
-  <div class="fl">simplif<span>AI</span></div>
+  <a href="/" class="fl" aria-label="simplifAI — דף הבית">simplif<span>AI</span></a>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/">בית</a>
     <a href="/#services">שירותים</a>
