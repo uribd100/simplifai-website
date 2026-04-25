@@ -741,11 +741,17 @@ footer{background:rgba(6,13,31,.85) !important;}
         this.loaded[0]=true; this.frames[0]=probe;
         this.hasAnyFrame=true; this.canvas.classList.add('has-frames'); this.draw();
         for (let i=1;i<this.framesPerScene;i++) this.loadFrame(i);
-        const lazy = () => { for (let i=this.framesPerScene;i<this.totalFrames;i++) this.loadFrame(i); };
-        if ('requestIdleCallback' in window) requestIdleCallback(lazy,{timeout:2000}); else setTimeout(lazy,1200);
       };
       probe.onerror = () => {};
       probe.decoding='async'; probe.src = this.frameSrc(0);
+    }
+    ensureScene(sceneIdx){
+      if (sceneIdx<0 || sceneIdx>=this.scenes) return;
+      if (this._sceneStarted && this._sceneStarted[sceneIdx]) return;
+      this._sceneStarted = this._sceneStarted || {};
+      this._sceneStarted[sceneIdx] = true;
+      const start = sceneIdx*this.framesPerScene, end = start+this.framesPerScene;
+      for (let i=start;i<end;i++) this.loadFrame(i);
     }
     nearestLoaded(idx){
       for (let off=0;off<this.totalFrames;off++){
@@ -780,6 +786,9 @@ footer{background:rgba(6,13,31,.85) !important;}
         const exact = p*(this.totalFrames-1), idx = Math.floor(exact), blend = exact-idx;
         if (idx!==this.currentFrame || Math.abs(blend-this.blend)>0.02){
           this.currentFrame = idx; this.blend = blend;
+          const sceneNow = Math.floor(idx/this.framesPerScene);
+          this.ensureScene(sceneNow);
+          this.ensureScene(sceneNow+1);
           if (this.hasAnyFrame) this.draw();
         }
         this.pending = false;
@@ -787,7 +796,8 @@ footer{background:rgba(6,13,31,.85) !important;}
     }
   }
   const bgCanvas = document.getElementById('scrollBg');
-  if (bgCanvas){
+  const isMobile = window.matchMedia('(max-width:768px)').matches;
+  if (bgCanvas && !isMobile){
     const bg = new ScrollVideoBackground(bgCanvas, {
       scenes:10, framesPerScene:30,
       basePath:'/pilots/02-cinematic-digital-worker/assets/scroll-frames', ext:'webp'
