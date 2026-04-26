@@ -1747,6 +1747,23 @@ function gotoStep2(){
   var valid=true;
   step1Fields.forEach(function(el){if(!el.value){el.reportValidity();valid=false;}});
   if(!valid)return;
+  /* Phone min-length: at least 9 digits (catches "972" alone, partial submissions) */
+  var phoneEl=form.phone;
+  var phoneDigits=(phoneEl.value||'').replace(/\D/g,'');
+  if(phoneDigits.length<9){
+    phoneEl.setCustomValidity('נא להזין מספר טלפון תקין (לפחות 9 ספרות)');
+    phoneEl.reportValidity();
+    phoneEl.setCustomValidity('');
+    return;
+  }
+  /* Name min-length */
+  var nameEl=form.fname;
+  if((nameEl.value||'').trim().length<2){
+    nameEl.setCustomValidity('נא להזין שם תקין');
+    nameEl.reportValidity();
+    nameEl.setCustomValidity('');
+    return;
+  }
   step1.style.display='none';
   form.querySelector('[data-step="2"]').style.display='block';
   document.querySelectorAll('.form-step-dot').forEach(function(d){
@@ -1811,6 +1828,18 @@ document.getElementById('leadOverlay').addEventListener('click',function(e){
 
 document.getElementById('leadFormEl').addEventListener('submit',function(e){
   e.preventDefault();
+  /* Defense-in-depth validation (also enforced in gotoStep2 + server) */
+  var phoneDigits=(this.phone.value||'').replace(/\D/g,'');
+  if(phoneDigits.length<9){
+    alert('נא להזין מספר טלפון תקין (לפחות 9 ספרות)');
+    this.phone.focus();
+    return false;
+  }
+  if((this.fname.value||'').trim().length<2){
+    alert('נא להזין שם תקין');
+    this.fname.focus();
+    return false;
+  }
   if(typeof gtag==='function')gtag('event','form_submit',{event_category:'lead'});
   if(typeof fbq==='function')fbq('track','Lead');
   var btn=this.querySelector('.form-submit');
