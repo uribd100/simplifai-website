@@ -132,18 +132,10 @@ if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:3000}
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/heebo-hebrew.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/heebo-latin.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/outfit-900-latin.woff2">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap"></noscript>
 
 <style>
-/* Self-hosted critical fonts — eliminate Google Fonts CDN from critical path */
-@font-face{font-family:'Heebo';font-style:normal;font-weight:400 900;font-display:swap;src:url('/assets/fonts/heebo-hebrew.woff2') format('woff2');unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
-@font-face{font-family:'Heebo';font-style:normal;font-weight:400 900;font-display:swap;src:url('/assets/fonts/heebo-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Outfit';font-style:normal;font-weight:900;font-display:swap;src:url('/assets/fonts/outfit-900-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :focus-visible{outline:2px solid #25D366;outline-offset:3px;border-radius:4px;}
 html{scroll-behavior:smooth;}
@@ -151,13 +143,8 @@ body{background:#060D1F;color:#fff;font-family:'Heebo',sans-serif;direction:rtl;
 
 /* NAV */
 nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,13,31,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(77,142,255,.08);position:sticky;top:0;z-index:100;}
-.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;border-radius:6px;position:relative;unicode-bidi:bidi-override;cursor:pointer;}
-.logo-text:hover span:first-of-type{filter:brightness(1.1);}
-.logo-text > span:first-of-type{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);display:inline-block;animation:logo-wave 4s ease-in-out infinite;}
-@keyframes logo-wave{0%,100%{transform:translateY(0);text-shadow:0 0 20px rgba(77,142,255,.5);}50%{transform:translateY(-3px);text-shadow:0 0 32px rgba(77,142,255,.8);}}
-.logo-orbit{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;}
-.logo-orbit::before{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 8px #4D8EFF,0 0 16px rgba(77,142,255,.3);animation:logo-orb 5s linear infinite;}
-@keyframes logo-orb{0%{top:50%;left:-4px;}25%{top:-4px;left:50%;}50%{top:50%;left:calc(100% + 4px);}75%{top:calc(100% + 4px);left:50%;}100%{top:50%;left:-4px;}}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-1.5px;text-decoration:none;color:#fff;direction:ltr;display:inline-flex;align-items:center;min-height:44px;padding:4px 8px;border-radius:6px;}
+.logo-text .ai{color:#4D8EFF;text-shadow:0 0 20px rgba(77,142,255,.5);}
 .nav-right{display:flex;gap:20px;align-items:center;}
 .nav-back{color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;transition:color .2s,background .2s;padding:12px 14px;border-radius:8px;display:inline-flex;align-items:center;min-height:44px;}
 .nav-back:hover{color:#fff;background:rgba(77,142,255,.06);}
@@ -165,11 +152,11 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 36px rgba(37,211,102,.5);}
 
 /* BREADCRUMBS */
-.breadcrumbs{margin:18px 40px 0;padding:14px 22px;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(77,142,255,.22);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.18);}
-.breadcrumbs a{color:rgba(255,255,255,.78);text-decoration:none;transition:color .2s,background .2s;padding:6px 10px;border-radius:8px;display:inline-flex;align-items:center;font-weight:600;}
-.breadcrumbs a:hover{color:#4D8EFF;background:rgba(77,142,255,.1);}
-.breadcrumbs .sep{opacity:.45;padding:0 4px;color:#4D8EFF;font-weight:900;}
-.breadcrumbs > span:last-child{padding:6px 10px;color:#fff;font-weight:900;letter-spacing:-.2px;}
+.breadcrumbs{padding:10px 40px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase;display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
+.breadcrumbs a{color:rgba(77,142,255,.8);text-decoration:none;transition:color .2s,background .2s;padding:12px 10px;border-radius:6px;display:inline-flex;align-items:center;min-height:44px;}
+.breadcrumbs a:hover{color:#4D8EFF;background:rgba(77,142,255,.06);}
+.breadcrumbs .sep{opacity:.4;padding:0 4px;}
+.breadcrumbs > span:last-child{padding:12px 10px;color:rgba(255,255,255,.7);}
 
 /* HERO */
 .hero{min-height:85svh;display:flex;flex-direction:column;justify-content:center;padding:60px 40px 100px;position:relative;overflow:hidden;}
@@ -195,13 +182,6 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 .stat-num{font-family:'Outfit',sans-serif;font-weight:900;font-size:40px;color:#25D366;line-height:1;}
 .stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;letter-spacing:1px;text-transform:uppercase;}
 .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-/* CLS prevention — reserve space so Heebo/Outfit late load doesn't shift hero/nav */
-.hero h1{min-height:clamp(120px,24vw,220px);}
-.hero-stats{min-height:120px;}
-.hero-actions{min-height:60px;}
-.logo-text{min-width:130px;}
-nav{contain:layout;}
-
 .btn-primary{background:linear-gradient(135deg,#FF6F4C,#e85a38);color:#fff;padding:18px 44px;border-radius:12px;font-weight:900;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;box-shadow:0 0 60px rgba(255,111,76,.4),0 4px 20px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s;min-height:52px;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 80px rgba(255,111,76,.55);}
 .btn-wa{background:#25D366;color:#fff;padding:18px 32px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;min-height:52px;}
@@ -215,14 +195,31 @@ nav{contain:layout;}
 .sec-h{font-family:'Outfit',sans-serif;font-size:clamp(32px,4.5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:18px;}
 .sec-h .g{color:#4D8EFF;}
 .sec-p{font-size:17px;color:rgba(255,255,255,.68);line-height:1.85;max-width:620px;margin-bottom:60px;}
+.section-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(77,142,255,.55) 50%,transparent 100%);margin:22px auto 0;width:80%;max-width:520px;border:none;}
+.sec-tag-num{font-weight:900;color:rgba(77,142,255,.55);}
+.sec-tag-sep{opacity:.35;margin:0 4px;}
+.gift-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:24px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.4);color:#25D366;}
+.gift-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#25D366;box-shadow:0 0 10px #25D366;animation:gift-pulse 2s infinite;}
+@keyframes gift-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.85);}}
+.cta-fineprint{font-size:12px;color:rgba(255,255,255,.45);font-family:'Share Tech Mono',monospace;letter-spacing:1px;margin-top:14px;text-align:center;}
+.scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;pointer-events:none;}
+.scroll-cue-text{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.55);text-transform:uppercase;animation:scroll-text-pulse 1.8s ease-in-out infinite;}
+.scroll-cue-dots{display:flex;flex-direction:column;gap:5px;}
+.scroll-cue-dots .dot{width:5px;height:5px;border-radius:50%;background:rgba(77,142,255,.7);animation:scroll-dot-pulse 1.8s ease-in-out infinite;}
+.scroll-cue-dots .dot:nth-child(2){animation-delay:.2s;}
+.scroll-cue-dots .dot:nth-child(3){animation-delay:.4s;}
+@keyframes scroll-text-pulse{0%,100%{opacity:.35;text-shadow:none;}50%{opacity:1;text-shadow:0 0 12px rgba(77,142,255,.5);}}
+@keyframes scroll-dot-pulse{0%,100%{opacity:.25;transform:scale(.85);box-shadow:none;}50%{opacity:1;transform:scale(1);box-shadow:0 0 10px rgba(77,142,255,.7);}}
+@media(max-width:900px){.scroll-cue{display:none;}}
+.final h2 .g{color:#25D366;text-shadow:0 0 28px rgba(37,211,102,.45);}
+.final .btn-primary{background:linear-gradient(135deg,#25D366,#128c7e);box-shadow:0 0 60px rgba(37,211,102,.4),0 4px 20px rgba(0,0,0,.3);}
+.final .btn-primary:hover{box-shadow:0 0 80px rgba(37,211,102,.55);}
 
 /* PAIN CARDS */
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .pain-card{background:rgba(255,82,82,.04);border:1px solid rgba(255,82,82,.15);border-radius:16px;padding:32px;transition:transform .3s,border-color .3s;}
 .pain-card:hover{transform:translateY(-4px);border-color:rgba(255,82,82,.35);}
-.pain-icon{width:calc(100% + 64px);margin:-32px -32px 24px;height:200px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,82,82,.04);}
-.pain-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
-.pain-card:hover .pain-icon img{transform:scale(1.04);}
+.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,82,82,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ff5252;}
 .pain-title{font-weight:900;font-size:20px;margin-bottom:10px;font-family:'Outfit',sans-serif;}
 .pain-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:15px;}
 
@@ -230,9 +227,8 @@ nav{contain:layout;}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .feat-card{background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:16px;padding:28px;transition:transform .3s,border-color .3s;}
 .feat-card:hover{transform:translateY(-4px);border-color:rgba(37,211,102,.3);background:rgba(37,211,102,.03);}
-.feat-icon{width:calc(100% + 56px);margin:-28px -28px 22px;height:180px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(77,142,255,.04);}
-.feat-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
-.feat-card:hover .feat-icon img{transform:scale(1.04);}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(37,211,102,.12),rgba(37,211,102,.06));border:1px solid rgba(37,211,102,.25);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#25D366;}
+.feat-icon svg{width:22px;height:22px;}
 .feat-title{font-weight:700;font-size:18px;margin-bottom:8px;}
 .feat-desc{color:rgba(255,255,255,.6);line-height:1.7;font-size:14px;}
 
@@ -284,9 +280,7 @@ details .ans{color:rgba(255,255,255,.7);line-height:1.85;margin-top:14px;font-si
 
 /* FOOTER */
 footer{background:#040A18;padding:40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);flex-wrap:wrap;gap:20px;}
-.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-1px;direction:ltr;color:#fff;text-decoration:none;display:inline-flex;transition:opacity .2s;unicode-bidi:bidi-override;}
-.fl:hover{opacity:.85;}
-.fl span{color:#4D8EFF;text-shadow:0 0 16px rgba(77,142,255,.4);}
+.fl{font-family:'Outfit',sans-serif;font-weight:900;font-size:20px;letter-spacing:-1px;direction:ltr;}
 .fl span{color:#4D8EFF;}
 .footer-nav{display:flex;gap:8px;flex-wrap:wrap;}
 .footer-nav a{color:rgba(255,255,255,.72);font-size:13px;text-decoration:none;padding:12px 14px;border-radius:8px;transition:color .2s,background .2s;display:inline-flex;align-items:center;min-height:44px;}
@@ -294,7 +288,7 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
 .fcopy{font-size:12px;color:rgba(255,255,255,.3);}
 
 /* FLOATING WA */
-.wa-float{position:fixed;bottom:28px;left:28px;width:64px;height:64px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.5);z-index:50;text-decoration:none;animation:wa-pulse 2.5s infinite;}
+.wa-float{position:fixed;bottom:28px;right:28px;width:64px;height:64px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.5);z-index:50;text-decoration:none;animation:wa-pulse 2.5s infinite;}
 @keyframes wa-pulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.3);}60%{box-shadow:0 4px 24px rgba(37,211,102,.4),0 0 0 16px rgba(37,211,102,0);}}
 .wa-float svg{width:32px;height:32px;fill:#fff;}
 
@@ -304,7 +298,8 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
   .logo-text{font-size:22px;}
   .nav-back{display:none;}
   .nav-cta{padding:9px 16px;font-size:12px;}
-  .breadcrumbs{margin:14px 16px 0;padding:12px 14px;font-size:13px;}.breadcrumbs .sep{padding:0 2px;}
+  .breadcrumbs{padding:14px 20px;font-size:10px;}
+  .breadcrumbs .sep{margin:0 6px;}
   .hero{padding:40px 20px 60px;min-height:auto;}
   .hero h1{font-size:clamp(34px,8vw,52px);letter-spacing:-1.5px;}
   .hero-sub{font-size:16px;}
@@ -321,82 +316,16 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
   .final{padding:64px 20px;}
   footer{flex-direction:column;gap:16px;padding:28px 20px;text-align:center;}
   .footer-nav{justify-content:center;}
-  .wa-float{width:56px;height:56px;bottom:20px;left:20px;}
+  .wa-float{width:56px;height:56px;bottom:20px;right:20px;}
   .wa-float svg{width:26px;height:26px;}
 }
-
-/* ====== CINEMATIC SCROLL-FRAME BACKGROUND ====== */
-#scrollBg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-2;pointer-events:none;background:linear-gradient(180deg,#060D1F 0%,#0A1530 50%,#060D1F 100%);}
-#scrollBg.has-frames{background:#000;}
-#bgOverlay{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,31,.35) 0%,rgba(6,13,31,.55) 50%,rgba(6,13,31,.7) 100%);}
-body{background:transparent !important;}
-nav{background:rgba(6,13,31,.78) !important;}
-.hero{background:transparent !important;}
-.sec{background:rgba(6,13,31,.72) !important;}
-.final{background:linear-gradient(135deg,rgba(77,142,255,.18),rgba(255,111,76,.12)),rgba(6,13,31,.62) !important;}
-footer{background:rgba(6,13,31,.85) !important;}
-
-/* ====== Section tag — match main site (gradient border + glow) ====== */
-.sec-tag{
-  position:relative !important;
-  font-family:'Share Tech Mono',monospace !important;
-  font-size:13px !important;
-  letter-spacing:4px !important;
-  font-weight:800 !important;
-  color:#fff !important;
-  background:linear-gradient(135deg,rgba(77,142,255,.28),rgba(255,111,76,.18)) !important;
-  border:none !important;
-  padding:13px 28px !important;
-  border-radius:100px !important;
-  box-shadow:0 0 36px rgba(77,142,255,.35),0 0 22px rgba(255,111,76,.2),inset 0 0 14px rgba(77,142,255,.15) !important;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  text-shadow:0 0 14px rgba(77,142,255,.6),0 0 2px rgba(0,0,0,.3);
-  text-transform:uppercase;
-}
-.sec-tag::after{
-  content:'';position:absolute;inset:0;border-radius:100px;padding:2px;
-  background:linear-gradient(135deg,#4D8EFF 0%,#8AA9FF 35%,#FFB08A 65%,#FF6F4C 100%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
-
-/* ====== MOTION reveals ====== */
-.fx-reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
-.fx-reveal.in{opacity:1;transform:none;}
-.fx-panel{opacity:0;transform:translateY(60px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
-.fx-panel.in{opacity:1;transform:none;}
-@media (prefers-reduced-motion:reduce){
-  .fx-reveal,.fx-panel{opacity:1 !important;transform:none !important;transition:none !important;}
-}
-
-/* UC ICON (Phase B) */
-.uc-icon{width:120px;height:120px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(77,142,255,.04);border:1px solid rgba(255,255,255,.06);}
-.uc-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
-.uc-card:hover .uc-icon img{transform:scale(1.04);}
-@media(max-width:780px){.uc-icon{width:100%;height:160px;}}
-
-/* HOW ICON (Phase B) */
-.how-icon{width:calc(100% + 56px);margin:-28px -28px 20px;height:140px;border-radius:16px 16px 0 0;overflow:hidden;background:rgba(255,255,255,.03);}
-.how-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
-.how-step:hover .how-icon img{transform:scale(1.04);}
-
-/* FUNNEL ICON (Phase B — LA only, harmless on other pages) */
-.funnel-icon{width:96px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;background:rgba(255,111,76,.04);border:1px solid rgba(255,255,255,.06);}
-.funnel-icon img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.05) brightness(1.02);transition:transform .45s ease;}
-.funnel-step:hover .funnel-icon img{transform:scale(1.04);}
-
 </style>
 </head>
 <body>
-<!-- Cinematic scroll-frame background -->
-<canvas id="scrollBg" aria-hidden="true"></canvas>
-<div id="bgOverlay" aria-hidden="true"></div>
-
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="logo-text" aria-label="simplifAI — דף הבית">simplif<span>AI</span><span class="logo-orbit" aria-hidden="true"></span></a>
+  <a href="/" class="logo-text">simplif<span class="ai">AI</span></a>
   <div class="nav-right">
     <a href="/" class="nav-back">← חזרה לראשי</a>
     <a href="https://wa.me/972537453493?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A8%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%93%D7%A3%20%D7%94%D7%91%D7%95%D7%98" target="_blank" rel="noopener" class="nav-cta" data-cta="nav-whatsapp">
@@ -437,11 +366,19 @@ footer{background:rgba(6,13,31,.85) !important;}
       <div class="stat"><div class="stat-num">100%</div><div class="stat-label">עברית</div></div>
     </div>
     <div class="hero-actions">
-      <a href="https://calendly.com/simplifai-il/meet-with-me" target="_blank" rel="noopener" class="btn-primary" data-cta="wa-bot-hero-form">קבע שיחת אבחון חינם ←</a>
+      <a href="/#lead-form" class="btn-primary" data-cta="wa-bot-hero-form" onclick="window.location.href='/#lead-form';return false;">קבע שיחת אבחון חינם ←</a>
       <a href="https://wa.me/972537453493?text=%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91-WhatsApp%20Bot" target="_blank" rel="noopener" class="btn-wa" data-cta="wa-bot-hero-whatsapp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.517 5.26l-.999 3.648 3.971-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         דבר איתנו עכשיו
       </a>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="scroll-cue-text">גלול</span>
+    <div class="scroll-cue-dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
 </section>
@@ -450,27 +387,28 @@ footer{background:rgba(6,13,31,.85) !important;}
 <section class="sec">
   <div class="sec-inner">
     <div style="text-align:center;margin-bottom:60px;">
-      <span class="sec-tag"><span style="background:#ff5252;width:6px;height:6px;border-radius:50%;"></span> הכאב</span>
-      <h2 class="sec-h">כל דקה שעוברת — <span class="g">ליד אובד.</span></h2>
+      <span class="sec-tag" style="color:#4D8EFF;background:rgba(77,142,255,.06);border-color:rgba(77,142,255,.3);"><span class="sec-tag-num">02</span><span class="sec-tag-sep">/</span>המציאות</span>
+      <h2 class="sec-h"><span class="g">80%</span> מהלידים נסגרים אצל הראשון שעונה.</h2>
+      <hr class="section-rule">
     </div>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">
-          <img src="/assets/services/wa-pain-01-five-min.webp" alt="5 דקות = ליד אבוד" loading="lazy" width="88" height="88">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         </div>
         <div class="pain-title">5 דקות = ליד אבוד</div>
         <div class="pain-desc">מחקרי Harvard Business Review: ליד שלא קיבל מענה בתוך 5 דקות — הסיכוי לסגור אותו יורד ב-80%.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <img src="/assets/services/wa-pain-02-night-leads.webp" alt="בלילה אתה ישן — הם כותבים" loading="lazy" width="88" height="88">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </div>
         <div class="pain-title">בלילה אתה ישן — הם כותבים</div>
         <div class="pain-desc">40% מהפניות בוואטסאפ מגיעות אחרי 19:00. אם אין לך מענה מיידי — הליד הולך למתחרה עם הבוט.</div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">
-          <img src="/assets/services/wa-pain-03-errand-runner.webp" alt="אתה עובד שליח, לא מנכ&quot;ל" loading="lazy" width="88" height="88">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
         </div>
         <div class="pain-title">אתה עובד שליח, לא מנכ"ל</div>
         <div class="pain-desc">15 שעות בשבוע של "שלום, מה שעות הפעילות?" + "כמה זה עולה?" + "איפה אתם?" — במקום לפתח את העסק.</div>
@@ -515,32 +453,32 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="feat-grid">
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-01-smart-filter.webp" alt="סינון לידים חכם" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
         <div class="feat-title">סינון לידים חכם</div>
         <div class="feat-desc">שואל את השאלות הנכונות, מזהה לידים "חמים" מול "קרים", ומעביר אליך רק את המוכנים.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-02-meeting-booking.webp" alt="קביעת פגישות" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
         <div class="feat-title">קביעת פגישות</div>
         <div class="feat-desc">מתחבר ל-Calendly / Google Calendar, בודק את היומן שלך ומציע זמנים פנויים ללקוח.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-03-crm-link.webp" alt="חיבור ל-CRM" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
         <div class="feat-title">חיבור ל-CRM</div>
         <div class="feat-desc">כל שיחה נכנסת מתועדת אוטומטית ב-CRM שלך (Monday, HubSpot, Google Sheets, או כל אחר).</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-04-hebrew-native.webp" alt="עברית native" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg></div>
         <div class="feat-title">עברית native</div>
         <div class="feat-desc">מבין סלנג, שגיאות כתיב, ומגיב בטון שאתה בוחר — רשמי, חברי, או מקצועי.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-05-auto-followups.webp" alt="פולואפים אוטומטיים" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
         <div class="feat-title">פולואפים אוטומטיים</div>
         <div class="feat-desc">ליד לא ענה? הבוט שולח תזכורת אחרי 24/48/72 שעות — עד שהוא יסגר או יסרב.</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><img src="/assets/services/wa-feat-06-realtime-alert.webp" alt="התראה בזמן אמת" loading="lazy" width="88" height="88"></div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17c0 2-.5 3.5-2 4.5"></path><path d="M15 17c0 2 .5 3.5 2 4.5"></path><rect x="4" y="2" width="16" height="15" rx="3"></rect><path d="M9 11h6"></path></svg></div>
         <div class="feat-title">התראה בזמן אמת</div>
         <div class="feat-desc">ליד חם? הבוט שולח לך push/מייל/WhatsApp מיידית עם הסיכום. אתה יכול לקפוץ לשיחה.</div>
       </div>
@@ -557,28 +495,28 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="uc-grid">
       <div class="uc-card">
-        <div class="uc-icon"><img src="/assets/services/wa-uc-01-realestate.webp" alt="סוכנויות נדל&quot;ן" loading="lazy" width="120" height="120"></div>
+        <div class="uc-num">01</div>
         <div class="uc-body">
           <h3>סוכנויות נדל"ן</h3>
           <p>כל שאלה על "איזה דירות יש ב-X" נענית מיידית עם תוצאות מה-CRM. פגישה נקבעת בלי להתקשר.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-icon"><img src="/assets/services/wa-uc-02-consultants.webp" alt="יועצים ומאמנים" loading="lazy" width="120" height="120"></div>
+        <div class="uc-num">02</div>
         <div class="uc-body">
           <h3>יועצים ומאמנים</h3>
           <p>הבוט מסנן לידים לפי תקציב/סוג, שולח PDF אודות, ומקבע שיחת היכרות רק עם מי שמתאים.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-icon"><img src="/assets/services/wa-uc-03-clinics.webp" alt="קליניקות ומרפאות" loading="lazy" width="120" height="120"></div>
+        <div class="uc-num">03</div>
         <div class="uc-body">
           <h3>קליניקות ומרפאות</h3>
           <p>שעות פעילות, תזכורות לפגישות, חיבור ליומן — וכשהבוט לא מבין, העברה ישירה לרופא.</p>
         </div>
       </div>
       <div class="uc-card">
-        <div class="uc-icon"><img src="/assets/services/wa-uc-04-services.webp" alt="עסקי שירותים" loading="lazy" width="120" height="120"></div>
+        <div class="uc-num">04</div>
         <div class="uc-body">
           <h3>עסקי שירותים</h3>
           <p>מוסכים, אינסטלטורים, מאפרות — הבוט לוקח פרטים, שולח הצעת מחיר ומזמין מועד, 24/7.</p>
@@ -597,22 +535,18 @@ footer{background:rgba(6,13,31,.85) !important;}
     </div>
     <div class="how-grid">
       <div class="how-step">
-        <div class="how-icon"><img src="/assets/services/wa-how-01-discovery.webp" alt="אבחון" loading="lazy" width="280" height="140"></div>
         <h3>אבחון</h3>
         <p>מיפוי השאלות הנפוצות, התהליכים, וה-FAQ האמיתי של העסק שלך.</p>
       </div>
       <div class="how-step">
-        <div class="how-icon"><img src="/assets/services/wa-how-02-training.webp" alt="אימון הבוט" loading="lazy" width="280" height="140"></div>
         <h3>אימון הבוט</h3>
         <p>בונים את התסריטים, מחברים ל-CRM / יומן / מייל — בודקים עם לידים אמיתיים.</p>
       </div>
       <div class="how-step">
-        <div class="how-icon"><img src="/assets/services/wa-how-03-soft-launch.webp" alt="Soft Launch" loading="lazy" width="280" height="140"></div>
         <h3>Soft Launch</h3>
         <p>7 ימי בטא — אתה בודק, מתקן, אנחנו משפרים. הבוט לומד מכל שיחה.</p>
       </div>
       <div class="how-step">
-        <div class="how-icon"><img src="/assets/services/wa-how-04-go-live.webp" alt="GO LIVE" loading="lazy" width="280" height="140"></div>
         <h3>GO LIVE</h3>
         <p>הבוט מחובר למספר העסקי, עונה 24/7, ושולח לך דוח שבועי עם ROI.</p>
       </div>
@@ -661,27 +595,30 @@ footer{background:rgba(6,13,31,.85) !important;}
 <!-- FINAL CTA -->
 <section class="final">
   <div class="sec-inner">
-    <h2>מוכן להפסיק לפספס לידים<br>בזמן שאתה ישן?</h2>
-    <p>שיחת אבחון של 15 דקות, בלי התחייבות. נותנים לך מספר קונקרטי — כמה לידים תרוויח בחודש עם בוט בעסק שלך.</p>
+    <span class="gift-badge">DEMO חי · 10 דקות</span>
+    <h2>תרצה לראות איך הבוט<br>מגיב <span class="g">ללקוח שלך?</span></h2>
+    <p>10 דקות איתי. אני מקים לך בוט עם השאלות שהלקוחות שלך באמת שואלים, ושולח לך לינק לבדיקה ב-WhatsApp שלך — על המספר שלך, בעברית שלך.</p>
     <div class="hero-actions">
-      <a href="https://calendly.com/simplifai-il/meet-with-me" target="_blank" rel="noopener" class="btn-primary" data-cta="wa-bot-final-form">קבע שיחת אבחון חינם ←</a>
-      <a href="https://wa.me/972537453493?text=%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%91%D7%95%D7%98%20%D7%9C%D7%A2%D7%A1%D7%A7" target="_blank" rel="noopener" class="btn-wa" data-cta="wa-bot-final-whatsapp">
+      <a href="/?offer=wa-demo#lead-form" class="btn-primary" data-cta="wa-bot-final-demo">קבע demo של הבוט שלי ←</a>
+      <a href="https://wa.me/972537453493?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A8%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91-demo%20%D7%97%D7%99%20%D7%A9%D7%9C%20%D7%94%D7%91%D7%95%D7%98" target="_blank" rel="noopener" class="btn-wa" data-cta="wa-bot-final-whatsapp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.517 5.26l-.999 3.648 3.971-1.607z"/></svg>
-        דבר איתנו
+        WhatsApp
       </a>
     </div>
+    <div class="cta-fineprint">חינם · ללא הרשמה · 10 דק' בלבד</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="/" class="fl" aria-label="simplifAI — דף הבית">simplif<span>AI</span></a>
+  <div class="fl">simplif<span>AI</span></div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/">בית</a>
     <a href="/#services">שירותים</a>
-    <a href="/#packages">חבילות</a>
-    <a href="/#faq">שאלות</a>
-    <a href="/privacy.html">מדיניות פרטיות</a>
+    <a href="/services/lead-automation/">אוטומציית לידים</a>
+    <a href="/services/crm-integration/">אינטגרציית CRM</a>
+    <a href="/services/ai-agent/">סוכן AI</a>
+    <a href="/privacy.html">פרטיות</a>
     <a href="/terms.html">תנאי שימוש</a>
   </nav>
   <div class="fcopy">© 2026 simplifAI</div>
@@ -714,144 +651,5 @@ footer{background:rgba(6,13,31,.85) !important;}
 })();
 </script>
 
-
-<!-- ====== CINEMATIC SCROLL-FRAME BACKGROUND + MOTION REVEALS ====== -->
-<script>
-(function(){
-  'use strict';
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  class ScrollVideoBackground {
-    constructor(canvasEl, { scenes=10, framesPerScene=30, basePath, ext='webp' }){
-      this.canvas = canvasEl;
-      this.ctx = canvasEl.getContext('2d', { alpha:false });
-      this.scenes = scenes; this.framesPerScene = framesPerScene;
-      this.totalFrames = scenes*framesPerScene;
-      this.basePath = basePath; this.ext = ext;
-      this.frames = new Array(this.totalFrames).fill(null);
-      this.loaded = new Array(this.totalFrames).fill(false);
-      this.currentFrame = 0; this.blend = 0; this.pending = false; this.hasAnyFrame = false;
-      this.resize();
-      this.preloadFirstScene();
-      window.addEventListener('resize', () => this.resize(), { passive:true });
-    }
-    resize(){
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      this.canvas.width = window.innerWidth * dpr;
-      this.canvas.height = window.innerHeight * dpr;
-      this.ctx.setTransform(dpr,0,0,dpr,0,0);
-      if (this.hasAnyFrame) this.draw();
-    }
-    frameSrc(idx){
-      const s = Math.floor(idx/this.framesPerScene)+1, f = (idx%this.framesPerScene)+1;
-      return `${this.basePath}/s${String(s).padStart(2,'0')}-${String(f).padStart(3,'0')}.${this.ext}`;
-    }
-    loadFrame(idx){
-      if (this.loaded[idx] || this.frames[idx]) return;
-      const img = new Image();
-      img.decoding='async'; img.loading='eager';
-      img.onload = () => { this.loaded[idx]=true;
-        if (!this.hasAnyFrame){ this.hasAnyFrame=true; this.canvas.classList.add('has-frames'); }
-        if (idx===this.currentFrame) this.draw();
-      };
-      img.onerror = () => { this.loaded[idx]='error'; };
-      img.src = this.frameSrc(idx); this.frames[idx]=img;
-    }
-    preloadFirstScene(){
-      const probe = new Image();
-      probe.onload = () => {
-        this.loaded[0]=true; this.frames[0]=probe;
-        this.hasAnyFrame=true; this.canvas.classList.add('has-frames'); this.draw();
-        for (let i=1;i<this.framesPerScene;i++) this.loadFrame(i);
-      };
-      probe.onerror = () => {};
-      probe.decoding='async'; probe.src = this.frameSrc(0);
-    }
-    ensureScene(sceneIdx){
-      if (sceneIdx<0 || sceneIdx>=this.scenes) return;
-      if (this._sceneStarted && this._sceneStarted[sceneIdx]) return;
-      this._sceneStarted = this._sceneStarted || {};
-      this._sceneStarted[sceneIdx] = true;
-      const start = sceneIdx*this.framesPerScene, end = start+this.framesPerScene;
-      for (let i=start;i<end;i++) this.loadFrame(i);
-    }
-    nearestLoaded(idx){
-      for (let off=0;off<this.totalFrames;off++){
-        const a=idx-off, b=idx+off;
-        if (a>=0 && this.loaded[a]===true) return this.frames[a];
-        if (b<this.totalFrames && this.loaded[b]===true) return this.frames[b];
-      }
-      return null;
-    }
-    draw(){
-      const a = this.loaded[this.currentFrame]===true ? this.frames[this.currentFrame] : this.nearestLoaded(this.currentFrame);
-      if (!a) return;
-      const cW = this.canvas.width/(window.devicePixelRatio||1), cH = this.canvas.height/(window.devicePixelRatio||1);
-      const drawFit = (img) => {
-        const iR=img.width/img.height, cR=cW/cH;
-        let dW,dH,dX,dY;
-        if (iR>cR){ dH=cH; dW=dH*iR; dX=(cW-dW)/2; dY=0; }
-        else { dW=cW; dH=dW/iR; dX=0; dY=(cH-dH)/2; }
-        this.ctx.drawImage(img,dX,dY,dW,dH);
-      };
-      this.ctx.globalAlpha=1; drawFit(a);
-      const next = Math.min(this.totalFrames-1, this.currentFrame+1);
-      if (this.blend>0 && next!==this.currentFrame && this.loaded[next]===true){
-        this.ctx.globalAlpha = this.blend; drawFit(this.frames[next]); this.ctx.globalAlpha=1;
-      }
-    }
-    onScroll(){
-      if (this.pending) return; this.pending = true;
-      requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        const p = Math.max(0, Math.min(1, window.scrollY / Math.max(1,max)));
-        const exact = p*(this.totalFrames-1), idx = Math.floor(exact), blend = exact-idx;
-        if (idx!==this.currentFrame || Math.abs(blend-this.blend)>0.02){
-          this.currentFrame = idx; this.blend = blend;
-          const sceneNow = Math.floor(idx/this.framesPerScene);
-          this.ensureScene(sceneNow);
-          this.ensureScene(sceneNow+1);
-          if (this.hasAnyFrame) this.draw();
-        }
-        this.pending = false;
-      });
-    }
-  }
-  const bgCanvas = document.getElementById('scrollBg');
-  const isMobile = window.matchMedia('(max-width:768px)').matches;
-  if (bgCanvas && !isMobile){
-    const bg = new ScrollVideoBackground(bgCanvas, {
-      scenes:10, framesPerScene:30,
-      basePath:'/pilots/02-cinematic-digital-worker/assets/scroll-frames', ext:'webp'
-    });
-    if (!reduce) window.addEventListener('scroll', () => bg.onScroll(), { passive:true });
-  }
-
-  // Motion reveals — service pages
-  const headSel = '.sec-tag, .sec-h, .hero h1, .hero p, .final h2, .final p, h2, h3';
-  document.querySelectorAll(headSel).forEach(el => el.classList.add('fx-reveal'));
-
-  const cardSel = '.pain-card, .feat-card, .uc-card, .how-step, .hub-tile, .funnel-step, .task-step';
-  document.querySelectorAll(cardSel).forEach(el => el.classList.add('fx-panel'));
-
-  document.querySelectorAll('.fx-panel').forEach(el => {
-    const parent = el.parentElement;
-    if (!parent) return;
-    const siblings = Array.from(parent.children).filter(c => c.classList.contains('fx-panel'));
-    const i = siblings.indexOf(el);
-    if (i > 0) el.style.transitionDelay = `${Math.min(i*70, 360)}ms`;
-  });
-
-  if ('IntersectionObserver' in window && !reduce){
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin:'0px 0px -8% 0px', threshold:0.12 });
-    document.querySelectorAll('.fx-reveal, .fx-panel').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.fx-reveal, .fx-panel').forEach(el => el.classList.add('in'));
-  }
-})();
-</script>
 </body>
 </html>
