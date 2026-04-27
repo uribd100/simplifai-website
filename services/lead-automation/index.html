@@ -191,13 +191,17 @@ nav{padding:0 40px;height:72px;display:flex;align-items:center;justify-content:s
 /* SECTION BASE */
 .sec{padding:100px 40px;position:relative;}
 .sec-inner{max-width:1200px;margin:0 auto;}
-.sec-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:3px;color:#FF6F4C;text-transform:uppercase;margin-bottom:24px;padding:8px 18px;background:rgba(255,111,76,.06);border:1px solid rgba(255,111,76,.2);border-radius:100px;}
+.sec-tag{display:inline-flex;align-items:baseline;gap:18px;font-family:'Outfit','Heebo',sans-serif;font-weight:900;font-size:22px;color:#fff !important;letter-spacing:-.5px;line-height:1;position:relative;padding:6px 18px 6px 0;margin-bottom:28px;background:transparent !important;border:none !important;text-transform:none !important;}
+.sec-tag::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:#4D8EFF;box-shadow:0 0 12px #4D8EFF;animation:sec-tag-dot 1.8s ease-in-out infinite;}
+@keyframes sec-tag-dot{0%,100%{opacity:.4;transform:translateY(-50%) scale(.8);}50%{opacity:1;transform:translateY(-50%) scale(1.2);}}
+.sec-tag-num{font-family:'Outfit',sans-serif !important;font-weight:900 !important;font-size:42px !important;line-height:.85 !important;letter-spacing:-2px !important;background:linear-gradient(135deg,#4D8EFF 0%,#8AA9FF 50%,#FF6F4C 100%) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;text-shadow:0 0 30px rgba(77,142,255,.4);position:relative;}
+.sec-tag-num::after{content:'';position:absolute;left:-4px;right:-4px;bottom:-6px;height:3px;background:linear-gradient(90deg,#4D8EFF,#FF6F4C);border-radius:3px;animation:sec-tag-slash 2.6s cubic-bezier(.6,.05,.4,.95) infinite;transform-origin:right;}
+@keyframes sec-tag-slash{0%,100%{transform:scaleX(.4) translateX(0);opacity:.6;}50%{transform:scaleX(1) translateX(0);opacity:1;}}
+.sec-tag-sep{display:none !important;}
 .sec-h{font-family:'Outfit',sans-serif;font-size:clamp(32px,4.5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:18px;}
 .sec-h .g{color:#FF6F4C;}
-.sec-p{font-size:17px;color:rgba(255,255,255,.68);line-height:1.85;max-width:620px;margin-bottom:60px;}
+.sec-p{font-size:17px;color:rgba(255,255,255,.78);line-height:1.85;max-width:620px;margin-bottom:60px;font-weight:500;}
 .section-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(77,142,255,.55) 50%,transparent 100%);margin:22px auto 0;width:80%;max-width:520px;border:none;}
-.sec-tag-num{font-weight:900;color:rgba(77,142,255,.55);}
-.sec-tag-sep{opacity:.35;margin:0 4px;}
 .gift-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:24px;background:rgba(255,111,76,.1);border:1px solid rgba(255,111,76,.4);color:#FF6F4C;}
 .gift-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#FF6F4C;box-shadow:0 0 10px #FF6F4C;animation:gift-pulse 2s infinite;}
 @keyframes gift-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.85);}}
@@ -396,7 +400,7 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
 <section class="sec">
   <div class="sec-inner">
     <div style="text-align:center;margin-bottom:60px;">
-      <span class="sec-tag" style="color:#4D8EFF;background:rgba(77,142,255,.06);border-color:rgba(77,142,255,.3);"><span class="sec-tag-num">02</span><span class="sec-tag-sep">/</span>המציאות</span>
+      <span class="sec-tag"><span class="sec-tag-num">02</span>המציאות</span>
       <h2 class="sec-h"><span class="g">78%</span> מהעסקאות נסגרות בפולואפ 3 עד 5.</h2>
       <hr class="section-rule">
     </div>
