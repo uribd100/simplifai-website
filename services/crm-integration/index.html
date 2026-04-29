@@ -331,9 +331,18 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
   .wa-float{width:56px;height:56px;bottom:20px;right:20px;}
   .wa-float svg{width:26px;height:26px;}
 }
+/* CINEMATIC SCROLL-FRAME BG */
+#scrollBg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-2;pointer-events:none;background:#060D1F;}
+#scrollBg.has-frames{background:#000;}
+#bgOverlay{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(6,13,31,.5) 0%,rgba(6,13,31,.62) 50%,rgba(6,13,31,.75) 100%);}
+body{background:transparent !important;}
+nav{background:rgba(6,13,31,.82) !important;}
 </style>
 </head>
 <body>
+
+<canvas id="scrollBg" aria-hidden="true"></canvas>
+<div id="bgOverlay" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav>
@@ -697,6 +706,40 @@ footer{background:#040A18;padding:40px;display:flex;justify-content:space-betwee
     gtag('event','cta_click',{cta_id:el.getAttribute('data-cta'),page:'crm-integration',event_category:'conversion'});
     if(typeof fbq==='function'&&el.getAttribute('data-cta').indexOf('whatsapp')>-1)fbq('track','Contact');
   });
+})();
+</script>
+
+<!-- CINEMATIC SCROLL-FRAME BACKGROUND -->
+<script>
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  class ScrollVideoBackground{
+    constructor(canvas,opts){
+      this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});
+      this.scenes=opts.scenes||10;this.framesPerScene=opts.framesPerScene||30;
+      this.totalFrames=this.scenes*this.framesPerScene;
+      this.basePath=opts.basePath;this.ext=opts.ext||'webp';
+      this.frames=new Array(this.totalFrames).fill(null);
+      this.loaded=new Array(this.totalFrames).fill(false);
+      this.currentFrame=0;this.blend=0;this.pending=false;this.hasAnyFrame=false;
+      this.resize();this.preloadFirstScene();
+      window.addEventListener('resize',()=>this.resize(),{passive:true});
+    }
+    resize(){const dpr=Math.min(window.devicePixelRatio||1,2);this.canvas.width=window.innerWidth*dpr;this.canvas.height=window.innerHeight*dpr;this.ctx.setTransform(dpr,0,0,dpr,0,0);if(this.hasAnyFrame)this.draw();}
+    frameSrc(idx){const s=Math.floor(idx/this.framesPerScene)+1,f=(idx%this.framesPerScene)+1;return `${this.basePath}/s${String(s).padStart(2,'0')}-${String(f).padStart(3,'0')}.${this.ext}`;}
+    loadFrame(idx){if(this.loaded[idx]||this.frames[idx])return;const img=new Image();img.decoding='async';img.loading='eager';img.onload=()=>{this.loaded[idx]=true;if(!this.hasAnyFrame){this.hasAnyFrame=true;this.canvas.classList.add('has-frames');}if(idx===this.currentFrame)this.draw();};img.onerror=()=>{this.loaded[idx]='error';};img.src=this.frameSrc(idx);this.frames[idx]=img;}
+    preloadFirstScene(){const probe=new Image();probe.onload=()=>{this.loaded[0]=true;this.frames[0]=probe;this.hasAnyFrame=true;this.canvas.classList.add('has-frames');this.draw();for(let i=1;i<this.framesPerScene;i++)this.loadFrame(i);};probe.onerror=()=>{};probe.decoding='async';probe.src=this.frameSrc(0);}
+    ensureScene(s){if(s<0||s>=this.scenes)return;if(this._sceneStarted&&this._sceneStarted[s])return;this._sceneStarted=this._sceneStarted||{};this._sceneStarted[s]=true;const start=s*this.framesPerScene,end=start+this.framesPerScene;for(let i=start;i<end;i++)this.loadFrame(i);}
+    nearestLoaded(idx){for(let off=0;off<this.totalFrames;off++){const a=idx-off,b=idx+off;if(a>=0&&this.loaded[a]===true)return this.frames[a];if(b<this.totalFrames&&this.loaded[b]===true)return this.frames[b];}return null;}
+    draw(){const a=this.loaded[this.currentFrame]===true?this.frames[this.currentFrame]:this.nearestLoaded(this.currentFrame);if(!a)return;const cW=this.canvas.width/(window.devicePixelRatio||1),cH=this.canvas.height/(window.devicePixelRatio||1);const fit=(img)=>{const iR=img.width/img.height,cR=cW/cH;let dW,dH,dX,dY;if(iR>cR){dH=cH;dW=dH*iR;dX=(cW-dW)/2;dY=0;}else{dW=cW;dH=dW/iR;dX=0;dY=(cH-dH)/2;}this.ctx.drawImage(img,dX,dY,dW,dH);};this.ctx.globalAlpha=1;fit(a);const next=Math.min(this.totalFrames-1,this.currentFrame+1);if(this.blend>0&&next!==this.currentFrame&&this.loaded[next]===true){this.ctx.globalAlpha=this.blend;fit(this.frames[next]);this.ctx.globalAlpha=1;}}
+    onScroll(){if(this.pending)return;this.pending=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=Math.max(0,Math.min(1,window.scrollY/Math.max(1,max)));const exact=p*(this.totalFrames-1),idx=Math.floor(exact),blend=exact-idx;if(idx!==this.currentFrame||Math.abs(blend-this.blend)>0.02){this.currentFrame=idx;this.blend=blend;const sc=Math.floor(idx/this.framesPerScene);this.ensureScene(sc);this.ensureScene(sc+1);if(this.hasAnyFrame)this.draw();}this.pending=false;});}
+  }
+  const bgCanvas=document.getElementById('scrollBg');
+  const isMobile=window.matchMedia('(max-width:768px)').matches;
+  if(bgCanvas&&!isMobile){
+    const bg=new ScrollVideoBackground(bgCanvas,{scenes:10,framesPerScene:30,basePath:'/pilots/02-cinematic-digital-worker/assets/scroll-frames',ext:'webp'});
+    if(!reduce)window.addEventListener('scroll',()=>bg.onScroll(),{passive:true});
+  }
 })();
 </script>
 

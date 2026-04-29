@@ -581,7 +581,7 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 }
 /* ======= COMPARISON TABLE ======= */
 .cmp-sec{padding:120px 56px;position:relative;}
-.cmp-wrap{max-width:900px;margin:0 auto;background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:20px;overflow:hidden;}
+.cmp-wrap{max-width:900px;margin:0 auto;background:rgba(77,142,255,.03);border:1px solid rgba(77,142,255,.12);border-radius:20px;overflow:hidden;-webkit-overflow-scrolling:touch;}
 .cmp-table{width:100%;border-collapse:collapse;font-size:15px;}
 .cmp-table th,.cmp-table td{padding:18px 20px;text-align:right;border-bottom:1px solid rgba(77,142,255,.08);}
 .cmp-table thead th{font-family:'Outfit',sans-serif;font-size:15px;font-weight:900;color:rgba(255,255,255,.6);background:rgba(77,142,255,.04);letter-spacing:-0.3px;}
@@ -593,11 +593,14 @@ input[type=range]{width:100%;accent-color:#4D8EFF;cursor:pointer;height:4px;}
 .cmp-table .x{color:#ff6b6b;font-weight:900;font-size:18px;}
 .cmp-table tbody tr:last-child td{border-bottom:none;}
 @media(max-width:768px){
-  .cmp-sec{padding:80px 20px;}
-  .cmp-table{font-size:12px;}
-  .cmp-table th,.cmp-table td{padding:12px 10px;}
+  .cmp-sec{padding:80px 16px;}
+  .cmp-wrap{overflow-x:auto;border-radius:14px;}
+  .cmp-table{font-size:13px;min-width:560px;}
+  .cmp-table th,.cmp-table td{padding:14px 12px;}
   .cmp-table thead th{font-size:12px;}
-  .cmp-table thead th.us{font-size:13px;}
+  .cmp-table thead th.us{font-size:14px;}
+  .cmp-table td:first-child{min-width:120px;position:sticky;right:0;background:rgba(6,13,31,.92);z-index:1;}
+  .cmp-table thead th:first-child{position:sticky;right:0;background:rgba(77,142,255,.08);z-index:2;}
 }
 /* ======= GUARANTEE BADGE ======= */
 /* GUARANTEE — C+Flip combo (front: green stamp, back: blue 100%) */
@@ -1591,40 +1594,7 @@ function drawPts(){
 }
 drawPts();
 
-/* ====== ECOSYSTEM SVG ====== */
-const satPos={'n-email':{x:360,y:120},'n-crm':{x:620,y:270},'n-reports':{x:620,y:570},'n-sheets':{x:360,y:720},'n-calendar':{x:100,y:570},'n-whatsapp':{x:100,y:270}};
-const ctr={x:360,y:420};const esvg=document.getElementById('eco-svg');
-const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
-defs.innerHTML='<filter id="gf" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
-esvg.appendChild(defs);
-Object.entries(satPos).forEach(([id,pos],idx)=>{
-  const pid=`p-${id}`;
-  const mx2=(ctr.x+pos.x)/2,my2=(ctr.y+pos.y)/2;
-  const len=Math.sqrt((pos.x-ctr.x)**2+(pos.y-ctr.y)**2);
-  const nx=-(pos.y-ctr.y)/len*35,ny=(pos.x-ctr.x)/len*35;
-  const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-  const d=`M${ctr.x},${ctr.y} Q${mx2+nx},${my2+ny} ${pos.x},${pos.y}`;
-  path.setAttribute('d',d);path.setAttribute('id',pid);
-  path.setAttribute('stroke','#4D8EFF');path.setAttribute('stroke-opacity','.18');
-  path.setAttribute('stroke-width','1.5');path.setAttribute('fill','none');
-  path.setAttribute('stroke-dasharray','6 5');esvg.appendChild(path);
-  for(let t=0;t<3;t++){
-    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    c.setAttribute('r','3.5');c.setAttribute('fill','#4D8EFF');c.setAttribute('filter','url(#gf)');
-    const am=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-    am.setAttribute('dur',`${2.5+Math.random()*2}s`);am.setAttribute('repeatCount','indefinite');am.setAttribute('begin',`${(idx*.4+t*.9).toFixed(1)}s`);
-    const mp=document.createElementNS('http://www.w3.org/2000/svg','mpath');mp.setAttribute('href',`#${pid}`);am.appendChild(mp);c.appendChild(am);
-    const oa=document.createElementNS('http://www.w3.org/2000/svg','animate');
-    oa.setAttribute('attributeName','opacity');oa.setAttribute('values','0;0;1;1;0');oa.setAttribute('keyTimes','0;0.05;0.15;0.85;1');
-    oa.setAttribute('dur',`${2.5+Math.random()*2}s`);oa.setAttribute('repeatCount','indefinite');oa.setAttribute('begin',`${(idx*.4+t*.9).toFixed(1)}s`);
-    c.appendChild(oa);esvg.appendChild(c);
-  }
-  const el=document.getElementById(id);
-  if(el){
-    el.addEventListener('mouseenter',()=>{path.setAttribute('stroke-opacity','.75');path.setAttribute('stroke-width','2.5');});
-    el.addEventListener('mouseleave',()=>{path.setAttribute('stroke-opacity','.18');path.setAttribute('stroke-width','1.5');});
-  }
-});
+/* (Legacy ecosystem SVG init removed — eco-sec-v2 uses inline SVG, no JS bootstrap.) */
 
 /* ====== ROI CALCULATOR ====== */
 function calc(){
