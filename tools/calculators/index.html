@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 מחשבוני מס לעצמאי 2026 | מע"מ, מס הכנסה, ביטוח לאומי, נטו-ברוטו | simplifAI</title>
+<meta name="description" content="מחשבון מע&quot;מ 18%, מס הכנסה, ביטוח לאומי, ונטו-ברוטו לעצמאי. מבוסס על חוקי מס ישראל 2026 המאומתים. חינם, ללא הרשמה.">
+<meta name="keywords" content="מחשבון מע&quot;מ, מחשבון מס הכנסה, מחשבון ביטוח לאומי, נטו ברוטו עצמאי, חישוב מס 2026, עוסק זעיר, עוסק פטור">
+<meta name="author" content="simplifAI">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://simplifai.co.il/tools/calculators/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="simplifAI">
+<meta property="og:url" content="https://simplifai.co.il/tools/calculators/">
+<meta property="og:title" content="4 מחשבוני מס לעצמאי 2026 — חינם">
+<meta property="og:description" content="חשב מע&quot;מ 18%, מס הכנסה, ביטוח לאומי ונטו-ברוטו בלחיצה אחת. מעודכן לחוקי 2026.">
+<meta property="og:image" content="https://simplifai.co.il/assets/og-home.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="4 מחשבוני מס לעצמאי 2026">
+<meta name="twitter:description" content="מע&quot;מ, מס הכנסה, ביטוח לאומי, נטו-ברוטו. חינם.">
+<meta name="twitter:image" content="https://simplifai.co.il/assets/og-home.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "4 מחשבוני מס לעצמאי 2026",
+  "url": "https://simplifai.co.il/tools/calculators/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "he-IL",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ILS" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "simplifAI",
+    "url": "https://simplifai.co.il/"
+  },
+  "featureList": [
+    "מחשבון מע\"מ 18% (2026)",
+    "מחשבון מס הכנסה — מדרגות 2026",
+    "מחשבון ביטוח לאומי לעצמאי",
+    "מחשבון נטו-ברוטו לעצמאי"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "בית", "item": "https://simplifai.co.il/" },
+    { "@type": "ListItem", "position": 2, "name": "כלים", "item": "https://simplifai.co.il/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "מחשבוני מס 2026", "item": "https://simplifai.co.il/tools/calculators/" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
+<style>
+  :root {
+    --navy: #060D1F;
+    --navy-2: #0a1a3a;
+    --blue: #2B6BE0;
+    --blue-bright: #4D8EFF;
+    --orange: #FF6F4C;
+    --green: #10b981;
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --border: #e1e7f0;
+    --text: #2c3447;
+    --muted: #6b7588;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  .num { font-family: 'Outfit', 'Heebo', sans-serif; font-feature-settings: "tnum"; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 50%, var(--blue) 100%);
+    color: white;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::before {
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--blue-bright) 0%, transparent 70%);
+    opacity: 0.3;
+  }
+  .hero::after {
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+    opacity: 0.15;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .hero .brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--blue-bright);
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hero .brand::before {
+    content: ""; display: inline-block; width: 24px; height: 2px; background: var(--blue-bright);
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800; letter-spacing: -1px; line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 .accent { color: var(--blue-bright); }
+  .hero p {
+    font-size: clamp(16px, 2vw, 20px); color: #cce0ff;
+    font-weight: 300; max-width: 720px;
+  }
+
+  .badges {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    backdrop-filter: blur(10px);
+  }
+
+  /* TABS */
+  .tabs-container {
+    max-width: 1200px; margin: -30px auto 0; padding: 0 24px; position: relative; z-index: 2;
+  }
+  .tabs {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    background: white; padding: 8px; border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(6,13,31,0.15);
+  }
+  .tab {
+    padding: 16px 12px; border-radius: 10px; cursor: pointer;
+    text-align: center; font-weight: 600; font-size: 14px;
+    transition: all 0.2s; color: var(--muted);
+    background: transparent; border: 0; font-family: inherit;
+  }
+  .tab:hover { background: var(--bg); color: var(--text); }
+  .tab.active {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(43,107,224,0.3);
+  }
+  .tab-icon { font-size: 22px; display: block; margin-bottom: 4px; }
+
+  /* CALCULATOR */
+  .calc-area {
+    max-width: 1200px; margin: 32px auto 60px; padding: 0 24px;
+  }
+  .calc {
+    display: none;
+    grid-template-columns: 1fr 1fr; gap: 24px;
+    animation: slideIn 0.3s ease;
+  }
+  .calc.active { display: grid; }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(6,13,31,0.06);
+    border: 1px solid var(--border);
+  }
+  .panel h2 {
+    font-size: 22px; font-weight: 700; color: var(--navy);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .panel .sub {
+    font-size: 14px; color: var(--muted); margin-bottom: 24px;
+  }
+
+  /* INPUTS */
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--text); margin-bottom: 6px;
+  }
+  .field-help {
+    font-size: 12px; color: var(--muted); margin-top: 4px;
+  }
+  .input {
+    width: 100%; padding: 12px 16px;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    font-size: 16px; font-family: inherit; direction: ltr; text-align: left;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    background: var(--bg);
+  }
+  .input:focus {
+    outline: none; border-color: var(--blue-bright);
+    box-shadow: 0 0 0 4px rgba(77,142,255,0.1);
+    background: white;
+  }
+  .input.he { direction: rtl; text-align: right; }
+
+  .toggle-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    background: var(--bg); padding: 4px; border-radius: 10px;
+  }
+  .toggle {
+    padding: 10px; border-radius: 8px; cursor: pointer;
+    text-align: center; font-size: 14px; font-weight: 500;
+    background: transparent; border: 0; font-family: inherit;
+    transition: all 0.15s;
+    color: var(--muted);
+  }
+  .toggle.active {
+    background: white; color: var(--navy);
+    box-shadow: 0 2px 6px rgba(6,13,31,0.08);
+    font-weight: 600;
+  }
+
+  .checkbox-pretty {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 12px 14px; background: var(--bg); border-radius: 10px;
+    cursor: pointer; user-select: none;
+    border: 1.5px solid transparent;
+    transition: all 0.15s;
+  }
+  .checkbox-pretty:hover { background: #ecf2fc; }
+  .checkbox-pretty input[type="checkbox"] {
+    width: 20px; height: 20px; accent-color: var(--blue-bright);
+    flex-shrink: 0; margin-top: 1px; cursor: pointer;
+  }
+  .checkbox-pretty .text { font-size: 13.5px; line-height: 1.4; }
+  .checkbox-pretty .text strong { display: block; margin-bottom: 2px; color: var(--navy); }
+
+  /* RESULT PANEL */
+  .panel.result {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: white;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .panel.result::before {
+    content: ""; position: absolute;
+    top: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--blue-bright) 0%, transparent 70%);
+    opacity: 0.15;
+  }
+  .panel.result h2 { color: white; }
+  .panel.result .sub { color: #a8c5e8; }
+  .result-content { position: relative; z-index: 1; }
+
+  .big-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--blue-bright);
+    line-height: 1;
+    margin: 8px 0;
+    letter-spacing: -1px;
+  }
+  .big-number .currency { font-size: 28px; opacity: 0.7; }
+  .big-label {
+    font-size: 12px; color: #cce0ff; text-transform: uppercase;
+    letter-spacing: 2px; font-weight: 600;
+  }
+
+  .breakdown {
+    margin-top: 24px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .breakdown-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0; font-size: 14px;
+  }
+  .breakdown-row + .breakdown-row {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .breakdown-row.major {
+    font-weight: 700; padding-top: 12px; margin-top: 4px;
+    border-top: 1px solid rgba(255,255,255,0.2) !important;
+  }
+  .breakdown-row .label { color: #a8c5e8; }
+  .breakdown-row .value { font-family: 'Outfit', sans-serif; font-weight: 600; color: white; }
+  .breakdown-row.major .value { font-size: 18px; color: var(--blue-bright); }
+
+  .effective-rate {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: rgba(77,142,255,0.1);
+    border: 1px solid rgba(77,142,255,0.25);
+    border-radius: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .effective-rate .label {
+    font-size: 12px; color: #cce0ff; text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .effective-rate .value {
+    font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--blue-bright);
+  }
+
+  /* BRACKETS TABLE */
+  .brackets-table {
+    width: 100%; margin-top: 20px;
+    font-size: 13px; border-collapse: collapse;
+  }
+  .brackets-table th, .brackets-table td {
+    padding: 8px 10px; text-align: right;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .brackets-table th {
+    color: #cce0ff; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .brackets-table td {
+    color: white; font-family: 'Outfit', sans-serif;
+  }
+  .brackets-table tr.active td {
+    background: rgba(77,142,255,0.1);
+    color: var(--blue-bright);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .cta-card {
+    margin-top: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, var(--orange) 0%, #ff9776 100%);
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .cta-card h3 {
+    font-size: 18px; font-weight: 700; margin-bottom: 6px;
+  }
+  .cta-card p {
+    font-size: 14px; opacity: 0.9; margin-bottom: 16px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: white; color: var(--orange);
+    border-radius: 999px; font-weight: 700; font-size: 14px;
+    text-decoration: none;
+    border: 0; cursor: pointer; font-family: inherit;
+    transition: transform 0.15s;
+  }
+  .cta-btn:hover { transform: translateY(-1px); }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    max-width: 1200px; margin: 0 auto; padding: 24px;
+    text-align: center;
+  }
+  .disclaimer p {
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: #a8c5e8;
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: var(--blue-bright); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .hero { padding: 50px 16px 40px; }
+    .tabs-container { padding: 0 16px; }
+    .tabs { grid-template-columns: repeat(2, 1fr); }
+    .tab-icon { font-size: 20px; }
+    .tab { font-size: 12px; padding: 12px 6px; }
+    .calc-area { padding: 0 16px; }
+    .calc { grid-template-columns: 1fr; }
+    .big-number { font-size: 42px; }
+    .panel { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand">TaxAI</div>
+    <h1>4 מחשבוני מס. <span class="accent">חוקי 2026.</span><br>בלי הזדמנויות לפספס.</h1>
+    <p>מע"מ &middot; מס הכנסה &middot; ביטוח לאומי &middot; נטו-ברוטו לעצמאי. כל החישובים מתעדכנים בזמן-אמת לפי חוקי המס בישראל לשנת 2026.</p>
+    <div class="badges">
+      <span class="badge">✓ חוקי 2026 מאומתים</span>
+      <span class="badge">✓ חינם, ללא הרשמה</span>
+      <span class="badge">✓ ידידותי לנייד</span>
+      <span class="badge">✓ <span class="num">100%</span> פרטי</span>
+    </div>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs-container">
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="vat" role="tab"><span class="tab-icon">🧾</span>מע"מ <span class="num">18%</span></button>
+    <button class="tab" data-tab="income" role="tab"><span class="tab-icon">📊</span>מס הכנסה</button>
+    <button class="tab" data-tab="ni" role="tab"><span class="tab-icon">🏛️</span>ביטוח לאומי</button>
+    <button class="tab" data-tab="grossnet" role="tab"><span class="tab-icon">💰</span>נטו-ברוטו</button>
+  </div>
+</div>
+
+<!-- CALCULATORS -->
+<main class="calc-area">
+
+  <!-- VAT -->
+  <section class="calc active" id="calc-vat">
+    <div class="panel">
+      <h2>🧾 מחשבון מע"מ</h2>
+      <div class="sub">מע"מ <span class="num">2026</span> בישראל הוא <strong class="num">18%</strong>. הזן סכום והמחשבון יציג את הפיצול.</div>
+
+      <div class="field">
+        <label>הזנת סכום</label>
+        <div class="toggle-group">
+          <button class="toggle active" data-vat-mode="net">מסכום ללא מע"מ (נטו)</button>
+          <button class="toggle" data-vat-mode="gross">מסכום כולל מע"מ (ברוטו)</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="vat-amount">סכום בשקלים</label>
+        <input class="input num" type="number" id="vat-amount" min="0" step="0.01" value="1000" placeholder="0">
+        <div class="field-help">לדוגמה — חשבונית של ₪1,000 ללא מע"מ</div>
+      </div>
+    </div>
+
+    <div class="panel result">
+      <div class="result-content">
+        <div class="big-label">מע"מ בלבד</div>
+        <div class="big-number"><span class="currency">₪</span><span id="vat-result-vat">180.00</span></div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="label">סכום נטו (ללא מע"מ)</span>
+            <span class="value num">₪<span id="vat-result-net">1,000.00</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">מע"מ <span class="num">(18%)</span></span>
+            <span class="value num">₪<span id="vat-result-vat-line">180.00</span></span>
+          </div>
+          <div class="breakdown-row major">
+            <span class="label">סה"כ ברוטו</span>
+            <span class="value num">₪<span id="vat-result-gross">1,180.00</span></span>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <h3>הפקת חשבונית? אנחנו עושים את זה אוטומטית.</h3>
+          <p>TaxAI מתחבר לתוכנת ההנה"ח שלך ואוסף את כל ההכנסות החודשיות לדוח השנתי.</p>
+          <button class="cta-btn">פרטים נוספים</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCOME TAX -->
+  <section class="calc" id="calc-income">
+    <div class="panel">
+      <h2>📊 מחשבון מס הכנסה שנתי</h2>
+      <div class="sub">מדרגות <span class="num">2026</span> מעודכנות. כולל מס יסף <span class="num">3%</span> לפי סעיף 121ב ונקודות זיכוי.</div>
+
+      <div class="field">
+        <label for="income-annual">הכנסה שנתית חייבת במס (₪)</label>
+        <input class="input num" type="number" id="income-annual" min="0" step="100" value="180000" placeholder="0">
+        <div class="field-help">הכנסה ברוטו לפני נקודות זיכוי</div>
+      </div>
+
+      <div class="field">
+        <label for="income-credit-points">נקודות זיכוי</label>
+        <input class="input num" type="number" id="income-credit-points" min="0" step="0.25" value="2.25">
+        <div class="field-help">תושב גבר = <span class="num">2.25</span> &middot; תושבת אישה = <span class="num">2.75</span> &middot; ילד עד גיל 5 = +<span class="num">2.5</span></div>
+      </div>
+
+      <div class="field">
+        <label>בחירה מהירה</label>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="toggle" type="button" onclick="document.getElementById('income-credit-points').value=2.25; recalc();">גבר (2.25)</button>
+          <button class="toggle" type="button" onclick="document.getElementById('income-credit-points').value=2.75; recalc();">אישה (2.75)</button>
+          <button class="toggle" type="button" onclick="document.getElementById('income-credit-points').value=4.75; recalc();">אישה + ילד</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel result">
+      <div class="result-content">
+        <div class="big-label">מס הכנסה לתשלום</div>
+        <div class="big-number"><span class="currency">₪</span><span id="income-result-payable">0</span></div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="label">מס לפי מדרגות (לפני זיכויים)</span>
+            <span class="value num">₪<span id="income-result-before">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">הפחתת נקודות זיכוי</span>
+            <span class="value num">−₪<span id="income-result-credits">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">מס יסף (<span class="num">3%</span>)</span>
+            <span class="value num">+₪<span id="income-result-yesef">0</span></span>
+          </div>
+          <div class="breakdown-row major">
+            <span class="label">סה"כ לתשלום</span>
+            <span class="value num">₪<span id="income-result-payable-2">0</span></span>
+          </div>
+        </div>
+
+        <div class="effective-rate">
+          <div>
+            <div class="label">שיעור מס אפקטיבי</div>
+          </div>
+          <div class="value num"><span id="income-result-effective">0</span>%</div>
+        </div>
+
+        <div style="margin-top: 16px; font-size: 12px; color: #a8c5e8;">
+          <strong style="color: #cce0ff;">שיעור מס שולי:</strong> <span class="num" id="income-result-marginal">0</span>% — כך תמוסה כל שקל נוסף שתרוויח מעל סכום זה.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NATIONAL INSURANCE -->
+  <section class="calc" id="calc-ni">
+    <div class="panel">
+      <h2>🏛️ מחשבון ביטוח לאומי לעצמאי</h2>
+      <div class="sub">לפי שיעורי <span class="num">2026</span>: <span class="num">7.7%</span> עד ₪<span class="num">7,703</span> חודשי, ו-<span class="num">18%</span> מעבר לכך עד תקרה ₪<span class="num">51,910</span>.</div>
+
+      <div class="field">
+        <label for="ni-monthly">הכנסה חודשית של עצמאי (₪)</label>
+        <input class="input num" type="number" id="ni-monthly" min="0" step="100" value="12000">
+        <div class="field-help">מינימום לחישוב: ₪<span class="num">3,442</span>/חודש &middot; תקרה: ₪<span class="num">51,910</span>/חודש</div>
+      </div>
+
+      <div class="field">
+        <label>דוגמאות מהירות</label>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="toggle" type="button" onclick="document.getElementById('ni-monthly').value=5000; recalc();">₪5K</button>
+          <button class="toggle" type="button" onclick="document.getElementById('ni-monthly').value=12000; recalc();">₪12K</button>
+          <button class="toggle" type="button" onclick="document.getElementById('ni-monthly').value=25000; recalc();">₪25K</button>
+          <button class="toggle" type="button" onclick="document.getElementById('ni-monthly').value=60000; recalc();">₪60K (מעל תקרה)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel result">
+      <div class="result-content">
+        <div class="big-label">תשלום חודשי</div>
+        <div class="big-number"><span class="currency">₪</span><span id="ni-result-monthly">0</span></div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="label">הכנסה אפקטיבית לחישוב</span>
+            <span class="value num">₪<span id="ni-result-effective">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">מדרגה תחתונה (<span class="num">7.7%</span>)</span>
+            <span class="value num">₪<span id="ni-result-low">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">מדרגה עליונה (<span class="num">18%</span>)</span>
+            <span class="value num">₪<span id="ni-result-high">0</span></span>
+          </div>
+          <div class="breakdown-row major">
+            <span class="label">סה"כ שנתי (<span class="num">×12</span>)</span>
+            <span class="value num">₪<span id="ni-result-annual">0</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROSS-NET -->
+  <section class="calc" id="calc-grossnet">
+    <div class="panel">
+      <h2>💰 נטו-ברוטו לעצמאי</h2>
+      <div class="sub">חישוב מקיף: מס הכנסה + ביטוח לאומי. אופציה לניכוי <span class="num">30%</span> אוטומטי לעוסק זעיר.</div>
+
+      <div class="field">
+        <label for="gn-gross">הכנסה חודשית ברוטו (₪)</label>
+        <input class="input num" type="number" id="gn-gross" min="0" step="100" value="10000">
+      </div>
+
+      <div class="field">
+        <label for="gn-credit">נקודות זיכוי</label>
+        <input class="input num" type="number" id="gn-credit" min="0" step="0.25" value="2.25">
+      </div>
+
+      <div class="field">
+        <label class="checkbox-pretty">
+          <input type="checkbox" id="gn-microbiz">
+          <div class="text">
+            <strong>אני עוסק זעיר</strong>
+            ניכוי <span class="num">30%</span> הוצאה נורמטיבית אוטומטית (תקרה ₪<span class="num">122,833</span>/שנה)
+          </div>
+        </label>
+      </div>
+
+      <div class="field">
+        <label>דוגמאות מהירות</label>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="toggle" type="button" onclick="document.getElementById('gn-gross').value=8000; recalc();">₪8K</button>
+          <button class="toggle" type="button" onclick="document.getElementById('gn-gross').value=15000; recalc();">₪15K</button>
+          <button class="toggle" type="button" onclick="document.getElementById('gn-gross').value=25000; recalc();">₪25K</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel result">
+      <div class="result-content">
+        <div class="big-label">נטו לחודש</div>
+        <div class="big-number"><span class="currency">₪</span><span id="gn-result-net">0</span></div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="label">ברוטו</span>
+            <span class="value num">₪<span id="gn-result-gross">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">הכנסה חייבת במס (אחרי ניכוי)</span>
+            <span class="value num">₪<span id="gn-result-taxable">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">מס הכנסה</span>
+            <span class="value num">−₪<span id="gn-result-tax">0</span></span>
+          </div>
+          <div class="breakdown-row">
+            <span class="label">ביטוח לאומי + בריאות</span>
+            <span class="value num">−₪<span id="gn-result-ni">0</span></span>
+          </div>
+          <div class="breakdown-row major">
+            <span class="label">נטו</span>
+            <span class="value num">₪<span id="gn-result-net-2">0</span></span>
+          </div>
+        </div>
+
+        <div class="effective-rate">
+          <div>
+            <div class="label">שיעור מס + ב"ל אפקטיבי</div>
+          </div>
+          <div class="value num"><span id="gn-result-effective">0</span>%</div>
+        </div>
+
+        <div class="cta-card">
+          <h3>נטו לשנה: ₪<span class="num" id="gn-result-annual">0</span></h3>
+          <p>TaxAI עוקב אחרי ההכנסה שלך כל החודש ומציג בכל רגע את התמונה המלאה.</p>
+          <button class="cta-btn">קבל גישה מוקדמת</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>
+    ⚠️ <strong>הערת אחריות:</strong> כל החישובים משוערים ומבוססים על חוקי המס בישראל לשנת <span class="num">2026</span>.
+    החוקים יכולים להשתנות במהלך השנה. לחישוב מדויק יש להיוועץ ברו"ח.
+    מקורות: gov.il, kolzchut.org.il, btl.gov.il, protocol.co.il (אומת <span class="num">2026-05-02</span>).
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color: white;">TaxAI</strong> &mdash; דוח שנתי לעוסק זעיר ב-3 דקות. בשיתוף עם רו"ח איתי בן נון, חבר לשכת רואי החשבון בישראל.</p>
+  <p style="margin-top: 8px;">© <span class="num">2026</span> TaxAI &mdash; שותפות simplifAI &times; FinBot. כל הזכויות שמורות.</p>
+</footer>
+
+<script>
+//===================================================================
+// TAX ENGINE — ported from projects/taxbot/backend/tax-engine/
+// Source of truth: rates-2026.json (verified 2026-05-02)
+//===================================================================
+
+const RATES = {
+  vat: 0.18,
+  incomeTaxBracketsAnnual: [
+    { upper: 84120,  rate: 0.10 },
+    { upper: 120720, rate: 0.14 },
+    { upper: 228000, rate: 0.20 },  // 2026 reform
+    { upper: 301200, rate: 0.31 },  // 2026 reform
+    { upper: 560280, rate: 0.35 },
+    { upper: 721560, rate: 0.47 },
+    { upper: null,   rate: 0.50 },  // includes 3% מס יסף
+  ],
+  surtaxYesef: { rate: 0.03, threshold: 721560 },
+  ni: {
+    lowRate: 0.077,    // NI 4.47% + Health 3.23%
+    highRate: 0.18,    // NI 12.83% + Health 5.17%
+    lowUntilMonthly: 7703,
+    ceilingMonthly: 51910,
+    floorMonthly: 3442,
+  },
+  creditPointAnnual: 2904,
+  microBusinessDeduction: 0.30,
+};
+
+function round2(n) { return Math.round(n * 100) / 100; }
+function fmt(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function fmt0(n) { return Math.round(n).toLocaleString('en-US'); }
+function fmtPct(n) { return (n * 100).toFixed(1); }
+
+// VAT
+function vatFromNet(net) {
+  const vat = net * RATES.vat;
+  return { net: round2(net), vat: round2(vat), gross: round2(net + vat) };
+}
+function vatFromGross(gross) {
+  const net = gross / (1 + RATES.vat);
+  const vat = gross - net;
+  return { net: round2(net), vat: round2(vat), gross: round2(gross) };
+}
+
+// Annual income tax
+function calcIncomeTax(annualIncome, creditPoints) {
+  let remaining = annualIncome;
+  let prevUpper = 0;
+  let taxBefore = 0;
+  let marginalRate = 0;
+  for (const b of RATES.incomeTaxBracketsAnnual) {
+    const span = b.upper === null ? Infinity : b.upper - prevUpper;
+    const inBracket = Math.max(0, Math.min(remaining, span));
+    taxBefore += inBracket * b.rate;
+    if (inBracket > 0) marginalRate = b.rate;
+    remaining -= inBracket;
+    prevUpper = b.upper ?? prevUpper;
+    if (remaining <= 0) break;
+  }
+  const creditValue = creditPoints * RATES.creditPointAnnual;
+  const creditReduction = Math.min(taxBefore, creditValue);
+  const yesef = annualIncome > RATES.surtaxYesef.threshold
+    ? (annualIncome - RATES.surtaxYesef.threshold) * RATES.surtaxYesef.rate
+    : 0;
+  const payable = Math.max(0, taxBefore - creditReduction + yesef);
+  const effective = annualIncome === 0 ? 0 : payable / annualIncome;
+  return {
+    taxBefore: round2(taxBefore),
+    creditReduction: round2(creditReduction),
+    yesef: round2(yesef),
+    payable: round2(payable),
+    effective,
+    marginalRate,
+  };
+}
+
+// Monthly NI for self-employed
+function calcMonthlyNI(monthlyIncome) {
+  const { lowRate, highRate, lowUntilMonthly, ceilingMonthly, floorMonthly } = RATES.ni;
+  // Zero income = inactive period → no payment. Floor only applies to active earners.
+  if (monthlyIncome === 0) {
+    return { effectiveIncome: 0, lowIncome: 0, highIncome: 0, lowPay: 0, highPay: 0, monthly: 0, annual: 0 };
+  }
+  const eff = Math.min(Math.max(monthlyIncome, floorMonthly), ceilingMonthly);
+  const lowIncome = Math.min(eff, lowUntilMonthly);
+  const highIncome = Math.max(0, eff - lowUntilMonthly);
+  const lowPay = lowIncome * lowRate;
+  const highPay = highIncome * highRate;
+  const monthly = lowPay + highPay;
+  return {
+    effectiveIncome: round2(eff),
+    lowIncome: round2(lowIncome),
+    highIncome: round2(highIncome),
+    lowPay: round2(lowPay),
+    highPay: round2(highPay),
+    monthly: round2(monthly),
+    annual: round2(monthly * 12),
+  };
+}
+
+// Self-employed gross-to-net
+function calcGrossNet(monthlyGross, creditPoints, microBiz) {
+  const deductionRate = microBiz ? RATES.microBusinessDeduction : 0;
+  const monthlyTaxable = monthlyGross * (1 - deductionRate);
+  const annualTaxable = monthlyTaxable * 12;
+  const tax = calcIncomeTax(annualTaxable, creditPoints);
+  const monthlyTax = tax.payable / 12;
+  const ni = calcMonthlyNI(monthlyTaxable);
+  const monthlyNet = monthlyGross - monthlyTax - ni.monthly;
+  const effective = monthlyGross === 0 ? 0 : (monthlyTax + ni.monthly) / monthlyGross;
+  return {
+    gross: round2(monthlyGross),
+    taxable: round2(monthlyTaxable),
+    annualTaxable: round2(annualTaxable),
+    tax: round2(monthlyTax),
+    ni: round2(ni.monthly),
+    net: round2(monthlyNet),
+    annualNet: round2(monthlyNet * 12),
+    effective,
+  };
+}
+
+//===================================================================
+// UI WIRING
+//===================================================================
+
+let activeTab = 'vat';
+let vatMode = 'net';
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeTab = tab.dataset.tab;
+    document.querySelectorAll('.calc').forEach(c => c.classList.remove('active'));
+    document.getElementById('calc-' + activeTab).classList.add('active');
+    recalc();
+  });
+});
+
+document.querySelectorAll('[data-vat-mode]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-vat-mode]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    vatMode = btn.dataset.vatMode;
+    recalc();
+  });
+});
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('input', recalc);
+  input.addEventListener('change', recalc);
+});
+
+function recalc() {
+  // VAT
+  const amt = parseFloat(document.getElementById('vat-amount').value) || 0;
+  const v = vatMode === 'net' ? vatFromNet(amt) : vatFromGross(amt);
+  document.getElementById('vat-result-vat').textContent = fmt(v.vat);
+  document.getElementById('vat-result-net').textContent = fmt(v.net);
+  document.getElementById('vat-result-vat-line').textContent = fmt(v.vat);
+  document.getElementById('vat-result-gross').textContent = fmt(v.gross);
+
+  // Income Tax
+  const annual = parseFloat(document.getElementById('income-annual').value) || 0;
+  const cp = parseFloat(document.getElementById('income-credit-points').value) || 0;
+  const t = calcIncomeTax(annual, cp);
+  document.getElementById('income-result-payable').textContent = fmt0(t.payable);
+  document.getElementById('income-result-payable-2').textContent = fmt0(t.payable);
+  document.getElementById('income-result-before').textContent = fmt0(t.taxBefore);
+  document.getElementById('income-result-credits').textContent = fmt0(t.creditReduction);
+  document.getElementById('income-result-yesef').textContent = fmt0(t.yesef);
+  document.getElementById('income-result-effective').textContent = fmtPct(t.effective);
+  document.getElementById('income-result-marginal').textContent = (t.marginalRate * 100).toFixed(0);
+
+  // NI
+  const monthly = parseFloat(document.getElementById('ni-monthly').value) || 0;
+  const n = calcMonthlyNI(monthly);
+  document.getElementById('ni-result-monthly').textContent = fmt0(n.monthly);
+  document.getElementById('ni-result-effective').textContent = fmt0(n.effectiveIncome);
+  document.getElementById('ni-result-low').textContent = fmt0(n.lowPay);
+  document.getElementById('ni-result-high').textContent = fmt0(n.highPay);
+  document.getElementById('ni-result-annual').textContent = fmt0(n.annual);
+
+  // Gross-Net
+  const gross = parseFloat(document.getElementById('gn-gross').value) || 0;
+  const gnCp = parseFloat(document.getElementById('gn-credit').value) || 0;
+  const microBiz = document.getElementById('gn-microbiz').checked;
+  const g = calcGrossNet(gross, gnCp, microBiz);
+  document.getElementById('gn-result-net').textContent = fmt0(g.net);
+  document.getElementById('gn-result-net-2').textContent = fmt0(g.net);
+  document.getElementById('gn-result-gross').textContent = fmt0(g.gross);
+  document.getElementById('gn-result-taxable').textContent = fmt0(g.taxable);
+  document.getElementById('gn-result-tax').textContent = fmt0(g.tax);
+  document.getElementById('gn-result-ni').textContent = fmt0(g.ni);
+  document.getElementById('gn-result-effective').textContent = fmtPct(g.effective);
+  document.getElementById('gn-result-annual').textContent = fmt0(g.annualNet);
+}
+
+recalc();
+</script>
+</body>
+</html>

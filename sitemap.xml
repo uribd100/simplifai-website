@@ -52,6 +52,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://simplifai.co.il/tools/calculators/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://simplifai.co.il/assets/og-home.jpg</image:loc>
+      <image:title>4 מחשבוני מס לעצמאי 2026 — TaxAI</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://simplifai.co.il/privacy.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>yearly</changefreq>
