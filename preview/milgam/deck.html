@@ -40,7 +40,7 @@
     width: 100vw;
     min-height: 100vh;
     height: 100vh;
-    padding: 5vh 6vw;
+    padding: 80px 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,8 +51,8 @@
   }
   .slide-number {
     position: absolute;
-    bottom: 2vh;
-    left: 3vw;
+    bottom: 22px;
+    left: 32px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     color: var(--ink-faint);
@@ -60,8 +60,8 @@
   }
   .slide-brand {
     position: absolute;
-    top: 2vh;
-    right: 3vw;
+    top: 22px;
+    right: 32px;
     font-weight: 800;
     font-size: 13px;
     color: var(--gold);
@@ -69,8 +69,8 @@
   }
   .slide-section {
     position: absolute;
-    top: 2vh;
-    left: 3vw;
+    top: 22px;
+    left: 32px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     color: var(--ink-faint);
@@ -90,7 +90,10 @@
   .orb-gold { background: var(--gold); width: 420px; height: 420px; }
   .orb-blue { background: var(--accent); width: 380px; height: 380px; }
 
-  .slide > * { position: relative; z-index: 1; }
+  .slide > *:not(.orb):not(.slide-brand):not(.slide-section):not(.slide-number) {
+    position: relative;
+    z-index: 1;
+  }
 
   /* ---------- Typography ---------- */
   h1.huge {
@@ -132,38 +135,54 @@
   .cover {
     background: radial-gradient(ellipse at top right, rgba(199,162,74,0.18) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom left, rgba(77,142,255,0.12) 0%, transparent 50%);
+    text-align: center;
+    align-items: center;
   }
   .cover .lead-line {
-    width: 60px;
+    width: 80px;
     height: 4px;
     background: var(--gold);
-    margin-bottom: 24px;
+    margin: 0 auto 26px;
+  }
+  .cover h1.huge {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .cover .lede {
+    margin: 28px auto 0;
+    text-align: center;
   }
   .cover .meta {
-    margin-top: 36px;
+    margin: 40px auto 0;
     display: flex;
-    gap: 32px;
+    gap: 50px;
     font-size: 14px;
     color: var(--ink-dim);
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .cover .meta b { color: var(--ink); font-weight: 700; display: block; font-size: 16px; margin-bottom: 2px; }
-  .cover-side {
-    position: absolute;
-    bottom: 6vh;
-    left: 6vw;
-    width: 28vw;
-    max-width: 360px;
-  }
-  .cover-side .stack-line {
+  .cover .meta > div { text-align: center; }
+  .cover .meta b { color: var(--ink); font-weight: 700; display: block; font-size: 16px; margin-bottom: 4px; }
+  .cover .stack-row {
+    margin: 36px auto 0;
     display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cover .stack-chip {
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    color: var(--ink-faint);
+    color: var(--ink-dim);
   }
-  .cover-side .stack-line .dot {
+  .cover .stack-chip .dot {
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent);
   }
@@ -541,26 +560,48 @@
     text-align: center;
     align-items: center;
   }
-  .quote-mark {
-    font-size: 100px;
-    color: var(--gold);
-    line-height: 0.5;
-    margin-bottom: 20px;
-    font-family: serif;
+  .quote-decor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .quote-decor .line {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+  }
+  .quote-decor .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
   }
   .quote-text {
-    font-size: clamp(24px, 3vw, 38px);
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: clamp(28px, 3.6vw, 46px);
+    font-weight: 800;
+    line-height: 1.5;
     max-width: 900px;
     margin: 0 auto;
+    color: var(--ink);
+  }
+  .quote-text .accent {
+    color: var(--gold);
+    display: block;
+    margin-top: 8px;
   }
   .quote-author {
-    margin-top: 36px;
-    font-size: 14px;
+    margin-top: 48px;
+    font-size: 13px;
     color: var(--ink-dim);
     font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+  }
+  .quote-author b {
+    color: var(--ink);
+    font-weight: 700;
   }
 
   /* ---------- Pricing tiers ---------- */
@@ -713,15 +754,17 @@
 
 <!-- ============ SLIDE 1 — COVER ============ -->
 <section class="slide cover" id="s1">
-  <div class="orb orb-gold" style="top: -120px; right: -120px;"></div>
-  <div class="orb orb-blue" style="bottom: -120px; left: -120px;"></div>
+  <div class="orb orb-gold" style="top: -150px; right: -100px;"></div>
+  <div class="orb orb-blue" style="bottom: -150px; left: -100px;"></div>
   <div class="slide-section">פתיחה · 01</div>
   <div class="slide-brand">simplifAI</div>
 
   <div class="lead-line"></div>
   <div class="eyebrow">פגישת היכרות · 14 מאי 2026</div>
-  <h1 class="huge">מילגם<br><span style="color: var(--gold);">×</span> סימפליפאיי</h1>
-  <p class="lede" style="margin-top: 28px;">
+  <h1 class="huge">
+    מילגם <span style="color: var(--gold); font-weight: 300; margin: 0 12px;">×</span> סימפליפאיי
+  </h1>
+  <p class="lede">
     מאיץ בינה מלאכותית לארגונים מורכבים.<br>
     תזה אסטרטגית, לא הצעת מחיר.
   </p>
@@ -729,13 +772,15 @@
   <div class="meta">
     <div><b>אורי בר דרור</b><span>מייסד, סימפליפאיי</span></div>
     <div><b>ENG Holdings</b><span>מנהל מערכות ואוטומציה</span></div>
-    <div><b>בן-גוריון</b><span>תואר ראשון ושני, מנהל עסקים</span></div>
+    <div><b>אוניברסיטת בן-גוריון</b><span>תואר ראשון ושני, מנהל עסקים</span></div>
   </div>
 
-  <div class="cover-side">
-    <div class="stack-line"><span class="dot"></span><span>Next.js 16 · Supabase · Claude · Gemini</span></div>
-    <div class="stack-line"><span class="dot"></span><span>WhatsApp Green API · CardCom · Stripe</span></div>
-    <div class="stack-line"><span class="dot"></span><span>Hebrew RTL native · OCR · RAG</span></div>
+  <div class="stack-row">
+    <span class="stack-chip"><span class="dot"></span>Next.js 16 · Supabase</span>
+    <span class="stack-chip"><span class="dot"></span>Claude · Gemini</span>
+    <span class="stack-chip"><span class="dot"></span>Hebrew RTL native</span>
+    <span class="stack-chip"><span class="dot"></span>OCR · RAG</span>
+    <span class="stack-chip"><span class="dot"></span>WhatsApp · CardCom</span>
   </div>
 
   <div class="slide-number">01 / 14</div>
@@ -1275,18 +1320,23 @@
 
 <!-- ============ SLIDE 14 — CLOSING QUOTE ============ -->
 <section class="slide quote-slide" id="s14">
-  <div class="orb orb-gold" style="top: -200px; right: 50%; transform: translateX(50%); opacity: 0.25;"></div>
+  <div class="orb orb-gold" style="top: -250px; left: 50%; transform: translateX(-50%); opacity: 0.25;"></div>
   <div class="slide-section">סיכום · 14</div>
   <div class="slide-brand">simplifAI</div>
 
-  <div class="quote-mark">"</div>
-  <div class="quote-text">
-    אני לא מוכר.<br>
-    אני שואל.<br>
-    <span style="color: var(--gold);">אם יש התאמה — נמצא אותה.</span>
+  <div class="quote-decor">
+    <span class="line"></span>
+    <span class="dot"></span>
+    <span class="line"></span>
   </div>
+
+  <div class="quote-text">
+    אני לא מוכר. אני שואל.
+    <span class="accent">אם יש התאמה — נמצא אותה.</span>
+  </div>
+
   <div class="quote-author">
-    אורי בר דרור · מייסד, סימפליפאיי<br>
+    <b>אורי בר דרור</b> · מייסד, סימפליפאיי<br>
     office@simplifai.co.il · simplifai.co.il
   </div>
 
