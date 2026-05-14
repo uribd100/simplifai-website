@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Preview — Week 2026-05-23 → 05-29 | simplifAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: linear-gradient(180deg, #060D1F 0%, #0A1733 100%);
+    color: #fff;
+    font-family: 'Heebo', sans-serif;
+    line-height: 1.55;
+    padding: 20px 12px 80px;
+    min-height: 100vh;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 24px 0 36px;
+    border-bottom: 1px solid rgba(77,142,255,.2);
+    margin-bottom: 32px;
+}
+.header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4D8EFF, #2B6BE0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+.header .subtitle {
+    color: rgba(255,255,255,.55);
+    font-size: .95rem;
+    margin-bottom: 18px;
+}
+.header .week-range {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: #4D8EFF;
+    font-size: 1.05rem;
+}
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+.summary-stat {
+    background: rgba(77,142,255,.06);
+    border: 1px solid rgba(77,142,255,.18);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+}
+.summary-stat .num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #4D8EFF;
+}
+.summary-stat .label {
+    font-size: .68rem;
+    color: rgba(255,255,255,.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* Post card */
+.post-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 32px;
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.post-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4D8EFF;
+}
+.post-date {
+    font-size: .95rem;
+    color: rgba(255,255,255,.85);
+    font-weight: 600;
+}
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.post-tags .tag {
+    background: rgba(77,142,255,.12);
+    color: #4D8EFF;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 600;
+}
+
+.post-body {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 22px;
+    align-items: start;
+}
+@media (max-width: 720px) {
+    .post-body { grid-template-columns: 1fr; }
+}
+
+/* IG phone mockup */
+.phone {
+    background: #fff;
+    border-radius: 24px;
+    padding: 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,.5);
+    width: 320px;
+    margin: 0 auto;
+}
+.phone-header {
+    display: flex;
+    align-items: center;
+    padding: 4px 4px 10px;
+    border-bottom: 1px solid #efefef;
+    gap: 8px;
+}
+.phone-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4D8EFF, #2B6BE0);
+    flex-shrink: 0;
+}
+.phone-username {
+    color: #262626;
+    font-weight: 600;
+    font-size: .85rem;
+    direction: ltr;
+    text-align: left;
+}
+.phone-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.phone-actions {
+    padding: 8px 4px 6px;
+    color: #262626;
+    font-size: .78rem;
+    border-bottom: 1px solid #efefef;
+}
+.phone-likes { color: #262626; font-weight: 600; padding: 6px 4px; font-size: .8rem; }
+.phone-caption {
+    color: #262626;
+    font-size: .8rem;
+    padding: 4px 4px 8px;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    max-height: 280px;
+    overflow-y: auto;
+}
+.phone-caption .username { color: #262626; font-weight: 600; }
+
+/* Captions side */
+.captions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.caption-block {
+    background: rgba(0,0,0,.25);
+    border-radius: 10px;
+    padding: 14px;
+    border-right: 3px solid #4D8EFF;
+}
+.caption-block.li {
+    border-right-color: #0a66c2;
+}
+.caption-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 8px;
+}
+.caption-block.li .caption-label { color: #4DA3FF; }
+.caption-text {
+    color: rgba(255,255,255,.92);
+    font-size: .85rem;
+    white-space: pre-wrap;
+    direction: rtl;
+    text-align: right;
+    max-height: 280px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+.caption-meta {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    font-size: .7rem;
+    color: rgba(255,255,255,.4);
+}
+
+.headline-display {
+    background: rgba(77,142,255,.08);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+.headline-display .h {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+.headline-display .s {
+    color: #4DA3FF;
+    font-size: .9rem;
+}
+
+/* Approval footer */
+.approval-section {
+    background: linear-gradient(135deg, rgba(77,142,255,.12), rgba(77,142,255,.04));
+    border: 1px solid rgba(77,142,255,.3);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 40px;
+    text-align: center;
+}
+.approval-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    color: #4D8EFF;
+    margin-bottom: 14px;
+}
+.approval-section p {
+    color: rgba(255,255,255,.8);
+    font-size: .95rem;
+    max-width: 640px;
+    margin: 0 auto 18px;
+}
+.copy-instruction {
+    background: rgba(0,0,0,.3);
+    border-radius: 10px;
+    padding: 14px;
+    color: rgba(255,255,255,.85);
+    font-size: .9rem;
+    max-width: 580px;
+    margin: 0 auto;
+    text-align: right;
+}
+.copy-instruction code {
+    background: rgba(77,142,255,.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #4DA3FF;
+    font-family: 'Courier New', monospace;
+}
+
+/* Rules footer */
+.rules {
+    margin-top: 32px;
+    padding: 18px;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    font-size: .82rem;
+    color: rgba(255,255,255,.7);
+}
+.rules h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: .85rem;
+    color: #4D8EFF;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.rules ul { list-style: none; padding-right: 0; }
+.rules li { padding: 3px 0; }
+.rules li:before { content: "✓ "; color: #4ADE80; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+    <h1>Preview — שבוע פוסטים אורגני</h1>
+    <div class="subtitle">7 פוסטים עצמאיים · IG + FB + LinkedIn · 07:00 כל יום</div>
+    <div class="week-range">2026-05-23 → 2026-05-29</div>
+    <div class="summary">
+        <div class="summary-stat"><div class="num">7</div><div class="label">פוסטים</div></div>
+        <div class="summary-stat"><div class="num">21</div><div class="label">פרסומים (3 רשתות)</div></div>
+        <div class="summary-stat"><div class="num">7</div><div class="label">ויזואלים ייחודיים</div></div>
+        <div class="summary-stat"><div class="num">7</div><div class="label">פילרים שונים</div></div>
+        <div class="summary-stat"><div class="num">6</div><div class="label">Frameworks</div></div>
+        <div class="summary-stat"><div class="num">0</div><div class="label">A/B variants</div></div>
+    </div>
+</div>
+
+<!-- Post sections injected by build script -->
+<div id="posts"></div>
+
+<div class="approval-section">
+    <h2>📋 איך לאשר</h2>
+    <p>אורי — תעבור על 7 הפוסטים, ותענה לי באחת מהאפשרויות:</p>
+    <div class="copy-instruction">
+        <strong>אפשרויות:</strong><br><br>
+        <strong>• "אשר הכל"</strong> → אקבע את כל 7 ל-PublishQueue (14 שורות: both + linkedin × 7)<br>
+        <strong>• "אשר 27, 29, 31"</strong> → רק אלו שאתה מסכים עליהם<br>
+        <strong>• "שנה 28 — [הוראה]"</strong> → אתקן ספציפית<br>
+        <strong>• "דחה הכל"</strong> → אבטל, אבנה מחדש לפי הנחיות<br><br>
+        כל הקבצים נשמרים מקומית. <code>publishSocial</code> ייקרא רק אחרי אישור מפורש.
+    </div>
+</div>
+
+<div class="rules">
+    <h3>חוקים שיושמו</h3>
+    <ul>
+        <li>אף תמונה לא חוזרת — pHash audit מול 200+ פוסטים קודמים</li>
+        <li>אין A/B variants — 7 פוסטים עצמאיים, hook יחיד לכל אחד</li>
+        <li>1 פוסט/יום ב-07:00 לכל הרשתות (IG+FB+LinkedIn)</li>
+        <li>אין "מכונה" בקופי (חוקה ישנה)</li>
+        <li>אין markdown **bold** (חתוך ב-Meta API)</li>
+        <li>LinkedIn ללא emojis (חתוך ב-LI API)</li>
+        <li>RTL marks ב-IG/FB caption (‏\n)</li>
+        <li>לוגו simplifAI bottom-right בכל ויזואל</li>
+        <li>11 hashtags ליבה + 3 מיקום ב-IG/FB · 5 hashtags ב-LinkedIn</li>
+        <li>סצנה ייחודית לכל פוסט — pHash distance ≥ 18 בין כל שני new (template-signature false-positives סוננו ויזואלית)</li>
+    </ul>
+</div>
+
+</div>
+
+<script>
+// Posts data — injected from posts.json
+const POSTS = [{"postId": "post-27", "date": "2026-05-23", "scheduledTime": "2026-05-23T07:00:00+03:00", "pillar": "סיפור אישי", "framework": "PASTOR", "funnel": "MOFU", "headline": "ערב שישי. 14 שעות בעסק.", "subhead": "כשעצרתי בפעם הראשונה — הבנתי שאני העסק. וזה הבעיה.", "image": "post-27-cover-4x5.jpg", "caption_ig_fb": "‏\n‏ערב שישי. הילדים בחוץ. אני בפנים.\n\nלפני 4 שנים, ערב שישי אצלנו נראה ככה:\n14 שעות אחרי שהתחלתי לעבוד, אני עדיין שולח הצעות מחיר.\nהטלפון רוטט. WhatsApp לא נגמר.\nאשתי שאלה: \"מתי תצא מהמשרד?\"\nאמרתי: \"עוד שעה.\" היו 3.\n\nעצרתי באמצע משפט ושאלתי את עצמי:\n\"מי בנה את העסק הזה ככה?\"\nהתשובה: אני.\nכל פעם שאמרתי \"אני אעשה את זה לבד\" — בניתי כלא.\n\nמאז שיניתי משהו פשוט:\nכל משימה שחוזרת — לא אני עושה אותה.\nהמערכות עובדות. אני חי.\n\n⚡ רוצה לבדוק איפה אתה עושה את אותה טעות? שלח DM \"שישי\" — ונשב לחפש.\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "לפני 4 שנים, ערב שישי אצלנו נראה ככה:\n\n14 שעות אחרי שהתחלתי, אני עדיין שולח הצעות מחיר.\nהטלפון לא מפסיק. WhatsApp בלי סוף.\nאשתי שאלה: \"מתי תצא מהמשרד?\"\nאמרתי: \"עוד שעה.\" היו 3.\n\nעצרתי באמצע משפט ושאלתי את עצמי:\n\"מי בנה את העסק הזה ככה?\"\n\nהתשובה: אני.\n\nכל פעם שאמרתי \"אני אעשה את זה לבד\" — בניתי כלא.\n\nהלקח שמכר לי 4 שנים:\nעסק שתלוי בבעל העסק זה לא עסק. זו משרה.\n\nמאז שיניתי משהו פשוט:\nכל משימה שחוזרת על עצמה — לא אני עושה אותה.\n\nתזכורות ללקוחות שולחות את עצמן.\nהצעות מחיר נשלחות באוטומט.\nדוחות נכתבים לבד.\n\nאני בערב שישי בבית. המערכות עובדות. הראש שקט.\n\nזו לא הצלחה גדולה. זו הצלחה אישית.\n\nואם אתה קורא את זה ומכיר את המצב — אתה לא לבד.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-28", "date": "2026-05-24", "scheduledTime": "2026-05-24T07:00:00+03:00", "pillar": "פשטות + אנושיות", "framework": "PAS-S", "funnel": "TOFU", "headline": "אתה לא צריך להבין.", "subhead": "אתה צריך שזה יעבוד. ככה זה נראה.", "image": "post-28-cover-4x5.jpg", "caption_ig_fb": "‏\n‏🎁 אתה לא צריך להבין איך AI עובד.\n\nבאמת.\n\nאתה צריך לדעת רק 3 דברים:\n1. מה גוזל לך הכי הרבה זמן בשבוע\n2. מה התוצאה שאתה רוצה לקבל\n3. מי אחראי לבדוק שזה עובד\n\nזה הכל.\n\nהכלי? לא משנה.\nהטכנולוגיה? זו הבעיה שלי, לא שלך.\nהמנגנון מאחורי הקלעים? לא רלוונטי.\n\nלקוח שלי, רואה חשבון מאילת, מקבל היום 8 הצעות חתומות בשבוע — באוטומט.\nשאלתי אותו: \"אתה יודע איך זה עובד?\"\nענה: \"לא. וגם לא מעניין אותי. זה עובד.\"\n\nזה מספיק.\n\n📬 רוצה לראות איך זה נראה אצלך? שלח DM \"פשוט\" — נראה לך במסך.\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "אתה לא צריך להבין איך AI עובד.\n\nבעלי עסקים שואלים אותי בכל שיחה:\n\"איך זה עובד טכנית? איזה כלים אתה משתמש? אני יכול להבין?\"\n\nתשובתי: לא חשוב.\n\nחשוב 3 דברים:\n1. מה גוזל לך הכי הרבה זמן בשבוע\n2. מה התוצאה שאתה רוצה לקבל\n3. מי אחראי לבדוק שזה ממשיך לעבוד\n\nזה הכל. השאר זה התפקיד שלי.\n\nלקוח שלי, רואה חשבון מאילת, מקבל היום 8 הצעות חתומות בשבוע באופן אוטומטי.\nשאלתי אותו אם הוא יודע איך זה עובד.\nענה: \"לא. וגם לא מעניין אותי. זה עובד.\"\n\nזה מספיק.\n\nההסבר הטכני שלי לא יביא לך עוד שעה ביום.\nהמערכת תביא.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-29", "date": "2026-05-25", "scheduledTime": "2026-05-25T07:00:00+03:00", "pillar": "תוצאה Before/After", "framework": "BAB", "funnel": "MOFU", "headline": "21:00 → 17:00", "subhead": "אותו עסק. פחות 4 שעות בכל יום.", "image": "post-29-cover-4x5.jpg", "caption_ig_fb": "‏\n‏⚡ לפני: עו\"ד שעובד עד 21:00.\n⚡ אחרי: סוגר ב-17:00.\n\nאותם לקוחות.\nאותו תיק עבודה.\nאותה הכנסה.\n\nמה השתנה? לא הוא. המערכת.\n\nלפני:\n❌ תיאום פגישות ידני — 30 דק'/יום\n❌ שליחת הסכמים — 45 דק'/יום\n❌ מעקב חשבוניות — שעה/יום\n❌ תזכורות תשלום — 30 דק'/יום\n❌ דוחות סטטוס לקוחות — שעה/יום\n\nסה\"כ: 4 שעות. כל יום.\n\nאחרי:\n✅ לוח פגישות אוטומטי — 0 דק'\n✅ הסכמים נשלחים בלחיצה — 5 דק'\n✅ חשבוניות מתעדכנות לבד — 0 דק'\n✅ תזכורות שיוצאות אוטומטית — 0 דק'\n✅ דוחות שמופקים אוטומטית — 0 דק'\n\nסה\"כ: 5 דקות. כל יום.\n\nהוא לא משלם יותר.\nהוא רואה את המשפחה שלו שעתיים יותר.\n\n📩 רוצה לראות איך זה נראה בעסק שלך? שלח DM \"4 שעות\".\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "לפני: עו\"ד שעובד עד 21:00.\nאחרי: סוגר ב-17:00.\n\nאותם לקוחות, אותו תיק עבודה, אותה הכנסה. מה השתנה?\n\nלא הוא. המערכת.\n\nלפני, סדר היום שלו היה כך:\n- 30 דק' תיאום פגישות ידני\n- 45 דק' שליחת הסכמים ידנית\n- שעה מעקב אחרי חשבוניות\n- 30 דק' תזכורות תשלום ללקוחות\n- שעה דוחות סטטוס\n\nסה\"כ 4 שעות ביום על משימות שחוזרות על עצמן.\n4 שעות שאי-אפשר לחייב עליהן את הלקוח.\n\nאחרי הבדיקה שעשינו יחד, כל אחת מהמשימות האלה אוטומציה.\n\nלוח פגישות שמתעדכן לבד.\nהסכמים שנשלחים בלחיצה אחת.\nחשבוניות שמסונכרנות מול הבנק.\nתזכורות שיוצאות בלי שאף אחד יזכור.\nדוחות שמופקים בסוף כל שבוע.\n\nחודש אחרי: 4 שעות חזרו לעורך הדין. 80 שעות בחודש.\n\nהוא לא העלה מחירים. לא לקח יותר תיקים.\nהוא הולך הביתה ב-17:00.\n\nזה השינוי האמיתי.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-30", "date": "2026-05-26", "scheduledTime": "2026-05-26T07:00:00+03:00", "pillar": "סימנים", "framework": "PAS", "funnel": "TOFU", "headline": "5 סימנים שמבזבזים זמן.", "subhead": "אם הזדהית עם 3 — תקרא הלאה.", "image": "post-30-cover-4x5.jpg", "caption_ig_fb": "‏\n‏🔴 5 סימנים שהעסק שלך מבזבז שעות:\n\n1. אתה עונה לאותן שאלות 5 פעמים ביום\n2. אתה שולח את אותה הודעה לכל לקוח חדש\n3. אתה זוכר ידנית מי שילם ומי לא\n4. אתה מתאם פגישות באמצעות 7 הודעות הלוך-חזור\n5. אתה כותב דוח סטטוס בסוף השבוע מהזיכרון\n\nהזדהית עם 3 או יותר?\n\n💡 זה לא אומר שאתה לא טוב.\nזה אומר שניהלת ידנית מה שמערכת AI יכולה לעשות לך — בלי טעויות, בלי שכחה, בלי לחץ.\n\nהצעד הראשון לא קנייה של כלי.\nהצעד הראשון: לזהות איזה מ-5 הסימנים האלה גוזל לך הכי הרבה זמן.\n\n📩 שלח DM \"סימנים\" — אני שולח טבלה קצרה שתעזור לדרג.\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "5 סימנים שהעסק שלך מבזבז שעות:\n\n1. אתה עונה לאותן שאלות 5 פעמים ביום\n2. אתה שולח את אותה הודעה לכל לקוח חדש\n3. אתה זוכר ידנית מי שילם ומי לא\n4. אתה מתאם פגישות באמצעות 7 הודעות הלוך-חזור\n5. אתה כותב דוח סטטוס בסוף השבוע מהזיכרון\n\nהזדהית עם 3 או יותר?\n\nזה לא אומר שאתה לא טוב.\nזה אומר שניהלת ידנית מה שמערכת AI יכולה לעשות לך — בלי טעויות, בלי שכחה, בלי לחץ.\n\nהצעד הראשון לא קנייה של כלי. הצעד הראשון: לזהות איזה מ-5 הסימנים האלה גוזל לך הכי הרבה זמן.\n\nהניסיון שלי מ-50+ עסקים — לרוב הסימן הראשון שמתקנים מחזיר 6-10 שעות בשבוע.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-31", "date": "2026-05-27", "scheduledTime": "2026-05-27T07:00:00+03:00", "pillar": "ערך/How-to", "framework": "AIDA", "funnel": "MOFU", "headline": "3 כלים. שאתה כבר משלם עליהם.", "subhead": "ולא מנצל אותם נכון.", "image": "post-31-cover-4x5.jpg", "caption_ig_fb": "‏\n‏💡 3 כלים שכל עסק כבר משלם עליהם — ולא מנצל.\n\n1. ⚡ Gmail / Outlook\nרוב העסקים שולחים מיילים ידנית.\nמה אפשר: תבניות חכמות + שליחה מתוזמנת + תזכורות אוטומטיות לעצמך.\nחיסכון: 1.5 שעות בשבוע.\n\n2. ⚡ Google Calendar / Outlook Calendar\nרוב העסקים כותבים פגישות ידנית.\nמה אפשר: קישור Calendly + תזכורות אוטומטיות ללקוחות 24h לפני + סנכרון לכל המכשירים.\nחיסכון: 2 שעות בשבוע.\n\n3. ⚡ WhatsApp Business\nרוב העסקים עונים בלי סוף.\nמה אפשר: תפריט אוטומטי + תגובות מהירות מוכנות + סטטוסים אוטומטיים.\nחיסכון: 3 שעות בשבוע.\n\nסה\"כ: 6.5 שעות בשבוע. בכלים שאתה משלם עליהם בלי קשר.\n\n📬 רוצה checklist איך להתחיל? שלח DM \"כלים\".\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "3 כלים שכל עסק כבר משלם עליהם — ולא מנצל.\n\n1. Gmail או Outlook\nרוב העסקים שולחים מיילים ידנית.\nמה אפשר: תבניות חכמות, שליחה מתוזמנת, תזכורות אוטומטיות לעצמך.\nחיסכון ממוצע: 1.5 שעות בשבוע.\n\n2. Google Calendar או Outlook Calendar\nרוב העסקים כותבים פגישות ידנית.\nמה אפשר: קישור Calendly, תזכורות אוטומטיות ללקוחות 24 שעות לפני, סנכרון מלא בין מכשירים.\nחיסכון ממוצע: 2 שעות בשבוע.\n\n3. WhatsApp Business\nרוב העסקים עונים בלי סוף.\nמה אפשר: תפריט אוטומטי, תגובות מהירות מוכנות, סטטוסים אוטומטיים.\nחיסכון ממוצע: 3 שעות בשבוע.\n\nסה\"כ: 6.5 שעות בשבוע. בכלים שאתה כבר משלם עליהם.\n\nלפני שמשקיעים בכלי חדש, שווה לבדוק מה הכלים הקיימים יכולים לעשות — אם רק תגדיר אותם נכון.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-32", "date": "2026-05-28", "scheduledTime": "2026-05-28T07:00:00+03:00", "pillar": "כאב", "framework": "PAS", "funnel": "TOFU", "headline": "רץ על המקום.", "subhead": "10 שעות. אפס התקדמות. מוכר?", "image": "post-32-cover-4x5.jpg", "caption_ig_fb": "‏\n‏🔴 10 שעות עבודה. אפס התקדמות.\n\nמוכר?\n\nאתה קם בבוקר. אומר לעצמך: \"היום אני סוגר את ה-X.\"\n12 שעות אחרי, אתה במיטה ושואל: \"מה בעצם עשיתי היום?\"\n\nזה לא בגלל שאתה עצלן.\nזה לא בגלל שאתה לא מאורגן.\n\nזה בגלל שכל היום שלך נשרף על:\n- מעקב אחרי מי ענה למייל\n- חיפוש קובץ ב-3 תיקיות\n- שליחת אותה הודעה ל-12 לקוחות\n- תיאום פגישה אחת עם 8 הודעות הלוך-חזור\n- פתיחת WhatsApp כל 8 דקות\n\nזה לא עבודה. זה רעש.\n\nובזמן הזה — המתחרה שלך מתקדם.\n\n💡 הפתרון לא לעבוד יותר.\nהפתרון להפסיק לעשות את ה-5 משימות שמערכות AI יכולות לעשות במקומך.\n\n📩 רוצה לבדוק איזה רעש שלך אפשר להוריד? שלח DM \"רץ\".\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "10 שעות עבודה. אפס התקדמות.\nמוכר?\n\nאתה קם בבוקר ואומר לעצמך: \"היום אני סוגר את ה-X.\"\n12 שעות אחרי, אתה במיטה ושואל: \"מה בעצם עשיתי היום?\"\n\nזה לא בגלל שאתה עצלן.\nזה לא בגלל שאתה לא מאורגן.\n\nזה בגלל שכל היום נשרף על:\n- מעקב אחרי מי ענה למייל\n- חיפוש קובץ ב-3 תיקיות שונות\n- שליחת אותה הודעה ל-12 לקוחות\n- תיאום פגישה אחת ב-8 הודעות הלוך-חזור\n- פתיחת WhatsApp כל 8 דקות\n\nזה לא עבודה. זה רעש.\n\nובזמן הזה, המתחרה שלך מתקדם.\n\nהפתרון לא לעבוד יותר. הפתרון להפסיק לעשות את ה-5 משימות שמערכות AI יכולות לעשות במקומך.\n\nאם אתה מזהה את עצמך — אתה לא לבד. רוב בעלי העסקים שאני פוגש מתחילים שיחה אצלי בדיוק מהמשפט הזה.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}, {"postId": "post-33", "date": "2026-05-29", "scheduledTime": "2026-05-29T07:00:00+03:00", "pillar": "CTA", "framework": "AIDA", "funnel": "BOFU", "headline": "20 דקות. 3 כיוונים.", "subhead": "השבוע יש 3 חלונות שיחה. ללא תשלום.", "image": "post-33-cover-4x5.jpg", "caption_ig_fb": "‏\n‏📅 השבוע פתחתי 3 חלונות שיחה.\n\n20 דקות. ללא תשלום. ללא התחייבות.\n\nככה זה עובד:\n1. אתה מספר לי מה גוזל לך הכי הרבה זמן בשבוע\n2. אני בודק כמה זה עולה לעסק שלך ב-30 יום\n3. אתה מקבל 3 כיוונים ספציפיים — מה אפשר לאוטמט קודם\n\nזה הכל.\n\nאין מצגת.\nאין מכירה.\nאין \"תרצה לחשוב על זה?\".\n\nרק שיחה ישרה — האם יש כאן משהו להציל, או שזה לא הזמן הנכון.\n\n3 חלונות:\n🔹 ראשון 31.5 — 11:00\n🔹 שלישי 2.6 — 14:00\n🔹 חמישי 4.6 — 10:30\n\n📩 שלח DM \"שיחה\" — אני שולח קישור לבחור חלון.\n\n‏\n#בינהמלאכותית #אוטומציה #אוטומציהעסקית #ייעולעסקי #עסקיםקטנים #AIלעסקים #AI #BusinessAutomation #SmallBusiness #simplifAI #אילת #עסקיםבאילת #ערבה", "caption_linkedin": "השבוע פתחתי 3 חלונות שיחה.\n20 דקות, ללא תשלום, ללא התחייבות.\n\nאיך זה עובד:\n1. אתה מספר לי מה גוזל לך הכי הרבה זמן בשבוע\n2. אני בודק כמה זה עולה לעסק שלך ב-30 יום\n3. אתה מקבל 3 כיוונים ספציפיים — מה אפשר לאוטמט קודם\n\nזה הכל.\n\nאין מצגת.\nאין מכירה.\nאין \"תרצה לחשוב על זה?\".\n\nרק שיחה ישרה — האם יש כאן משהו להציל, או שזה לא הזמן הנכון.\n\n3 חלונות פתוחים השבוע:\n- ראשון 31.5 ב-11:00\n- שלישי 2.6 ב-14:00\n- חמישי 4.6 ב-10:30\n\nאם זה נראה לך רלוונטי — שלח לי הודעה.\n\n#AI #BusinessAutomation #ייעולעסקי #simplifAI #מהשטח_לא_מהספר"}];
+
+const ASSET_BASE = 'https://uribd100.github.io/simplifai-website/assets/posts/';
+
+function dayName(d) {
+    const days=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+    return days[new Date(d).getDay()];
+}
+
+function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+const root = document.getElementById('posts');
+POSTS.forEach((p, idx) => {
+    const card = document.createElement('div');
+    card.className = 'post-card';
+    card.id = p.postId;
+    card.innerHTML = `
+        <div class="post-header">
+            <div>
+                <span class="post-num">#${idx+1}</span>
+                &nbsp;&nbsp;
+                <span class="post-date">${dayName(p.date)} ${p.date}</span>
+            </div>
+            <div class="post-tags">
+                <span class="tag">${p.pillar}</span>
+                <span class="tag">${p.framework}</span>
+                <span class="tag">${p.funnel}</span>
+            </div>
+        </div>
+        <div class="post-body">
+            <div>
+                <div class="phone">
+                    <div class="phone-header">
+                        <div class="phone-avatar"></div>
+                        <div class="phone-username">simplifai_ai</div>
+                    </div>
+                    <img class="phone-img" src="${ASSET_BASE}${p.image}" alt="${escHtml(p.headline)}">
+                    <div class="phone-actions">♡  💬  ➤</div>
+                    <div class="phone-likes">${15 + idx*3} likes</div>
+                    <div class="phone-caption"><span class="username">simplifai_ai</span> ${escHtml(p.caption_ig_fb.replace(/^‏\n‏/,''))}</div>
+                </div>
+            </div>
+            <div class="captions">
+                <div class="headline-display">
+                    <div class="h">${escHtml(p.headline)}</div>
+                    <div class="s">${escHtml(p.subhead)}</div>
+                </div>
+                <div class="caption-block">
+                    <div class="caption-label">📱 Instagram + Facebook</div>
+                    <div class="caption-text">${escHtml(p.caption_ig_fb)}</div>
+                    <div class="caption-meta">platform=both · scheduledTime=${p.scheduledTime}</div>
+                </div>
+                <div class="caption-block li">
+                    <div class="caption-label">💼 LinkedIn (ללא emojis)</div>
+                    <div class="caption-text">${escHtml(p.caption_linkedin)}</div>
+                    <div class="caption-meta">platform=linkedin · scheduledTime=${p.scheduledTime}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    root.appendChild(card);
+});
+</script>
+</body>
+</html>
