@@ -12,6 +12,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://simplifai.co.il/services/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://simplifai.co.il/assets/og-home.jpg</image:loc>
+      <image:title>השירותים של simplifAI</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://simplifai.co.il/services/whatsapp-bot/</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -49,16 +59,6 @@
     <image:image>
       <image:loc>https://simplifai.co.il/assets/og-ai-agent.jpg</image:loc>
       <image:title>סוכן AI לעסק — simplifAI</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://simplifai.co.il/tools/calculators/</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://simplifai.co.il/assets/og-home.jpg</image:loc>
-      <image:title>4 מחשבוני מס לעצמאי 2026 — TaxAI</image:title>
     </image:image>
   </url>
   <url>
