@@ -1497,6 +1497,7 @@ a.srv-card:hover .srv-badge{
 
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="contact" style="position:relative;">
+  <span id="lead-form" aria-hidden="true" style="position:absolute;top:-90px;"></span>
   <canvas class="sec-canvas" id="cta-particles"></canvas>
   <h2>יש בעסק שלך תהליכים שחוזרים על עצמם כל יום?<br>בוא נראה מה אפשר <span class="g">להוריד לך מהראש</span> כבר בשבועיים הקרובים.</h2>
   <p>שיחת אבחון ראשונה — ללא עלות, ללא התחייבות. 45 דקות.</p>
@@ -1741,6 +1742,26 @@ function openLeadForm(){
   document.getElementById('leadOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+/* Open the lead form for visitors arriving from service pages with #lead-form
+   and/or ?offer=<tag>. Without this the hub-and-spoke CTAs land at the top of the
+   page with no form opened and the offer tag is dropped. */
+window.LEAD_OFFER='';
+(function(){
+  try{
+    var off=new URLSearchParams(location.search).get('offer');
+    if(off)window.LEAD_OFFER=off.slice(0,40);
+    function maybeOpenLeadForm(){
+      if(location.hash==='#lead-form'||window.LEAD_OFFER){
+        openLeadForm();
+        if(typeof gtag==='function')gtag('event','offer_landing',{offer:window.LEAD_OFFER||'(none)',event_category:'lead'});
+      }
+    }
+    if(document.readyState!=='loading')maybeOpenLeadForm();
+    else document.addEventListener('DOMContentLoaded',maybeOpenLeadForm);
+    window.addEventListener('hashchange',function(){if(location.hash==='#lead-form')openLeadForm();});
+  }catch(e){}
+})();
 
 /* ====== GA4 ENGAGEMENT TRACKING (scroll depth + CTA clicks + phone/WA) ====== */
 (function(){
@@ -1990,6 +2011,7 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     staff_range:this.staff.value,
     hourly_range:this.rate.value,
     source:'website',
+    offer:window.LEAD_OFFER||'',
     secret:FORM_SECRET
   };
   fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'})
