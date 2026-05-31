@@ -820,10 +820,11 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .form-success{text-align:center;padding:40px 20px;}
 .form-success h3{font-size:24px;color:#4D8EFF;margin-bottom:12px;}
 .form-success p{color:rgba(255,255,255,.6);margin-bottom:8px;}
-.form-success .roi-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
-.form-success .roi-card{background:#060D1F;border-radius:10px;padding:16px;border:1px solid rgba(77,142,255,.15);}
-.form-success .roi-val{font-size:22px;font-weight:700;color:#4D8EFF;}
-.form-success .roi-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
+.roi-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
+.roi-card{background:#060D1F;border-radius:10px;padding:16px;border:1px solid rgba(77,142,255,.15);}
+.roi-val{font-size:22px;font-weight:700;color:#4D8EFF;}
+.roi-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
+.roi-teaser .roi-cards{margin-top:4px;}
 @media(max-width:600px){.form-row{grid-template-columns:1fr;}.lead-form{padding:28px 20px;}}
 /* ======= STICKY MOBILE CTA ======= */
 .sticky-mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:10px 14px 14px;background:linear-gradient(180deg,rgba(6,13,31,.5),rgba(6,13,31,.98));backdrop-filter:blur(20px);border-top:1px solid rgba(77,142,255,.2);gap:8px;align-items:center;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
@@ -1903,23 +1904,19 @@ function gotoStep2(){
   var valid=true;
   step1Fields.forEach(function(el){if(!el.value){el.reportValidity();valid=false;}});
   if(!valid)return;
-  /* Phone min-length: at least 9 digits (catches "972" alone, partial submissions) */
-  var phoneEl=form.phone;
-  var phoneDigits=(phoneEl.value||'').replace(/\D/g,'');
-  if(phoneDigits.length<9){
-    phoneEl.setCustomValidity('נא להזין מספר טלפון תקין (לפחות 9 ספרות)');
-    phoneEl.reportValidity();
-    phoneEl.setCustomValidity('');
-    return;
-  }
-  /* Name min-length */
-  var nameEl=form.fname;
-  if((nameEl.value||'').trim().length<2){
-    nameEl.setCustomValidity('נא להזין שם תקין');
-    nameEl.reportValidity();
-    nameEl.setCustomValidity('');
-    return;
-  }
+  /* Compute ROI from step-1 answers — value delivered BEFORE asking for contact */
+  var hMap={'פחות משעה':.75,'שעה עד שעתיים':1.5,'שעתיים עד 4 שעות':3,'4+ שעות':5};
+  var sMap={'רק אני':1,'2-3 אנשים':2.5,'4-10 אנשים':7,'10+':12};
+  var rMap={'50-100 ₪':75,'100-150 ₪':125,'150-250 ₪':200,'250+ ₪':300};
+  var h=hMap[form.hours.value]||2,s=sMap[form.staff.value]||2,r=rMap[form.rate.value]||125;
+  var mh=Math.round(h*s*22),mc=Math.round(mh*r),sv=Math.round(mc*.65);
+  var teaser=document.getElementById('roiTeaser');
+  if(teaser){teaser.innerHTML='<div class="roi-cards">'+
+    '<div class="roi-card"><div class="roi-val">'+mh+'</div><div class="roi-label">שעות מבוזבזות / חודש</div></div>'+
+    '<div class="roi-card"><div class="roi-val" style="color:#FF6F4C">₪'+mc.toLocaleString('he-IL')+'</div><div class="roi-label">עלות חודשית</div></div>'+
+    '<div class="roi-card"><div class="roi-val" style="color:#22C55E">₪'+sv.toLocaleString('he-IL')+'</div><div class="roi-label">חיסכון פוטנציאלי / חודש</div></div>'+
+    '<div class="roi-card"><div class="roi-val" style="color:#8B5CF6">'+escHtml(form.pain.value)+'</div><div class="roi-label">כאב מרכזי</div></div>'+
+    '</div>';}
   step1.style.display='none';
   form.querySelector('[data-step="2"]').style.display='block';
   document.querySelectorAll('.form-step-dot').forEach(function(d){
@@ -1929,9 +1926,9 @@ function gotoStep2(){
     if(s===2)d.classList.add('active');
   });
   document.querySelector('.form-step-line').classList.add('done');
-  document.getElementById('formHeading').textContent='בדיקת חיסכון — שלב 2';
-  document.getElementById('formSub').textContent='עוד 3 שדות → דוח ROI מדויק.';
-  if(typeof gtag==='function')gtag('event','form_step1_complete',{event_category:'lead'});
+  document.getElementById('formHeading').textContent='הנה כמה אתה מאבד';
+  document.getElementById('formSub').textContent='השאר פרטים — נשלח פירוט מלא + Quick Win ב-WhatsApp.';
+  if(typeof gtag==='function')gtag('event','roi_computed',{event_category:'lead'});
   document.getElementById('leadFormContent').scrollTop=0;
 }
 function gotoStep1(){
@@ -1944,8 +1941,8 @@ function gotoStep1(){
     if(s===1)d.classList.add('active');
   });
   document.querySelector('.form-step-line').classList.remove('done');
-  document.getElementById('formHeading').textContent='בדיקת חיסכון — שלב 1';
-  document.getElementById('formSub').textContent='4 שדות קצרים. 30 שניות. נתקשר אליך חזרה ב-WhatsApp.';
+  document.getElementById('formHeading').textContent='כמה העסק שלך מאבד?';
+  document.getElementById('formSub').textContent='3 שאלות מהירות → מספר מדויק. בלי טלפון בשלב הזה.';
 }
 
 /* ====== LEAD MAGNET FORM ====== */
@@ -2077,53 +2074,20 @@ if(waFloat){
   <div class="form-step-line"></div>
   <div class="form-step-dot" data-step="2"><span>2</span></div>
 </div>
-<h2 id="formHeading">בדיקת חיסכון — שלב 1</h2>
-<p class="form-sub" id="formSub">4 שדות קצרים. 30 שניות. נתקשר אליך חזרה ב-WhatsApp.</p>
+<h2 id="formHeading">כמה העסק שלך מאבד?</h2>
+<p class="form-sub" id="formSub">3 שאלות מהירות → מספר מדויק. בלי טלפון בשלב הזה.</p>
 <form id="leadFormEl">
-<!-- STEP 1 -->
+<!-- STEP 1 — ROI inputs only (no PII, value-first) -->
 <div class="form-step" data-step="1">
-  <label>שם מלא *</label>
-  <input name="fname" required placeholder="איך קוראים לך?" aria-label="שם מלא" autocomplete="name">
-
-  <label>טלפון / WhatsApp *</label>
-  <input name="phone" type="tel" required placeholder="050-0000000" aria-label="טלפון" autocomplete="tel">
-
-  <div class="form-row">
-    <div>
-      <label>סוג עסק *</label>
-      <select name="btype" required>
-        <option value="">בחר...</option>
-        <option>מסעדה / בית קפה</option>
-        <option>נדל"ן / תיווך</option>
-        <option>שירותים מקצועיים</option>
-        <option>קמעונאות / חנות</option>
-        <option>תיירות / אירוח</option>
-        <option>אחר</option>
-      </select>
-    </div>
-    <div>
-      <label>מה הכי גוזל זמן? *</label>
-      <select name="pain" required>
-        <option value="">בחר...</option>
-        <option>לידים והודעות</option>
-        <option>תיאומים ופולואפים</option>
-        <option>הצעות מחיר / מסמכים</option>
-        <option>מעקב אחר לקוחות</option>
-        <option>משהו אחר</option>
-      </select>
-    </div>
-  </div>
-
-  <button type="button" class="form-submit" id="stepNextBtn" onclick="gotoStep2()">המשך לדוח ROI מדויק ←</button>
-  <p class="form-step-hint">שלב 2 = עוד 30 שניות לחישוב חיסכון בכסף ושעות</p>
-</div>
-
-<!-- STEP 2 -->
-<div class="form-step" data-step="2" style="display:none;">
-  <button type="button" class="form-back" onclick="gotoStep1()">← חזור לשלב 1</button>
-
-  <label>מייל (אופציונלי — נשלח אליך דוח ROI)</label>
-  <input name="email" type="email" placeholder="your@email.com" aria-label="אימייל" autocomplete="email">
+  <label>מה הכי גוזל זמן? *</label>
+  <select name="pain" required>
+    <option value="">בחר...</option>
+    <option>לידים והודעות</option>
+    <option>תיאומים ופולואפים</option>
+    <option>הצעות מחיר / מסמכים</option>
+    <option>מעקב אחר לקוחות</option>
+    <option>משהו אחר</option>
+  </select>
 
   <div class="form-row">
     <div>
@@ -2157,10 +2121,47 @@ if(waFloat){
     <option>250+ ₪</option>
   </select>
 
+  <button type="button" class="form-submit" id="stepNextBtn" onclick="gotoStep2()">ראה כמה אתה מאבד ←</button>
+  <p class="form-step-hint">בלי טלפון בשלב הזה — קודם המספרים שלך</p>
+</div>
+
+<!-- STEP 2 — ROI result (value) + contact capture -->
+<div class="form-step" data-step="2" style="display:none;">
+  <button type="button" class="form-back" onclick="gotoStep1()">← חזור לשאלות</button>
+
+  <div id="roiTeaser" class="roi-teaser"></div>
+
+  <p class="form-step-hint" style="margin:4px 0 14px;font-size:14px;color:rgba(255,255,255,.7)">רוצה את הפירוט המלא + Quick Win מותאם לעסק שלך? נשלח לך ל-WhatsApp.</p>
+
+  <label>שם מלא *</label>
+  <input name="fname" required placeholder="איך קוראים לך?" aria-label="שם מלא" autocomplete="name">
+
+  <label>טלפון / WhatsApp *</label>
+  <input name="phone" type="tel" required placeholder="050-0000000" aria-label="טלפון" autocomplete="tel">
+
+  <div class="form-row">
+    <div>
+      <label>סוג עסק *</label>
+      <select name="btype" required>
+        <option value="">בחר...</option>
+        <option>מסעדה / בית קפה</option>
+        <option>נדל"ן / תיווך</option>
+        <option>שירותים מקצועיים</option>
+        <option>קמעונאות / חנות</option>
+        <option>תיירות / אירוח</option>
+        <option>אחר</option>
+      </select>
+    </div>
+    <div>
+      <label>מייל (אופציונלי)</label>
+      <input name="email" type="email" placeholder="your@email.com" aria-label="אימייל" autocomplete="email">
+    </div>
+  </div>
+
   <!-- שם עסק אופציונלי נשמר כאן בשקט כדי לא לשבור את הבקאנד -->
   <input type="hidden" name="bname" value="">
 
-  <button type="submit" class="form-submit">בדוק את פוטנציאל החיסכון שלי ←</button>
+  <button type="submit" class="form-submit">שלח לי פירוט מלא + Quick Win ←</button>
 </div>
 </form>
 </div>
