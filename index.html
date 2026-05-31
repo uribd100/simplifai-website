@@ -815,6 +815,8 @@ footer{background:#040A18;padding:40px 56px;display:flex;justify-content:space-b
 .form-submit{width:100%;margin-top:24px;padding:14px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:'Heebo',sans-serif;transition:transform .2s,box-shadow .2s;}
 .form-submit:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,111,76,.4);}
 .form-submit:disabled{opacity:.6;cursor:wait;transform:none;}
+/* Sticky submit CTA — keeps the action button visible while the modal scrolls (mobile step 2) */
+.form-submit{position:sticky;bottom:0;box-shadow:0 -14px 22px 12px #0A1628;}
 .form-close{position:absolute;top:12px;left:12px;background:none;border:none;color:rgba(255,255,255,.4);font-size:24px;cursor:pointer;line-height:1;}
 .form-close:hover{color:#fff;}
 .form-success{text-align:center;padding:40px 20px;}
