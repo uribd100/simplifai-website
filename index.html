@@ -2022,17 +2022,11 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     var mh=Math.round(h*s*22),mc=Math.round(mh*r),sv=Math.round(mc*.65);
     document.getElementById('leadFormContent').innerHTML=
       '<div class="form-success">'+
-      '<h3>הנה ההערכה שלך</h3>'+
-      '<p>שלחנו לך גם הודעה ב-WhatsApp</p>'+
-      '<div class="roi-cards">'+
-      '<div class="roi-card"><div class="roi-val">'+mh+'</div><div class="roi-label">שעות מבוזבזות / חודש</div></div>'+
-      '<div class="roi-card"><div class="roi-val" style="color:#FF6F4C">₪'+mc.toLocaleString('he-IL')+'</div><div class="roi-label">עלות חודשית</div></div>'+
-      '<div class="roi-card"><div class="roi-val" style="color:#22C55E">₪'+sv.toLocaleString('he-IL')+'</div><div class="roi-label">חיסכון פוטנציאלי / חודש</div></div>'+
-      '<div class="roi-card"><div class="roi-val" style="color:#8B5CF6">'+escHtml(data.main_pain)+'</div><div class="roi-label">כאב מרכזי</div></div>'+
-      '</div>'+
-      '<p style="margin-top:16px">רוצה לראות איך מערכת כזו עובדת בפועל?</p>'+
+      '<h3>קיבלנו — בדרך אליך ב-WhatsApp</h3>'+
+      '<p>שלחנו לך את הפירוט המלא של החיסכון (כ-<strong style="color:#22C55E">₪'+sv.toLocaleString('he-IL')+'/חודש</strong>) + Quick Win מותאם לעסק שלך.</p>'+
+      '<p style="margin-top:18px">רוצה לראות איך מערכת כזו עובדת בפועל?</p>'+
       '<a href="https://calendly.com/simplifai-il/meet-with-me" target="_blank" style="display:inline-block;margin-top:12px;padding:14px 32px;background:linear-gradient(135deg,#FF6F4C,#FF4F6F);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;">קבע שיחה חינם של 20 דקות ←</a>'+
-      '<p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.4);">בינתיים — שלחנו לך הודעה ב-WhatsApp עם פירוט נוסף.<br>ענה עליה ונתחיל.</p>'+
+      '<p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.4);">ענה להודעה ב-WhatsApp ונתחיל.</p>'+
       '</div>';
   }).catch(function(){
     btn.disabled=false;btn.textContent='שלח בדיקה חינם';
