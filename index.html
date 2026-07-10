@@ -237,14 +237,10 @@
 }
 </script>
 
-<!-- FONTS (preconnect + preload for critical hero font) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- FONTS — fully self-hosted (Google Fonts CDN removed 2026-07-10: its late-arriving CSS re-declared Heebo/Outfit, re-downloaded them and repainted the H1 → LCP 6.9s regression) -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/heebo-hebrew.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/heebo-latin.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/outfit-900-latin.woff2">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Outfit:wght@700;900&family=Share+Tech+Mono&display=swap"></noscript>
 <link rel="preload" as="image" href="/assets/icons/problem-1.webp" fetchpriority="low">
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBCEEL8J8G"></script>
@@ -265,6 +261,8 @@ if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:3000}
 @font-face{font-family:'Heebo';font-style:normal;font-weight:400 900;font-display:swap;src:url('/assets/fonts/heebo-hebrew.woff2') format('woff2');unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
 @font-face{font-family:'Heebo';font-style:normal;font-weight:400 900;font-display:swap;src:url('/assets/fonts/heebo-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'Outfit';font-style:normal;font-weight:900;font-display:swap;src:url('/assets/fonts/outfit-900-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:700 800;font-display:swap;src:url('/assets/fonts/outfit-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/sharetechmono-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :focus-visible{outline:2px solid #4D8EFF;outline-offset:3px;border-radius:4px;}
@@ -1577,10 +1575,9 @@ function initPts(){
   const cnt=isMob?50:180;
   for(let i=0;i<cnt;i++)pts.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*2.5+.5,a:Math.random()*.6+.2,p:Math.random()*Math.PI*2});
 }
-window.addEventListener('load',initPts);
-initPts();
 let mx=-999,my=-999;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+let ptsRaf=null;
 function drawPts(){
   ctx.clearRect(0,0,cvs.width,cvs.height);const t=Date.now()*.001;
   pts.forEach(n=>{
@@ -1589,16 +1586,25 @@ function drawPts(){
     if(!isMob){const dx=n.x-mx,dy=n.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<150){n.x+=dx/d*2;n.y+=dy/d*2;}}
     const pulse=(Math.sin(t*2+n.p)+1)*.5;
     ctx.beginPath();ctx.arc(n.x,n.y,n.r*(1+pulse*.5),0,Math.PI*2);
-    ctx.shadowColor='#4D8EFF';ctx.shadowBlur=pulse*10;
+    if(!isMob){ctx.shadowColor='#4D8EFF';ctx.shadowBlur=pulse*10;}
     ctx.fillStyle=`rgba(77,142,255,${n.a*(0.6+pulse*.4)})`;ctx.fill();ctx.shadowBlur=0;
   });
   for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
     const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
     if(d<200){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(77,142,255,${(1-d/200)*.18})`;ctx.lineWidth=1;ctx.stroke();}
   }
-  requestAnimationFrame(drawPts);
+  ptsRaf=requestAnimationFrame(drawPts);
 }
-drawPts();
+/* Start only after full load (keeps particles off the critical path) + pause when hero is off-screen */
+function armPts(){
+  initPts();
+  const io=new IntersectionObserver(([e])=>{
+    if(e.isIntersecting){if(!ptsRaf)drawPts();}
+    else if(ptsRaf){cancelAnimationFrame(ptsRaf);ptsRaf=null;}
+  },{threshold:0});
+  io.observe(cvs);
+}
+if(document.readyState==='complete')armPts();else window.addEventListener('load',armPts);
 
 /* (Legacy ecosystem SVG init removed — eco-sec-v2 uses inline SVG, no JS bootstrap.) */
 
@@ -1648,29 +1654,33 @@ function miniPts(cvs,n,dist,opa){
     }
     raf=requestAnimationFrame(draw);
   }
-  // Pause when off-screen for performance
+  // Pause when off-screen for performance (the observer also does the initial start when visible)
   const visObs=new IntersectionObserver(([e])=>{
     if(e.isIntersecting){if(!raf){init();draw();}}
     else{if(raf){cancelAnimationFrame(raf);raf=null;}}
   },{threshold:0.01});
   visObs.observe(cvs.parentElement||cvs);
   window.addEventListener('resize',init);
-  init();draw();
 }
-// Auto-inject particles into all content sections
-document.querySelectorAll('.sec,.eco-sec,.final-cta').forEach((sec,i)=>{
-  if(sec.querySelector('.sec-canvas'))return;
-  sec.style.position='relative';
-  const c=document.createElement('canvas');
-  c.className='sec-canvas';c.id='ap'+i;
-  sec.prepend(c);
-  miniPts(c,50,140,0.35);
-});
-// Named section canvases (higher density)
-['srv-particles','proc-particles','cta-particles'].forEach(id=>{
-  const c=document.getElementById(id);
-  if(c)miniPts(c,id==='cta-particles'?70:55,150,id==='cta-particles'?0.6:0.45);
-});
+/* Section particles are desktop-only (on mobile they were ~15 near-invisible dots costing a rAF loop each)
+   and armed only after full load — off the critical rendering path */
+function armSectionPts(){
+  document.querySelectorAll('.sec,.eco-sec,.final-cta').forEach((sec,i)=>{
+    if(sec.querySelector('.sec-canvas'))return;
+    sec.style.position='relative';
+    const c=document.createElement('canvas');
+    c.className='sec-canvas';c.id='ap'+i;
+    sec.prepend(c);
+    miniPts(c,50,140,0.35);
+  });
+  ['srv-particles','proc-particles','cta-particles'].forEach(id=>{
+    const c=document.getElementById(id);
+    if(c)miniPts(c,id==='cta-particles'?70:55,150,id==='cta-particles'?0.6:0.45);
+  });
+}
+if(window.innerWidth>=768){
+  if(document.readyState==='complete')armSectionPts();else window.addEventListener('load',armSectionPts);
+}
 
 /* ====== ORBITAL PROCESS INTERACTION ====== */
 const orbSteps=[
