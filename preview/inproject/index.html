@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
 <style>
 :root{
   --dark:#0a1510; --dark2:#0f1f18; --glass:rgba(15,31,24,.58); --glass2:rgba(255,255,255,.04);
@@ -160,10 +161,12 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 .contact{font-weight:600; font-size:14px; color:var(--faint); margin-top:28px}
 .contact b{color:#fff}
 
-.reveal{opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1; transform:none}
-.reveal[data-d="1"]{transition-delay:.07s}.reveal[data-d="2"]{transition-delay:.14s}.reveal[data-d="3"]{transition-delay:.21s}
-.reveal[data-d="4"]{transition-delay:.28s}.reveal[data-d="5"]{transition-delay:.35s}
+/* התוכן גלוי כברירת מחדל. ההסתרה חלה רק כשיש JS (מחלקת .js על <html>),
+   כך שכשל בסקריפט או בדפדפן לא משאיר את המסמך ריק. */
+.js .reveal{opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1; transform:none}
+.js .reveal[data-d="1"]{transition-delay:.07s}.js .reveal[data-d="2"]{transition-delay:.14s}.js .reveal[data-d="3"]{transition-delay:.21s}
+.js .reveal[data-d="4"]{transition-delay:.28s}.js .reveal[data-d="5"]{transition-delay:.35s}
 
 @media(max-width:880px){
   .hero{grid-template-columns:1fr; padding-top:30px; gap:26px; border-radius:38px}
@@ -397,10 +400,31 @@ addEventListener('scroll', () => {
   prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
 }, {passive:true});
 
-const io = new IntersectionObserver((es) => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// גילוי הדרגתי — עם רשת ביטחון. IntersectionObserver לבדו מפספס אלמנטים
+// בגלילה מהירה, ואז סקשן שלם נשאר בלתי נראה. כאן כל אלמנט שהגיע לאזור
+// הצפייה נחשף גם דרך בדיקת מיקום ישירה בכל גלילה.
+const items = [...document.querySelectorAll('.reveal')];
+const show = el => el.classList.add('in');
+
+const io = new IntersectionObserver((es, obs) => {
+  es.forEach(e => { if (e.isIntersecting) { show(e.target); obs.unobserve(e.target); } });
+}, {threshold:.01, rootMargin:'0px 0px -4% 0px'});
+items.forEach(el => io.observe(el));
+
+let ticking = false;
+function sweep(){
+  ticking = false;
+  const limit = innerHeight * .96;
+  for (const el of items) {
+    if (!el.classList.contains('in') && el.getBoundingClientRect().top < limit) show(el);
+  }
+}
+addEventListener('scroll', () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(sweep); }
+}, {passive:true});
+addEventListener('resize', sweep, {passive:true});
+addEventListener('load', sweep);
+sweep();
 </script>
 </body>
 </html>
