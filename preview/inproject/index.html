@@ -115,6 +115,25 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 .card p{font-size:14px; font-weight:500; color:var(--muted); margin:0}
 .card .q{margin:14px 22px 0; font-weight:600; font-size:12.5px; color:var(--blue); background:rgba(77,142,255,.08); border:1px solid rgba(77,142,255,.18); padding:8px 15px; border-radius:16px}
 
+/* founders */
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.fnd{background:var(--glass2);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);overflow:hidden;transition:.35s;display:flex;flex-direction:column}
+.fnd:hover{transform:translateY(-8px);border-color:rgba(77,142,255,.35);box-shadow:0 28px 84px rgba(77,142,255,.16)}
+.fnd .ph{position:relative;height:300px;overflow:hidden;background:rgba(77,142,255,.05)}
+.fnd .ph img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:saturate(1.08);transition:transform .5s}
+.fnd:hover .ph img{transform:scale(1.05)}
+.fnd .ph::after{content:'';position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(0deg,rgba(10,21,16,.92),transparent)}
+.fnd .ph .org{position:absolute;z-index:2;inset:auto auto 14px 16px;font-weight:700;font-size:11.5px;color:#fff;background:rgba(10,21,16,.72);border:1px solid rgba(77,142,255,.35);padding:6px 13px;border-radius:999px;backdrop-filter:blur(6px)}
+.fnd .bd{padding:22px 26px 26px}
+.fnd .nm{font-family:'Baloo 2','Rubik',sans-serif;font-size:23px;font-weight:800;line-height:1.15}
+.fnd .cred{font-size:12.5px;font-weight:700;color:var(--blue);margin:4px 0 16px}
+.fnd ul{list-style:none;display:grid;gap:10px}
+.fnd li{font-size:13.5px;font-weight:500;color:var(--muted);padding-right:17px;position:relative}
+.fnd li::before{content:'•';position:absolute;right:0;color:var(--green);font-weight:800}
+.fnd li b{color:#fff;font-weight:700}
+.exp{margin-top:26px}
+.exp h4{font-family:'Baloo 2','Rubik',sans-serif;font-size:16px;font-weight:800;color:var(--blue);margin-bottom:14px}
+
 /* split: structured vs unstructured */
 .vs{display:grid; grid-template-columns:1fr auto 1fr; gap:18px; margin-top:28px; align-items:stretch}
 .col{border-radius:var(--r-lg); padding:30px 28px; border:1px solid rgba(255,255,255,.08); background:var(--glass2); backdrop-filter:blur(12px)}
@@ -171,7 +190,8 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 @media(max-width:880px){
   .hero{grid-template-columns:1fr; padding-top:30px; gap:26px; border-radius:38px}
   .hero-visual{order:-1; max-width:340px; margin:0 auto}
-  .c5,.c3,.c2,.vs,.closing,.grp,.show{grid-template-columns:1fr}
+  .c5,.c3,.c2,.vs,.closing,.grp,.show,.founders{grid-template-columns:1fr}
+  .fnd .ph{height:260px}
   .vsmid{display:none}
   .show .im{min-height:210px}
   .closing .founder{margin:0 auto}
@@ -260,9 +280,70 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
     </div>
   </section>
 
-  <!-- 02 — STRUCTURED VS UNSTRUCTURED -->
+  <!-- 02 — WHO WE ARE -->
   <section>
-    <div class="sec-tag reveal" data-d="1"><span class="num">02</span><span class="lbl">איפה בדיוק הפער</span></div>
+    <div class="sec-tag reveal" data-d="1"><span class="num">02</span><span class="lbl">מי אנחנו</span></div>
+    <h2 class="sec-h reveal" data-d="1">הנדסה וניהול לפיתוח — <span class="g">ואגף AI שנבנה מתוכם</span></h2>
+    <p class="sec-p reveal" data-d="2">E.N.G Holdings — "Eilat New Generation" — חברת הנדסה וניהול לפיתוח, שצמחה
+      באילת ופועלת בכל הארץ. אנחנו מלווים פרויקטים מורכבים מטרום-ייזום ועד מסירה, מתוך ניסיון של שנים
+      מול רשויות, מינהלות וגופים ציבוריים. <b style="color:#fff">simplifAI הוא אגף ה-AI שצמח מתוך העבודה
+      הזו</b> — לא ספק טכנולוגיה שהגיע מבחוץ ולמד את התחום מהצד.</p>
+
+    <div class="founders">
+      <div class="fnd reveal" data-d="1">
+        <div class="ph"><img src="assets/adi-profile.webp" alt="עדי גורשניק"><span class="org">E.N.G Holdings</span></div>
+        <div class="bd">
+          <div class="nm">אינג׳ עדי גורשניק</div>
+          <div class="cred">B.Sc · MBA · מייסד E.N.G Holdings</div>
+          <ul>
+            <li>לשעבר <b>ראש מינהלת הסכם הגג</b> ופיתוח העיר אילת</li>
+            <li><b>סמנכ״ל ומ״מ מנכ״ל</b> החברה הכלכלית לאילת</li>
+            <li>חבר הנהלה ומבקר פנימי · רשת ישרוטל</li>
+            <li>ממייסדי חברת התוכנה SmartSchool</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fnd reveal" data-d="2">
+        <div class="ph"><img src="assets/uri-profile.webp" alt="אורי בר דרור"><span class="org">simplifAI</span></div>
+        <div class="bd">
+          <div class="nm">אורי בר דרור</div>
+          <div class="cred">B.A · M.A מנהל עסקים וכלכלה · מייסד simplifAI</div>
+          <ul>
+            <li><b>מעל עשור בניהול בפועל</b> של עסקים ומערכות</li>
+            <li>מנהל מערכות ואוטומציה · E.N.G Holdings ו-ב.ס מהנדסים</li>
+            <li>לשעבר מנכ״ל פארק תמנע</li>
+            <li>רקע במדידות הנדסיות ובעבודה עם AutoCAD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp reveal" data-d="3">
+      <h4>תחומי מומחיות שחופפים לעולם שלכם</h4>
+      <div class="chips">
+        <span class="chip">רשויות מקומיות</span>
+        <span class="chip">הקמת מינהלות</span>
+        <span class="chip">סטטוטורי · תב״ע</span>
+        <span class="chip">הסכמי גג</span>
+        <span class="chip">התחדשות עירונית</span>
+        <span class="chip">אזורי תעשייה ותעסוקה</span>
+        <span class="chip">PPP · BOT</span>
+        <span class="chip">ניהול תאגידים עירוניים</span>
+        <span class="chip">תיירות ומלונאות</span>
+      </div>
+    </div>
+
+    <div class="note reveal" data-d="4">
+      <b>למה השילוב הזה חשוב:</b> ניהול פרויקטים מול ריבוי רשויות, יזמים וספקים הוא מה שהוליד אצלנו
+      את מערכות הניהול ואת אגף ה-AI. מי שבנה אותן ישב בצד שלכם של השולחן — וזה ההבדל בין מערכת
+      שעובדים בה לבין מערכת שעוקפים אותה.
+    </div>
+  </section>
+
+  <!-- 03 — STRUCTURED VS UNSTRUCTURED -->
+  <section>
+    <div class="sec-tag reveal" data-d="1"><span class="num">03</span><span class="lbl">איפה בדיוק הפער</span></div>
     <h2 class="sec-h reveal" data-d="1">מה שמסודר — <span class="gn">כבר פתור</span>.<br>הפער הוא במה שלא.</h2>
     <p class="sec-p reveal" data-d="2">אנחנו לא באים להחליף מערכות שעובדות. אם יש אצלכם מערכת לבקרת איכות
       ולניהול בדיקות — היא עושה את שלה, ואין שום סיבה לגעת בה.</p>
@@ -296,9 +377,9 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
     <p class="vsnote reveal" data-d="4">בדיקת מסמך מול כלל ידוע היא בדיוק מה<br>שהטכנולוגיה הזאת עושה היום הכי טוב.</p>
   </section>
 
-  <!-- 03 — PROOF -->
+  <!-- 04 — PROOF -->
   <section>
-    <div class="sec-tag reveal" data-d="1"><span class="num">03</span><span class="lbl">הוכחה</span></div>
+    <div class="sec-tag reveal" data-d="1"><span class="num">04</span><span class="lbl">הוכחה</span></div>
     <h2 class="sec-h reveal" data-d="1">מערכת שרצה <span class="g">במשרד הנדסה אמיתי</span></h2>
     <p class="sec-p reveal" data-d="2">לא אב-טיפוס ולא מצגת. מערכת ניהול פרויקטים שנבנתה עבור E.N.G Holdings,
       שהעובדים שלה עובדים בה כל יום.</p>
@@ -329,9 +410,9 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
     </div>
   </section>
 
-  <!-- 04 — WHAT IT LOOKS LIKE HERE -->
+  <!-- 05 — WHAT IT LOOKS LIKE HERE -->
   <section>
-    <div class="sec-tag reveal" data-d="1"><span class="num">04</span><span class="lbl">איך זה נראה אצלכם</span></div>
+    <div class="sec-tag reveal" data-d="1"><span class="num">05</span><span class="lbl">איך זה נראה אצלכם</span></div>
     <h2 class="sec-h reveal" data-d="1">מתחילים <span class="gn">בתהליך אחד</span>, לא בארגון שלם</h2>
     <p class="sec-p reveal" data-d="2">הדרך שאנחנו עובדים בה היא לבחור תהליך יחיד שכואב, להוכיח עליו ערך
       תוך שבועות, ורק אז להחליט אם ואיך מרחיבים. אם לא הוכח ערך — עצרנו, והפסדתם מעט מאוד.</p>
@@ -355,9 +436,9 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
     </div>
   </section>
 
-  <!-- 05 — THE GROUP -->
+  <!-- 06 — THE GROUP -->
   <section>
-    <div class="sec-tag reveal" data-d="1"><span class="num">05</span><span class="lbl">ומעבר לזה</span></div>
+    <div class="sec-tag reveal" data-d="1"><span class="num">06</span><span class="lbl">ומעבר לזה</span></div>
     <h2 class="sec-h reveal" data-d="1">אותה שיטה, <span class="g">בקנה מידה של קבוצה</span></h2>
     <p class="sec-p reveal" data-d="2">מה שעובד על תהליך אחד ב-INPROJECT הוא אותו דפוס בדיוק בכל מקום שבו
       מסמכים, כללים ותהליכים חוזרים על עצמם בהיקף. זה נכון לכל ארגון בקבוצה.</p>
