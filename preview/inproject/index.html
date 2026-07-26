@@ -10,7 +10,7 @@
 <meta property="og:description" content="תצפיות ראשוניות — לא הצעת מחיר.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800&family=Outfit:wght@900&display=swap" rel="stylesheet">
 <script>document.documentElement.className+=' js';</script>
 <style>
 :root{
@@ -170,15 +170,25 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 .note{margin-top:26px;padding:20px 24px;border-radius:var(--r-md);background:rgba(77,142,255,.06);border:1px solid rgba(77,142,255,.18);font-size:14.5px;font-weight:500;color:var(--muted)}
 .note b{color:#fff;font-weight:700}
 
-.closing{display:grid; grid-template-columns:.8fr 1.2fr; gap:44px; align-items:center}
-.founder{position:relative; aspect-ratio:1; max-width:320px; border-radius:var(--r-lg); overflow:hidden; border:1.5px solid rgba(120,180,255,.3); box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.founder img{width:100%;height:100%; object-fit:cover; filter:saturate(1.1)}
-.founder .nm{position:absolute; inset:auto 0 0 0; padding:18px; font-family:'Baloo 2','Rubik',sans-serif; background:linear-gradient(0deg,rgba(10,21,16,.95),transparent)}
-.founder .nm b{font-size:17px; font-weight:800} .founder .nm span{font-size:12.5px; font-weight:500; color:var(--muted)}
-.closing h2{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(32px,6.4vw,62px); font-weight:800; letter-spacing:-.5px; line-height:1.04}
-.closing .ln{font-size:clamp(16px,2.6vw,21px); font-weight:500; color:var(--muted); margin:16px 0 30px}
-.contact{font-weight:600; font-size:14px; color:var(--faint); margin-top:28px}
-.contact b{color:#fff}
+/* closing — moment image + logo lockup on both sides of the text */
+.closing{padding:0!important; overflow:hidden}
+.closing .moment{position:relative; height:clamp(200px,26vw,330px); overflow:hidden}
+.closing .moment img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.closing .moment::after{content:''; position:absolute; inset:0;
+  background:linear-gradient(0deg,var(--dark) 2%,rgba(10,21,16,.55) 45%,rgba(10,21,16,.15))}
+.closing .inner{position:relative; margin-top:-40px; padding:0 clamp(22px,5vw,60px) clamp(40px,6vw,70px);
+  display:grid; grid-template-columns:1fr auto 1fr; gap:clamp(20px,4vw,50px); align-items:center}
+.brandmark{display:grid; place-items:center; gap:10px}
+.brandmark img{width:clamp(150px,17vw,225px); height:auto; opacity:.95;
+  filter:drop-shadow(0 6px 22px rgba(0,0,0,.6))}
+.wordmark{font-family:'Outfit',sans-serif; font-weight:900; direction:ltr;
+  font-size:clamp(30px,4.4vw,50px); letter-spacing:-2px; color:#fff; line-height:1; white-space:nowrap}
+.wordmark span{color:var(--blue); text-shadow:0 0 24px rgba(77,142,255,.55)}
+.brandmark .cap{font-size:11px; font-weight:600; letter-spacing:1.2px; color:var(--faint); text-align:center}
+.closing .mid{text-align:center; max-width:52ch}
+.closing h2{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,54px); font-weight:800; letter-spacing:-.5px; line-height:1.06}
+.closing .ln{font-size:clamp(15px,2.2vw,19px); font-weight:500; color:var(--muted); margin:16px 0 28px}
+.closing .actions{justify-content:center}
 
 /* התוכן גלוי כברירת מחדל. ההסתרה חלה רק כשיש JS (מחלקת .js על <html>),
    כך שכשל בסקריפט או בדפדפן לא משאיר את המסמך ריק. */
@@ -190,7 +200,9 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 @media(max-width:880px){
   .hero{grid-template-columns:1fr; padding-top:30px; gap:26px; border-radius:38px}
   .hero-visual{order:-1; max-width:340px; margin:0 auto}
-  .c5,.c3,.c2,.vs,.closing,.grp,.show,.founders{grid-template-columns:1fr}
+  .c5,.c3,.c2,.vs,.closing .inner,.grp,.show,.founders{grid-template-columns:1fr}
+  .closing .inner{margin-top:-26px;gap:26px;text-align:center}
+  .closing .mid{margin:0 auto}
   .fnd .ph{height:260px}
   .vsmid{display:none}
   .show .im{min-height:210px}
@@ -242,31 +254,31 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 
     <div class="cards c3">
       <div class="card reveal" data-d="1"><div class="glw"></div>
-        <div class="thumb"><img src="assets/services-docs.webp" alt=""></div>
+        <div class="thumb"><img src="assets/tender-pack.webp" alt="" loading="lazy"></div>
         <div class="bd"><h3>הפקת תיק מכרז</h3>
           <p>חוזים, מפרטים וכתבי כמויות נבנים מחדש בכל פרויקט, על בסיס גרסאות קודמות שמישהו צריך לזכור איפה הן.</p></div>
         <div class="q">כמה זמן לוקח להוציא תיק מכרז מלא, ומי כותב אותו בפועל?</div>
       </div>
       <div class="card reveal" data-d="2"><div class="glw"></div>
-        <div class="thumb"><img src="assets/reports.webp" alt=""></div>
+        <div class="thumb"><img src="assets/spec-check.webp" alt="" loading="lazy"></div>
         <div class="bd"><h3>התאמה למפרטים</h3>
           <p>מפרט הדרישות הכלליות של נת"ע לעבודות קבלניות הוא מעל מאתיים עמודים. בדיקת התאמה אליו נעשית היום בעיניים.</p></div>
         <div class="q">כמה סבבי תיקונים עוברים עד אישור?</div>
       </div>
       <div class="card reveal" data-d="3"><div class="glw"></div>
-        <div class="thumb"><img src="assets/email.webp" alt=""></div>
+        <div class="thumb"><img src="assets/permits.webp" alt="" loading="lazy"></div>
         <div class="bd"><h3>התנהלות מול רשויות</h3>
           <p>תיקי היתר, סבבי הערות וטופס 4 — מול עשרות רשויות, לכל אחת דרישות ונהלים משלה.</p></div>
         <div class="q">איך עוקבים אחרי סבב הערות, ומה נופל בין הכיסאות?</div>
       </div>
       <div class="card reveal" data-d="1"><div class="glw"></div>
-        <div class="thumb"><img src="assets/whatsapp.webp" alt=""></div>
+        <div class="thumb"><img src="assets/field-report.webp" alt="" loading="lazy"></div>
         <div class="bd"><h3>דיווח מהשטח</h3>
           <p>בפרויקט תשתית של חצי מיליארד שקל, האתגר שדווח במפורש היה איסוף המידע מספקים ומקבלני משנה.</p></div>
         <div class="q">כמה מהדיווח מגיע במייל ובוואטסאפ, ומי מקליד אותו?</div>
       </div>
       <div class="card reveal" data-d="2"><div class="glw"></div>
-        <div class="thumb"><img src="assets/services-crm-erp.webp" alt=""></div>
+        <div class="thumb"><img src="assets/merged-knowledge.webp" alt="" loading="lazy"></div>
         <div class="bd"><h3>הידע שאחרי המיזוג</h3>
           <p>שלוש חברות ותיקות שהתמזגו, שלושה סניפים. חלק גדול מהידע המקצועי עדיין יושב בראש של אנשים, לא במערכת.</p></div>
         <div class="q">איך עובד מהנדס שעבר לפרויקט של חברה אחרת בקבוצה?</div>
@@ -457,18 +469,26 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 
   <!-- CLOSING -->
   <section class="closing" id="talk">
-    <div class="founder reveal" data-d="1">
-      <img src="assets/uri-profile.webp" alt="אורי בר דרור">
-      <div class="nm"><b>אורי בר דרור</b><br><span>מייסד simplifAI · אגף ה-AI של E.N.G Holdings</span></div>
-    </div>
-    <div>
-      <h2 class="reveal" data-d="1">נתחיל <span class="g">בשיחה</span>.</h2>
-      <p class="ln reveal" data-d="2">המסמך הזה הוא תצפיות מבחוץ, ובכוונה אין בו מחיר ואין בו הצעה.
-        הצעד הנכון הוא שיחה קצרה שבסופה נדע אם יש כאן התאמה אמיתית — ואם אין, גם זו תשובה טובה.</p>
-      <div class="actions reveal" data-d="3">
-        <a class="btn btn-wa" href="https://calendly.com/simplifai_il" target="_blank" rel="noopener">לתאם שיחה</a>
+    <div class="moment"><img src="assets/closing-moment.webp" alt="תשתית עירונית בשעת בין ערביים" loading="lazy"></div>
+    <div class="inner">
+      <div class="brandmark reveal" data-d="1">
+        <img src="assets/eng-logo.png" alt="E.N.G Holdings">
+        <span class="cap">הנדסה וניהול לפיתוח</span>
       </div>
-      <p class="contact reveal" data-d="4"><b>אורי בר דרור</b> · simplifAI · <b>office@simplifai.co.il</b></p>
+
+      <div class="mid">
+        <h2 class="reveal" data-d="2">נתחיל <span class="g">בשיחה</span>.</h2>
+        <p class="ln reveal" data-d="3">המסמך הזה הוא תצפיות מבחוץ, ובכוונה אין בו מחיר ואין בו הצעה.
+          הצעד הנכון הוא שיחה קצרה שבסופה נדע אם יש כאן התאמה אמיתית — ואם אין, גם זו תשובה טובה.</p>
+        <div class="actions reveal" data-d="4">
+          <a class="btn btn-wa" href="https://calendly.com/simplifai_il" target="_blank" rel="noopener">לתאם שיחה</a>
+        </div>
+      </div>
+
+      <div class="brandmark reveal" data-d="1">
+        <span class="wordmark">simplif<span>AI</span></span>
+        <span class="cap">אגף ה-AI</span>
+      </div>
     </div>
   </section>
 
