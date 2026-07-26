@@ -45,7 +45,19 @@ img{display:block}
   background:linear-gradient(180deg,rgba(10,21,16,.86),rgba(10,21,16,0))}
 .logo{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:21px; letter-spacing:-.3px}
 .logo span{color:var(--blue)} .logo .x{color:var(--faint); font-weight:600; margin:0 7px}
-.logo .sb{display:block;font-family:'Rubik',sans-serif;font-weight:600;font-size:10px;color:var(--muted);letter-spacing:.5px;margin-top:2px}
+.brandrow{display:flex;align-items:center;gap:clamp(8px,1.4vw,16px)}
+.brandrow img{height:clamp(22px,2.6vw,30px);width:auto;display:block}
+.brandrow .lg-inp{height:clamp(16px,2vw,21px)}
+.brandrow .x{color:var(--faint);font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px}
+.subline{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.4px;margin-top:4px}
+.wordmark{font-family:'Outfit',sans-serif;font-weight:900;direction:ltr;color:#fff;line-height:1;white-space:nowrap}
+.wordmark span{color:var(--blue);text-shadow:0 0 24px rgba(77,142,255,.55)}
+.wordmark.sm{font-size:12px;letter-spacing:-.6px}
+.herologos{display:flex;align-items:center;gap:clamp(14px,2.6vw,34px);flex-wrap:wrap;margin:0}
+.herologos img{width:auto;display:block;filter:drop-shadow(0 8px 26px rgba(0,0,0,.55))}
+.herologos .lg-eng{height:clamp(46px,6.4vw,82px)}
+.herologos .lg-inp{height:clamp(34px,4.8vw,62px)}
+.herologos .x{color:var(--green);font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(26px,4vw,44px)}
 .pill{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; color:var(--ink);
   border:1px solid rgba(0,230,118,.3); background:rgba(0,230,118,.08); padding:9px 16px; border-radius:999px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--green); animation:pulse 2.4s infinite}
@@ -69,6 +81,7 @@ section::before{content:''; position:absolute; top:-120px; left:-80px; width:340
 .sec-tag .lbl::before{content:''; position:absolute; right:0; top:50%; transform:translateY(-50%); width:7px;height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green)}
 h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58px); font-weight:800; line-height:1.08; letter-spacing:-.5px; margin-bottom:16px}
 .sec-p{font-size:clamp(15px,2vw,18px); font-weight:500; color:var(--muted); max-width:62ch; margin-bottom:6px}
+.sec-p.wide{max-width:none}
 
 .hero{min-height:calc(100vh - 40px); display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center;
   max-width:1240px; margin-top:88px; padding:clamp(40px,6vw,80px) clamp(26px,5vw,66px); border-radius:54px;
@@ -119,12 +132,14 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 .founders{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
 .fnd{background:var(--glass2);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);overflow:hidden;transition:.35s;display:flex;flex-direction:column}
 .fnd:hover{transform:translateY(-8px);border-color:rgba(77,142,255,.35);box-shadow:0 28px 84px rgba(77,142,255,.16)}
-.fnd .ph{position:relative;height:300px;overflow:hidden;background:rgba(77,142,255,.05)}
-.fnd .ph img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:saturate(1.08);transition:transform .5s}
-.fnd:hover .ph img{transform:scale(1.05)}
-.fnd .ph::after{content:'';position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(0deg,rgba(10,21,16,.92),transparent)}
-.fnd .ph .org{position:absolute;z-index:2;inset:auto auto 14px 16px;font-weight:700;font-size:11.5px;color:#fff;background:rgba(10,21,16,.72);border:1px solid rgba(77,142,255,.35);padding:6px 13px;border-radius:999px;backdrop-filter:blur(6px)}
-.fnd .bd{padding:22px 26px 26px}
+.fnd .who{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.fnd .av{width:104px;height:104px;flex:none;border-radius:26px;overflow:hidden;
+  border:1.5px solid rgba(120,180,255,.32);box-shadow:0 12px 34px rgba(0,0,0,.5)}
+.fnd .av img{width:100%;height:100%;object-fit:cover;filter:saturate(1.06);transition:transform .5s}
+.fnd:hover .av img{transform:scale(1.05)}
+.fnd .org{display:inline-block;margin-top:8px;font-weight:700;font-size:11px;color:#fff;
+  background:rgba(77,142,255,.10);border:1px solid rgba(77,142,255,.3);padding:5px 12px;border-radius:999px}
+.fnd .bd{padding:26px 26px 28px}
 .fnd .nm{font-family:'Baloo 2','Rubik',sans-serif;font-size:23px;font-weight:800;line-height:1.15}
 .fnd .cred{font-size:12.5px;font-weight:700;color:var(--blue);margin:4px 0 16px}
 .fnd ul{list-style:none;display:grid;gap:10px}
@@ -203,7 +218,7 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
   .c5,.c3,.c2,.vs,.closing .inner,.grp,.show,.founders{grid-template-columns:1fr}
   .closing .inner{margin-top:-26px;gap:26px;text-align:center}
   .closing .mid{margin:0 auto}
-  .fnd .ph{height:260px}
+  .fnd .who{flex-direction:row}
   .vsmid{display:none}
   .show .im{min-height:210px}
   .closing .founder{margin:0 auto}
@@ -215,7 +230,15 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 <body>
 <div class="progress"><i id="prog"></i></div>
 <div class="topbar">
-  <div class="logo">E.N.G<span> HOLDINGS</span><span class="x">×</span>INPROJECT<span class="sb">הנדסה וניהול לפיתוח · אגף AI: simplifAI</span></div>
+  <div>
+    <div class="brandrow">
+      <img class="lg-eng" src="assets/eng-logo.png" alt="E.N.G Holdings">
+      <span class="x">×</span>
+      <img class="lg-inp" src="assets/inproject-mark.png" alt="INPROJECT">
+    </div>
+    <div class="subline">הנדסה וניהול לפיתוח · אגף ה-AI:
+      <span class="wordmark sm">simplif<span>AI</span></span></div>
+  </div>
   <span class="pill"><span class="dot"></span> תצפיות ראשוניות · לא הצעת מחיר</span>
 </div>
 
@@ -225,7 +248,11 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
   <section class="hero">
     <div>
       <span class="kick reveal" data-d="1">נכתב לקראת פגישה · יולי 2026</span>
-      <h1 class="reveal" data-d="1"><span class="si">E.N.G</span> <span class="x">×</span> INPROJECT</h1>
+      <h1 class="herologos reveal" data-d="1">
+        <img class="lg-eng" src="assets/eng-logo.png" alt="E.N.G Holdings">
+        <span class="x">×</span>
+        <img class="lg-inp" src="assets/inproject-logo.png" alt="INPROJECT">
+      </h1>
       <p class="sub reveal" data-d="2">המערכות מכסות את מה שמסודר.<br>השאלה היא מי מטפל בכל השאר.</p>
       <p class="sub2 reveal" data-d="3">תיק מכרז שנכתב מחדש. מייל מרשות שמישהו צריך לזכור. דיווח שהגיע מהשטח
         בוואטסאפ. ותשובה שיושבת בראש של מהנדס אחד. זה לא מסודר — ולכן אין לזה מוצר מדף.</p>
@@ -296,17 +323,22 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
   <section>
     <div class="sec-tag reveal" data-d="1"><span class="num">02</span><span class="lbl">מי אנחנו</span></div>
     <h2 class="sec-h reveal" data-d="1">הנדסה וניהול לפיתוח — <span class="g">ואגף AI שנבנה מתוכם</span></h2>
-    <p class="sec-p reveal" data-d="2">E.N.G Holdings — "Eilat New Generation" — חברת הנדסה וניהול לפיתוח, שצמחה
+    <p class="sec-p wide reveal" data-d="2">E.N.G Holdings — "Eilat New Generation" — חברת הנדסה וניהול לפיתוח, שצמחה
       באילת ופועלת בכל הארץ. אנחנו מלווים פרויקטים מורכבים מטרום-ייזום ועד מסירה, מתוך ניסיון של שנים
       מול רשויות, מינהלות וגופים ציבוריים. <b style="color:#fff">simplifAI הוא אגף ה-AI שצמח מתוך העבודה
       הזו</b> — לא ספק טכנולוגיה שהגיע מבחוץ ולמד את התחום מהצד.</p>
 
     <div class="founders">
       <div class="fnd reveal" data-d="1">
-        <div class="ph"><img src="assets/adi-profile.webp" alt="עדי גורשניק"><span class="org">E.N.G Holdings</span></div>
         <div class="bd">
-          <div class="nm">אינג׳ עדי גורשניק</div>
-          <div class="cred">B.Sc · MBA · מייסד E.N.G Holdings</div>
+          <div class="who">
+            <div class="av"><img src="assets/adi-profile.webp" alt="עדי גורשניק"></div>
+            <div>
+              <div class="nm">אינג׳ עדי גורשניק</div>
+              <div class="cred">B.Sc · MBA · מייסד E.N.G Holdings</div>
+              <span class="org">E.N.G Holdings</span>
+            </div>
+          </div>
           <ul>
             <li>לשעבר <b>ראש מינהלת הסכם הגג</b> ופיתוח העיר אילת</li>
             <li><b>סמנכ״ל ומ״מ מנכ״ל</b> החברה הכלכלית לאילת</li>
@@ -317,12 +349,17 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
       </div>
 
       <div class="fnd reveal" data-d="2">
-        <div class="ph"><img src="assets/uri-profile.webp" alt="אורי בר דרור"><span class="org">simplifAI</span></div>
         <div class="bd">
-          <div class="nm">אורי בר דרור</div>
-          <div class="cred">B.A · M.A מנהל עסקים וכלכלה · מייסד simplifAI</div>
+          <div class="who">
+            <div class="av"><img src="assets/uri-profile.webp" alt="אורי בר דרור"></div>
+            <div>
+              <div class="nm">אורי בר דרור</div>
+              <div class="cred">MBA · מייסד simplifAI</div>
+              <span class="org">simplifAI</span>
+            </div>
+          </div>
           <ul>
-            <li><b>מעל עשור בניהול בפועל</b> של עסקים ומערכות</li>
+            <li><b>מעל 20 שנות ניהול בפועל</b> של עסקים ומערכות</li>
             <li>מנהל מערכות ואוטומציה · E.N.G Holdings ו-ב.ס מהנדסים</li>
             <li>לשעבר מנכ״ל פארק תמנע</li>
             <li>רקע במדידות הנדסיות ובעבודה עם AutoCAD</li>
@@ -358,12 +395,12 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
     <div class="sec-tag reveal" data-d="1"><span class="num">03</span><span class="lbl">איפה בדיוק הפער</span></div>
     <h2 class="sec-h reveal" data-d="1">מה שמסודר — <span class="gn">כבר פתור</span>.<br>הפער הוא במה שלא.</h2>
     <p class="sec-p reveal" data-d="2">אנחנו לא באים להחליף מערכות שעובדות. אם יש אצלכם מערכת לבקרת איכות
-      ולניהול בדיקות — היא עושה את שלה, ואין שום סיבה לגעת בה.</p>
+      ולניהול בדיקות — היא עושה את שלה, ואין שום סיבה לגעת בה — אלא אם אתם לא מרוצים ממנה.</p>
 
     <div class="vs">
       <div class="col them reveal" data-d="1">
         <h4>המובנה</h4>
-        <div class="who">יש לזה מוצרי מדף טובים · לא נוגעים</div>
+        <div class="who">יש מוצרי מדף טובים · לא נוגעים</div>
         <ul>
           <li>בדיקות איכות לפי צ׳ק-ליסט מוגדר</li>
           <li>דוחות ליקויים ומעקב תיקון</li>
@@ -375,7 +412,7 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
       <div class="vsmid reveal" data-d="2">מול</div>
       <div class="col me reveal" data-d="3">
         <h4>הלא-מובנה</h4>
-        <div class="who">אין לזה מוצר מדף · כאן אנחנו עובדים</div>
+        <div class="who">אין מוצר מדף · כאן אנחנו עובדים</div>
         <ul>
           <li>מסמך שנכתב מחדש במקום להיבנות מתבנית</li>
           <li>התכתבות מול רשות שאף אחד לא סוגר</li>
@@ -417,7 +454,7 @@ h2.sec-h{font-family:'Baloo 2','Rubik',sans-serif; font-size:clamp(30px,5.4vw,58
 
     <div class="note reveal" data-d="3">
       <b>למה זה רלוונטי אליכם דווקא:</b> המערכת הזאת לא נבנתה לארגון כללי — היא נבנתה לתוך
-      שגרת העבודה של משרד הנדסה. ההבדל בין מערכת שעובדים בה לבין מערכת שעוקפים אותו נמצא
+      שגרת העבודה של משרד הנדסה. ההבדל בין מערכת שעובדים בה לבין מערכת שעוקפים אותה נמצא
       בדיוק שם.
     </div>
   </section>
