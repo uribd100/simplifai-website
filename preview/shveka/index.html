@@ -37,7 +37,7 @@
     background:radial-gradient(1100px 560px at 82% -12%, rgba(77,142,255,.16), transparent 60%),
     radial-gradient(900px 520px at -6% 58%, rgba(255,111,76,.08), transparent 55%)}
   .cover .bgsketch{position:absolute;inset:0;z-index:0;opacity:.72;pointer-events:none;
-    background:url(assets/shveka-sketch.png) center bottom / 100% auto no-repeat}
+    background:url(assets/shveka-sketch.webp) center bottom / 100% auto no-repeat}
   .cover > *:not(.bgsketch){position:relative;z-index:1}
   .cov-head{text-align:center;padding-top:5mm}
   .cov-head .lockup{justify-content:center}
@@ -82,6 +82,16 @@
   .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr}
   .card{background:linear-gradient(165deg,var(--card),rgba(11,21,48,.55));border:1px solid var(--line);border-radius:16px;padding:16px}
   .card h3{font-size:19px;margin-bottom:6px}
+  /* generated visuals — same treatment as the website's image cards */
+  .cimg{width:100%;height:132px;border-radius:11px;overflow:hidden;margin-bottom:13px;
+    background:rgba(77,142,255,.05);border:1px solid var(--line)}
+  .cimg img{width:100%;height:100%;object-fit:cover;display:block}
+  .cimg.warn{border-color:rgba(255,111,76,.22)}
+  .banner{width:100%;height:150px;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    margin:4px 0 18px;position:relative}
+  .banner img{width:100%;height:100%;object-fit:cover;display:block}
+  .banner::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(6,13,31,.35),transparent 45%)}
   /* stat chips */
   .stats{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
   .stats .st{background:linear-gradient(160deg,rgba(77,142,255,.12),rgba(11,21,48,.3));border:1px solid var(--line);border-radius:13px;padding:11px 18px}
@@ -158,7 +168,7 @@
     <div class="lockup lockup-lg">
       <span class="sa">simplif<i>AI</i></span>
       <span class="with">בשיתוף</span>
-      <img class="englogo" src="assets/eng-logo.png" alt="ENG">
+      <img class="englogo" src="assets/eng-logo.webp" alt="ENG">
     </div>
     <div class="pill-wrap">
       <span class="pill pill-lg">
@@ -169,7 +179,7 @@
   </div>
 
   <div class="cov-mid">
-    <img class="shveka-hero" src="assets/shveka-logo.png" alt="קבוצת שוויקה">
+    <img class="shveka-hero" src="assets/shveka-logo.webp" alt="קבוצת שוויקה">
     <h1>מערכת שמנהלת <span class="accent">משימות ופגישות</span><br>ומדברת עם הצוות ב-WhatsApp</h1>
     <p class="sub">כל החלטה מפגישה הופכת למשימה עם אחראי — אוטומטית. תזכורות, האצלת משימות ותמלול פגישות ← משימות, במקום אחד, על השרת שלכם.</p>
     <div class="covchips">
@@ -198,13 +208,13 @@
   <p style="margin-top:12px">בכל אחת מ-5 הזרועות יש ישיבות תיאום עם עובדים, מנהלים, יועצים חיצוניים ושותפים (ENG, KEY WEST, אדריכלים). היום התיאום חי בטלפון, בוואטסאפ ובמיילים מפוזרים — ו<b>ההחלטות מפגישה לא תמיד הופכות למשימה שמישהו באמת אחראי עליה</b>.</p>
   <div class="grid g3" style="margin-top:16px">
     <div class="card">
-      <div class="ico orange"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.4 18a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
+      <div class="cimg warn"><img src="assets/p-fallen-tasks.webp" alt="משימות שנופלות"></div>
       <h3 class="cta-c">משימות שנופלות</h3><p class="muted">"סוכם בישיבה" — אבל אף אחד לא סימן מי אחראי ועד מתי</p></div>
     <div class="card">
-      <div class="ico orange"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div class="cimg warn"><img src="assets/p-coordination-hours.webp" alt="שעות על תיאום"></div>
       <h3 class="cta-c">שעות על תיאום</h3><p class="muted">אושרת, מנהלת המשרד, והמנהלים רודפים אחרי עדכונים ומזכירים ידנית</p></div>
     <div class="card">
-      <div class="ico orange"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/><path d="M18 17l2 2 3-3" transform="translate(-1,0)"/></svg></div>
+      <div class="cimg warn"><img src="assets/p-scattered-knowledge.webp" alt="ידע מבוזר"></div>
       <h3 class="cta-c">ידע מבוזר</h3><p class="muted">תמלולי פגישות (TIMELESS) שלא מתחברים למשימות ולמעקב</p></div>
   </div>
 </section>
@@ -228,13 +238,13 @@
   <p>מערכת עצמאית (Stand-alone) שרצה על השרת/המחשב של שוויקה — הנתונים נשארים אצלכם, בבעלות מלאה. היא מדברת עם הצוות ב-WhatsApp ועושה שלושה דברים:</p>
   <div class="grid g3" style="margin-top:14px">
     <div class="card">
-      <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1112 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 003.4 0"/></svg></div>
+      <div class="cimg"><img src="assets/s-reminders.webp" alt="תזכורות אוטומטיות"></div>
       <h3 class="accent">תזכורות</h3><p class="muted">מזכירה לאנשים הנכונים על פגישות, משימות ודדליינים — אוטומטית, בזמן</p></div>
     <div class="card">
-      <div class="ico"><svg viewBox="0 0 24 24"><path d="M11 6h10M11 12h10M11 18h10"/><path d="M3 6l1.4 1.4L6 4.6M3 12l1.4 1.4L6 10.6M3 18l1.4 1.4L6 16.6"/></svg></div>
+      <div class="cimg"><img src="assets/s-delegation.webp" alt="האצלת משימות"></div>
       <h3 class="accent">האצלת משימות</h3><p class="muted">מנהל מקצה משימה לעובד/מנהל דרך WhatsApp, עם אחראי ותאריך יעד — והיא מופיעה אצלו מיד</p></div>
     <div class="card best" style="border-radius:16px">
-      <div class="ico gold"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
+      <div class="cimg"><img src="assets/s-transcript-to-tasks.webp" alt="תמלול למשימות"></div>
       <h3 class="gold">תמלול ← משימות</h3><p class="muted">התמליל מ-TIMELESS נכנס למערכת ← סיכום פגישה מסודר ← חלוקת משימות אוטומטית לכל המשתתפים הרשומים</p></div>
   </div>
 
@@ -386,6 +396,7 @@
   <h2>זמינות <span class="gold">24/7</span> — למענה טכני ולשיפורים</h2>
   <p style="margin-bottom:16px">מערכת שכל הצוות מסתמך עליה ביום-יום צריכה מישהו שזמין כשצריך — לא "פנייה שתטופל בהמשך". לכן הליווי החודשי הוא <b>ערוץ פתוח 24/7</b>: המערכת מנוטרת אוטומטית מסביב לשעון, תקלה קריטית מטופלת בכל שעה — כולל סופי שבוע — ושיפורים ממשיכים להיכנס גם אחרי העלייה לאוויר, בין אם <b>נדרשו</b> ובין אם פשוט <b>נרצו</b>.</p>
 
+  <div class="banner"><img src="assets/s-247-banner.webp" alt="ניטור מסביב לשעון"></div>
   <div class="grid g2">
     <div class="card">
       <div class="ico green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
@@ -512,7 +523,7 @@
   <div class="footlogos">
     <span class="sa">simplif<i>AI</i></span>
     <span class="with">בשיתוף</span>
-    <img src="assets/eng-logo.png" alt="ENG">
+    <img src="assets/eng-logo.webp" alt="ENG">
   </div>
   <div class="foot" dir="rtl">מפשטים עסקים. בעזרת AI. &nbsp;·&nbsp; simplifAI בשיתוף ENG Holdings<br>המספרים בהצעה הם טווחי הערכה ראשוניים; ההצעה הסופית תיקבע לאחר שיחת האפיון</div>
 </div>
