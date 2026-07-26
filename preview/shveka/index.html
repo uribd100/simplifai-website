@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>הצעה — מערכת AI לניהול תפעול ופגישות | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap"></noscript>
+<style>
+  :root{
+    --bg:#060D1F; --bg2:#0B1530; --card:#0E1A38; --line:#1E2D52;
+    --txt:#EAF0FF; --muted:#9DB0D6; --accent:#4D8EFF; --cta:#FF6F4C; --gold:#F2C14E; --green:#22C55E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{size:A4;margin:0}
+  html,body{background:var(--bg);color:var(--txt);font-family:'Heebo',sans-serif;line-height:1.7;font-weight:300}
+  .page{width:210mm;margin:0 auto;padding:14mm 15mm;position:relative;overflow:hidden}
+  section,.card,.tier,.ctaBox,.note,.steps,.grid,.flow,.roadstep{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  h2,h3{page-break-after:avoid}
+  h1,h2,h3{font-family:'Outfit','Heebo',sans-serif;font-weight:800;line-height:1.25}
+  .accent{color:var(--accent)} .gold{color:var(--gold)} .cta-c{color:var(--cta)} .green{color:var(--green)}
+  .muted{color:var(--muted)}
+  /* icons */
+  .ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:rgba(77,142,255,.12);border:1px solid var(--line);color:var(--accent);margin-bottom:12px}
+  .ico svg,.ni svg,.rc svg,.arr svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .ico svg{width:23px;height:23px}
+  .ico.orange{background:rgba(255,111,76,.12);color:var(--cta)}
+  .ico.green{background:rgba(34,197,94,.12);color:var(--green)}
+  .ico.gold{background:rgba(242,193,78,.12);color:var(--gold)}
+  /* cover */
+  .cover{min-height:285mm;display:flex;flex-direction:column;position:relative;overflow:hidden;
+    background:radial-gradient(1100px 560px at 82% -12%, rgba(77,142,255,.16), transparent 60%),
+    radial-gradient(900px 520px at -6% 58%, rgba(255,111,76,.08), transparent 55%)}
+  .cover .bgsketch{position:absolute;inset:0;z-index:0;opacity:.72;pointer-events:none;
+    background:url(assets/shveka-sketch.png) center bottom / 100% auto no-repeat}
+  .cover > *:not(.bgsketch){position:relative;z-index:1}
+  .cov-head{text-align:center;padding-top:5mm}
+  .cov-head .lockup{justify-content:center}
+  .lockup-lg .sa{font-size:31px}
+  .lockup-lg .englogo{height:40px}
+  .lockup-lg .with{font-size:15px}
+  .pill-wrap{display:flex;justify-content:center;margin-top:18px}
+  .pill-lg{font-size:17px;padding:13px 30px;border-width:2px;box-shadow:0 0 28px rgba(77,142,255,.25)}
+  .pill-lg svg{width:17px;height:17px}
+  .cov-mid{flex:1;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;gap:22px;padding:34px 0 0}
+  .shveka-hero{height:86px;margin-bottom:18px}
+  .cov-foot{text-align:center;padding-bottom:2mm}
+  .cov-foot .meta{margin:0;display:inline-block;background:rgba(6,13,31,.72);border:1px solid var(--line);
+    border-radius:999px;padding:6px 18px}
+  .lockup{display:flex;align-items:center;gap:14px;direction:ltr}
+  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:25px;color:#fff;letter-spacing:.3px}
+  .lockup .sa i{color:var(--accent);font-style:normal}
+  .lockup .with{color:var(--muted);font-size:13px;font-family:'Heebo';font-weight:500}
+  .lockup img.englogo{height:30px;filter:drop-shadow(0 0 12px rgba(255,255,255,.18))}
+  .cover h1{font-size:45px;margin:22px 0 12px}
+  .cover .sub{font-size:20px;color:var(--muted);max-width:670px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent);color:var(--accent);border-radius:999px;
+    padding:7px 18px;font-size:14px;margin-bottom:6px;font-weight:500;background:rgba(77,142,255,.06)}
+  .pill svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8}
+  .recipient{display:flex;align-items:center;gap:16px;margin-top:34px;background:linear-gradient(160deg,rgba(14,26,56,.7),rgba(11,21,48,.35));
+    border:1px solid var(--line);border-radius:16px;padding:16px 22px;width:fit-content}
+  .recipient .lbl{color:var(--muted);font-size:14px}
+  .recipient img{height:46px}
+  .covchips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .covchips .chip{border:1px solid var(--line);background:rgba(14,26,56,.6);border-radius:999px;
+    padding:7px 17px;font-size:13.5px;color:#CFE0FF;font-weight:500}
+  .covchips .gold-chip{border-color:rgba(242,193,78,.55);color:var(--gold);background:rgba(242,193,78,.08)}
+  .meta{margin-top:22px;color:var(--muted);font-size:14px}
+  .meta b{color:#cfe0ff}
+  /* sections */
+  section{padding:22px 0;border-bottom:1px solid var(--line);position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;letter-spacing:2px;font-size:12.5px;text-transform:uppercase}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
+  section h2{font-size:28px;margin:6px 0 12px}
+  p{color:#D6E1FB;margin-bottom:12px}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr}
+  .card{background:linear-gradient(165deg,var(--card),rgba(11,21,48,.55));border:1px solid var(--line);border-radius:16px;padding:16px}
+  .card h3{font-size:19px;margin-bottom:6px}
+  /* stat chips */
+  .stats{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+  .stats .st{background:linear-gradient(160deg,rgba(77,142,255,.12),rgba(11,21,48,.3));border:1px solid var(--line);border-radius:13px;padding:11px 18px}
+  .stats .st b{font-family:'Outfit';font-size:21px;color:#fff;display:block;line-height:1.1}
+  .stats .st span{font-size:12px;color:var(--muted)}
+  /* flow diagram */
+  .flow{display:flex;align-items:stretch;gap:6px;margin-top:18px}
+  .flow .node{flex:1;background:linear-gradient(165deg,var(--card),rgba(11,21,48,.5));border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center}
+  .flow .node.hero{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 22px rgba(77,142,255,.15)}
+  .flow .node .ni{width:42px;height:42px;border-radius:12px;margin:0 auto 9px;display:flex;align-items:center;justify-content:center;background:rgba(77,142,255,.14);color:var(--accent)}
+  .flow .node.hero .ni{background:rgba(242,193,78,.14);color:var(--gold)}
+  .flow .node .ni svg{width:22px;height:22px}
+  .flow .node b{font-size:13.5px;display:block;color:#fff}
+  .flow .node span{font-size:11.5px;color:var(--muted)}
+  .flow .arr{flex:0 0 22px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .flow .arr svg{width:20px;height:20px}
+  /* tiers */
+  .tier{position:relative;display:flex;flex-direction:column}
+  .tier .thead{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .tier ul{list-style:none;margin-top:12px} .tier li{padding:6px 0;color:#CFE;font-size:14px;border-bottom:1px dashed var(--line);display:flex;gap:7px;align-items:flex-start}
+  .tier li svg{flex:0 0 15px;width:15px;height:15px;margin-top:4px;stroke:var(--accent);fill:none;stroke-width:2.4}
+  .best{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 26px rgba(77,142,255,.12)}
+  .badge{position:absolute;top:-12px;inset-inline-start:18px;background:var(--accent);color:#00122e;
+    font-weight:700;font-size:12px;padding:4px 13px;border-radius:999px}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14.5px}
+  th,td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--accent);font-weight:700} td{color:#D6E1FB}
+  .num{color:var(--gold);font-weight:700;white-space:nowrap}
+  /* steps */
+  .steps{counter-reset:s} .step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+  .step .n{flex:0 0 34px;height:34px;border-radius:11px;background:linear-gradient(160deg,var(--accent),var(--secondary,#2B6BE0));color:#00122e;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Outfit'}
+  /* roadmap */
+  .roadstep{display:flex;gap:14px;margin-bottom:9px;align-items:flex-start}
+  .roadstep .rc{flex:0 0 46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(77,142,255,.1);border:1px solid var(--line);color:var(--accent)}
+  .roadstep .rc svg{width:22px;height:22px}
+  .roadstep.now .rc{background:rgba(242,193,78,.14);color:var(--gold);border-color:rgba(242,193,78,.5)}
+  .roadstep .rb{flex:1;border-inline-start:2px solid var(--line);padding-inline-start:14px;padding-bottom:4px}
+  .roadstep.now .rb{border-color:var(--gold)}
+  .roadstep .ph{font-family:'Outfit';font-weight:800;font-size:12.5px;color:var(--accent);letter-spacing:.5px}
+  .roadstep.now .ph{color:var(--gold)}
+  .roadstep b.t{font-size:16px;color:#fff}
+  /* notes / cta */
+  .note{background:rgba(242,193,78,.08);border:1px solid var(--gold);border-radius:14px;padding:18px}
+  .note.blue{background:rgba(77,142,255,.08);border-color:var(--accent)}
+  .ctaBox{background:linear-gradient(120deg, rgba(77,142,255,.18), rgba(255,111,76,.13));
+    border:1px solid var(--accent);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+  .ctaBox::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(77,142,255,.25),transparent 70%);top:-120px;inset-inline-start:-60px}
+  .btn{display:flex;width:fit-content;align-items:center;gap:9px;background:var(--cta);color:#fff;font-weight:700;text-decoration:none;
+    padding:13px 30px;border-radius:999px;margin:14px auto 0;position:relative}
+  .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+  .foot{padding:0;color:var(--muted);font-size:12.5px;text-align:center}
+  .lastpage{break-before:page;display:flex;flex-direction:column;justify-content:space-between;height:296mm;padding-bottom:2mm}
+  .footer-block{border-top:1px solid var(--line);padding-top:14px}
+  .valuestrip{display:flex;justify-content:space-between;gap:16px;background:linear-gradient(160deg,rgba(77,142,255,.09),rgba(11,21,48,.3));border:1px solid var(--line);border-radius:14px;padding:16px 24px}
+  .valuestrip span{color:#CFE;font-size:14.5px;display:flex;align-items:center;gap:9px}
+  .valuestrip b{color:var(--green);font-family:'Outfit';font-size:16px}
+  .footlogos{display:flex;align-items:center;justify-content:center;gap:16px;direction:ltr;margin-bottom:12px}
+  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:21px;color:#fff}
+  .footlogos .sa i{color:var(--accent)}
+  .footlogos .with{color:var(--muted);font-size:14px;font-family:'Heebo'}
+  .footlogos img{height:26px;opacity:.95}
+  @media(max-width:760px){.g3,.g2{grid-template-columns:1fr}.cover h1{font-size:32px}.page{padding:30px 20px}.flow{flex-direction:column}.flow .arr{transform:rotate(-90deg)}}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bgsketch"></div>
+
+  <div class="cov-head">
+    <div class="lockup lockup-lg">
+      <span class="sa">simplif<i>AI</i></span>
+      <span class="with">בשיתוף</span>
+      <img class="englogo" src="assets/eng-logo.png" alt="ENG">
+    </div>
+    <div class="pill-wrap">
+      <span class="pill pill-lg">
+        <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+        הצעה · מערכת AI לניהול תפעול ופגישות
+      </span>
+    </div>
+  </div>
+
+  <div class="cov-mid">
+    <img class="shveka-hero" src="assets/shveka-logo.png" alt="קבוצת שוויקה">
+    <h1>מערכת שמנהלת <span class="accent">משימות ופגישות</span><br>ומדברת עם הצוות ב-WhatsApp</h1>
+    <p class="sub">כל החלטה מפגישה הופכת למשימה עם אחראי — אוטומטית. תזכורות, האצלת משימות ותמלול פגישות ← משימות, במקום אחד, על השרת שלכם.</p>
+    <div class="covchips">
+      <span class="chip">על השרת שלכם</span>
+      <span class="chip">בעלות מלאה</span>
+      <span class="chip gold-chip">תמיכה ושיפורים 24/7</span>
+    </div>
+  </div>
+
+  <div class="cov-foot">
+    <div class="meta">26.7.2026 &nbsp;·&nbsp; תוקף ההצעה: 30 יום</div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM + STATS + COST ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">המצב היום</div>
+  <h2>הרבה זרועות, הרבה פגישות — והכול מתואם ידנית</h2>
+  <div class="stats">
+    <div class="st"><b>5</b><span>זרועות פעילות</span></div>
+    <div class="st"><b>80M+ ₪</b><span>מחזור שנתי</span></div>
+    <div class="st"><b>100+</b><span>עובדים</span></div>
+    <div class="st"><b>Coface BDi</b><span>תו איתנות</span></div>
+  </div>
+  <p style="margin-top:12px">בכל אחת מ-5 הזרועות יש ישיבות תיאום עם עובדים, מנהלים, יועצים חיצוניים ושותפים (ENG, KEY WEST, אדריכלים). היום התיאום חי בטלפון, בוואטסאפ ובמיילים מפוזרים — ו<b>ההחלטות מפגישה לא תמיד הופכות למשימה שמישהו באמת אחראי עליה</b>.</p>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card">
+      <div class="ico orange"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.4 18a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
+      <h3 class="cta-c">משימות שנופלות</h3><p class="muted">"סוכם בישיבה" — אבל אף אחד לא סימן מי אחראי ועד מתי</p></div>
+    <div class="card">
+      <div class="ico orange"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3 class="cta-c">שעות על תיאום</h3><p class="muted">אושרת, מנהלת המשרד, והמנהלים רודפים אחרי עדכונים ומזכירים ידנית</p></div>
+    <div class="card">
+      <div class="ico orange"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/><path d="M18 17l2 2 3-3" transform="translate(-1,0)"/></svg></div>
+      <h3 class="cta-c">ידע מבוזר</h3><p class="muted">תמלולי פגישות (TIMELESS) שלא מתחברים למשימות ולמעקב</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">מה זה עולה</div>
+  <h2>הזמן שהולך על ניהול ידני — הוא הכסף האמיתי</h2>
+  <p>כל שעה של מנהל/ת שהולכת על תזכורות, סיכומי פגישות והעברת משימות — היא שעה שלא הולכת על מה שבאמת מזיז את הקבוצה. וכל משימה שנופלת בין הכיסאות עולה הרבה יותר משעה: פגישה שנשכחה, יועץ שלא קיבל מה שהיה צריך, דדליין שעבר בפרויקט.</p>
+  <div class="note blue">
+    <b class="accent">חישוב לדוגמה (נאמת מולכם באפיון):</b>
+    <p style="margin-top:6px">אם ניהול הפגישות והמשימות לוקח היום כ-8 שעות בשבוע בין אושרת למנהלים, ובשווי שעה שמרני — מדובר ב<b class="gold">עשרות אלפי ₪ בשנה</b> שנבלעים בתפעול ידני, עוד לפני העלות של משימות שנפלו. המערכת מחזירה את רוב הזמן הזה.</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ SOLUTION + FLOW ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">הפתרון</div>
+  <h2>עוזר תפעול חכם — על השרת שלכם, בשליטה שלכם</h2>
+  <p>מערכת עצמאית (Stand-alone) שרצה על השרת/המחשב של שוויקה — הנתונים נשארים אצלכם, בבעלות מלאה. היא מדברת עם הצוות ב-WhatsApp ועושה שלושה דברים:</p>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1112 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 003.4 0"/></svg></div>
+      <h3 class="accent">תזכורות</h3><p class="muted">מזכירה לאנשים הנכונים על פגישות, משימות ודדליינים — אוטומטית, בזמן</p></div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M11 6h10M11 12h10M11 18h10"/><path d="M3 6l1.4 1.4L6 4.6M3 12l1.4 1.4L6 10.6M3 18l1.4 1.4L6 16.6"/></svg></div>
+      <h3 class="accent">האצלת משימות</h3><p class="muted">מנהל מקצה משימה לעובד/מנהל דרך WhatsApp, עם אחראי ותאריך יעד — והיא מופיעה אצלו מיד</p></div>
+    <div class="card best" style="border-radius:16px">
+      <div class="ico gold"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
+      <h3 class="gold">תמלול ← משימות</h3><p class="muted">התמליל מ-TIMELESS נכנס למערכת ← סיכום פגישה מסודר ← חלוקת משימות אוטומטית לכל המשתתפים הרשומים</p></div>
+  </div>
+
+  <p style="margin-top:16px" class="muted">התמלול עצמו נשאר ב-TIMELESS (מה שכבר עובד לכם). מה שאנחנו בונים זו החוליה החסרה: <b>לקחת את התמליל, לפרק אותו להחלטות ומשימות, לזהות אחראי לכל משימה ולחלק אותה — לבד.</b> בדיוק מה שראיתם ב-PM-ENG, אבל כמערכת עצמאית משלכם:</p>
+
+  <div class="flow">
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
+      <b>TIMELESS</b><span>תמליל הפגישה</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node hero">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></div>
+      <b>מערכת שוויקה</b><span>מפרקת ומזהה אחראים</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+      <b>סיכום + משימות</b><span>מפורמט אוטומטי</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"/></svg></div>
+      <b>WhatsApp</b><span>לכל משתתף רשום</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ WHY STAGED + ROADMAP ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">הגישה · החזון הקבוצתי</div>
+  <h2>מתחילים קטן, גדלים חכם — AI לכל הקבוצה, שלב אחרי שלב</h2>
+  <p style="margin-bottom:16px">אתם חדשים בעולם ה-AI ורוצים להתקדם בשלבים — וזו בדיוק הגישה הנכונה. מתחילים ב<b>מערכת אחת ממוקדת שמוכיחה ערך תוך שבועות</b> (הבקשה של אושרת), ומרחיבים לזרוע הבאה רק כשהיא עובדת ומרגישה טבעית. <b>מתחייבים היום רק לשלב 1</b> — השאר כאן כדי שתראו את התמונה המלאה, וכל שלב מתומחר בנפרד כשתהיו מוכנים.</p>
+
+  <div class="roadstep now">
+    <div class="rc"><svg viewBox="0 0 24 24"><path d="M11 6h10M11 12h10M11 18h7"/><path d="M3 6l1.4 1.4L6 4.6M3 12l1.4 1.4L6 10.6M3 18l1.4 1.4L6 16.6"/></svg></div>
+    <div class="rb"><span class="ph">שלב 1 · עכשיו</span><br><b class="t">עוזר תפעול + תמלול←משימות</b>
+      <p class="muted" style="margin:3px 0 0">הבקשה של אושרת. תזכורות, האצלת משימות, תיאום פגישות ותמלול פגישות ← חלוקת משימות אוטומטית. הבסיס שכל השאר יושב עליו.</p></div>
+  </div>
+  <div class="roadstep">
+    <div class="rc"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></div>
+    <div class="rb"><span class="ph">שלב 2</span><br><b class="t">מכירות ויזמות</b>
+      <p class="muted" style="margin:3px 0 0">בוט WhatsApp שעונה ללידים 24/7 + CRM מרכזי + סוכן תוכן לרשתות. ה-ROI הכי מוחשי — בפרויקט שבו דירות נמכרות תוך שעות, מענה מיידי לליד שווה זהב.</p></div>
+  </div>
+  <div class="roadstep">
+    <div class="rc"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.6M22 20a6.5 6.5 0 00-5-6.3"/></svg></div>
+    <div class="rb"><span class="ph">שלב 3</span><br><b class="t">התחדשות עירונית</b>
+      <p class="muted" style="margin:3px 0 0">פורטל/בוט דיירים לפינוי-בינוי — מענה אוטומטי לשאלות, מעקב החתמות והתקדמות (SeaView לבדו = מאות משפחות), ותיאום בין כל בעלי העניין.</p></div>
+  </div>
+  <div class="roadstep">
+    <div class="rc"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div class="rb"><span class="ph">שלב 4</span><br><b class="t">נדל"ן מניב + חברת הניהול</b>
+      <p class="muted" style="margin:3px 0 0">בוט קריאות שירות ותחזוקה לשוכרים ולדיירים (מעליות, בריכות, חניות) עם ניתוב אוטומטי לאיש התחזוקה ומעקב זמני טיפול.</p></div>
+  </div>
+  <div class="roadstep">
+    <div class="rc"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M4 9h16v10a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M9 13h6"/></svg></div>
+    <div class="rb"><span class="ph">שלב 5</span><br><b class="t">קמעונאות</b>
+      <p class="muted" style="margin:3px 0 0">בוט שירות לקוחות לרשתות, אוטומציית גיוס עובדים ואנליטיקת מכירות בין הסניפים.</p></div>
+  </div>
+  <div class="roadstep">
+    <div class="rc"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+    <div class="rb"><span class="ph">רוחבי</span><br><b class="t">מנוע מסמכים וחוזים</b>
+      <p class="muted" style="margin:3px 0 0">חיפוש ושאילתות בשפה טבעית על הסכמי מכר, חוזי פינוי-בינוי ואישורים — ומרכז ידע אחוד לכל הזרועות.</p></div>
+  </div>
+</section>
+</div>
+
+<!-- ============ PHASE-1 PACKAGES ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">שלב 1 · חבילות</div>
+  <h2>3 רמות — בוחרים מה שמתאים להתחלה</h2>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card tier">
+      <div class="thead"><div class="ico" style="margin:0;width:38px;height:38px"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1112 0c0 7 3 9 3 9H3s3-2 3-9"/></svg></div><h3>בסיסי</h3></div>
+      <div class="muted">עוזר תפעול</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>עוזר WhatsApp לצוות</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>תזכורות אוטומטיות</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>האצלת משימות + אחראי + יעד</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>הרשאות לפי תפקיד (RBAC)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>תיאום פגישות + סנכרון יומן</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>רץ על השרת שלכם</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>תמיכה&nbsp;24/7</b> · 2 שעות שיפורים בחודש</li>
+      </ul>
+    </div>
+    <div class="card tier best">
+      <span class="badge">מומלץ · הבקשה המלאה</span>
+      <div class="thead"><div class="ico gold" style="margin:0;width:38px;height:38px"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10z"/></svg></div><h3>מומלץ</h3></div>
+      <div class="muted">עוזר + תמלול←משימות</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>כל מה שבבסיסי</b></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>מנוע תמלול←משימות</b></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>קליטת תמליל מ-TIMELESS</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>סיכום פגישה מפורמט אוטומטי</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>זיהוי אחראי לכל משימה</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>חלוקת משימות למשתתפים</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>תמיכה&nbsp;24/7</b> · 4 שעות שיפורים בחודש</li>
+      </ul>
+    </div>
+    <div class="card tier">
+      <div class="thead"><div class="ico" style="margin:0;width:38px;height:38px"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></div><h3>מורחב</h3></div>
+      <div class="muted">+ שכבת מכירות</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>כל מה שבמומלץ</b></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>בוט לידים WhatsApp 24/7</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>CRM לזרוע היזמות</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מענה מיידי + סינון לידים</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>דשבורד ניהולי</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg><b>תמיכה&nbsp;24/7</b> · 6 שעות שיפורים בחודש</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:14px">כל החבילות = מערכת עצמאית על השרת של שוויקה, בבעלות מלאה, עם <b>תמיכה טכנית 24/7 ומנת שעות שיפורים חודשית</b>. ניתן לשדרג בין רמות בכל שלב.</p>
+</section>
+</div>
+
+<!-- ============ PRICING ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">תמחור · שלב 1</div>
+  <h2>הקמה + דמי ניהול חודשיים</h2>
+  <table>
+    <tr><th>חבילה</th><th>הקמה (חד-פעמי)</th><th>ניהול חודשי</th><th>כולל בחודשי</th></tr>
+    <tr><td><b>בסיסי</b><br><span class="muted">עוזר תפעול</span></td><td class="num">₪14,000–18,000</td><td class="num">₪1,200–1,800</td><td class="muted">אחסון, תחזוקה, עדכונים, <b class="gold">ניטור ותמיכה 24/7</b> + 2 שעות שיפורים</td></tr>
+    <tr><td><b>מומלץ</b><br><span class="muted">+ תמלול←משימות</span></td><td class="num">₪30,000–40,000</td><td class="num">₪2,200–3,000</td><td class="muted">כל האמור + כיול מנוע התמלול, דוח חודשי ו-<b class="gold">4 שעות שיפורים</b></td></tr>
+    <tr><td><b>מורחב</b><br><span class="muted">+ מכירות</span></td><td class="num">₪48,000–62,000</td><td class="num">₪3,000–4,500</td><td class="muted">כל האמור + ניהול CRM, אופטימיזציה ו-<b class="gold">6 שעות שיפורים</b></td></tr>
+  </table>
+
+  <div class="note" style="margin-top:20px">
+    <b class="gold">התמחור לבקשה הספציפית של אושרת</b>
+    <p style="margin-top:6px">הבקשה המלאה (WhatsApp לתזכורות/פגישות/משימות + תמלול←משימות) = חבילת <b>מומלץ</b>: כ-<b class="gold">₪34,000 הקמה + ₪2,500 בחודש</b>. עיקר ההשקעה = המערכת המארחת ושכבת פירוק-התמליל (התמלול עצמו כבר קיים אצלכם ב-TIMELESS).</p>
+    <p class="muted" style="margin-top:6px">תשלום: 50% בחתימה, 50% בעלייה לאוויר. הקמה על השרת שלכם + הקשחת אבטחה — כלולים. דמי הניהול החודשיים אינם אחסון בלבד: הם כוללים <b class="gold">ניטור ותמיכה&nbsp;24/7 ושעות שיפורים</b> — פירוט בעמוד הבא. הטווח המדויק ייסגר אחרי שיחת האפיון.</p>
+  </div>
+
+  <div class="note blue" style="margin-top:16px">
+    <b class="accent">שתי דרכי בנייה — נחליט יחד באפיון</b>
+    <p style="margin-top:6px">אפשר לבנות מהר על בסיס מערכת קיימת ומוכחת, או לבנות מערכת חדשה תפורה לקבוצה שתשמש בסיס לכל השלבים הבאים. לכל דרך יתרון (מהירות מול התאמה מלאה) — נבחר את הנכונה לכם אחרי שנבין את התשתית והחזון.</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ 24/7 SUPPORT + IMPROVEMENTS ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">אחרי העלייה לאוויר · הליווי</div>
+  <h2>זמינות <span class="gold">24/7</span> — למענה טכני ולשיפורים</h2>
+  <p style="margin-bottom:16px">מערכת שכל הצוות מסתמך עליה ביום-יום צריכה מישהו שזמין כשצריך — לא "פנייה שתטופל בהמשך". לכן הליווי החודשי הוא <b>ערוץ פתוח 24/7</b>: המערכת מנוטרת אוטומטית מסביב לשעון, תקלה קריטית מטופלת בכל שעה — כולל סופי שבוע — ושיפורים ממשיכים להיכנס גם אחרי העלייה לאוויר, בין אם <b>נדרשו</b> ובין אם פשוט <b>נרצו</b>.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="ico green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3 class="green">ניטור אוטומטי מסביב לשעון</h3>
+      <p class="muted">בדיקה אוטומטית של כל חלק במערכת — השרת, חיבור ה-WhatsApp, היומן ומנוע המשימות. אם משהו נפל, אנחנו יודעים על זה מיד ובדרך כלל <b>לפניכם</b>.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 01-12.4 7.5L3.5 21l1.4-5A8.5 8.5 0 1121 12z"/><path d="M9 12h6"/></svg></div>
+      <h3 class="accent">ערוץ פתוח בכל שעה</h3>
+      <p class="muted">קו ישיר ל-simplifAI ול-ENG בוואטסאפ, לא טופס פנייה. תקלה שמשביתה את העבודה מטופלת <b>מיד, בכל שעה וגם בסוף שבוע</b> — עד שהמערכת חוזרת לעבוד.</p>
+    </div>
+    <div class="card">
+      <div class="ico gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+      <h3 class="gold">שיפורים נדרשים — כלולים</h3>
+      <p class="muted">כשהמציאות משתנה, המערכת משתנה איתה: מנהל חדש שנכנס, תהליך אישור שהתעדכן, ניסוח הודעה, שדה נוסף בדוח. <b>בלי הצעת מחיר חדשה</b> ובלי פרויקט.</p>
+    </div>
+    <div class="card">
+      <div class="ico gold"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10z"/></svg></div>
+      <h3 class="gold">שיפורים רצויים — מנת שעות חודשית</h3>
+      <p class="muted">הרעיונות הטובים באמת עולים רק אחרי שמשתמשים. כל חבילה כוללת <b>מנת שעות פיתוח חודשית</b> (2 / 4 / 6 לפי הרמה) לתוספות שאתם מבקשים — ומה שגדול מזה מתומחר בנפרד ומראש.</p>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="eyebrow">רמות שירות</div>
+  <h2>מה קורה כשצריך אותנו</h2>
+  <table>
+    <tr><th>המצב</th><th>דוגמה</th><th>זמן תגובה</th><th>טיפול</th></tr>
+    <tr>
+      <td><b class="cta-c">תקלה משביתה</b></td>
+      <td class="muted">הבוט לא עונה לצוות, משימות לא נוצרות מפגישות, המערכת לא נגישה</td>
+      <td class="num">עד שעה · 24/7</td>
+      <td class="muted">עבודה רצופה עד לפתרון, כולל לילה וסוף שבוע</td>
+    </tr>
+    <tr>
+      <td><b>תקלה מפריעה</b></td>
+      <td class="muted">תזכורת בודדת לא יצאה, סיכום שלא פורמט נכון, שדה שלא נשמר</td>
+      <td class="num">עד 4 שעות</td>
+      <td class="muted">עד יום עסקים אחד</td>
+    </tr>
+    <tr>
+      <td><b>שינוי נדרש</b></td>
+      <td class="muted">מנהל חדש, שינוי בתהליך העבודה, עדכון ניסוח או הרשאה</td>
+      <td class="num">עד יום עסקים</td>
+      <td class="muted">עד 5 ימי עסקים · כלול</td>
+    </tr>
+    <tr>
+      <td><b>שיפור רצוי</b></td>
+      <td class="muted">דוח נוסף, אוטומציה חדשה, פיצ'ר שעלה מהשימוש</td>
+      <td class="num">עד יום עסקים</td>
+      <td class="muted">מתוך מנת השעות החודשית, לפי סדר עדיפות שאתם קובעים</td>
+    </tr>
+  </table>
+
+  <div class="note blue" style="margin-top:18px">
+    <b class="accent">מה כלול — ומה מחוץ לתחום</b>
+    <p style="margin-top:6px"><b>כלול:</b> כל מה שבנינו לכם — המערכת, חיבור ה-WhatsApp, היומן, מנוע התמליל←משימות, ההרשאות והדוחות. כולל מעקב על בריאות מספר ה-WhatsApp, כדי שהוא יישאר תקין לאורך זמן.</p>
+    <p class="muted" style="margin-top:6px"><b>מחוץ לתחום:</b> תקלות אצל ספקים חיצוניים — TIMELESS, WhatsApp עצמה, ספק השרת או האינטרנט. את אלה אנחנו <b>מזהים, מתריעים ומלווים מול הספק</b>, אבל התיקון עצמו בידיו. לצורך הניטור נדרשת גישה מאובטחת ומוגדרת לשרת שלכם — נסגר בשיחת האפיון.</p>
+  </div>
+
+  <div class="note" style="margin-top:16px">
+    <b class="gold">שלכם לגמרי — ובאחריות.</b>
+    <p style="margin-top:6px">המערכת רצה על השרת של שוויקה, הנתונים נשארים אצלכם, והבעלות מלאה. תקשורת ה-WhatsApp נבנית בהתאם לכללים (הודעות לצוות ולשותפים מוכרים, עם הסכמה) — כדי שהמספר יישאר בטוח ותקין לאורך זמן.</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ ROI + TIMELINE ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">הערך הכלכלי</div>
+  <h2>מה מקבלים בפועל</h2>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><div class="ico green"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 class="green">אפס משימות שנופלות</h3><p class="muted">כל החלטה מפגישה = משימה עם אחראי ותאריך. שום דבר לא נשאר "באוויר".</p></div>
+    <div class="card"><div class="ico green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 class="green">שעות חוזרות למנהלים</h3><p class="muted">התזכורות, הסיכומים וההקצאות קורים לבד — הזמן חוזר לעבודה האמיתית.</p></div>
+    <div class="card"><div class="ico green"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></div><h3 class="green">שקיפות ניהולית</h3><p class="muted">רואים בכל רגע מה פתוח, מי אחראי ומה מתעכב — בכל הזרועות.</p></div>
+    <div class="card"><div class="ico green"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></div><h3 class="green">בסיס לכל השלבים</h3><p class="muted">אותה מערכת גדלה איתכם למכירות, דיירים, שירות וקמעונאות.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">לוח זמנים</div>
+  <h2>מהאפיון לאוויר</h2>
+  <div class="steps" style="margin-top:12px">
+    <div class="step"><div class="n">1</div><div><b>שיחת אפיון</b> — מיפוי הפגישות, המשתתפים, התפקידים והשרת שיארח את המערכת.</div></div>
+    <div class="step"><div class="n">2</div><div><b>הקמה</b> — התקנת המערכת על השרת שלכם, חיבור WhatsApp ויומן, בניית מנוע התמלול←משימות.</div></div>
+    <div class="step"><div class="n">3</div><div><b>בדיקות</b> — מריצים פגישות אמיתיות במצב בדיקה, מכיילים את זיהוי האחראים והמשימות.</div></div>
+    <div class="step"><div class="n">4</div><div><b>עלייה לאוויר</b> — + תקופת ליווי וכיול, ואז מעבר לליווי השוטף: ניטור ותמיכה 24/7 ושיפורים מתמשכים.</div></div>
+  </div>
+  <p class="muted" style="margin-top:12px">הזמן המדויק תלוי בחבילה ובדרך הבנייה שנבחר — נגדיר יעד ברור בסיום האפיון.</p>
+</section>
+</div>
+
+<!-- ============ WHY + CTA ============ -->
+<div class="page lastpage">
+<section>
+  <div class="eyebrow">למה אנחנו</div>
+  <h2>simplifAI בשיתוף ENG — מכירים אתכם ואת השטח</h2>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><h3 class="accent">כבר עובד אצל ENG</h3><p class="muted">את היכולות האלה ראיתם חיות ב-PM-ENG. אנחנו בונים לכם גרסה עצמאית משלכם.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5 5.6.8-4 4 1 5.6L12 20l-5 2.4 1-5.6-4-4 5.6-.8z"/></svg></div><h3 class="accent">מותאם, לא גנרי</h3><p class="muted">מערכת שתפורה למבנה של שוויקה ולזרועות שלה — לא תבנית מהמדף.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></div><h3 class="accent">תוצאה, לא טכנולוגיה</h3><p class="muted">פחות תפעול ידני, אפס משימות שנופלות, ובסיס לצמיחה לכל הקבוצה.</p></div>
+  </div>
+</section>
+
+<div class="valuestrip">
+  <span><b>✓</b> מערכת עצמאית על השרת שלכם</span>
+  <span><b>✓</b> בעלות מלאה על הקוד והנתונים</span>
+  <span><b>✓</b> תמיכה טכנית 24/7</span>
+  <span><b>✓</b> שיפורים שוטפים כלולים</span>
+</div>
+
+<section style="border-bottom:none">
+  <div class="ctaBox">
+    <h2>הצעד הבא — שיחת אפיון</h2>
+    <p>נמפה יחד את הפגישות והמשתתפים — ונצא לדרך עם שלב 1.</p>
+    <a class="btn" href="#">קובעים אפיון
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></a>
+  </div>
+</section>
+
+<div class="footer-block">
+  <div class="footlogos">
+    <span class="sa">simplif<i>AI</i></span>
+    <span class="with">בשיתוף</span>
+    <img src="assets/eng-logo.png" alt="ENG">
+  </div>
+  <div class="foot" dir="rtl">מפשטים עסקים. בעזרת AI. &nbsp;·&nbsp; simplifAI בשיתוף ENG Holdings<br>המספרים בהצעה הם טווחי הערכה ראשוניים; ההצעה הסופית תיקבע לאחר שיחת האפיון</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /drafts/
+Disallow: /preview/
 Disallow: /previews/
 Disallow: /pilots/
 
