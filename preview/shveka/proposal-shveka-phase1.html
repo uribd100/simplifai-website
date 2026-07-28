@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>הצעה · שלב ראשון — מהפגישה למשימות במעקב | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap"></noscript>
+<style>
+  /* THEME:DARK */
+  :root{
+    --bg:#060D1F; --card:#0E1A38; --card2:rgba(11,21,48,.55); --line:#1E2D52;
+    --txt:#FFFFFF; --txt2:#D6E1FB; --muted:#9DB0D6;
+    --accent:#4D8EFF; --accentbg:rgba(77,142,255,.12);
+    --cta:#FF6F4C; --ctabg:rgba(255,111,76,.12);
+    --gold:#F2C14E; --goldbg:rgba(242,193,78,.12); --goldline:#F2C14E;
+    --green:#22C55E; --greenbg:rgba(34,197,94,.12);
+    --badgetxt:#00122E; --chipbg:rgba(14,26,56,.6); --chiptxt:#CFE0FF; --metabg:rgba(6,13,31,.72);
+    --glow:rgba(77,142,255,.25); --heroglow:rgba(77,142,255,.15);
+    --covbg:radial-gradient(1100px 560px at 82% -12%, rgba(77,142,255,.16), transparent 60%),
+            radial-gradient(900px 520px at -6% 58%, rgba(255,111,76,.08), transparent 55%);
+    --cardshadow:none;
+  }
+  /* /THEME */
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{size:A4;margin:0}
+  html,body{background:var(--bg);color:var(--txt2);font-family:'Heebo',sans-serif;line-height:1.7;font-weight:300}
+  .page{width:210mm;margin:0 auto;padding:14mm 15mm;position:relative;overflow:hidden;break-after:page}
+  .page:last-child{break-after:auto}
+  section,.card,.ctaBox,.note,.steps,.grid,.flow{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  h2,h3{page-break-after:avoid}
+  h1,h2,h3{font-family:'Outfit','Heebo',sans-serif;font-weight:800;line-height:1.25;color:var(--txt)}
+  .accent{color:var(--accent)} .gold{color:var(--gold)} .cta-c{color:var(--cta)} .green{color:var(--green)}
+  .muted{color:var(--muted)}
+  b{color:var(--txt);font-weight:700}
+  p b{color:var(--txt)}
+  .ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:var(--accentbg);border:1px solid var(--line);color:var(--accent);margin-bottom:12px}
+  .ico svg,.ni svg,.arr svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .ico svg{width:23px;height:23px}
+  .ico.gold{background:var(--goldbg);color:var(--gold)}
+  .ico.green{background:var(--greenbg);color:var(--green)}
+  /* cover */
+  .cover{min-height:285mm;display:flex;flex-direction:column;background:var(--covbg)}
+  .cov-head{text-align:center;padding-top:5mm}
+  .cov-head .lockup{justify-content:center}
+  .lockup{display:flex;align-items:center;gap:14px;direction:ltr}
+  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:31px;color:var(--txt);letter-spacing:.3px}
+  .lockup .sa i{color:var(--accent);font-style:normal}
+  .lockup .with{color:var(--muted);font-size:15px;font-family:'Heebo';font-weight:500}
+  .lockup img.englogo{height:40px}
+  .pill-wrap{display:flex;justify-content:center;margin-top:18px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--accent);color:var(--accent);border-radius:999px;
+    padding:13px 30px;font-size:17px;font-weight:500;background:var(--accentbg);box-shadow:0 0 28px var(--glow)}
+  .pill svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+  .cov-mid{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px;padding:0 0 30px}
+  .shveka-hero{height:86px;margin-bottom:14px}
+  .cover h1{font-size:46px;margin:10px 0 12px}
+  .cover .sub{font-size:19.5px;color:var(--muted);max-width:680px}
+  .covchips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .covchips .chip{border:1px solid var(--line);background:var(--chipbg);border-radius:999px;
+    padding:7px 17px;font-size:13.5px;color:var(--chiptxt);font-weight:500}
+  .covchips .gold-chip{border-color:var(--goldline);color:var(--gold);background:var(--goldbg)}
+  .cov-foot{text-align:center;padding-bottom:2mm}
+  .cov-foot .meta{display:inline-block;background:var(--metabg);border:1px solid var(--line);
+    border-radius:999px;padding:6px 18px;color:var(--muted);font-size:14px}
+  /* sections */
+  section{padding:20px 0;position:relative}
+  section + section{border-top:1px solid var(--line)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700;letter-spacing:2px;font-size:12.5px;text-transform:uppercase}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
+  section h2{font-size:27px;margin:6px 0 12px}
+  p{color:var(--txt2);margin-bottom:12px}
+  .grid{display:grid;gap:14px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr}
+  .card{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--cardshadow)}
+  .card h3{font-size:18px;margin-bottom:6px}
+  .cimg{width:100%;height:118px;border-radius:11px;overflow:hidden;margin-bottom:13px;border:1px solid var(--line)}
+  .cimg img{width:100%;height:100%;object-fit:cover;display:block}
+  /* stats */
+  .stats{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+  .stats .st{flex:1;background:linear-gradient(160deg,var(--accentbg),var(--card2));border:1px solid var(--line);border-radius:13px;padding:12px 18px}
+  .stats .st b{font-family:'Outfit';font-size:25px;color:var(--txt);display:block;line-height:1.15}
+  .stats .st span{font-size:12.5px;color:var(--muted)}
+  /* flow */
+  .flow{display:flex;align-items:stretch;gap:6px;margin-top:16px}
+  .flow .node{flex:1;background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:14px;padding:14px 8px;text-align:center}
+  .flow .node.hero{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 22px var(--heroglow)}
+  .flow .node .ni{width:40px;height:40px;border-radius:12px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;background:var(--accentbg);color:var(--accent)}
+  .flow .node.hero .ni{background:var(--goldbg);color:var(--gold)}
+  .flow .node .ni svg{width:21px;height:21px}
+  .flow .node b{font-size:13px;display:block;color:var(--txt)}
+  .flow .node span{font-size:11px;color:var(--muted);line-height:1.45;display:block;margin-top:2px}
+  .flow .arr{flex:0 0 20px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .flow .arr svg{width:18px;height:18px}
+  /* price */
+  .priceCard{text-align:center;padding:22px 16px}
+  .priceCard .plabel{color:var(--muted);font-size:14px}
+  .priceCard .pnum{font-family:'Outfit';font-weight:800;font-size:38px;color:var(--txt);line-height:1.2;margin:4px 0}
+  .priceCard .pnum i{font-style:normal;color:var(--accent)}
+  .priceCard .psub{color:var(--muted);font-size:13px}
+  .inc{list-style:none;margin-top:10px}
+  .inc li{padding:7px 0;color:var(--txt2);font-size:14.5px;border-bottom:1px dashed var(--line);display:flex;gap:8px;align-items:flex-start}
+  .inc li:last-child{border-bottom:none}
+  .inc li svg{flex:0 0 15px;width:15px;height:15px;margin-top:5px;stroke:var(--accent);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14.5px}
+  th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--accent);font-weight:700} td{color:var(--txt2)}
+  .num{color:var(--gold);font-weight:700;white-space:nowrap}
+  /* steps */
+  .steps{counter-reset:s} .step{display:flex;gap:14px;margin-bottom:11px;align-items:flex-start}
+  .step .n{flex:0 0 34px;height:34px;border-radius:11px;background:linear-gradient(160deg,var(--accent),#2B6BE0);color:var(--badgetxt);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Outfit'}
+  /* notes / cta */
+  .note{background:var(--goldbg);border:1px solid var(--goldline);border-radius:14px;padding:18px}
+  .note.blue{background:var(--accentbg);border-color:var(--accent)}
+  .ctaBox{background:linear-gradient(120deg, var(--accentbg), var(--ctabg));
+    border:1px solid var(--accent);border-radius:18px;padding:24px;text-align:center;position:relative;overflow:hidden}
+  .btn{display:flex;width:fit-content;align-items:center;gap:9px;background:var(--cta);color:#fff;font-weight:700;text-decoration:none;
+    padding:13px 30px;border-radius:999px;margin:14px auto 0}
+  .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .valuestrip{display:flex;justify-content:space-between;gap:14px;background:linear-gradient(160deg,var(--accentbg),var(--card2));border:1px solid var(--line);border-radius:14px;padding:15px 22px;margin:16px 0}
+  .valuestrip span{color:var(--txt2);font-size:14px;display:flex;align-items:center;gap:8px}
+  .valuestrip b{color:var(--green);font-family:'Outfit';font-size:16px}
+  .roadchips{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+  .roadchips .chip{border:1px solid var(--line);background:var(--chipbg);border-radius:999px;padding:6px 15px;font-size:13px;color:var(--chiptxt)}
+  .footer-block{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
+  .footlogos{display:flex;align-items:center;justify-content:center;gap:16px;direction:ltr;margin-bottom:10px}
+  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:21px;color:var(--txt)}
+  .footlogos .sa i{color:var(--accent)}
+  .footlogos .with{color:var(--muted);font-size:14px;font-family:'Heebo'}
+  .footlogos img{height:26px;opacity:.95}
+  .foot{color:var(--muted);font-size:12.5px;text-align:center}
+  @media screen and (max-width:760px){.g3,.g2{grid-template-columns:1fr}.cover h1{font-size:32px}.page{padding:30px 20px}.flow{flex-direction:column}.flow .arr{transform:rotate(-90deg)}}
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · COVER ============ -->
+<div class="page cover">
+  <div class="cov-head">
+    <div class="lockup">
+      <span class="sa">simplif<i>AI</i></span>
+      <span class="with">בשיתוף</span>
+      <img class="englogo" src="assets/eng-logo.webp" alt="ENG">
+    </div>
+    <div class="pill-wrap">
+      <span class="pill">
+        <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+        הצעה · שלב ראשון
+      </span>
+    </div>
+  </div>
+
+  <div class="cov-mid">
+    <img class="shveka-hero" src="assets/shveka-logo.webp" alt="קבוצת שוויקה">
+    <h1>מהפגישה — <span class="accent">למשימות במעקב</span></h1>
+    <p class="sub">בהמשך להצעה שראיתם — מתחילים ממוקד: Timeless מקליטה ומסכמת כל פגישה, המערכת מפרקת את הסיכום למשימות עם אחראי, ומנהלת המשרד עוקבת על הכול ממסך אחד.</p>
+    <div class="covchips">
+      <span class="chip">על בסיס מערכת שעובדת היום ב-ENG</span>
+      <span class="chip">מנוי Timeless כלול</span>
+      <span class="chip gold-chip">שליטה מלאה למנהלת המשרד</span>
+    </div>
+  </div>
+
+  <div class="cov-foot">
+    <div class="meta">28.7.2026 &nbsp;·&nbsp; תוקף ההצעה: 30 יום</div>
+  </div>
+</div>
+
+<!-- ============ 2 · REQUEST + FLOW ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">הבקשה שלכם</div>
+  <h2>סיכום פגישה שהופך למשימות — בלי שאף אחד ירדוף אחרי אף אחד</h2>
+  <p>ביקשתם להתחיל בדבר אחד ממוקד: חיבור בין מערכת התמלול <b>Timeless</b> לבין מערכת ניהול משימות — כך שכל מה שסוכם בפגישה יהפוך למשימות מסודרות, עם אחראי ותאריך יעד, ובמעקב מלא של מנהלת המשרד. זה בדיוק מה שההצעה הזו מקימה.</p>
+  <div class="stats">
+    <div class="st"><b>77%</b><span>מהמשימות שמסוכמות בפגישות — לא קורות בפועל (מחקר Timeless)</span></div>
+    <div class="st"><b>כ-2 שעות</b><span>ביום נבלעות במעברים בין כלים והקשרים</span></div>
+    <div class="st"><b>מסך אחד</b><span>שבו מנהלת המשרד רואה הכול, בזמן אמת</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">איך זה עובד</div>
+  <h2>מהקלטה ועד משימה מאושרת — אוטומטית</h2>
+  <div class="flow">
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
+      <b>הפגישה מוקלטת</b><span>זום, אונליין — וגם פגישה פיזית</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+      <b>Timeless</b><span>תמלול בעברית + סיכום, עם זיהוי דוברים</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node hero">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></div>
+      <b>מנוע הפירוק</b><span>החלטות ← משימות, זיהוי אחראי לכל משימה</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></div>
+      <b>מערכת שוויקה</b><span>משימות, סטטוסים ותאריכים — במעקב</span>
+    </div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
+    <div class="node">
+      <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0114 0"/></svg></div>
+      <b>מנהלת המשרד</b><span>מאשרת, מתקנת ושולטת</span>
+    </div>
+  </div>
+  <div class="note blue" style="margin-top:16px">
+    <b class="accent">חיבור רשמי, לא מעקף:</b>
+    <p style="margin-top:6px;margin-bottom:0">המערכת מחוברת ל-Timeless בממשק הרשמי שלה — ברגע שתמליל וסיכום מוכנים, נשלחת התראה אוטומטית והמערכת מושכת אותם ומתחילה לעבוד. בלי העתקות ידניות, בלי "מי מעביר את הסיכום".</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ 3 · DELIVERABLES ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">מה מקבלים</div>
+  <h2>התוצרים — מקצה לקצה</h2>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card">
+      <div class="cimg"><img src="assets/s-transcript-to-tasks.webp" alt="תמלול למשימות"></div>
+      <h3 class="gold">מנוע תמלול ← משימות</h3>
+      <p class="muted" style="margin:0">הסיכום מתפרק להחלטות ומשימות; לכל משימה מזוהה אחראי לפי טבלת שמות הצוות — ותאריך יעד.</p>
+    </div>
+    <div class="card">
+      <div class="cimg"><img src="assets/s-delegation.webp" alt="מערכת המשימות"></div>
+      <h3 class="accent">מערכת שוויקה</h3>
+      <p class="muted" style="margin:0">משימות, סטטוסים, אחראים ותאריכים — בעברית, מותאמת למבנה שלכם, על בסיס מערכת שרצה היום ב-ENG.</p>
+    </div>
+    <div class="card">
+      <div class="ico gold"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div>
+      <h3 class="gold">מסלול אישור למנהלת המשרד</h3>
+      <p class="muted" style="margin:0">משימות חדשות נכנסות כ"ממתינות לאישור": אושרת רואה, מתקנת ומאשרת — ורק אז הן מחולקות.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+      <h3 class="accent">הגדרת Timeless מלאה</h3>
+      <p class="muted" style="margin:0">חיבור היומנים, חדרי פגישות לפי זרוע או נושא, והקלטת פגישות פיזיות בחיוג פשוט מהטלפון.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.6M22 20a6.5 6.5 0 00-5-6.3"/></svg></div>
+      <h3 class="accent">הדרכה והרצה מלווה</h3>
+      <p class="muted" style="margin:0">מריצים פגישות אמיתיות במצב בדיקה, מכיילים את זיהוי האחראים, ומלווים את הצוות עד שזה זורם.</p>
+    </div>
+    <div class="card">
+      <div class="ico green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3 class="green">ניטור מסביב לשעון</h3>
+      <p class="muted" style="margin:0">אנחנו מנטרים את הצינור כולו — מההקלטה ועד המשימה — ומטפלים בתקלות לפי רמות שירות מוגדרות.</p>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:14px">את היכולת הזו ראיתם חיה ב-PM-ENG. כאן היא נבנית עבור שוויקה — סביב הפגישות, האנשים והשגרות שלכם.</p>
+</section>
+</div>
+
+<!-- ============ 4 · PRICING ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">תמחור · שלב ראשון</div>
+  <h2>הקמה אחת, מנוי הפעלה אחד</h2>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card priceCard">
+      <div class="plabel">הקמה (חד-פעמי)</div>
+      <div class="pnum">₪16,000</div>
+      <div class="psub">המערכת · החיבור ל-Timeless · מנוע הפירוק · הגדרות · הדרכה והרצה</div>
+    </div>
+    <div class="card priceCard">
+      <div class="plabel">מנוי הפעלה חודשי</div>
+      <div class="pnum">₪1,500<i style="font-size:19px"> / חודש</i></div>
+      <div class="psub">הכול כלול — פירוט מטה</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 class="accent" style="margin-bottom:4px">מה כלול במנוי החודשי</h3>
+    <ul class="inc">
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מנוי Timeless — עד 3 מושבי הקלטה (מעבר לכך — לפי עלות)</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>ניטור מסביב לשעון וטיפול בתקלות לפי רמות השירות</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>תחזוקה ועדכונים שוטפים</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>כיול מתמשך של מנוע הפירוק וזיהוי האחראים</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>2 שעות שיפורים והתאמות בכל חודש</li>
+    </ul>
+  </div>
+
+  <p class="muted" style="margin-top:12px">תשלום: 50% בחתימה, 50% בעלייה לאוויר.</p>
+
+  <div class="note" style="margin-top:8px">
+    <b class="gold">מתחילים בקטן — בלי לאבד את הגדול.</b>
+    <p style="margin-top:6px;margin-bottom:0">בשדרוג לחבילה המלאה בתוך 6 חודשים — <b>50% מההקמה של שלב זה מקוזזים</b> ממחיר ההקמה של החבילה המלאה.</p>
+  </div>
+
+  <table>
+    <tr><th>הרחבות אפשריות (לא כלולות בשלב זה)</th><th>מה זה נותן</th></tr>
+    <tr>
+      <td><b>התראות WhatsApp לאחראי משימות</b></td>
+      <td class="muted">משימה מאושרת ← הודעה אישית לאחראי, עם כפתורי עדכון. תמחור בנפרד, על התשתית הקיימת.</td>
+    </tr>
+    <tr>
+      <td><b>עוזר ה-WhatsApp המלא</b></td>
+      <td class="muted">תזכורות, האצלת משימות ותיאום פגישות — במסגרת החבילה המלאה שהוצגה, עם הקיזוז.</td>
+    </tr>
+  </table>
+</section>
+</div>
+
+<!-- ============ 5 · SLA + TIMELINE ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">רמות שירות</div>
+  <h2>מי אחראי שזה עובד — ומה קורה אם משהו נתקע</h2>
+  <p style="margin-bottom:2px">המערכת פועלת לבד, מסביב לשעון. אנחנו מנטרים אותה ברקע ומטפלים לפי הדחיפות:</p>
+  <table>
+    <tr><th>המצב</th><th>דוגמה</th><th>זמן תגובה</th><th>טיפול</th></tr>
+    <tr>
+      <td><b class="cta-c">תקלה משביתה</b></td>
+      <td class="muted">סיכומים לא נמשכים, משימות לא נוצרות, המערכת לא נגישה</td>
+      <td class="num">עד שעה · 24/7</td>
+      <td class="muted">עבודה רצופה עד לפתרון</td>
+    </tr>
+    <tr>
+      <td><b>תקלה מפריעה</b></td>
+      <td class="muted">משימה בודדת שלא שויכה נכון, סיכום שלא פורמט</td>
+      <td class="num">עד 4 שעות</td>
+      <td class="muted">עד יום עסקים אחד</td>
+    </tr>
+    <tr>
+      <td><b>שינוי נדרש</b></td>
+      <td class="muted">עובד חדש בטבלת השמות, שינוי בתהליך, עדכון ניסוח</td>
+      <td class="num">עד יום עסקים</td>
+      <td class="muted">כלול במנוי</td>
+    </tr>
+  </table>
+  <p class="muted" style="margin-top:10px">תקלות אצל ספקי צד-שלישי (Timeless, WhatsApp) — אנחנו מזהים, מתריעים ומלווים מול הספק עד לפתרון.</p>
+</section>
+
+<section>
+  <div class="eyebrow">לוח זמנים</div>
+  <h2>מהאפיון לאוויר — כ-3–4 שבועות</h2>
+  <div class="steps" style="margin-top:12px">
+    <div class="step"><div class="n">1</div><div><b>אפיון ממוקד</b> — מיפוי הפגישות והמשתתפים, טבלת שמות הצוות, חדרי Timeless.</div></div>
+    <div class="step"><div class="n">2</div><div><b>הקמה</b> — המערכת, החיבור ל-Timeless ומנוע הפירוק.</div></div>
+    <div class="step"><div class="n">3</div><div><b>הרצה מלווה</b> — פגישות אמיתיות במצב בדיקה, כיול זיהוי האחראים, הדרכת מנהלת המשרד.</div></div>
+    <div class="step"><div class="n">4</div><div><b>עלייה לאוויר</b> — מעבר לשוטף: המערכת רצה לבד, אנחנו מנטרים ומשפרים ברקע.</div></div>
+  </div>
+  <p class="muted" style="margin-top:10px">יעד מדויק ננעל בסיום האפיון.</p>
+</section>
+</div>
+
+<!-- ============ 6 · GROWTH + CTA ============ -->
+<div class="page">
+<section>
+  <div class="eyebrow">התמונה הגדולה</div>
+  <h2>שלב ראשון — מתוך תוכנית שלמה</h2>
+  <p>ההצעה המלאה שראיתם נשארת על השולחן. מתחילים במה שביקשתם — וכשהמערכת מוכיחה את עצמה, מרחיבים בקצב שלכם:</p>
+  <div class="card" style="margin-top:6px">
+    <h3 class="accent">החבילה המלאה (כפי שהוצגה — כ-₪34,000 הקמה)</h3>
+    <p class="muted" style="margin:6px 0 0">עוזר WhatsApp לצוות · תזכורות אוטומטיות · האצלת משימות · תיאום פגישות וסנכרון יומן — <b>ובשדרוג בתוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.</b></p>
+  </div>
+  <div class="roadchips">
+    <span class="chip">ובהמשך, לכל הקבוצה:</span>
+    <span class="chip">מכירות ויזמות</span>
+    <span class="chip">התחדשות עירונית</span>
+    <span class="chip">נדל"ן מניב</span>
+    <span class="chip">קמעונאות</span>
+    <span class="chip">מנוע מסמכים וחוזים</span>
+  </div>
+</section>
+
+<div class="valuestrip">
+  <span><b>✓</b> על בסיס מערכת חיה</span>
+  <span><b>✓</b> מנוי Timeless כלול</span>
+  <span><b>✓</b> כל משימה באישור מנהלת המשרד</span>
+  <span><b>✓</b> שדרוג עם קיזוז</span>
+</div>
+
+<section style="border-top:none;padding-top:6px">
+  <div class="ctaBox">
+    <h2>הצעד הבא — שיחת אפיון קצרה</h2>
+    <p>נמפה את הפגישות, המשתתפים וטבלת השמות — ויוצאים לדרך.</p>
+    <a class="btn" href="#">יוצאים לדרך
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></a>
+  </div>
+</section>
+
+<div class="footer-block">
+  <div class="footlogos">
+    <span class="sa">simplif<i>AI</i></span>
+    <span class="with">בשיתוף</span>
+    <img src="assets/eng-logo.webp" alt="ENG">
+  </div>
+  <div class="foot" dir="rtl">מפשטים עסקים. בעזרת AI. &nbsp;·&nbsp; simplifAI בשיתוף ENG Holdings<br>ההצעה בתוקף 30 יום; היקף מדויק ננעל באפיון</div>
+</div>
+</div>
+
+</body>
+</html>
