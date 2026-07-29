@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Fredoka:wght@500;600;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { width: 210mm; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  .page { position: relative; width: 210mm; min-height: 297mm; font-family: 'Rubik', sans-serif;
+    direction: rtl; text-align: right; color: #fff; background: #060D1F; overflow: hidden;
+    page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .num { font-family: 'Fredoka', sans-serif; }
+
+  /* HERO */
+  .hero { position: relative; height: 46mm; background-image:
+      linear-gradient(to bottom, rgba(6,13,31,.32) 0%, rgba(6,13,31,.52) 52%, rgba(6,13,31,.88) 84%, #060D1F 100%),
+      url('hero-villa.jpg');
+    background-size: cover; background-position: center 42%; }
+  .hero .bar { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between;
+    align-items: center; padding: 8mm 13mm 0; }
+  .hero .tag { font-weight: 600; font-size: 11px; color: #d6e5ff; background: rgba(77,142,255,.20);
+    border: 1px solid rgba(77,142,255,.5); padding: 6px 13px; border-radius: 30px; }
+  .hero .brand { font-family:'Outfit',sans-serif; font-weight:900; font-size:19px; letter-spacing:-.5px; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+  .hero .brand .ai { color:#4D8EFF; }
+  .hero .title { position: absolute; bottom: 6mm; right: 13mm; left: 13mm; }
+  .hero h1 { font-weight: 900; font-size: 27px; margin: 0; letter-spacing: -.8px; text-shadow: 0 3px 22px rgba(0,0,0,.85); }
+  .hero .sub { font-size: 12.5px; color: #eef3fd; margin-top: 5px; font-weight: 500; text-shadow: 0 2px 12px rgba(0,0,0,.9); }
+
+  .body { position: relative; padding: 6mm 13mm 10mm; }
+  .body.p2 { padding-top: 11mm; }
+  .body::before { content:""; position:absolute; top:-30px; right:-40px; width:300px; height:300px;
+    background: radial-gradient(circle, rgba(77,142,255,.15), transparent 65%); pointer-events:none; }
+
+  .intro { background: linear-gradient(90deg, rgba(34,197,94,.12), rgba(77,142,255,.05));
+    border: 1px solid rgba(34,197,94,.30); border-radius: 13px; padding: 12px 16px; font-size: 13px;
+    line-height: 1.6; font-weight: 500; margin-bottom: 14px; }
+  .intro b { color:#7CF0A8; }
+
+  h2 { font-size: 16px; margin: 16px 0 8px; color: #4D8EFF; font-weight: 800; }
+  h2.first { margin-top: 4px; }
+
+  /* values box */
+  .vals { background: linear-gradient(150deg, rgba(255,196,77,.10), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,196,77,.40); border-radius: 13px; padding: 13px 15px; margin-bottom: 6px; }
+  .vals .vh { font-weight: 800; font-size: 14px; color: #FFC44D; margin-bottom: 3px; }
+  .vals .vsub { font-size: 11.5px; color: rgba(255,255,255,.62); margin-bottom: 10px; }
+  .vrow { display:flex; align-items:flex-start; gap:10px; padding:8px 0; border-top:1px solid rgba(255,255,255,.08); }
+  .vrow:first-of-type { border-top:none; }
+  .vrow .vn { flex:none; width:24px; height:24px; border-radius:7px; background:rgba(255,196,77,.18);
+    border:1px solid rgba(255,196,77,.4); display:flex; align-items:center; justify-content:center;
+    font-family:'Fredoka',sans-serif; font-weight:700; font-size:13px; color:#FFC44D; margin-top:1px; }
+  .vrow .vc { flex:1; }
+  .vrow .vc .vl { font-weight:700; font-size:12.5px; }
+  .vrow .vc .vv { font-family:'Courier New',monospace; font-size:11px; color:#bcd3ff; background:#0c1830;
+    border:1px solid rgba(77,142,255,.25); border-radius:7px; padding:6px 9px; margin-top:4px;
+    direction:ltr; text-align:left; word-break:break-all; }
+  .vrow .vc .fill { color:#FFC44D; border-color:rgba(255,196,77,.4); border-style:dashed; direction:rtl; text-align:right; }
+  .vrow .vc .vhint { font-size:10.5px; color:rgba(255,255,255,.55); margin-top:3px; }
+
+  .step { display:flex; gap:12px; margin: 11px 0; align-items:flex-start; }
+  .step .circle { flex:none; width:34px; height:34px; border-radius:50%; background:linear-gradient(150deg,#4D8EFF,#2a5cb8);
+    display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700;
+    font-size:17px; color:#fff; box-shadow:0 4px 14px rgba(77,142,255,.4); }
+  .step .c { flex:1; padding-top:1px; }
+  .step .c .st { font-weight:800; font-size:14px; margin-bottom:3px; }
+  .step .c .sd { font-size:12px; color:rgba(255,255,255,.80); line-height:1.6; }
+  .step .c .sd b { color:#fff; }
+  .step .c .sd .k { background:rgba(77,142,255,.18); border:1px solid rgba(77,142,255,.35);
+    border-radius:5px; padding:1px 7px; font-weight:600; font-size:11.5px; white-space:nowrap; }
+
+  .copybox { background:#0c1830; border:1px solid rgba(77,142,255,.3); border-radius:9px;
+    padding:9px 12px; margin-top:7px; font-family:'Courier New',monospace; font-size:10px;
+    color:#bcd3ff; direction:ltr; text-align:left; word-break:break-all; line-height:1.55; }
+  .copybox .hl { color:#FFC44D; font-weight:700; }
+
+  .tip { background: linear-gradient(150deg, rgba(77,142,255,.12), rgba(255,255,255,.02));
+    border: 1px solid rgba(77,142,255,.3); border-radius: 12px; padding: 11px 15px; font-size:12px;
+    line-height:1.6; margin-top: 12px; }
+  .tip b { color:#4D8EFF; }
+  .tip.green { background:linear-gradient(150deg, rgba(34,197,94,.12), rgba(255,255,255,.02)); border-color:rgba(34,197,94,.3); }
+  .tip.green b { color:#7CF0A8; }
+
+  .foot { margin-top: 16px; font-size: 11px; color: rgba(255,255,255,.55);
+    line-height:1.6; border-top: 1px solid rgba(255,255,255,.1); padding-top: 11px; }
+  .foot b { color: rgba(255,255,255,.8); }
+  .pgn { position:absolute; bottom:6mm; left:13mm; font-size:10px; color:rgba(255,255,255,.4); font-family:'Fredoka',sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <div class="hero">
+    <div class="bar"><span class="tag">מדריך מלא · אתה עושה את הכול לבד · ~15 דק'</span><span class="brand">simplif<span class="ai">AI</span></span></div>
+    <div class="title">
+      <h1>ההתראה החכמה שלך 📞</h1>
+      <div class="sub">שיחה למספר הבוט שלא נענתה הופכת אוטומטית לפנייה בוואטסאפ. מתקינים פעם אחת על הטלפון של הבוט — וזה עובד לבד.</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="intro">
+      לבוט יש <b>מספר וטלפון משלו</b> — טלפון ייעודי שתמיד דלוק. כשלקוח מתקשר למספר הבוט ואין מענה,
+      <b>מהיום</b> המערכת שולחת לו אוטומטית הודעת וואטסאפ אישית בשמך ומתחילה איתו את השיחה —
+      ואתה ממשיך משם רגוע. <b>אפס לקוחות אבודים, בלי שתעשה כלום.</b>
+      כל מה שצריך: להתקין פעם אחת אפליקציה קטנה וחינמית <b>על הטלפון של הבוט</b>, ולמלא בה 2 התראות לפי המדריך. הכול כאן — צעד-צעד.
+    </div>
+
+    <div class="tip" style="margin:0 0 4px"><b>📱 "הטלפון של הבוט"</b> = הטלפון שבו נמצא הסים הייעודי של הבוט (אפשר טלפון ישן) —
+      תמיד דלוק ומחובר ל-wifi. <b>שם</b> מתקינים את האפליקציה, כי רק הוא מצלצל כשמתקשרים למספר הבוט. הסים חייב להישאר פעיל.</div>
+
+    <h2 class="first">קודם כול — 3 הערכים שתצטרך</h2>
+    <div class="vals">
+      <div class="vh">📋 הערכים שלך</div>
+      <div class="vsub">תשמור את הדף הזה פתוח — בשלב ההתראות תעתיק מכאן. אלה הערכים הקבועים של המערכת שלך.</div>
+
+      <div class="vrow"><div class="vn">1</div><div class="vc">
+        <div class="vl">כתובת המערכת (URL)</div>
+        <div class="vv">https://v2.82.70.218.39.sslip.io/webhook/missed-call</div>
+      </div></div>
+
+      <div class="vrow"><div class="vn">2</div><div class="vc">
+        <div class="vl">הקוד הסודי (Secret)</div>
+        <div class="vv fill">‹ אורי שולח לך אותה בהודעת וואטסאפ — תעתיק לכאן › ____________________</div>
+        <div class="vhint">קוד אישי של המערכת (כמו קוד כספת). שים לב: הוא נכנס <b>בתוך השורה</b> שמדביקים ב"גוף התוכן" —
+        <b>לא</b> בשדה "Password" שיש במסך ההגדרות (אותו משאירים ריק).</div>
+      </div></div>
+    </div>
+
+    <h2>שלב 1 — מתקינים את האפליקציה</h2>
+    <div class="step">
+      <div class="circle num">1</div>
+      <div class="c"><div class="st">פותחים את חנות Google Play</div>
+        <div class="sd">מחפשים <span class="k">MacroDroid</span> ולוחצים "התקן". זו אפליקציה חינמית ופשוטה
+        שמפעילה פעולות אוטומטיות בטלפון. בפתיחה הראשונה — מאשרים את ההרשאות שהיא מבקשת (טלפון / יומן שיחות).</div></div>
+    </div>
+
+    <h2>שלב 2 — מוודאים שהיא לא תיכבה</h2>
+    <div class="step">
+      <div class="circle num">2</div>
+      <div class="c"><div class="st">מבטלים חיסכון סוללה לאפליקציה</div>
+        <div class="sd">בהגדרות הטלפון → <b>סוללה</b> → מחפשים את MacroDroid → בוחרים "<b>ללא הגבלה</b>" / מבטלים
+        "אופטימיזציה". <b>למה זה חשוב:</b> כדי שהטלפון לא יכבה אותה ברקע — אחרת ההתראות יפסיקו בלי שתשים לב.</div></div>
+    </div>
+
+    <div class="tip green">
+      <b>שתי דקות והתקנת.</b> עכשיו עוברים לעמוד 2 — שם בונים את ההתראה הראשונה (השיחה שלא נענתה). פשוט עוקבים אחרי הצעדים בדיוק.
+    </div>
+    <div class="pgn">1 / 4</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page">
+  <div class="body p2">
+    <h2 class="first" style="font-size:18px">ההתראה הראשונה — "שיחה שלא נענתה / שנדחתה" ☎️</h2>
+    <p style="font-size:12px;color:rgba(255,255,255,.75);margin:0 0 6px;line-height:1.6">
+      זו ההתראה החשובה: כשמישהו מתקשר <b>למספר הבוט</b> והטלפון הייעודי לא נענה (וזה תמיד — אין שם מי שיענה),
+      היא שולחת לו אוטומטית את הודעת הפתיחה שלך בוואטסאפ. בונים אותה פעם אחת.</p>
+
+    <div class="step">
+      <div class="circle num">1</div>
+      <div class="c"><div class="st">יוצרים מאקרו חדש</div>
+        <div class="sd">פותחים את MacroDroid → לוחצים על <span class="k">+ Add Macro</span> (הוסף מאקרו) למעלה.
+        בשם המאקרו כותבים: <b>שיחה שלא נענתה / שנדחתה</b>.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">2</div>
+      <div class="c"><div class="st">בוחרים מתי זה יקרה — <b>שני טריגרים</b></div>
+        <div class="sd">צריך שזה יקרה גם כשלא ענית וגם כשדחית. מוסיפים <b>שני טריגרים</b> לאותו מאקרו:
+        <br>• לוחצים <span class="k">Add Trigger</span> → קטגוריה <span class="k">Phone</span> (טלפון) →
+        בוחרים <span class="k">Call Missed</span> (שיחה שלא נענתה) → כשנשאל לאילו מספרים, בוחרים
+        <span class="k">Any Number</span> (כל המספרים).
+        <br>• לוחצים שוב <span class="k">Add Trigger</span> → אותה קטגוריה → הפעם <span class="k">Call Ended</span>
+        (שיחה הסתיימה) → בוחרים <span class="k">Incoming</span> (נכנסת), ושוב <span class="k">Any Number</span> (כל המספרים).
+        <br><b>למה שניים:</b> בחלק מהמכשירים שיחה שאתה <b>דוחה</b> לא נרשמת כ"לא נענתה" — אז הטריגר השני סוגר את הפינה.
+        המערכת שולחת ללקוח הודעה <b>פעם אחת בלבד</b> גם אם שניהם נדלקו, אז אין כפילות.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">3</div>
+      <div class="c"><div class="st">בוחרים מה יקרה (פעולה)</div>
+        <div class="sd">לוחצים <span class="k">Add Action</span> (הוסף פעולה) → <span class="k">Connectivity</span> (קישוריות) →
+        <span class="k">HTTP Request</span> (בקשת HTTP). למעלה יש <b>לשוניות</b> — ממלאים שתיים:
+        <br>📑 לשונית <b>Settings</b> (הגדרות): <b>Request method</b> (שיטת בקשה) = <span class="k">POST</span> ·
+        <b>Enter url</b> (כתובת) = <b>ערך מס' 1</b> (הכתובת המלאה — מסתיימת ב-<span class="k">/webhook/missed-call</span>).
+        <br>📑 לשונית <b>Content Body</b> (גוף התוכן): <b>Content type</b> = <span class="k">application/json</span>,
+        בוחרים <span class="k">Text</span>, ובשדה הטקסט הגדול מדביקים בדיוק —</div>
+        <div class="copybox">{"secret":"<span class="hl">‹הקוד הסודי — ערך 2›</span>","number":"[call_number]"}</div>
+        <div class="sd" style="margin-top:6px">
+          🔸 רק במקום <b>‹הקוד הסודי — ערך 2›</b> מדביקים את הקוד הסודי מעמוד 1 (בעותק שאורי שולח — הוא כבר מודבק).
+          <br>🔸 את <span class="k">[call_number]</span> <b>משאירים בדיוק כמו שהוא</b> — זו "המילה הקסומה" של MacroDroid
+          שמתחלפת לבד למספר המתקשר. <b>לא נוגעים בה, ולא כותבים עברית בתוך השורה.</b>
+          <br><span style="color:#7CF0A8;font-weight:700">💡 שים לב:</span> הקוד והמספר <b>כבר נמצאים בתוך השורה</b> הזו —
+          <b>אין שדה נפרד</b> ל"סיסמה" או ל"מספר". הכול חי בתוך הטקסט של "גוף התוכן".
+          <br><span style="color:#ff8080;font-weight:700">🔴 אזהרה:</span> במסך <b>Settings</b> יש שדות <b>Username / Password</b>
+          תחת <b>Basic Authorization</b> — <b>משאירים אותם ריקים</b> ואת "Use authorization" <b>לא מסמנים</b>. הקוד שלנו
+          הולך <b>רק</b> ל"גוף התוכן", <b>לא</b> לשדה Password.
+          <br><span style="color:#ff8080;font-weight:700">🔴 כל השורה באנגלית:</span> אם נכנסה מילה בעברית באמצע — מוחקים הכול ומדביקים מחדש.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">4</div>
+      <div class="c"><div class="st">שומרים</div>
+        <div class="sd">לוחצים על סימן ה-<b>✓</b> למעלה כדי לשמור את המאקרו. זהו — ההתראה הראשונה מוכנה! 🎉</div></div>
+    </div>
+
+    <div class="tip">
+      <b>טיפ:</b> אם משהו לא ברור באמצע — אפשר לצאת ולחזור; MacroDroid שומר את מה שהתחלת. אין מה לשבור.
+    </div>
+    <div class="pgn">2 / 4</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 3 ============================ -->
+<div class="page">
+  <div class="body p2">
+    <h2 class="first" style="font-size:18px">ההתראה השנייה — "בדיקת חיים" 💓</h2>
+    <p style="font-size:12px;color:rgba(255,255,255,.75);margin:0 0 6px;line-height:1.6">
+      התראה קטנה ששולחת למערכת "אני פעילה" כל כמה שעות. כך, אם משהו משתבש בטלפון — יודעים על זה מיד
+      ומטפלים, בלי שתאבד פניות בשקט. בונים אותה בדיוק כמו הראשונה, רק עם 2 הבדלים קטנים.</p>
+
+    <div class="step">
+      <div class="circle num">1</div>
+      <div class="c"><div class="st">מאקרו חדש בשם "בדיקת חיים"</div>
+        <div class="sd"><span class="k">+ Add Macro</span> → שם: <b>בדיקת חיים</b>.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">2</div>
+      <div class="c"><div class="st">טריגר: כל 6 שעות</div>
+        <div class="sd"><span class="k">Add Trigger</span> → קטגוריה <span class="k">Date/Time</span> →
+        <span class="k">Regular Interval</span> (מרווח קבוע) → בוחרים <b>כל 6 שעות</b>.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">3</div>
+      <div class="c"><div class="st">פעולה: אותו HTTP Request, עם גוף אחר</div>
+        <div class="sd"><span class="k">Add Action</span> → <span class="k">Connectivity</span> →
+        <span class="k">HTTP Request</span>. בדיוק כמו קודם: לשונית <b>Settings</b> (הגדרות) — <b>Request method</b> = POST,
+        <b>Enter url</b> = ערך מס' 1, ו<b>"Use authorization" מכובה</b>. לשונית <b>Content Body</b> (גוף התוכן) — Content type = application/json,
+        ובשדה הטקסט מדביקים (שים לב — בלי <span class="k">[call_number]</span>, ועם heartbeat):</div>
+        <div class="copybox">{"secret":"<span class="hl">‹הקוד הסודי — ערך 2›</span>","heartbeat":true}</div>
+        <div class="sd" style="margin-top:6px">מדביקים את אותו קוד סודי. כאן אין מספר מתקשר — זו רק בדיקה תקופתית. כל השורה באנגלית. שומרים ב-<b>✓</b>.</div>
+      </div>
+    </div>
+
+    <h2>בודקים שהכול עובד ✅</h2>
+    <div class="step">
+      <div class="circle num">4</div>
+      <div class="c"><div class="st">בדיקה אחת ואתה מסודר</div>
+        <div class="sd">ממספר כלשהו — מתקשרים <b>למספר הבוט</b> ומניחים שהטלפון הייעודי יצלצל בלי מענה
+        (ואם בא לך, נסה גם <b>לדחות</b> משם). תוך כמה שניות המתקשר אמור לקבל בוואטסאפ את הודעת הפתיחה שלך.
+        <b>קיבל? סיימת — הכול עובד! 🎉</b></div></div>
+    </div>
+
+    <div class="tip green">
+      <b>לא הגיעה הודעה?</b> בדוק 3 דברים: (1) שחיסכון הסוללה כבוי (שלב 2 בעמוד 1); (2) שהקוד הודבק
+      בדיוק, בלי רווחים מיותרים; (3) שהכתובת הועתקה במלואה. עדיין תקוע? שלח הודעה והכול ייפתר.
+    </div>
+
+    <div class="tip">
+      <b>שקט נפשי 🔒:</b> האפליקציה רק מזהה שיחות שלא ענית להן או שדחית, ומפעילה את ההודעה — היא <b>לא</b> קוראת הודעות,
+      <b>לא</b> ניגשת לתמונות, ולא עושה שום דבר אחר. הכול רץ אצלך בטלפון, בשליטה מלאה שלך, וההודעה שנשלחת היא בדיוק הנוסח שלך — בשמך.
+    </div>
+
+    <div class="tip">
+      <b>הבוט על טלפון ייעודי משלו?</b> סיימת — דלג על העמוד הבא. (הוא רלוונטי <b>רק</b> אם שמת את סים הבוט
+      בטלפון האישי שלך, ואז מסנן כך שחברים/משפחה שמורים לא יקבלו הודעה.) ⬅️
+    </div>
+    <div class="pgn">3 / 4</div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 4 (אופציונלי) ============================ -->
+<div class="page">
+  <div class="body p2">
+    <h2 class="first" style="font-size:18px">שלב אופציונלי — רק למספרים לא מזוהים 🔕</h2>
+    <p style="font-size:12px;color:rgba(255,255,255,.75);margin:0 0 8px;line-height:1.6">
+      🟢 <b>הקמת לפי ההמלצה (טלפון ייעודי לבוט)? דלג על העמוד הזה לגמרי</b> — בטלפון של הבוט אין אנשי קשר אישיים,
+      אז ממילא כל מתקשר מקבל הודעת פתיחה, ואין מה לסנן. העמוד הזה רלוונטי <b>רק</b> במקרה הנדיר שבחרת לשים את סים הבוט
+      כסים-שני <b>בטלפון האישי שלך</b> — אז הוא גורם לבוט לשלוח פתיחה <b>רק למספרים שלא שמורים</b> אצלך, ולדלג על אנשי קשר מוכרים.</p>
+
+    <div class="tip" style="margin-top:0">
+      <b>איך זה עובד:</b> MacroDroid יודע לתת לנו את שם המתקשר. מספר <b>שמור</b> → הוא מחזיר את <b>השם</b>;
+      מספר <b>לא שמור</b> → הוא מחזיר את <b>המספר עצמו</b>. אז התנאי פשוט: לשלוח רק כשהשם <b>זהה</b> למספר (= לא מזוהה).
+    </div>
+
+    <div class="step">
+      <div class="circle num">1</div>
+      <div class="c"><div class="st">פותחים את מאקרו השיחה לעריכה</div>
+        <div class="sd">נכנסים למאקרו <b>"שיחה שלא נענתה / שנדחתה"</b> (לא ל"בדיקת חיים" — אותו לא נוגעים).</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">2</div>
+      <div class="c"><div class="st">מוסיפים תנאי "If" מעל פעולת ה-HTTP</div>
+        <div class="sd">לוחצים <span class="k">Add Action</span> → קטגוריה <span class="k">Conditions/Loops</span> (תנאים/לולאות) →
+        <span class="k">If clause</span>. זה מוסיף אוטומטית גם <span class="k">End If</span> מתחת.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">3</div>
+      <div class="c"><div class="st">בוחרים השוואה: Compare Values</div>
+        <div class="sd">בתוך ה-If לוחצים <span class="k">+</span> (הוסף תנאי) → בוחרים <span class="k">Compare Values</span>
+        (השוואת ערכים). ממלאים בדיוק כך — <b>הכול באנגלית</b>:
+        <div class="copybox" style="margin-top:7px">Value 1:  [call_name]
+Operator: Is equal to  ( = )
+Value 2:  [call_number]</div>
+        מקלידים את שני הטוקנים עם הסוגריים המרובעים, בדיוק כפי שכתוב.</div></div>
+    </div>
+
+    <div class="step">
+      <div class="circle num">4</div>
+      <div class="c"><div class="st">מוודאים שה-HTTP בפנים — ושומרים</div>
+        <div class="sd">פעולת ה-<span class="k">HTTP Request</span> צריכה להיות <b>בין</b> ה-<span class="k">If clause</span>
+        ל-<span class="k">End If</span> (אם צריך — גוררים אותה פנימה). שומרים ב-<b>✓</b>.</div></div>
+    </div>
+
+    <div class="tip green">
+      <b>זהו.</b> מעכשיו: מספר <b>שמור</b> → הבוט שותק. מספר <b>לא מזוהה</b> → שולח הודעת פתיחה. רוצה לבדוק?
+      התקשר ממספר לא שמור (לא עונים) → אמורה להגיע הודעה. התקשר ממספר <b>שמור</b> (לא עונים) → <b>לא</b> אמורה להגיע.
+    </div>
+
+    <div class="foot">
+      <b>נתקעת? יש שאלה?</b> שלח הודעה ונפתור תוך דקות. <br>
+      simplifAI · ייעול עסקים ב-AI · נבנה במיוחד עבור נופש טופז אילת 🐬
+    </div>
+    <div class="pgn">4 / 4</div>
+  </div>
+</div>
+
+</body>
+</html>
