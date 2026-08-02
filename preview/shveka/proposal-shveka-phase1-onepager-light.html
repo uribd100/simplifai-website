@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>שלב ראשון · עמוד אחד (בהיר) — מהפגישה למשימות במעקב | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
+<title>הרמת מערכת SHVEKAI · שלב ראשון | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap" onload="this.rel='stylesheet'">
@@ -27,10 +27,10 @@
   /* /THEME */
   *{box-sizing:border-box;margin:0;padding:0}
   @page{size:A4;margin:0}
-  html,body{background:var(--bg);color:var(--txt2);font-family:'Heebo',sans-serif;line-height:1.55;font-weight:300}
-  .page{width:210mm;height:297mm;margin:0 auto;padding:11mm 13mm 9mm;position:relative;overflow:hidden;
+  html,body{background:var(--bg);color:var(--txt2);font-family:'Heebo',sans-serif;line-height:1.5;font-weight:300}
+  .page{width:210mm;height:297mm;margin:0 auto;padding:10mm 13mm 8mm;position:relative;overflow:hidden;
     display:flex;flex-direction:column;background:var(--covbg)}
-  h1,h2,h3{font-family:'Outfit','Heebo',sans-serif;font-weight:800;line-height:1.22;color:var(--txt)}
+  h1,h2,h3{font-family:'Outfit','Heebo',sans-serif;font-weight:800;line-height:1.2;color:var(--txt)}
   b{color:var(--txt);font-weight:700}
   .accent{color:var(--accent)} .gold{color:var(--gold)} .green{color:var(--green)} .cta-c{color:var(--cta)}
   .muted{color:var(--muted)}
@@ -38,108 +38,123 @@
 
   /* ---- header ---- */
   .head{display:flex;align-items:center;justify-content:space-between;gap:12px;
-    border-bottom:1px solid var(--line);padding-bottom:9px}
+    border-bottom:1px solid var(--line);padding-bottom:8px}
   .lockup{display:flex;align-items:center;gap:11px;direction:ltr}
-  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:24px;color:var(--txt);letter-spacing:.3px}
+  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:23px;color:var(--txt);letter-spacing:.3px}
   .lockup .sa i{color:var(--accent);font-style:normal}
-  .lockup .with{color:var(--muted);font-size:12.5px;font-family:'Heebo';font-weight:500}
-  .lockup img.englogo{height:29px}
-  .head .right{display:flex;align-items:center;gap:13px}
-  .head img.shveka{height:38px}
+  .lockup .with{color:var(--muted);font-size:12px;font-family:'Heebo';font-weight:500}
+  .lockup img.englogo{height:28px}
+  .head .right{display:flex;align-items:center;gap:12px}
+  .head img.shveka{height:36px}
   .pill{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--accent);color:var(--accent);border-radius:999px;
-    padding:6px 15px;font-size:12.5px;font-weight:500;background:var(--accentbg);box-shadow:0 0 18px var(--glow);white-space:nowrap}
+    padding:5px 14px;font-size:12px;font-weight:500;background:var(--accentbg);box-shadow:0 0 18px var(--glow);white-space:nowrap}
   .pill svg{width:13px;height:13px}
 
   /* ---- hero ---- */
-  .hero{text-align:center;padding:13px 0 11px}
-  .hero h1{font-size:30px;margin-bottom:7px}
-  .hero p{font-size:13.5px;color:var(--muted);max-width:600px;margin:0 auto}
+  .hero{text-align:center;padding:7px 0 6px}
+  .hero h1{font-size:31px;margin-bottom:6px}
+  .hero h1 .sk{direction:ltr;display:inline-block}
+  .hero h1 .sk i{color:var(--accent);font-style:normal}
+  .hero p{font-size:13px;color:var(--muted);max-width:610px;margin:0 auto;line-height:1.5}
 
   /* ---- blocks ---- */
   .eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-weight:700;letter-spacing:1.7px;
-    font-size:10.5px;text-transform:uppercase;margin-bottom:7px}
+    font-size:10.5px;text-transform:uppercase;margin-bottom:6px}
   .eyebrow::before{content:"";width:18px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
   .card{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);
     border-radius:14px;box-shadow:var(--cardshadow)}
-  .row{display:flex;gap:11px;align-items:stretch}
+  .row{display:flex;gap:10px;align-items:stretch}
 
   /* flow */
-  .flow{display:flex;align-items:stretch;gap:4px}
+  .flow{display:flex;align-items:stretch;gap:5px}
   .flow .node{flex:1;background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);
-    border-radius:12px;padding:10px 5px;text-align:center}
+    border-radius:12px;padding:9px 7px;text-align:center}
   .flow .node.hero-n{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 18px var(--heroglow)}
   .flow .node .ni{width:32px;height:32px;border-radius:10px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;
     background:var(--accentbg);color:var(--accent)}
   .flow .node.hero-n .ni{background:var(--goldbg);color:var(--gold)}
   .flow .node .ni svg{width:17px;height:17px}
-  .flow .node b{font-size:11.5px;display:block;color:var(--txt);line-height:1.3}
-  .flow .node span{font-size:9.5px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
-  .flow .arr{flex:0 0 15px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
-  .flow .arr svg{width:15px;height:15px}
+  .flow .node b{font-size:12px;display:block;color:var(--txt);line-height:1.3}
+  .flow .node span{font-size:10px;color:var(--muted);line-height:1.35;display:block;margin-top:3px}
+  .flow .arr{flex:0 0 16px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .flow .arr svg{width:16px;height:16px}
 
   /* deliverables */
-  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-  .d{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:12px;padding:10px 11px}
-  .d .dh{display:flex;align-items:center;gap:8px;margin-bottom:4px}
-  .d .di{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .d{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:12px;padding:9px 10px}
+  .d .dh{display:flex;align-items:center;gap:7px;margin-bottom:3px}
+  .d .di{flex:0 0 24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;
     background:var(--accentbg);color:var(--accent)}
   .d .di.gold{background:var(--goldbg);color:var(--gold)}
   .d .di.green{background:var(--greenbg);color:var(--green)}
-  .d .di svg{width:15px;height:15px}
-  .d h3{font-size:12.5px}
-  .d p{font-size:10.5px;color:var(--muted);line-height:1.45}
+  .d .di svg{width:14px;height:14px}
+  .d h3{font-size:12px}
+  .d p{font-size:10px;color:var(--muted);line-height:1.35}
 
   /* pricing */
-  .prices{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .priceCard{text-align:center;padding:13px 12px}
-  .priceCard .plabel{color:var(--muted);font-size:11.5px}
-  .priceCard .pnum{font-family:'Outfit';font-weight:800;font-size:31px;color:var(--txt);line-height:1.15;margin:2px 0 3px}
-  .priceCard .pnum i{font-style:normal;font-size:15px;color:var(--accent)}
-  .priceCard .psub{color:var(--muted);font-size:10.5px;line-height:1.4}
-  .incBox{padding:11px 13px}
-  .incBox h3{font-size:12.5px;margin-bottom:6px}
-  .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 16px}
-  .inc li{padding:3.5px 0;color:var(--txt2);font-size:11.5px;display:flex;gap:7px;align-items:flex-start;line-height:1.4}
-  .inc li svg{flex:0 0 12px;width:12px;height:12px;margin-top:4px;stroke:var(--accent);stroke-width:2.6}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .priceCard{text-align:center;padding:11px 12px}
+  .priceCard .plabel{color:var(--muted);font-size:11px}
+  .priceCard .pnum{font-family:'Outfit';font-weight:800;font-size:29px;color:var(--txt);line-height:1.1;margin:2px 0 3px}
+  .priceCard .pnum i{font-style:normal;font-size:14px;color:var(--accent)}
+  .priceCard .psub{color:var(--muted);font-size:10px;line-height:1.4}
+  .incBox{padding:10px 12px}
+  .incBox h3{font-size:12px;margin-bottom:5px}
+  .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px 16px}
+  .inc li{padding:1.5px 0;color:var(--txt2);font-size:11px;display:flex;gap:7px;align-items:flex-start;line-height:1.35}
+  .inc li svg{flex:0 0 11px;width:11px;height:11px;margin-top:4px;stroke:var(--accent);stroke-width:2.6}
 
   /* terms strip */
-  .terms{display:flex;gap:9px}
+  .terms{display:flex;gap:8px}
   .terms .t{flex:1;border:1px solid var(--line);background:linear-gradient(160deg,var(--accentbg),var(--card2));
-    border-radius:11px;padding:9px 11px}
-  .terms .t b{display:block;font-family:'Outfit';font-size:13px;color:var(--txt);line-height:1.25}
-  .terms .t span{font-size:10px;color:var(--muted);display:block;margin-top:1px;line-height:1.35}
+    border-radius:11px;padding:8px 10px}
+  .terms .t b{display:block;font-family:'Outfit';font-size:12.5px;color:var(--txt);line-height:1.2}
+  .terms .t span{font-size:9.5px;color:var(--muted);display:block;margin-top:1px;line-height:1.3}
   .terms .t.gold-t{border-color:var(--goldline);background:linear-gradient(160deg,var(--goldbg),var(--card2))}
   .terms .t.gold-t b{color:var(--gold)}
 
-  /* note + extensions */
-  .note{background:var(--goldbg);border:1px solid var(--goldline);border-radius:12px;padding:10px 13px;font-size:11.5px;line-height:1.5}
-  .ext{border:1px dashed var(--line);border-radius:12px;padding:10px 13px;font-size:11px;color:var(--muted);line-height:1.5}
+  /* note + future */
+  .note{background:var(--goldbg);border:1px solid var(--goldline);border-radius:12px;padding:8px 12px;font-size:10.5px;line-height:1.4}
+  .ext{border:1px dashed var(--line);border-radius:12px;padding:8px 12px;font-size:10px;color:var(--muted);line-height:1.4}
   .ext b{color:var(--txt2);font-weight:700}
+  .ext ul{list-style:none;margin-top:3px}
+  .ext li{padding-right:11px;position:relative}
+  .ext li::before{content:"·";position:absolute;right:2px;color:var(--accent);font-weight:700}
 
-  /* cta + footer */
-  .cta{margin-top:auto;padding-top:11px}
-  .ctaBox{background:linear-gradient(120deg,var(--accentbg),var(--ctabg));border:1px solid var(--accent);
-    border-radius:14px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .ctaBox h2{font-size:16px;margin-bottom:2px}
-  .ctaBox p{font-size:11.5px;color:var(--muted)}
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--cta);color:#fff;font-weight:700;text-decoration:none;
-    padding:10px 22px;border-radius:999px;font-size:12.5px;white-space:nowrap}
-  .btn svg{width:14px;height:14px;stroke-width:2.2}
+  /* signatures */
+  .sign{margin-top:auto;padding-top:8px}
+  .signBox{border:1px solid var(--accent);background:linear-gradient(120deg,var(--accentbg),var(--ctabg));
+    border-radius:14px;padding:10px 14px}
+  .signTop{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:7px}
+  .signTop h2{font-size:15px}
+  .signTop span{font-size:10.5px;color:var(--muted)}
+  .signGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .party{border:1px solid var(--line);background:var(--metabg);border-radius:11px;padding:8px 10px}
+  .party .ph{display:flex;align-items:center;gap:8px;margin-bottom:7px;min-height:20px}
+  .party .ph img{height:17px}
+  .party .ph .nm{font-family:'Outfit';font-weight:800;font-size:11.5px;color:var(--txt)}
+  .party .ph .rl{font-size:9.5px;color:var(--muted)}
+  .fields{display:flex;gap:9px}
+  .fld{flex:1}
+  .fld .fl{font-size:9px;color:var(--muted);display:block;margin-bottom:1px}
+  .fld .fline{border-bottom:1px solid var(--line);height:17px}
+
+  /* footer */
   .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
-    border-top:1px solid var(--line);margin-top:9px;padding-top:8px}
-  .footlogos{display:flex;align-items:center;gap:11px;direction:ltr}
-  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:15px;color:var(--txt)}
+    border-top:1px solid var(--line);margin-top:8px;padding-top:7px}
+  .footlogos{display:flex;align-items:center;gap:10px;direction:ltr}
+  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:14px;color:var(--txt)}
   .footlogos .sa i{color:var(--accent)}
-  .footlogos .with{color:var(--muted);font-size:10.5px;font-family:'Heebo'}
-  .footlogos img{height:18px;opacity:.95}
-  .foot .fx{color:var(--muted);font-size:10px;text-align:left;line-height:1.45}
+  .footlogos .with{color:var(--muted);font-size:10px;font-family:'Heebo'}
+  .footlogos img{height:17px;opacity:.95}
+  .foot .fx{color:var(--muted);font-size:9.5px;text-align:left;line-height:1.4}
 
   @media screen and (max-width:760px){
     .page{width:auto;height:auto;padding:26px 18px}
-    .dgrid,.prices,.inc{grid-template-columns:1fr}
-    .flow,.terms,.row{flex-direction:column}
+    .dgrid,.prices,.inc,.signGrid{grid-template-columns:1fr}
+    .flow,.terms,.row,.fields{flex-direction:column}
     .flow .arr{transform:rotate(-90deg)}
-    .head,.ctaBox,.foot{flex-direction:column;text-align:center}
+    .head,.foot,.signTop{flex-direction:column;text-align:center}
     .hero h1{font-size:24px}
   }
 </style>
@@ -166,40 +181,35 @@
 
   <!-- ===== HERO ===== -->
   <div class="hero">
-    <h1>מהפגישה — <span class="accent">למשימות במעקב</span></h1>
-    <p>מערכת Timeless מקליטה ומסכמת כל פגישה, המערכת שלכם מפרקת את הסיכום למשימות עם אחראי ותאריך יעד, ומנהלת המשרד מאשרת ועוקבת ממסך אחד.</p>
+    <h1>הרמת מערכת <span class="sk">SHVEK<i>AI</i></span></h1>
+    <p>מערכת תמלול שיחות מקליטה ומסכמת כל פגישה, SHVEKAI מפרקת את הסיכום למשימות עם אחראי ותאריך יעד, ומנהלת המשרד מאשרת ועוקבת ממסך אחד.</p>
   </div>
 
   <!-- ===== FLOW ===== -->
   <div class="flow">
     <div class="node">
       <div class="ni"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
-      <b>הפגישה מוקלטת</b><span>אונליין וגם פיזית</span>
-    </div>
-    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
-    <div class="node">
-      <div class="ni"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-      <b>Timeless</b><span>תמלול עברית + סיכום</span>
+      <b>הפגישה מוקלטת ומתומללת</b><span>אונליין וגם פיזית — תמלול בעברית וסיכום, עם זיהוי דוברים</span>
     </div>
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node hero-n">
       <div class="ni"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></div>
-      <b>מנוע הפירוק</b><span>החלטות ← משימות ואחראים</span>
+      <b>מנוע הפירוק</b><span>החלטות ← משימות, עם אחראי לכל משימה</span>
     </div>
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node">
       <div class="ni"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></div>
-      <b>מערכת שוויקה</b><span>סטטוסים ותאריכים</span>
+      <b>מערכת SHVEKAI</b><span>מערכת ניהול משימות לכל הקבוצה — סטטוסים ותאריכים</span>
     </div>
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node">
       <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0114 0"/></svg></div>
-      <b>מנהלת המשרד</b><span>מאשרת ושולטת</span>
+      <b>מנהלת המשרד</b><span>מאשרת, מתקנת ושולטת על הכול</span>
     </div>
   </div>
 
   <!-- ===== DELIVERABLES ===== -->
-  <div style="padding-top:13px">
+  <div style="padding-top:8px">
     <div class="eyebrow">מה מקבלים</div>
     <div class="dgrid">
       <div class="d">
@@ -209,8 +219,8 @@
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></span>
-          <h3 class="accent">מערכת שוויקה</h3></div>
-        <p>משימות, סטטוסים ואחראים בעברית — על בסיס מערכת שרצה היום ב-ENG.</p>
+          <h3 class="accent">SHVEKAI — ניהול משימות</h3></div>
+        <p>מערכת ניהול משימות לכל הקבוצה: סטטוסים, אחראים ותאריכים בעברית, על בסיס מערכת שרצה היום ב-ENG.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di gold"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
@@ -219,8 +229,8 @@
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></span>
-          <h3 class="accent">הגדרת Timeless מלאה</h3></div>
-        <p>חיבור יומנים, חדרי פגישות לפי זרוע, והקלטת פגישה פיזית בחיוג מהטלפון.</p>
+          <h3 class="accent">הגדרת מערכת התמלול</h3></div>
+        <p>חיבור היומנים, חדרי פגישות לפי זרוע, והקלטת פגישה פיזית בחיוג מהטלפון.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.6M22 20a6.5 6.5 0 00-5-6.3"/></svg></span>
@@ -236,13 +246,13 @@
   </div>
 
   <!-- ===== PRICING ===== -->
-  <div style="padding-top:13px">
+  <div style="padding-top:8px">
     <div class="eyebrow">הצעת המחיר</div>
     <div class="prices">
       <div class="card priceCard">
         <div class="plabel">הקמה — חד-פעמי</div>
         <div class="pnum">₪16,000</div>
-        <div class="psub">המערכת · החיבור ל-Timeless · מנוע הפירוק · הגדרות · הדרכה והרצה</div>
+        <div class="psub">המערכת · חיבור מערכת תמלול השיחות · מנוע הפירוק · הגדרות · הדרכה והרצה</div>
       </div>
       <div class="card priceCard">
         <div class="plabel">מנוי הפעלה חודשי</div>
@@ -251,54 +261,76 @@
       </div>
     </div>
 
-    <div class="card incBox" style="margin-top:11px">
+    <div class="card incBox" style="margin-top:8px">
       <h3 class="accent">מה כלול במנוי החודשי</h3>
       <ul class="inc">
-        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מנוי Timeless — עד 3 מושבי הקלטה</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מנוי מערכת תמלול שיחות — עד 3 מושבי הקלטה</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>כיול מתמשך של מנוע הפירוק</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מערכת שליחת WhatsApp</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>שעתיים שיפורים והתאמות בכל חודש</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>ניטור 24/7 וטיפול לפי רמות שירות</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>2 שעות שיפורים והתאמות בכל חודש</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>תחזוקה, עדכונים, אחסון וגיבויים</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>שינויים שוטפים — עד יום עסקים</li>
       </ul>
     </div>
 
-    <div class="terms" style="margin-top:11px">
+    <div class="terms" style="margin-top:8px">
       <div class="t"><b>50% / 50%</b><span>בחתימה ובעלייה לאוויר</span></div>
       <div class="t"><b>3–4 שבועות</b><span>מהאפיון ועד אוויר</span></div>
       <div class="t gold-t"><b>קיזוז 50%</b><span>מההקמה, בשדרוג לחבילה המלאה תוך 6 חודשים</span></div>
       <div class="t"><b>30 יום</b><span>תוקף ההצעה · המחירים אינם כוללים מע"מ</span></div>
     </div>
 
-    <div class="row" style="margin-top:11px">
-      <div class="note" style="flex:1.15">
-        <b class="gold">מתחילים בקטן — בלי לאבד את הגדול.</b>
-        החבילה המלאה שראיתם (כ-₪34,000 הקמה) נשארת על השולחן: עוזר WhatsApp לצוות, תזכורות, האצלת משימות ותיאום פגישות — ובשדרוג תוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.
+    <div class="row" style="margin-top:8px">
+      <div class="note" style="flex:1.05">
+        <b class="gold">מתחילים בקטן ומניחים את התשתיות העתידיות.</b>
+        המערכת הנוכחית תהווה תשתית לשדרוג עתידי לניהול כלל פעילות קבוצת שוויקה — ובשדרוג לחבילה המלאה תוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.
       </div>
       <div class="ext" style="flex:1">
-        <b>לא כלול בשלב זה:</b> התראות WhatsApp אישיות לאחראי משימה (הרחבה בתשלום, על התשתית הקיימת) · עוזר ה-WhatsApp המלא — במסגרת החבילה המלאה.<br>
-        <b>ובהמשך לכל הקבוצה:</b> מכירות · התחדשות עירונית · נדל"ן מניב · קמעונאות · מנוע מסמכים וחוזים.
+        <b>פיצ'רים עתידיים — לא כלולים בשלב זה:</b>
+        <ul>
+          <li>עוזר WhatsApp מלא לצוות: תזכורות אוטומטיות, האצלת משימות ועדכון סטטוס בהודעה</li>
+          <li>תיאום פגישות וסנכרון יומן · דוחות ובקרת ביצוע להנהלה</li>
+          <li>הרחבה ל-5 זרועות הקבוצה · מנוע מסמכים וחוזים</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- ===== CTA + FOOTER ===== -->
-  <div class="cta">
-    <div class="ctaBox">
-      <div>
-        <h2>הצעד הבא — שיחת אפיון קצרה</h2>
-        <p>ממפים את הפגישות, המשתתפים וטבלת השמות — ויוצאים לדרך.</p>
+  <!-- ===== SIGNATURES ===== -->
+  <div class="sign">
+    <div class="signBox">
+      <div class="signTop">
+        <h2>אישור הצעת המחיר</h2>
+        <span>חתימת הצדדים מהווה אישור לתנאים ולמחירים המפורטים בעמוד זה</span>
       </div>
-      <a class="btn" href="#">יוצאים לדרך
-        <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></a>
+      <div class="signGrid">
+        <div class="party">
+          <div class="ph"><img src="assets/eng-logo-dark.webp" alt="ENG"><span class="rl">· הספק</span></div>
+          <div class="fields">
+            <div class="fld"><span class="fl">שם החותם</span><div class="fline"></div></div>
+            <div class="fld"><span class="fl">חתימה</span><div class="fline"></div></div>
+            <div class="fld"><span class="fl">תאריך</span><div class="fline"></div></div>
+          </div>
+        </div>
+        <div class="party">
+          <div class="ph"><span class="nm">קבוצת שוויקה</span><span class="rl">· הלקוח</span></div>
+          <div class="fields">
+            <div class="fld"><span class="fl">שם החותם</span><div class="fline"></div></div>
+            <div class="fld"><span class="fl">חתימה</span><div class="fline"></div></div>
+            <div class="fld"><span class="fl">תאריך</span><div class="fline"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="foot">
       <div class="footlogos">
         <span class="sa">simplif<i>AI</i></span>
         <span class="with">בשיתוף</span>
         <img src="assets/eng-logo-dark.webp" alt="ENG">
       </div>
-      <div class="fx">תקציר של הצעת שלב ראשון — היקף מדויק ננעל באפיון<br>מפשטים עסקים. בעזרת&nbsp;AI.<span dir="rtl">&nbsp;·&nbsp;</span>28.7.2026</div>
+      <div class="fx">תקציר של הצעת שלב ראשון — היקף מדויק ננעל באפיון<br>מפשטים עסקים. בעזרת&nbsp;AI.<span dir="rtl">&nbsp;·&nbsp;</span>2.8.2026</div>
     </div>
   </div>
 
