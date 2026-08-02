@@ -27,8 +27,8 @@
   /* /THEME */
   *{box-sizing:border-box;margin:0;padding:0}
   @page{size:A4;margin:0}
-  html,body{background:var(--bg);color:var(--txt2);font-family:'Heebo',sans-serif;line-height:1.5;font-weight:300}
-  .page{width:210mm;height:297mm;margin:0 auto;padding:10mm 13mm 8mm;position:relative;overflow:hidden;
+  html,body{background:var(--bg);color:var(--txt2);font-family:'Heebo',sans-serif;line-height:1.45;font-weight:300}
+  .page{width:210mm;height:297mm;margin:0 auto;padding:10mm 13mm 7mm;position:relative;overflow:hidden;
     display:flex;flex-direction:column;background:var(--covbg)}
   h1,h2,h3{font-family:'Outfit','Heebo',sans-serif;font-weight:800;line-height:1.2;color:var(--txt)}
   b{color:var(--txt);font-weight:700}
@@ -38,121 +38,122 @@
 
   /* ---- header ---- */
   .head{display:flex;align-items:center;justify-content:space-between;gap:12px;
-    border-bottom:1px solid var(--line);padding-bottom:8px}
+    border-bottom:1px solid var(--line);padding-bottom:6px}
   .lockup{display:flex;align-items:center;gap:11px;direction:ltr}
-  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:23px;color:var(--txt);letter-spacing:.3px}
+  .lockup .sa{font-family:'Outfit';font-weight:800;font-size:22px;color:var(--txt);letter-spacing:.3px}
   .lockup .sa i{color:var(--accent);font-style:normal}
-  .lockup .with{color:var(--muted);font-size:12px;font-family:'Heebo';font-weight:500}
-  .lockup img.englogo{height:28px}
+  .lockup .with{color:var(--muted);font-size:11.5px;font-family:'Heebo';font-weight:500}
+  .lockup img.englogo{height:27px}
   .head .right{display:flex;align-items:center;gap:12px}
-  .head img.shveka{height:36px}
+  .head img.shveka{height:34px}
   .pill{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--accent);color:var(--accent);border-radius:999px;
-    padding:5px 14px;font-size:12px;font-weight:500;background:var(--accentbg);box-shadow:0 0 18px var(--glow);white-space:nowrap}
-  .pill svg{width:13px;height:13px}
+    padding:5px 13px;font-size:11.5px;font-weight:500;background:var(--accentbg);box-shadow:0 0 18px var(--glow);white-space:nowrap}
+  .pill svg{width:12px;height:12px}
 
   /* ---- hero ---- */
-  .hero{text-align:center;padding:7px 0 6px}
-  .hero h1{font-size:31px;margin-bottom:6px}
+  .hero{text-align:center;padding:6px 0 5px}
+  .hero h1{font-size:30px;margin-bottom:0}
   .hero h1 .sk{direction:ltr;display:inline-block}
   .hero h1 .sk i{color:var(--accent);font-style:normal}
-  .hero p{font-size:13px;color:var(--muted);max-width:610px;margin:0 auto;line-height:1.5}
+  .hero p{font-size:12px;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.45}
 
   /* ---- blocks ---- */
-  .eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-weight:700;letter-spacing:1.7px;
-    font-size:10.5px;text-transform:uppercase;margin-bottom:6px}
-  .eyebrow::before{content:"";width:18px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-weight:700;letter-spacing:1.6px;
+    font-size:10.5px;text-transform:uppercase;margin-bottom:7px}
+  .eyebrow::before{content:"";width:16px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:2px}
   .card{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);
     border-radius:14px;box-shadow:var(--cardshadow)}
-  .row{display:flex;gap:10px;align-items:stretch}
 
   /* flow */
   .flow{display:flex;align-items:stretch;gap:5px}
   .flow .node{flex:1;background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);
     border-radius:12px;padding:9px 7px;text-align:center}
   .flow .node.hero-n{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 18px var(--heroglow)}
-  .flow .node .ni{width:32px;height:32px;border-radius:10px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;
+  .flow .node .ni{width:30px;height:30px;border-radius:9px;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;
     background:var(--accentbg);color:var(--accent)}
   .flow .node.hero-n .ni{background:var(--goldbg);color:var(--gold)}
-  .flow .node .ni svg{width:17px;height:17px}
-  .flow .node b{font-size:12px;display:block;color:var(--txt);line-height:1.3}
-  .flow .node span{font-size:10px;color:var(--muted);line-height:1.35;display:block;margin-top:3px}
-  .flow .arr{flex:0 0 16px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
-  .flow .arr svg{width:16px;height:16px}
+  .flow .node .ni svg{width:16px;height:16px}
+  .flow .node b{font-size:12px;display:block;color:var(--txt);line-height:1.25}
+  .flow .node span{font-size:10px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
+  .flow .arr{flex:0 0 15px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .flow .arr svg{width:15px;height:15px}
 
   /* deliverables */
-  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
   .d{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:12px;padding:9px 10px}
-  .d .dh{display:flex;align-items:center;gap:7px;margin-bottom:3px}
-  .d .di{flex:0 0 24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  .d.span2{grid-column:span 2}
+  .d .dh{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+  .d .di{flex:0 0 22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;
     background:var(--accentbg);color:var(--accent)}
   .d .di.gold{background:var(--goldbg);color:var(--gold)}
   .d .di.green{background:var(--greenbg);color:var(--green)}
-  .d .di svg{width:14px;height:14px}
-  .d h3{font-size:12px}
-  .d p{font-size:10px;color:var(--muted);line-height:1.35}
+  .d .di svg{width:13px;height:13px}
+  .d h3{font-size:11.5px;line-height:1.2}
+  .d p{font-size:10.5px;color:var(--muted);line-height:1.38}
 
   /* pricing */
-  .prices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .priceCard{text-align:center;padding:11px 12px}
-  .priceCard .plabel{color:var(--muted);font-size:11px}
-  .priceCard .pnum{font-family:'Outfit';font-weight:800;font-size:29px;color:var(--txt);line-height:1.1;margin:2px 0 3px}
-  .priceCard .pnum i{font-style:normal;font-size:14px;color:var(--accent)}
+  .priceCard .plabel{color:var(--muted);font-size:10.5px}
+  .priceCard .pnum{font-family:'Outfit';font-weight:800;font-size:28px;color:var(--txt);line-height:1.1;margin:1px 0 2px}
+  .priceCard .pnum i{font-style:normal;font-size:13px;color:var(--accent)}
   .priceCard .psub{color:var(--muted);font-size:10px;line-height:1.4}
-  .incBox{padding:10px 12px}
-  .incBox h3{font-size:12px;margin-bottom:5px}
-  .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px 16px}
-  .inc li{padding:1.5px 0;color:var(--txt2);font-size:11px;display:flex;gap:7px;align-items:flex-start;line-height:1.35}
-  .inc li svg{flex:0 0 11px;width:11px;height:11px;margin-top:4px;stroke:var(--accent);stroke-width:2.6}
+  .incBox{padding:10px 13px}
+  .incBox h3{font-size:11.5px;margin-bottom:4px}
+  .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .inc li{padding:1.5px 0;color:var(--txt2);font-size:11px;display:flex;gap:6px;align-items:flex-start;line-height:1.35}
+  .inc li svg{flex:0 0 10px;width:10px;height:10px;margin-top:4px;stroke:var(--accent);stroke-width:2.6}
 
   /* terms strip */
-  .terms{display:flex;gap:8px}
+  .terms{display:flex;gap:7px}
   .terms .t{flex:1;border:1px solid var(--line);background:linear-gradient(160deg,var(--accentbg),var(--card2));
-    border-radius:11px;padding:8px 10px}
-  .terms .t b{display:block;font-family:'Outfit';font-size:12.5px;color:var(--txt);line-height:1.2}
-  .terms .t span{font-size:9.5px;color:var(--muted);display:block;margin-top:1px;line-height:1.3}
+    border-radius:11px;padding:8px 11px}
+  .terms .t b{display:block;font-family:'Outfit';font-size:12px;color:var(--txt);line-height:1.2}
+  .terms .t span{font-size:9px;color:var(--muted);display:block;margin-top:1px;line-height:1.3}
   .terms .t.gold-t{border-color:var(--goldline);background:linear-gradient(160deg,var(--goldbg),var(--card2))}
   .terms .t.gold-t b{color:var(--gold)}
 
-  /* note + future */
-  .note{background:var(--goldbg);border:1px solid var(--goldline);border-radius:12px;padding:8px 12px;font-size:10.5px;line-height:1.4}
-  .ext{border:1px dashed var(--line);border-radius:12px;padding:8px 12px;font-size:10px;color:var(--muted);line-height:1.4}
-  .ext b{color:var(--txt2);font-weight:700}
-  .ext ul{list-style:none;margin-top:3px}
-  .ext li{padding-right:11px;position:relative}
-  .ext li::before{content:"·";position:absolute;right:2px;color:var(--accent);font-weight:700}
+  /* future block */
+  .futureBox{background:var(--goldbg);border:1px solid var(--goldline);border-radius:12px;padding:9px 13px}
+  .futureBox .lead{font-size:11px;line-height:1.45;color:var(--txt2)}
+  .fgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:7px}
+  .fgrid div{border:1px dashed var(--goldline);border-radius:9px;padding:7px 8px;background:var(--metabg)}
+  .fgrid b{display:block;font-size:10px;color:var(--gold);line-height:1.25}
+  .fgrid span{display:block;font-size:9px;color:var(--muted);line-height:1.35;margin-top:2px}
 
   /* signatures */
   .sign{margin-top:auto;padding-top:8px}
   .signBox{border:1px solid var(--accent);background:linear-gradient(120deg,var(--accentbg),var(--ctabg));
     border-radius:14px;padding:10px 14px}
   .signTop{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:7px}
-  .signTop h2{font-size:15px}
-  .signTop span{font-size:10.5px;color:var(--muted)}
-  .signGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .party{border:1px solid var(--line);background:var(--metabg);border-radius:11px;padding:8px 10px}
-  .party .ph{display:flex;align-items:center;gap:8px;margin-bottom:7px;min-height:20px}
-  .party .ph img{height:17px}
-  .party .ph .nm{font-family:'Outfit';font-weight:800;font-size:11.5px;color:var(--txt)}
-  .party .ph .rl{font-size:9.5px;color:var(--muted)}
+  .signTop h2{font-size:14px}
+  .signTop span{font-size:10px;color:var(--muted)}
+  .signGrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .party{border:1px solid var(--line);background:var(--metabg);border-radius:11px;padding:9px 11px}
+  .party .ph{display:flex;align-items:center;gap:8px;margin-bottom:5px;min-height:19px}
+  .party .ph img{height:16px}
+  .party .ph .nm{font-family:'Outfit';font-weight:800;font-size:11px;color:var(--txt)}
+  .party .ph .rl{font-size:9px;color:var(--muted)}
   .fields{display:flex;gap:9px}
   .fld{flex:1}
-  .fld .fl{font-size:9px;color:var(--muted);display:block;margin-bottom:1px}
-  .fld .fline{border-bottom:1px solid var(--line);height:17px}
+  .fld .fl{font-size:8.5px;color:var(--muted);display:block;margin-bottom:1px}
+  .fld .fline{border-bottom:1px solid var(--line);height:16px}
 
   /* footer */
   .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
     border-top:1px solid var(--line);margin-top:8px;padding-top:7px}
   .footlogos{display:flex;align-items:center;gap:10px;direction:ltr}
-  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:14px;color:var(--txt)}
+  .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:13px;color:var(--txt)}
   .footlogos .sa i{color:var(--accent)}
-  .footlogos .with{color:var(--muted);font-size:10px;font-family:'Heebo'}
-  .footlogos img{height:17px;opacity:.95}
-  .foot .fx{color:var(--muted);font-size:9.5px;text-align:left;line-height:1.4}
+  .footlogos .with{color:var(--muted);font-size:9.5px;font-family:'Heebo'}
+  .footlogos img{height:16px;opacity:.95}
+  .foot .fx{color:var(--muted);font-size:9px;text-align:left;line-height:1.4}
 
   @media screen and (max-width:760px){
     .page{width:auto;height:auto;padding:26px 18px}
-    .dgrid,.prices,.inc,.signGrid{grid-template-columns:1fr}
-    .flow,.terms,.row,.fields{flex-direction:column}
+    .dgrid,.prices,.inc,.signGrid,.fgrid{grid-template-columns:1fr}
+    .d.span2{grid-column:auto}
+    .flow,.terms,.fields{flex-direction:column}
     .flow .arr{transform:rotate(-90deg)}
     .head,.foot,.signTop{flex-direction:column;text-align:center}
     .hero h1{font-size:24px}
@@ -182,7 +183,6 @@
   <!-- ===== HERO ===== -->
   <div class="hero">
     <h1>הקמת מערכת <span class="sk">SHVEK<i>AI</i></span></h1>
-    <p>מערכת תמלול שיחות מקליטה ומסכמת כל פגישה, SHVEKAI מפרקת את הסיכום למשימות עם אחראי ותאריך יעד, ומנהלת המשרד מאשרת ועוקבת ממסך אחד.</p>
   </div>
 
   <!-- ===== FLOW ===== -->
@@ -209,50 +209,55 @@
   </div>
 
   <!-- ===== DELIVERABLES ===== -->
-  <div style="padding-top:8px">
+  <div style="padding-top:9px">
     <div class="eyebrow">מה מקבלים</div>
     <div class="dgrid">
       <div class="d">
         <div class="dh"><span class="di gold"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>
           <h3 class="gold">מנוע תמלול ← משימות</h3></div>
-        <p>הסיכום מתפרק להחלטות ומשימות, עם אחראי לפי טבלת שמות הצוות ותאריך יעד.</p>
+        <p>הסיכום מתפרק להחלטות ומשימות, עם אחראי לפי טבלת השמות ותאריך יעד.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></span>
           <h3 class="accent">SHVEKAI — ניהול משימות</h3></div>
-        <p>מערכת ניהול משימות לכל הקבוצה: סטטוסים, אחראים ותאריכים בעברית, על בסיס מערכת שרצה היום ב-ENG.</p>
+        <p>ניהול משימות לכל הקבוצה: סטטוסים, אחראים ותאריכים, בעברית.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di gold"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
           <h3 class="gold">מסלול אישור לאושרת</h3></div>
-        <p>משימה חדשה נכנסת כ"ממתינה לאישור": רואים, מתקנים, מאשרים — ורק אז מחלקים.</p>
+        <p>משימה חדשה ממתינה לאישור — רואים, מתקנים, מאשרים, ורק אז מחלקים.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></span>
           <h3 class="accent">הגדרת מערכת התמלול</h3></div>
-        <p>חיבור היומנים, חדרי פגישות לפי זרוע, והקלטת פגישה פיזית בחיוג מהטלפון.</p>
+        <p>חיבור יומנים, חדרי פגישות לפי זרוע, והקלטת פגישה פיזית בחיוג מהטלפון.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 5.2a3.2 3.2 0 010 5.6M22 20a6.5 6.5 0 00-5-6.3"/></svg></span>
           <h3 class="accent">הדרכה והרצה מלווה</h3></div>
-        <p>פגישות אמיתיות במצב בדיקה, כיול זיהוי האחראים, ליווי הצוות עד שזה זורם.</p>
+        <p>פגישות אמיתיות במצב בדיקה, כיול זיהוי האחראים, וליווי הצוות.</p>
       </div>
       <div class="d">
         <div class="dh"><span class="di green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
           <h3 class="green">ניטור מסביב לשעון</h3></div>
-        <p>מנטרים את הצינור מההקלטה ועד המשימה — תקלה משביתה: מענה עד שעה, 24/7.</p>
+        <p>מההקלטה ועד המשימה — תקלה משביתה: מענה עד שעה, 24/7.</p>
+      </div>
+      <div class="d span2">
+        <div class="dh"><span class="di"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 9 9 0 01-4-.9L3 21l1.9-4.6A8.4 8.4 0 013 11.5 8.4 8.4 0 0112 3a8.4 8.4 0 019 8.5z"/></svg></span>
+          <h3 class="accent">עוזר WhatsApp לצוות</h3></div>
+        <p>תזכורות אוטומטיות · האצלת משימות עם אחראי ותאריך יעד · תיאום פגישות וסנכרון יומן · הרשאות לפי תפקיד — הכול מתוך WhatsApp, בלי אפליקציה נוספת.</p>
       </div>
     </div>
   </div>
 
   <!-- ===== PRICING ===== -->
-  <div style="padding-top:8px">
+  <div style="padding-top:9px">
     <div class="eyebrow">הצעת המחיר</div>
     <div class="prices">
       <div class="card priceCard">
         <div class="plabel">הקמה — חד-פעמי</div>
         <div class="pnum">₪16,000</div>
-        <div class="psub">המערכת · חיבור מערכת תמלול השיחות · מנוע הפירוק · הגדרות · הדרכה והרצה</div>
+        <div class="psub">המערכת · חיבור מערכת תמלול השיחות · מנוע הפירוק · עוזר ה-WhatsApp · הגדרות · הדרכה והרצה</div>
       </div>
       <div class="card priceCard">
         <div class="plabel">מנוי הפעלה חודשי</div>
@@ -281,18 +286,16 @@
       <div class="t"><b>30 יום</b><span>תוקף ההצעה · המחירים אינם כוללים מע"מ</span></div>
     </div>
 
-    <div class="row" style="margin-top:8px">
-      <div class="note" style="flex:1.05">
-        <b class="gold">מתחילים בקטן ומניחים את התשתיות העתידיות.</b>
-        המערכת הנוכחית תהווה תשתית לשדרוג עתידי לניהול כלל פעילות קבוצת שוויקה — ובשדרוג לחבילה המלאה תוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.
-      </div>
-      <div class="ext" style="flex:1">
-        <b>פיצ'רים עתידיים — לא כלולים בשלב זה:</b>
-        <ul>
-          <li>תיאום פגישות וסנכרון יומן · דוחות ובקרת ביצוע להנהלה</li>
-          <li>מנוע מסמכים וחוזים</li>
-          <li>הרחבה לזרועות הקבוצה: התחדשות עירונית · שוויקה מנג'מנט · שוויקה מסחר ומגורים</li>
-        </ul>
+    <!-- ===== FUTURE ===== -->
+    <div class="futureBox" style="margin-top:8px">
+      <div class="lead"><b class="gold">מתחילים בקטן ומניחים את התשתיות העתידיות.</b>
+        המערכת הנוכחית תהווה תשתית לשדרוג עתידי לניהול כלל פעילות קבוצת שוויקה — כפי שהוצג בהצעה המורחבת, וכל שלב מתומחר בנפרד כשתהיו מוכנים:</div>
+      <div class="fgrid">
+        <div><b>מכירות ויזמות</b><span>בוט לידים WhatsApp 24/7 · CRM · סוכן תוכן לרשתות</span></div>
+        <div><b>התחדשות עירונית</b><span>פורטל דיירים לפינוי-בינוי · מעקב החתמות והתקדמות</span></div>
+        <div><b>שוויקה מנג'מנט</b><span>קריאות שירות ותחזוקה · ניתוב לאיש התחזוקה</span></div>
+        <div><b>קמעונאות</b><span>שירות לקוחות לרשתות · אנליטיקת מכירות בין הסניפים</span></div>
+        <div><b>מנוע מסמכים וחוזים</b><span>חיפוש בשפה טבעית על הסכמים ואישורים</span></div>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>הצעה · שלב ראשון — מהפגישה למשימות במעקב | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
+<title>הקמת מערכת SHVEKAI · שלב ראשון | simplifAI בשיתוף ENG · קבוצת שוויקה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Outfit:wght@600;800&display=swap" onload="this.rel='stylesheet'">
@@ -20,8 +20,8 @@
     --green:#15803D; --greenbg:rgba(21,128,61,.10);
     --badgetxt:#FFFFFF; --chipbg:rgba(255,255,255,.85); --chiptxt:#33456E; --metabg:rgba(255,255,255,.85);
     --glow:rgba(43,107,224,.14); --heroglow:rgba(183,121,31,.14);
-    --covbg:radial-gradient(1100px 560px at 82% -12%, rgba(77,142,255,.10), transparent 60%),
-            radial-gradient(900px 520px at -6% 58%, rgba(255,111,76,.05), transparent 55%);
+    --covbg:radial-gradient(1000px 500px at 85% -14%, rgba(77,142,255,.10), transparent 60%),
+            radial-gradient(820px 460px at -8% 70%, rgba(255,111,76,.05), transparent 55%);
     --cardshadow:0 1px 3px rgba(13,27,62,.05);
   }
   /* /THEME */
@@ -60,6 +60,8 @@
   .cov-mid{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px;padding:0 0 30px}
   .shveka-hero{height:86px;margin-bottom:14px}
   .cover h1{font-size:46px;margin:10px 0 12px}
+  .cover h1 .sk,h2 .sk{direction:ltr;display:inline-block}
+  .cover h1 .sk i,h2 .sk i{color:var(--accent);font-style:normal}
   .cover .sub{font-size:19.5px;color:var(--muted);max-width:680px}
   .covchips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .covchips .chip{border:1px solid var(--line);background:var(--chipbg);border-radius:999px;
@@ -77,9 +79,9 @@
   p{color:var(--txt2);margin-bottom:12px}
   .grid{display:grid;gap:14px}
   .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr}
-  .card{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--cardshadow)}
+  .card{background:linear-gradient(165deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:13px;box-shadow:var(--cardshadow)}
   .card h3{font-size:18px;margin-bottom:6px}
-  .cimg{width:100%;height:118px;border-radius:11px;overflow:hidden;margin-bottom:13px;border:1px solid var(--line)}
+  .cimg{width:100%;height:96px;border-radius:11px;overflow:hidden;margin-bottom:13px;border:1px solid var(--line)}
   .cimg img{width:100%;height:100%;object-fit:cover;display:block}
   /* stats */
   .stats{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
@@ -108,7 +110,7 @@
   .inc li:last-child{border-bottom:none}
   .inc li svg{flex:0 0 15px;width:15px;height:15px;margin-top:5px;stroke:var(--accent);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
   table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14.5px}
-  th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th,td{text-align:right;padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
   th{color:var(--accent);font-weight:700} td{color:var(--txt2)}
   .num{color:var(--gold);font-weight:700;white-space:nowrap}
   /* steps */
@@ -123,11 +125,27 @@
   .btn{display:flex;width:fit-content;align-items:center;gap:9px;background:var(--cta);color:#fff;font-weight:700;text-decoration:none;
     padding:13px 30px;border-radius:999px;margin:14px auto 0}
   .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .valuestrip{display:flex;justify-content:space-between;gap:14px;background:linear-gradient(160deg,var(--accentbg),var(--card2));border:1px solid var(--line);border-radius:14px;padding:15px 22px;margin:16px 0}
+  .valuestrip{display:flex;justify-content:space-between;gap:14px;background:linear-gradient(160deg,var(--accentbg),var(--card2));border:1px solid var(--line);border-radius:14px;padding:11px 20px;margin:11px 0}
   .valuestrip span{color:var(--txt2);font-size:14px;display:flex;align-items:center;gap:8px}
   .valuestrip b{color:var(--green);font-family:'Outfit';font-size:16px}
   .roadchips{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
   .roadchips .chip{border:1px solid var(--line);background:var(--chipbg);border-radius:999px;padding:6px 15px;font-size:13px;color:var(--chiptxt)}
+  /* signatures */
+  .signBox{border:1px solid var(--accent);background:linear-gradient(120deg,var(--accentbg),var(--ctabg));
+    border-radius:18px;padding:15px 20px}
+  .signTop{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:11px}
+  .signTop h2{font-size:22px;margin:0}
+  .signTop span{font-size:13px;color:var(--muted)}
+  .signGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .party{border:1px solid var(--line);background:var(--metabg);border-radius:14px;padding:11px 13px}
+  .party .ph{display:flex;align-items:center;gap:10px;margin-bottom:9px;min-height:24px}
+  .party .ph img{height:22px}
+  .party .ph .nm{font-family:'Outfit';font-weight:800;font-size:15px;color:var(--txt)}
+  .party .ph .rl{font-size:12.5px;color:var(--muted)}
+  .fields{display:flex;gap:12px}
+  .fld{flex:1}
+  .fld .fl{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+  .fld .fline{border-bottom:1px solid var(--line);height:22px}
   .footer-block{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
   .footlogos{display:flex;align-items:center;justify-content:center;gap:16px;direction:ltr;margin-bottom:10px}
   .footlogos .sa{font-family:'Outfit';font-weight:800;font-size:21px;color:var(--txt)}
@@ -135,7 +153,7 @@
   .footlogos .with{color:var(--muted);font-size:14px;font-family:'Heebo'}
   .footlogos img{height:26px;opacity:.95}
   .foot{color:var(--muted);font-size:12.5px;text-align:center}
-  @media screen and (max-width:760px){.g3,.g2{grid-template-columns:1fr}.cover h1{font-size:32px}.page{padding:30px 20px}.flow{flex-direction:column}.flow .arr{transform:rotate(-90deg)}}
+  @media screen and (max-width:760px){.g3,.g2,.signGrid{grid-template-columns:1fr}.fields{flex-direction:column}.signTop{flex-direction:column}.cover h1{font-size:32px}.page{padding:30px 20px}.flow{flex-direction:column}.flow .arr{transform:rotate(-90deg)}}
 </style>
 </head>
 <body>
@@ -158,17 +176,17 @@
 
   <div class="cov-mid">
     <img class="shveka-hero" src="assets/shveka-logo-dark.webp" alt="קבוצת שוויקה">
-    <h1>מהפגישה — <span class="accent">למשימות במעקב</span></h1>
-    <p class="sub">בהמשך להצעה שראיתם — מתחילים ממוקד: Timeless מקליטה ומסכמת כל פגישה, המערכת מפרקת את הסיכום למשימות עם אחראי, ומנהלת המשרד עוקבת על הכול ממסך אחד.</p>
+    <h1>הקמת מערכת <span class="sk">SHVEK<i>AI</i></span></h1>
+    <p class="sub">בהמשך להצעה שראיתם — מתחילים ממוקד: מערכת תמלול שיחות מקליטה ומסכמת כל פגישה, SHVEKAI מפרקת את הסיכום למשימות עם אחראי, ומנהלת המשרד עוקבת על הכול ממסך אחד.</p>
     <div class="covchips">
       <span class="chip">על בסיס מערכת שעובדת היום ב-ENG</span>
-      <span class="chip">מנוי Timeless כלול</span>
+      <span class="chip">מנוי מערכת התמלול כלול</span>
       <span class="chip gold-chip">שליטה מלאה למנהלת המשרד</span>
     </div>
   </div>
 
   <div class="cov-foot">
-    <div class="meta">28.7.2026 &nbsp;·&nbsp; תוקף ההצעה: 30 יום</div>
+    <div class="meta">2.8.2026 &nbsp;·&nbsp; תוקף ההצעה: 30 יום</div>
   </div>
 </div>
 
@@ -177,9 +195,9 @@
 <section>
   <div class="eyebrow">הבקשה שלכם</div>
   <h2>סיכום פגישה שהופך למשימות — בלי שאף אחד ירדוף אחרי אף אחד</h2>
-  <p>ביקשתם להתחיל בדבר אחד ממוקד: חיבור בין מערכת התמלול <b>Timeless</b> לבין מערכת ניהול משימות — כך שכל מה שסוכם בפגישה יהפוך למשימות מסודרות, עם אחראי ותאריך יעד, ובמעקב מלא של מנהלת המשרד. זה בדיוק מה שההצעה הזו מקימה.</p>
+  <p>ביקשתם להתחיל בדבר אחד ממוקד: חיבור בין <b>מערכת תמלול השיחות</b> לבין מערכת ניהול משימות לכל הקבוצה — כך שכל מה שסוכם בפגישה יהפוך למשימות מסודרות, עם אחראי ותאריך יעד, ובמעקב מלא של מנהלת המשרד. זה בדיוק מה שההצעה הזו מקימה.</p>
   <div class="stats">
-    <div class="st"><b>77%</b><span>מהמשימות שמסוכמות בפגישות — לא קורות בפועל (מחקר Timeless)</span></div>
+    <div class="st"><b>77%</b><span>מהמשימות שמסוכמות בפגישות — לא קורות בפועל</span></div>
     <div class="st"><b>כ-2 שעות</b><span>ביום נבלעות במעברים בין כלים והקשרים</span></div>
     <div class="st"><b>מסך אחד</b><span>שבו מנהלת המשרד רואה הכול, בזמן אמת</span></div>
   </div>
@@ -191,12 +209,7 @@
   <div class="flow">
     <div class="node">
       <div class="ni"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg></div>
-      <b>הפגישה מוקלטת</b><span>זום, אונליין — וגם פגישה פיזית</span>
-    </div>
-    <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
-    <div class="node">
-      <div class="ni"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-      <b>Timeless</b><span>תמלול בעברית + סיכום, עם זיהוי דוברים</span>
+      <b>הפגישה מוקלטת ומתומללת</b><span>זום, אונליין וגם פגישה פיזית — תמלול בעברית וסיכום, עם זיהוי דוברים</span>
     </div>
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node hero">
@@ -206,7 +219,7 @@
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node">
       <div class="ni"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></div>
-      <b>מערכת שוויקה</b><span>משימות, סטטוסים ותאריכים — במעקב</span>
+      <b>מערכת SHVEKAI</b><span>ניהול משימות לכל הקבוצה — סטטוסים ותאריכים</span>
     </div>
     <div class="arr"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div>
     <div class="node">
@@ -216,7 +229,7 @@
   </div>
   <div class="note blue" style="margin-top:16px">
     <b class="accent">חיבור רשמי, לא מעקף:</b>
-    <p style="margin-top:6px;margin-bottom:0">המערכת מחוברת ל-Timeless בממשק הרשמי שלה — ברגע שתמליל וסיכום מוכנים, נשלחת התראה אוטומטית והמערכת מושכת אותם ומתחילה לעבוד. בלי העתקות ידניות, בלי "מי מעביר את הסיכום".</p>
+    <p style="margin-top:6px;margin-bottom:0">המערכת מחוברת למערכת תמלול השיחות בממשק הרשמי שלה — ברגע שתמליל וסיכום מוכנים, נשלחת התראה אוטומטית והמערכת מושכת אותם ומתחילה לעבוד. בלי העתקות ידניות, בלי "מי מעביר את הסיכום".</p>
   </div>
 </section>
 </div>
@@ -234,8 +247,8 @@
     </div>
     <div class="card">
       <div class="cimg"><img src="assets/s-delegation.webp" alt="מערכת המשימות"></div>
-      <h3 class="accent">מערכת שוויקה</h3>
-      <p class="muted" style="margin:0">משימות, סטטוסים, אחראים ותאריכים — בעברית, מותאמת למבנה שלכם, על בסיס מערכת שרצה היום ב-ENG.</p>
+      <h3 class="accent">SHVEKAI — ניהול משימות</h3>
+      <p class="muted" style="margin:0">מערכת ניהול משימות לכל הקבוצה: סטטוסים, אחראים ותאריכים — בעברית, מותאמת למבנה שלכם, על בסיס מערכת שרצה היום ב-ENG.</p>
     </div>
     <div class="card">
       <div class="ico gold"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div>
@@ -244,7 +257,7 @@
     </div>
     <div class="card">
       <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></div>
-      <h3 class="accent">הגדרת Timeless מלאה</h3>
+      <h3 class="accent">הגדרת מערכת התמלול</h3>
       <p class="muted" style="margin:0">חיבור היומנים, חדרי פגישות לפי זרוע או נושא, והקלטת פגישות פיזיות בחיוג פשוט מהטלפון.</p>
     </div>
     <div class="card">
@@ -257,8 +270,13 @@
       <h3 class="green">ניטור מסביב לשעון</h3>
       <p class="muted" style="margin:0">אנחנו מנטרים את הצינור כולו — מההקלטה ועד המשימה — ומטפלים בתקלות לפי רמות שירות מוגדרות.</p>
     </div>
+    <div class="card" style="grid-column:span 3">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 9 9 0 01-4-.9L3 21l1.9-4.6A8.4 8.4 0 013 11.5 8.4 8.4 0 0112 3a8.4 8.4 0 019 8.5z"/></svg></div>
+      <h3 class="accent">עוזר WhatsApp לצוות</h3>
+      <p class="muted" style="margin:0">תזכורות אוטומטיות · האצלת משימות עם אחראי ותאריך יעד · תיאום פגישות וסנכרון יומן · הרשאות לפי תפקיד — הכול מתוך WhatsApp, בלי אפליקציה נוספת ובלי כלי חדש ללמוד.</p>
+    </div>
   </div>
-  <p class="muted" style="margin-top:14px">את היכולת הזו ראיתם חיה ב-PM-ENG. כאן היא נבנית עבור שוויקה — סביב הפגישות, האנשים והשגרות שלכם.</p>
+  <p class="muted" style="margin-top:8px">את היכולת הזו ראיתם חיה ב-PM-ENG. כאן היא נבנית עבור שוויקה — סביב הפגישות, האנשים והשגרות שלכם.</p>
 </section>
 </div>
 
@@ -271,7 +289,7 @@
     <div class="card priceCard">
       <div class="plabel">הקמה (חד-פעמי)</div>
       <div class="pnum">₪16,000</div>
-      <div class="psub">המערכת · החיבור ל-Timeless · מנוע הפירוק · הגדרות · הדרכה והרצה</div>
+      <div class="psub">המערכת · החיבור למערכת התמלול · מנוע הפירוק · עוזר ה-WhatsApp · הגדרות · הדרכה והרצה</div>
     </div>
     <div class="card priceCard">
       <div class="plabel">מנוי הפעלה חודשי</div>
@@ -283,32 +301,23 @@
   <div class="card" style="margin-top:14px">
     <h3 class="accent" style="margin-bottom:4px">מה כלול במנוי החודשי</h3>
     <ul class="inc">
-      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מנוי Timeless — עד 3 מושבי הקלטה (מעבר לכך — לפי עלות)</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מנוי מערכת תמלול שיחות — עד 3 מושבי הקלטה (מעבר לכך — לפי עלות)</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>מערכת שליחת WhatsApp</li>
       <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>ניטור מסביב לשעון וטיפול בתקלות לפי רמות השירות</li>
       <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>תחזוקה ועדכונים שוטפים</li>
       <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>כיול מתמשך של מנוע הפירוק וזיהוי האחראים</li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>2 שעות שיפורים והתאמות בכל חודש</li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>שעתיים שיפורים והתאמות בכל חודש</li>
     </ul>
   </div>
 
   <p class="muted" style="margin-top:12px">תשלום: 50% בחתימה, 50% בעלייה לאוויר.</p>
 
   <div class="note" style="margin-top:8px">
-    <b class="gold">מתחילים בקטן — בלי לאבד את הגדול.</b>
-    <p style="margin-top:6px;margin-bottom:0">בשדרוג לחבילה המלאה בתוך 6 חודשים — <b>50% מההקמה של שלב זה מקוזזים</b> ממחיר ההקמה של החבילה המלאה.</p>
+    <b class="gold">מתחילים בקטן ומניחים את התשתיות העתידיות.</b>
+    <p style="margin-top:6px;margin-bottom:0">המערכת הנוכחית תהווה תשתית לשדרוג עתידי לניהול כלל פעילות קבוצת שוויקה. בשדרוג לחבילה המלאה בתוך 6 חודשים — <b>50% מההקמה של שלב זה מקוזזים</b> ממחיר ההקמה של החבילה המלאה.</p>
   </div>
 
-  <table>
-    <tr><th>הרחבות אפשריות (לא כלולות בשלב זה)</th><th>מה זה נותן</th></tr>
-    <tr>
-      <td><b>התראות WhatsApp לאחראי משימות</b></td>
-      <td class="muted">משימה מאושרת ← הודעה אישית לאחראי, עם כפתורי עדכון. תמחור בנפרד, על התשתית הקיימת.</td>
-    </tr>
-    <tr>
-      <td><b>עוזר ה-WhatsApp המלא</b></td>
-      <td class="muted">תזכורות, האצלת משימות ותיאום פגישות — במסגרת החבילה המלאה שהוצגה, עם הקיזוז.</td>
-    </tr>
-  </table>
+  <p class="muted" style="margin-top:12px">ההרחבות העתידיות לשאר זרועות הקבוצה — כפי שהוצגו בהצעה המורחבת — מפורטות בעמוד האחרון, וכל שלב מתומחר בנפרד כשתהיו מוכנים.</p>
 </section>
 </div>
 
@@ -339,15 +348,15 @@
       <td class="muted">כלול במנוי</td>
     </tr>
   </table>
-  <p class="muted" style="margin-top:10px">תקלות אצל ספקי צד-שלישי (Timeless, WhatsApp) — אנחנו מזהים, מתריעים ומלווים מול הספק עד לפתרון.</p>
+  <p class="muted" style="margin-top:10px">תקלות אצל ספקי צד-שלישי (מערכת התמלול, WhatsApp) — אנחנו מזהים, מתריעים ומלווים מול הספק עד לפתרון.</p>
 </section>
 
 <section>
   <div class="eyebrow">לוח זמנים</div>
   <h2>מהאפיון לאוויר — כ-3–4 שבועות</h2>
   <div class="steps" style="margin-top:12px">
-    <div class="step"><div class="n">1</div><div><b>אפיון ממוקד</b> — מיפוי הפגישות והמשתתפים, טבלת שמות הצוות, חדרי Timeless.</div></div>
-    <div class="step"><div class="n">2</div><div><b>הקמה</b> — המערכת, החיבור ל-Timeless ומנוע הפירוק.</div></div>
+    <div class="step"><div class="n">1</div><div><b>אפיון ממוקד</b> — מיפוי הפגישות והמשתתפים, טבלת שמות הצוות, וחדרי ההקלטה.</div></div>
+    <div class="step"><div class="n">2</div><div><b>הקמה</b> — המערכת, החיבור למערכת התמלול, עוזר ה-WhatsApp ומנוע הפירוק.</div></div>
     <div class="step"><div class="n">3</div><div><b>הרצה מלווה</b> — פגישות אמיתיות במצב בדיקה, כיול זיהוי האחראים, הדרכת מנהלת המשרד.</div></div>
     <div class="step"><div class="n">4</div><div><b>עלייה לאוויר</b> — מעבר לשוטף: המערכת רצה לבד, אנחנו מנטרים ומשפרים ברקע.</div></div>
   </div>
@@ -360,34 +369,52 @@
 <section>
   <div class="eyebrow">התמונה הגדולה</div>
   <h2>שלב ראשון — מתוך תוכנית שלמה</h2>
-  <p>ההצעה המלאה שראיתם נשארת על השולחן. מתחילים במה שביקשתם — וכשהמערכת מוכיחה את עצמה, מרחיבים בקצב שלכם:</p>
+  <p style="margin-bottom:8px">ההצעה המלאה שראיתם נשארת על השולחן — מתחילים במה שביקשתם, ומרחיבים בקצב שלכם:</p>
   <div class="card" style="margin-top:6px">
     <h3 class="accent">החבילה המלאה (כפי שהוצגה — כ-₪34,000 הקמה)</h3>
-    <p class="muted" style="margin:6px 0 0">עוזר WhatsApp לצוות · תזכורות אוטומטיות · האצלת משימות · תיאום פגישות וסנכרון יומן — <b>ובשדרוג בתוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.</b></p>
+    <p class="muted" style="margin:6px 0 0">פריסה רוחבית על זרועות נוספות של הקבוצה · כיול מתמשך ודוח חודשי להנהלה · 4 שעות שיפורים בחודש במקום שעתיים — <b>ובשדרוג בתוך 6 חודשים, מחצית ההקמה של היום כבר שולמה.</b></p>
   </div>
-  <div class="roadchips">
-    <span class="chip">ובהמשך, לכל הקבוצה:</span>
-    <span class="chip">מכירות ויזמות</span>
-    <span class="chip">התחדשות עירונית</span>
-    <span class="chip">נדל"ן מניב</span>
-    <span class="chip">קמעונאות</span>
-    <span class="chip">מנוע מסמכים וחוזים</span>
-  </div>
+  <table>
+    <tr><th>ובהמשך, לכל הקבוצה</th><th>מה זה נותן</th></tr>
+    <tr><td><b>מכירות ויזמות</b></td><td class="muted">בוט לידים WhatsApp 24/7, CRM מרכזי וסוכן תוכן לרשתות — מענה מיידי לליד.</td></tr>
+    <tr><td><b>התחדשות עירונית</b></td><td class="muted">פורטל ובוט דיירים לפינוי-בינוי: מענה לשאלות, מעקב החתמות והתקדמות.</td></tr>
+    <tr><td><b>שוויקה מנג'מנט</b></td><td class="muted">קריאות שירות ותחזוקה, עם ניתוב אוטומטי לאיש התחזוקה ומעקב זמני טיפול.</td></tr>
+    <tr><td><b>קמעונאות</b></td><td class="muted">בוט שירות לקוחות לרשתות, אוטומציית גיוס עובדים ואנליטיקת מכירות בין הסניפים.</td></tr>
+    <tr><td><b>מנוע מסמכים וחוזים</b></td><td class="muted">חיפוש בשפה טבעית על הסכמי מכר, חוזי פינוי-בינוי ואישורים.</td></tr>
+  </table>
 </section>
 
 <div class="valuestrip">
   <span><b>✓</b> על בסיס מערכת חיה</span>
-  <span><b>✓</b> מנוי Timeless כלול</span>
+  <span><b>✓</b> מנוי מערכת התמלול כלול</span>
   <span><b>✓</b> כל משימה באישור מנהלת המשרד</span>
   <span><b>✓</b> שדרוג עם קיזוז</span>
 </div>
 
 <section style="border-top:none;padding-top:6px">
-  <div class="ctaBox">
-    <h2>הצעד הבא — שיחת אפיון קצרה</h2>
-    <p>נמפה את הפגישות, המשתתפים וטבלת השמות — ויוצאים לדרך.</p>
-    <a class="btn" href="#">יוצאים לדרך
-      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></a>
+  <div class="signBox">
+    <div class="signTop">
+      <h2>אישור הצעת המחיר</h2>
+      <span>חתימת הצדדים מהווה אישור לתנאים ולמחירים המפורטים בהצעה זו</span>
+    </div>
+    <div class="signGrid">
+      <div class="party">
+        <div class="ph"><img src="assets/eng-logo-dark.webp" alt="ENG"><span class="rl">· הספק</span></div>
+        <div class="fields">
+          <div class="fld"><span class="fl">שם החותם</span><div class="fline"></div></div>
+          <div class="fld"><span class="fl">חתימה</span><div class="fline"></div></div>
+          <div class="fld"><span class="fl">תאריך</span><div class="fline"></div></div>
+        </div>
+      </div>
+      <div class="party">
+        <div class="ph"><span class="nm">קבוצת שוויקה</span><span class="rl">· הלקוח</span></div>
+        <div class="fields">
+          <div class="fld"><span class="fl">שם החותם</span><div class="fline"></div></div>
+          <div class="fld"><span class="fl">חתימה</span><div class="fline"></div></div>
+          <div class="fld"><span class="fl">תאריך</span><div class="fline"></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
