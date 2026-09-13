@@ -1900,11 +1900,28 @@ function submitExitMagnet(e){
   if(typeof gtag==='function')gtag('event','exit_intent_convert',{event_category:'lead'});
   if(typeof fbq==='function')fbq('track','Lead',{content_name:'5 Processes Guide — Exit Intent'});
   window.open('assets/lead-magnet.pdf','_blank');
-  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'}).catch(function(){});
+  captureLead_(data);
   form.style.display='none';
   document.getElementById('exitSuccess').classList.add('show');
   setTimeout(closeExitPopup,3000);
   return false;
+}
+
+/* 13.9.2026 — לכידה עמידה-לתקלות לשני מסלולי ה"ערך-קודם" (exit-intent,
+   lead-magnet). ה-UX נשאר כשהיה בכוונה: ה-PDF נפתח מיד והמסך אומר "קיבלנו"
+   גם אם השרת נופל — הלקוח קיבל את מה שהובטח לו. מה שהיה שבור הוא ש-
+   `.catch(function(){})` בלע את הכשל לגמרי, בלי ניסיון חוזר: 404 חולף אחד
+   של Apps Script (נמדד שוב ושוב באותו יום) = ליד שנעלם בלי זכר.
+   עכשיו: ניסיון שני אחרי 1.5 שנ'. עדיין fire-and-forget, אך לא שקוף לכשל. */
+function captureLead_(data){
+  function send(){
+    return fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},
+      body:JSON.stringify(data),redirect:'follow'})
+      .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r; });
+  }
+  send().catch(function(){
+    return new Promise(function(res){ setTimeout(res,1500); }).then(send);
+  }).catch(function(){ /* שני ניסיונות נכשלו — לא לחסום את המשתמש */ });
 }
 
 /* ====== PROGRESSIVE FORM NAV ====== */
@@ -1974,7 +1991,7 @@ function submitLeadMagnet(e){
   /* Open PDF immediately — user gets value even if backend fails */
   window.open('assets/lead-magnet.pdf','_blank');
   /* Fire-and-forget backend capture */
-  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'}).catch(function(){});
+  captureLead_(data);
   form.style.display='none';
   document.getElementById('lmSuccess').classList.add('show');
   return false;
@@ -2024,6 +2041,11 @@ document.getElementById('leadFormEl').addEventListener('submit',function(e){
     secret:FORM_SECRET
   };
   fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data),redirect:'follow'})
+  /* 13.9.2026 — fetch נדחה רק על כשל רשת, *לא* על 404/500. בלי הבדיקה הזו
+     תשובת-שגיאה של Apps Script נחתה ב-then() והציגה ללקוח "קיבלנו" בזמן
+     שהליד מעולם לא נכתב ל-CRM. נמדד באותו יום: ה-endpoint מחזיר 404 חולף
+     שוב ושוב. עכשיו זה נופל ל-catch והלקוח מתבקש לשלוח שוב. */
+  .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r; })
   .then(function(){
     var hMap={'פחות משעה':.75,'שעה עד שעתיים':1.5,'שעתיים עד 4 שעות':3,'4+ שעות':5};
     var sMap={'רק אני':1,'2-3 אנשים':2.5,'4-10 אנשים':7,'10+':12};
