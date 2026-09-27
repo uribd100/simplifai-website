@@ -1956,7 +1956,7 @@ function gotoStep2(){
   });
   document.querySelector('.form-step-line').classList.add('done');
   document.getElementById('formHeading').textContent='הנה כמה אתה מאבד';
-  document.getElementById('formSub').textContent='השאר פרטים — נשלח פירוט מלא + Quick Win ב-WhatsApp.';
+  document.getElementById('formSub').textContent='השאר פרטים עם מייל — נשלח לך מיד דוח מלא + Quick Win.';
   if(typeof gtag==='function')gtag('event','roi_computed',{event_category:'lead'});
   document.getElementById('leadFormContent').scrollTop=0;
 }
@@ -2159,7 +2159,7 @@ if(waFloat){
 
   <div id="roiTeaser" class="roi-teaser"></div>
 
-  <p class="form-step-hint" style="margin:4px 0 14px;font-size:14px;color:rgba(255,255,255,.7)">רוצה את הפירוט המלא + Quick Win מותאם לעסק שלך? נשלח לך ל-WhatsApp.</p>
+  <p class="form-step-hint" style="margin:4px 0 14px;font-size:14px;color:rgba(255,255,255,.7)">רוצה את הפירוט המלא + Quick Win מותאם לעסק שלך? השאר מייל — הדוח המלא נשלח אליו מיד.</p>
 
   <label>שם מלא *</label>
   <input name="fname" required placeholder="איך קוראים לך?" aria-label="שם מלא" autocomplete="name">
@@ -2181,7 +2181,7 @@ if(waFloat){
       </select>
     </div>
     <div>
-      <label>מייל (אופציונלי)</label>
+      <label>מייל (לקבלת הדוח המלא)</label>
       <input name="email" type="email" placeholder="your@email.com" aria-label="אימייל" autocomplete="email">
     </div>
   </div>
