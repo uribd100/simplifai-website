@@ -6,7 +6,6 @@ simplifAI is run by Uri Bar Dror (אורי בר דרור), an independent AI aut
 
 Contact:
 - Website: https://simplifai.co.il/
-- WhatsApp: https://wa.me/972537453493
 - Phone: +972-53-7453493
 - Email: uribd100@gmail.com
 - Calendly: https://calendly.com/simplifai_il/meet-with-me
