@@ -1919,6 +1919,10 @@ function gotoStep2(){
   document.getElementById('formHeading').textContent='הנה כמה אתה מאבד';
   document.getElementById('formSub').textContent='השאר פרטים עם מייל — נשלח לך מיד דוח מלא + Quick Win.';
   if(typeof gtag==='function')gtag('event','roi_computed',{event_category:'lead'});
+  /* 8.11.2026: the calculator's first step done (number shown, before contact details) as a Meta pixel
+     custom event, so the meta-nov26 stop rule can be read from Ads insights without GA4.
+     The site's only custom event: it reports as offsite_conversion.fb_pixel_custom. */
+  if(typeof fbq==='function')fbq('trackCustom','RoiComputed');
   document.getElementById('leadFormContent').scrollTop=0;
 }
 function gotoStep1(){
